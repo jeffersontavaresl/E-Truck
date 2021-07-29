@@ -14,25 +14,20 @@ public class Administrador {
     private int id;
     private String usuario;
     private String senha;
-    private int idProduto;
-    private int idEstoque;
     private int idFornecedor;
     private String nomeProduto;
-    private String tipoProduto;
-    private float preco;
-    private int codProduto;
+    private int quantidade;
 
     public boolean PedirItem() {
-        String  sql  = "INSERT INTO cardapio (nomeproduto,";
-                sql += "tipoproduto,preco) ";
+        String  sql  = "INSERT INTO pedidofornecedor (nomeproduto, quantidade, idfornecedor) ";
                 sql += "VALUES(?,?,?)";
         Connection con = Conexao.conectar();
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.nomeProduto);
-            stm.setString(2, this.tipoProduto);
-            stm.setFloat (3, this.preco);
+            stm.setInt(2, this.quantidade);
+            stm.setInt (3, this.idFornecedor);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -41,16 +36,83 @@ public class Administrador {
         return true;
     }
 
-    public void ConsultarPedidoItem() {
-        // TODO implement here
+    public Administrador ConsultarPedidoItem(String nomeProduto) {
+        Connection con = Conexao.conectar();
+        String  sql  = "SELECT nomeproduto, quantidade, idfornecedor ";
+                sql += "FROM pedidofornecedor ";
+                sql += "WHERE nomeproduto = ?";
+        Administrador adm = null;
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, nomeProduto);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                adm = new Administrador();
+                adm.setNomeProduto(rs.getString("nomeProduto"));
+                adm.setQuantidade(rs.getInt("quantidade"));
+                adm.setIdFornecedor(rs.getInt("idfornecedor"));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return adm;
+    }
+    
+    public List<Administrador> lovItem() {
+        List<Administrador> lista = new ArrayList<>();
+        Connection con = Conexao.conectar();
+        String  sql  = "SELECT nomeproduto, quantidade, idfornecedor ";
+                sql += "FROM pedidofornecedor ";
+                sql += "ORDER BY idfornecedor";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+             while (rs.next()) {
+                Administrador adm = new Administrador();
+                adm.setNomeProduto(rs.getString("nomeProduto"));
+                adm.setQuantidade(rs.getInt("quantidade"));
+                adm.setIdFornecedor(rs.getInt("idfornecedor"));
+                lista.add(adm);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return lista;
     }
 
     public void CancelarPedidoItem() {
-        // TODO implement here
+        Connection con = Conexao.conectar();
+        String  sql  = "DELETE FROM pedidofornecedor ";
+                sql += " WHERE id = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.id);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
     }
 
     public void AlterarPedidoItem() {
-        // TODO implement here
+        Connection con = Conexao.conectar();
+        String  sql  = "UPDATE pedidofornecedor";
+                sql += " SET nomeproduto   = ?,";
+                sql += "     quantidade   = ?,";
+                sql += " WHERE id  = ? ";
+
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.nomeProduto);
+            stm.setString(2, this.quantidade);
+            stm.setString(3, this.id);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
     }
 
     public int getId() {
@@ -59,38 +121,6 @@ public class Administrador {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public int getIdProduto() {
-        return idProduto;
-    }
-
-    public void setIdProduto(int idProduto) {
-        this.idProduto = idProduto;
-    }
-
-    public int getIdEstoque() {
-        return idEstoque;
-    }
-
-    public void setIdEstoque(int idEstoque) {
-        this.idEstoque = idEstoque;
     }
 
     public int getIdFornecedor() {
@@ -108,29 +138,13 @@ public class Administrador {
     public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
-
-    public String getTipoProduto() {
-        return tipoProduto;
-    }
-
-    public void setTipoProduto(String tipoProduto) {
-        this.tipoProduto = tipoProduto;
-    }
-
-    public float getPreco() {
-        return preco;
-    }
-
-    public void setPreco(float preco) {
-        this.preco = preco;
-    }
     
-    public int getCodProduto() {
-        return codProduto;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setCodProduto(int codProduto) {
-        this.codProduto = codProduto;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
 }
