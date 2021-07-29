@@ -6,6 +6,7 @@ public class Caixa {
     private int idMesa;
     private String formPagamento;
     private float preco;
+    private int codProduto;
 
     public void ConsultarPedido() {
         // TODO implement here
@@ -45,6 +46,14 @@ public class Caixa {
 
     public void setPreco(float preco) {
         this.preco = preco;
+    }
+    
+    public int getCodProduto() {
+        return codProduto;
+    }
+
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
     }
 
 }
