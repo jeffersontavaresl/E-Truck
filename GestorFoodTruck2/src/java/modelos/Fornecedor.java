@@ -8,16 +8,59 @@ public class Fornecedor {
     private String email;
     private int idProduto;
     
-    public void AdicionarFornecedor() {
-        // TODO implement here
+    public boolean AdicionarFornecedor() {
+        String  sql  = "INSERT INTO fornecedor (nome, telefone, email) ";
+                sql += "VALUES(?,?,?)";
+        Connection con = Conexao.conectar();
+
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.nome);
+            stm.setString(2, this.telefone);
+            stm.setString (3, this.email);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
     }
 
-    public void AlterarFornecedor() {
-        // TODO implement here
+    public boolean AlterarFornecedor() {
+        Connection con = Conexao.conectar();
+        String  sql  = "UPDATE fornecedor";
+                sql += " SET nome   = ?,";
+                sql += "     email   = ?,";
+                sql += "     telefone = ?";
+                sql += " WHERE nome  = ? ";
+
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.nome);
+            stm.setString(2, this.email);
+            stm.setString(3, this.telefone);
+            stm.setString(4, this.nome);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
     }
 
-    public void ExcluirFornecedor() {
-        // TODO implement here
+    public boolean ExcluirFornecedor() {
+        Connection con = Conexao.conectar();
+        String  sql  = "DELETE FROM fornecedor ";
+                sql += " WHERE nome = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.nome);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
     }
     
 
