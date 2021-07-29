@@ -7,6 +7,7 @@ public class Cardapio {
     private String tipoProduto;
     private float preco;
     private int idEstoque;
+    private int codProduto;
 
     public int getId() {
         return id;
@@ -46,5 +47,13 @@ public class Cardapio {
 
     public void setIdEstoque(int idEstoque) {
         this.idEstoque = idEstoque;
+    }
+    
+    public int getCodProduto() {
+        return codProduto;
+    }
+
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
     }
 }
