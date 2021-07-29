@@ -18,17 +18,18 @@ public class PedidoCliente {
     private int codProduto;
 
     public boolean RealizarPedido() {
-        String  sql  = "INSERT INTO pedidocliente (nrmesa,";
+        String  sql  = "INSERT INTO pedidocliente (codproduto, nrmesa,";
                 sql += "produto,observacao, status) ";
-                sql += "VALUES(?,?,?,?)";
+                sql += "VALUES(?,?,?,?,?)";
         Connection con = Conexao.conectar();
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt   (1, this.nrMesa);
-            stm.setString(2, this.produto);
-            stm.setString(3, this.observacao);
-            stm.setString(4, this.status);
+            stm.setInt   (1, this.codProduto);
+            stm.setInt   (2, this.nrMesa);
+            stm.setString(3, this.produto);
+            stm.setString(4, this.observacao);
+            stm.setString(5, this.status);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -40,17 +41,19 @@ public class PedidoCliente {
     public boolean AlterarPedido() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidocliente";
-                sql += " SET produto       = ?,";
+                sql += " SET codproduto    = ?,";
+                sql += "     produto       = ?,";
                 sql += "     observacao    = ?,";
                 sql += "     status        = ? ";
-                sql += " WHERE nrmesa = ? ";
+                sql += " WHERE nrmesa  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.produto);
-            stm.setString(2, this.observacao);
-            stm.setString(3, this.status);
-            stm.setInt(4, this.nrMesa);
+            stm.setInt   (1, this.codproduto);
+            stm.setString(2, this.produto);
+            stm.setString(3, this.observacao);
+            stm.setString(4, this.status);
+            stm.setInt   (5, this.nrMesa);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -59,20 +62,20 @@ public class PedidoCliente {
         return true;
     }
 
-    public PedidoCliente ConsultarPedido(int nrMesa) {
+    public PedidoCliente ConsultarPedido(int codProduto) {
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT nrmesa, produto, observacao, ";
+        String  sql  = "SELECT codproduto, produto, observacao, ";
                 sql += "status ";
                 sql += "FROM pedidocliente ";
-                sql += "WHERE nrmesa = ?";
+                sql += "WHERE codproduto = ?";
         PedidoCliente pedcliente = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, nrMesa);
+            stm.setInt(1, codProduto);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 pedcliente = new PedidoCliente();
-                pedcliente.setNrMesa(nrMesa);
+                pedcliente.setCodProduto(codProduto);
                 pedcliente.setProduto(rs.getString("produto"));
                 pedcliente.setObservacao(rs.getString("observacao"));
                 pedcliente.setStatus(rs.getString("status"));
@@ -87,15 +90,15 @@ public class PedidoCliente {
     public List<PedidoCliente> lovPedidos() {
         List<PedidoCliente> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT nrmesa, produto ";
+        String  sql  = "SELECT codproduto, produto ";
                 sql += "FROM pedidocliente ";
-                sql += "ORDER BY nrmesa";
+                sql += "ORDER BY codproduto";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
              while (rs.next()) {
                 PedidoCliente pedcliente = new PedidoCliente();
-                pedcliente.setNrMesa(rs.getInt("nrmesa"));
+                pedcliente.setCodProduto(rs.getInt("codproduto"));
                 pedcliente.setProduto(rs.getString("produto"));
                 lista.add(pedcliente);
             }
@@ -108,10 +111,10 @@ public class PedidoCliente {
     public boolean CancelarPedido() {
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM pedidocliente ";
-                sql += " WHERE nrmesa = ?";
+                sql += " WHERE codproduto = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.nrMesa);
+            stm.setInt(1, this.codProduto);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
