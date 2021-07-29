@@ -86,7 +86,7 @@ public class Administrador {
                 sql += " WHERE id = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.id);
+            stm.setInt(1, this.id);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -106,7 +106,7 @@ public class Administrador {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.nomeProduto);
             stm.setString(2, this.quantidade);
-            stm.setString(3, this.id);
+            stm.setInt(3, this.id);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
