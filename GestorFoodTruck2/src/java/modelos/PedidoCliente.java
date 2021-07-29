@@ -49,7 +49,7 @@ public class PedidoCliente {
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt   (1, this.codproduto);
+            stm.setInt   (1, this.codProduto);
             stm.setString(2, this.produto);
             stm.setString(3, this.observacao);
             stm.setString(4, this.status);
