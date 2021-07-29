@@ -55,6 +55,7 @@ CREATE TABLE Estoque (
     nomeProduto varchar(20) NOT NULL,
     tipoProduto varchar(20) NOT NULL,
     valorProduto numeric(4,2) NOT NULL,
+    quantidade integer NOT NULL
     PRIMARY KEY (id)
 );
 
