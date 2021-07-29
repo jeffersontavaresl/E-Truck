@@ -20,6 +20,7 @@ public class Administrador {
     private String nomeProduto;
     private String tipoProduto;
     private float preco;
+    private int codProduto;
 
     public boolean CadastrarItem() {
         String  sql  = "INSERT INTO cardapio (nomeproduto,";
@@ -222,6 +223,14 @@ public class Administrador {
 
     public void setPreco(float preco) {
         this.preco = preco;
+    }
+    
+    public int getCodProduto() {
+        return codProduto;
+    }
+
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
     }
 
 }
