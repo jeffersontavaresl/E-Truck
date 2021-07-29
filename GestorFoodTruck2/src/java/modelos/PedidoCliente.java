@@ -15,6 +15,7 @@ public class PedidoCliente {
     private String observacao;
     private String produto;
     private String status;
+    private int codProduto;
 
     public boolean RealizarPedido() {
         String  sql  = "INSERT INTO pedidocliente (nrmesa,";
@@ -157,6 +158,14 @@ public class PedidoCliente {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+    
+        public int getCodProduto() {
+        return codProduto;
+    }
+
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
     }
 
 }
