@@ -76,6 +76,13 @@ CREATE TABLE PedidoFornecedor (
     PRIMARY KEY(id)
 );
 
+CREATE TABLE Usuario (
+    id serial NOT NULL,
+    login varchar(20) NOT NULL,
+    senha varchar(20) NOT NULL,
+    PRIMARY KEY (id)
+);
+
 ALTER TABLE Cozinha ADD FOREIGN KEY (idPedido) REFERENCES PedidoCliente(id);
 ALTER TABLE PedidoCliente ADD FOREIGN KEY (nrmesa) REFERENCES Mesa(nrmesa);
 ALTER TABLE Caixa ADD FOREIGN KEY (nrmesa) REFERENCES Mesa(nrmesa);
