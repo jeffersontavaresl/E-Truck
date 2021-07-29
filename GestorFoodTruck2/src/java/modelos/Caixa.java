@@ -1,5 +1,11 @@
 package modelos;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import utils.Conexao;
 public class Caixa {
 
     private int id;
@@ -7,6 +13,9 @@ public class Caixa {
     private String formPagamento;
     private float preco;
     private int codProduto;
+    private String nomeProduto;
+    private String tipoProduto;
+    private String status;
 
     public Caixa ConsultarPedido(int nrMesa) {
         Connection con = Conexao.conectar();
@@ -16,7 +25,7 @@ public class Caixa {
         Caixa caixa = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, nrmesa);
+            stm.setInt(1, nrMesa);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 caixa = new Caixa();
@@ -29,7 +38,7 @@ public class Caixa {
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
         }
-        return cardapio;
+        return caixa;
     }
     
     public List<Caixa> lovItem() {
@@ -64,7 +73,7 @@ public class Caixa {
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.status);
+            stm.setString(1, this.getStatus());
             stm.setInt   (2, this.nrMesa);
             stm.execute();
         } catch (SQLException ex) {
@@ -113,6 +122,30 @@ public class Caixa {
 
     public void setCodProduto(int codProduto) {
         this.codProduto = codProduto;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+
+    public String getTipoProduto() {
+        return tipoProduto;
+    }
+
+    public void setTipoProduto(String tipoProduto) {
+        this.tipoProduto = tipoProduto;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }
