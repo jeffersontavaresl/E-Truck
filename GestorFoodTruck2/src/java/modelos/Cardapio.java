@@ -1,5 +1,11 @@
 package modelos;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import utils.Conexao;
 public class Cardapio extends Administrador {
 
     private int id;
@@ -44,7 +50,7 @@ public class Cardapio extends Administrador {
             stm.setString(2, this.nomeProduto);
             stm.setString(3, this.tipoProduto);
             stm.setFloat (4, this.preco);
-            stm.setString(5, this.codProduto);
+            stm.setInt(5, this.codProduto);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -91,7 +97,7 @@ public class Cardapio extends Administrador {
         return cardapio;
     }
     
-    public List<Cardapio> lovItem() {
+    public List<Cardapio> lovCardapio() {
         List<Cardapio> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
         String  sql  = "SELECT codproduto, nomeproduto, tipoproduto, preco ";
@@ -118,14 +124,17 @@ public class Cardapio extends Administrador {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }
 
+    @Override
     public String getNomeProduto() {
         return nomeProduto;
     }
 
+    @Override
     public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
