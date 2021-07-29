@@ -1,5 +1,11 @@
 package modelos;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import utils.Conexao;
 public class Estoque {
 
     private int id;
@@ -7,6 +13,8 @@ public class Estoque {
     private String tipoProduto;
     private float valorProduto;
     private int quantidade;
+    private int codProduto;
+    private float preco;
     
     public boolean CadastrarItem() {
         String  sql  = "INSERT INTO estoque (nomeproduto, ";
@@ -16,10 +24,10 @@ public class Estoque {
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt   (1, this.codProduto);
+            stm.setInt   (1, this.getCodProduto());
             stm.setString(2, this.nomeProduto);
             stm.setString(3, this.tipoProduto);
-            stm.setFloat (4, this.preco);
+            stm.setFloat (4, this.getPreco());
             stm.setInt   (5, this.quantidade);
             stm.execute();
         } catch (SQLException ex) {
@@ -52,7 +60,7 @@ public class Estoque {
         String  sql  = "SELECT nomeproduto, tipoproduto, valorProduto, quantidade ";
                 sql += "FROM estoque ";
                 sql += "WHERE nomeproduto = ?";
-        Cardapio cardapio = null;
+        Estoque estoque = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, nomeProduto);
@@ -146,6 +154,22 @@ public class Estoque {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public int getCodProduto() {
+        return codProduto;
+    }
+
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
+    }
+
+    public float getPreco() {
+        return preco;
+    }
+
+    public void setPreco(float preco) {
+        this.preco = preco;
     }
     
 }
