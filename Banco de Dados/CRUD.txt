@@ -68,6 +68,13 @@ CREATE TABLE Fornecedor (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE PedidoFornecedor (
+    id serial NOT NULL,
+    nomeProduto varchar(20) NOT NULL,
+    quantidade integer NOT NULL,
+    idFornecedor integer NOT NULL,
+);
+
 ALTER TABLE Cozinha ADD FOREIGN KEY (idPedido) REFERENCES PedidoCliente(id);
 ALTER TABLE PedidoCliente ADD FOREIGN KEY (nrmesa) REFERENCES Mesa(nrmesa);
 ALTER TABLE Caixa ADD FOREIGN KEY (nrmesa) REFERENCES Mesa(nrmesa);
@@ -77,5 +84,6 @@ ALTER TABLE Administrador ADD FOREIGN KEY (idProduto) REFERENCES Cardapio(id);
 ALTER TABLE Administrador ADD FOREIGN KEY (idEstoque) REFERENCES Estoque(id);
 ALTER TABLE Fornecedor ADD FOREIGN KEY (idProduto) REFERENCES Estoque(id);
 ALTER TABLE PedidoCliente ADD FOREIGN KEY (codProduto) REFERENCES Cardapio(codProduto);
+ALTER TABLE PedidoFornecedor ADD FOREIGN KEY (idFornecedor) REFERENCES Fornecedor(id);
 
 INSERT INTO Mesa (nrmesa) values (1), (2), (3);
