@@ -1,0 +1,75 @@
+CREATE TABLE Cozinha (
+    id serial NOT NULL,
+    idPedido integer ,
+    observacao varchar(30) ,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE PedidoCliente (
+    id serial NOT NULL,
+    nrMesa integer NOT NULL,
+    produto varchar(20) NOT NULL,
+    observacao varchar(30),
+    status varchar(15),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE Caixa (
+    id serial NOT NULL,
+    nrMesa integer NOT NULL,
+    formPagmento varchar(10) NOT NULL,
+    preco numeric(4,2) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE Mesa (
+    nrMesa integer NOT NULL,
+    idPedido integer ,
+    PRIMARY KEY (nrMesa)
+);
+
+CREATE TABLE Cardapio (
+    id serial NOT NULL,
+    nomeProduto varchar(30) NOT NULL,
+    tipoProduto varchar(30) NOT NULL,
+    preco numeric(4,2) NOT NULL,
+    idEstoque integer,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE Administrador (
+    id serial NOT NULL,
+    usuario varchar(20) NOT NULL,
+    senha varchar(20) NOT NULL,
+    idProduto integer,
+    idEstoque integer,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE Estoque (
+    id serial NOT NULL,
+    nomeProduto varchar(20) NOT NULL,
+    tipoProduto varchar(20) NOT NULL,
+    valorProduto numeric(4,2) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE Fornecedor (
+    id serial NOT NULL,
+    nome varchar(20) NOT NULL,
+    telefone varchar(20) NOT NULL,
+    email varchar(20) NOT NULL,
+    idProduto integer,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE Cozinha ADD FOREIGN KEY (idPedido) REFERENCES PedidoCliente(id);
+ALTER TABLE PedidoCliente ADD FOREIGN KEY (nrmesa) REFERENCES Mesa(nrmesa);
+ALTER TABLE Caixa ADD FOREIGN KEY (nrmesa) REFERENCES Mesa(nrmesa);
+ALTER TABLE Mesa ADD FOREIGN KEY (idPedido) REFERENCES PedidoCliente(id);
+ALTER TABLE Cardapio ADD FOREIGN KEY (idEstoque) REFERENCES Estoque(id);
+ALTER TABLE Administrador ADD FOREIGN KEY (idProduto) REFERENCES Cardapio(id);
+ALTER TABLE Administrador ADD FOREIGN KEY (idEstoque) REFERENCES Estoque(id);
+ALTER TABLE Fornecedor ADD FOREIGN KEY (idProduto) REFERENCES Estoque(id);
+
+INSERT INTO Mesa (nrmesa) values (1), (2), (3);
