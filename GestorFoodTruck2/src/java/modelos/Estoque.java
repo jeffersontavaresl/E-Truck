@@ -7,8 +7,24 @@ public class Estoque {
     private String tipoProduto;
     private float valorProduto;
     
-    public void CadastrarItem() {
-        // TODO implement here
+    public boolean CadastrarItem() {
+        String  sql  = "INSERT INTO estoque (nomeproduto, ";
+                sql += "tipoproduto,valorProduto) ";
+                sql += "VALUES(?,?,?)";
+        Connection con = Conexao.conectar();
+
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt   (1, this.codProduto);
+            stm.setString(2, this.nomeProduto);
+            stm.setString(3, this.tipoProduto);
+            stm.setFloat (4, this.preco);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
     }
 
     public void AtualizarItem() {
@@ -54,4 +70,5 @@ public class Estoque {
     public void setValorProduto(float valorProduto) {
         this.valorProduto = valorProduto;
     }
+    
 }
