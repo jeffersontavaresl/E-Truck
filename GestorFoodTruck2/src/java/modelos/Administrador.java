@@ -80,7 +80,7 @@ public class Administrador {
         return lista;
     }
 
-    public void CancelarPedidoItem() {
+    public boolean CancelarPedidoItem() {
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM pedidofornecedor ";
                 sql += " WHERE id = ?";
@@ -95,7 +95,7 @@ public class Administrador {
         return true;
     }
 
-    public void AlterarPedidoItem() {
+    public boolean AlterarPedidoItem() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidofornecedor";
                 sql += " SET nomeproduto   = ?,";
@@ -105,7 +105,7 @@ public class Administrador {
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.nomeProduto);
-            stm.setString(2, this.quantidade);
+            stm.setInt(2, this.quantidade);
             stm.setInt(3, this.id);
             stm.execute();
         } catch (SQLException ex) {
