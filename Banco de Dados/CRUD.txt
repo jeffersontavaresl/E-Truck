@@ -7,7 +7,8 @@ CREATE TABLE Cozinha (
 
 CREATE TABLE PedidoCliente (
     id serial NOT NULL,
-    nrMesa integer NOT NULL,
+    codProduto integer,
+    nrMesa integer,
     produto varchar(20) NOT NULL,
     observacao varchar(30),
     status varchar(15),
@@ -16,7 +17,8 @@ CREATE TABLE PedidoCliente (
 
 CREATE TABLE Caixa (
     id serial NOT NULL,
-    nrMesa integer NOT NULL,
+    codProduto integer,
+    nrMesa integer,
     formPagmento varchar(10) NOT NULL,
     preco numeric(4,2) NOT NULL,
     PRIMARY KEY (id)
@@ -30,6 +32,7 @@ CREATE TABLE Mesa (
 
 CREATE TABLE Cardapio (
     id serial NOT NULL,
+    codProduto integer, 
     nomeProduto varchar(30) NOT NULL,
     tipoProduto varchar(30) NOT NULL,
     preco numeric(4,2) NOT NULL,
@@ -42,6 +45,7 @@ CREATE TABLE Administrador (
     usuario varchar(20) NOT NULL,
     senha varchar(20) NOT NULL,
     idProduto integer,
+    codProduto integer, 
     idEstoque integer,
     PRIMARY KEY (id)
 );
@@ -71,5 +75,6 @@ ALTER TABLE Cardapio ADD FOREIGN KEY (idEstoque) REFERENCES Estoque(id);
 ALTER TABLE Administrador ADD FOREIGN KEY (idProduto) REFERENCES Cardapio(id);
 ALTER TABLE Administrador ADD FOREIGN KEY (idEstoque) REFERENCES Estoque(id);
 ALTER TABLE Fornecedor ADD FOREIGN KEY (idProduto) REFERENCES Estoque(id);
+ALTER TABLE PedidoCliente ADD FOREIGN KEY (codProduto) REFERENCES Cardapio(codProduto);
 
 INSERT INTO Mesa (nrmesa) values (1), (2), (3);
