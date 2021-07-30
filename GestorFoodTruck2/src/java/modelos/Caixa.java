@@ -22,10 +22,12 @@ public class Caixa {
         String  sql  = "SELECT codproduto, nomeproduto, tipoproduto, preco ";
                 sql += "FROM pedidocliente ";
                 sql += "WHERE nrmesa = ?";
+                sql += "AND status = ?";
         Caixa caixa = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt(1, nrMesa);
+            stm.setString(2, this.status);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 caixa = new Caixa();
