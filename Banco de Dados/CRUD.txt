@@ -1,25 +1,28 @@
 CREATE TABLE Cozinha (
     id serial NOT NULL,
     codPedido integer ,
-    observacao varchar(30) ,
+    observacao varchar(30),
+    statusPedido varchar(20),
     PRIMARY KEY (id)
 );
 
 CREATE TABLE PedidoCliente (
-    codPedido serial NOT NULL,
+    id serial NOT NULL
+    codPedido integer NOT NULL,
     codProduto integer,
     produto varchar(20) NOT NULL,
     observacao varchar(30),
-    status varchar(15),
+    statusPedido varchar(15),
+    statusPagto varchar(10),
     PRIMARY KEY (codPedido)
 );
 
 CREATE TABLE Caixa (
     id serial NOT NULL,
-    codProduto integer,
     codPedido integer,
     formPagmento varchar(10) NOT NULL,
     preco numeric(4,2) NOT NULL,
+    statusPagto varchar(10),
     PRIMARY KEY (id)
 );
 
@@ -37,7 +40,6 @@ CREATE TABLE Administrador (
     id serial NOT NULL,
     usuario varchar(20) NOT NULL,
     senha varchar(20) NOT NULL,
-    idProduto integer,
     codProduto integer, 
     idEstoque integer,
     PRIMARY KEY (id)
