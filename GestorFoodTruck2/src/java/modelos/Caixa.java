@@ -17,7 +17,7 @@ public class Caixa {
     private String tipoProduto;
     private String status;
 
-    public Caixa ConsultarPedido(int codPedido) {
+    public Caixa consultarPedido(int codPedido) {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT codproduto, nomeproduto, tipoproduto, preco ";
                 sql += "FROM pedidocliente ";
@@ -66,7 +66,7 @@ public class Caixa {
         return lista;
     }
 
-    public boolean FecharPedido() {
+    public boolean fecharPedido() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidocliente";
                 sql += " SET status   = ?,";
