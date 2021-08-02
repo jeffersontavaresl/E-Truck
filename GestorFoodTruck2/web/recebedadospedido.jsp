@@ -9,7 +9,6 @@
         <%
           //recebe os valores da tela HTML  
           int codproduto = Integer.parseInt(request.getParameter("codproduto"));
-          int mesa = Integer.parseInt(request.getParameter("mesa"));
           String pedido = request.getParameter("pedido");
           String observacao = request.getParameter("observacao");
           String status = request.getParameter("status");
@@ -17,7 +16,6 @@
           //instancia o carro
           PedidoCliente ped = new PedidoCliente();
           ped.setCodProduto(codproduto);
-          ped.setNrMesa(mesa);
           ped.setProduto(pedido);
           ped.setObservacao(observacao);
           ped.setStatus(status);
