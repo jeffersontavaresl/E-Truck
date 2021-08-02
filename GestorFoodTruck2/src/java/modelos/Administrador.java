@@ -18,7 +18,7 @@ public class Administrador {
     private String nomeProduto;
     private int quantidade;
 
-    public boolean PedirItem() {
+    public boolean pedirItem() {
         String  sql  = "INSERT INTO pedidofornecedor (nomeproduto, quantidade, idfornecedor) ";
                 sql += "VALUES(?,?,?)";
         Connection con = Conexao.conectar();
@@ -36,7 +36,7 @@ public class Administrador {
         return true;
     }
 
-    public Administrador ConsultarPedidoItem(String nomeProduto) {
+    public Administrador consultarPedidoItem(String nomeProduto) {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT nomeproduto, quantidade, idfornecedor ";
                 sql += "FROM pedidofornecedor ";
@@ -80,7 +80,7 @@ public class Administrador {
         return lista;
     }
 
-    public boolean CancelarPedidoItem() {
+    public boolean cancelarPedidoItem() {
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM pedidofornecedor ";
                 sql += " WHERE id = ?";
@@ -95,7 +95,7 @@ public class Administrador {
         return true;
     }
 
-    public boolean AlterarPedidoItem() {
+    public boolean alterarPedidoItem() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidofornecedor";
                 sql += " SET nomeproduto   = ?,";
