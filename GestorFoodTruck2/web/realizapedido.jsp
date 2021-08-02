@@ -14,10 +14,6 @@
                         <input type="text" name="codproduto" style="width: 60px" maxlength="7"/> 
 
                         <br />
-                        <label>Número da mesa</label>
-                        <input type="text" name="mesa" />
-
-                        <br />
                         <label>Pedido do cliente</label>
                         <input type="text" name="pedido" />
 
@@ -42,13 +38,6 @@
                 if(codproduto[0].value === ""){
                     codproduto[0].focus();
                     alert("Informe o código do produto");
-                    exit();
-                }
-                
-                var mesa = document.getElementsByName("mesa");
-                if(mesa[0].value === ""){
-                    mesa[0].focus();
-                    alert("Informe a mesa");
                     exit();
                 }
                 
