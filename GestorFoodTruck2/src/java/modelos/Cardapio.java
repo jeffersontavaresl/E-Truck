@@ -15,7 +15,7 @@ public class Cardapio extends Administrador {
     private int idEstoque;
     private int codProduto;
     
-        public boolean CadastrarItem() {
+        public boolean cadastrarItem() {
         String  sql  = "INSERT INTO cardapio (codproduto, nomeproduto, ";
                 sql += "tipoproduto,preco) ";
                 sql += "VALUES(?,?,?,?)";
@@ -35,7 +35,7 @@ public class Cardapio extends Administrador {
         return true;
     }
 
-    public boolean AlterarItem() {
+    public boolean alterarItem() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE cardapio";
                 sql += " SET codproduto   = ?,";
@@ -59,7 +59,7 @@ public class Cardapio extends Administrador {
         return true;
     }
 
-    public boolean ExcluirItem() {
+    public boolean excluirItem() {
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM cardapio ";
                 sql += " WHERE nomeproduto = ?";
@@ -74,7 +74,7 @@ public class Cardapio extends Administrador {
         return true;
     }
 
-    public Cardapio ConsultarItem(String nomeProduto) {
+    public Cardapio consultarItem(String nomeProduto) {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT codproduto, nomeproduto, tipoproduto, preco ";
                 sql += "FROM cardapio ";
