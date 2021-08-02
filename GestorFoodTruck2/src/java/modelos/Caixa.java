@@ -9,7 +9,7 @@ import utils.Conexao;
 public class Caixa {
 
     private int id;
-    private int nrMesa;
+    private int codPedido;
     private String formPagamento;
     private float preco;
     private int codProduto;
@@ -17,21 +17,20 @@ public class Caixa {
     private String tipoProduto;
     private String status;
 
-    public Caixa ConsultarPedido(int nrMesa) {
+    public Caixa ConsultarPedido(int codPedido) {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT codproduto, nomeproduto, tipoproduto, preco ";
                 sql += "FROM pedidocliente ";
-                sql += "WHERE nrmesa = ?";
+                sql += "WHERE codpedido  = ?";
                 sql += "AND status = ?";
         Caixa caixa = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, nrMesa);
+            stm.setInt(1, codPedido);
             stm.setString(2, this.status);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 caixa = new Caixa();
-                caixa.setNrMesa(nrMesa);
                 caixa.setCodProduto(rs.getInt("codproduto"));
                 caixa.setNomeProduto(rs.getString("nomeproduto"));
                 caixa.setTipoProduto(rs.getString("tipoproduto"));
@@ -48,13 +47,13 @@ public class Caixa {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT codproduto, nomeproduto, tipoproduto, preco ";
                 sql += "FROM pedidocliente ";
-                sql += "ORDER BY nrmesa";
+                sql += "ORDER BY codpedido";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
              while (rs.next()) {
                 Caixa caixa = new Caixa();
-                caixa.setNrMesa(nrMesa);
+                caixa.setNrMesa(rs.getInt("codpedido"));
                 caixa.setCodProduto(rs.getInt("codproduto"));
                 caixa.setNomeProduto(rs.getString("nomeproduto"));
                 caixa.setTipoProduto(rs.getString("tipoproduto"));
@@ -71,12 +70,12 @@ public class Caixa {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidocliente";
                 sql += " SET status   = ?,";
-                sql += " WHERE nrmesa  = ? ";
+                sql += " WHERE codpedido  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.getStatus());
-            stm.setInt   (2, this.nrMesa);
+            stm.setString(1, this.status);
+            stm.setInt   (2, this.codPedido);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -94,12 +93,12 @@ public class Caixa {
         this.id = id;
     }
 
-    public int getNrMesa() {
-        return nrMesa;
+    public int getCodPedido() {
+        return codPedido;
     }
 
-    public void setNrMesa(int nrMesa) {
-        this.nrMesa = nrMesa;
+    public void setCodPedido(int codPedido) {
+        this.codPedido = codPedido;
     }
 
     public String getFormPagamento() {
