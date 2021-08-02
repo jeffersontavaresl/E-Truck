@@ -29,7 +29,7 @@ CREATE TABLE Caixa (
 CREATE TABLE Cardapio (
     id serial NOT NULL,
     codProduto integer, 
-    nomeProduto varchar(30) NOT NULL,
+    produto varchar(30) NOT NULL,
     tipoProduto varchar(30) NOT NULL,
     preco numeric(4,2) NOT NULL,
     idEstoque integer,
@@ -47,7 +47,7 @@ CREATE TABLE Administrador (
 
 CREATE TABLE Estoque (
     id serial NOT NULL,
-    nomeProduto varchar(20) NOT NULL,
+    produto varchar(20) NOT NULL,
     tipoProduto varchar(20) NOT NULL,
     valorProduto numeric(4,2) NOT NULL,
     quantidade integer NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE Fornecedor (
 
 CREATE TABLE PedidoFornecedor (
     id serial NOT NULL,
-    nomeProduto varchar(20) NOT NULL,
+    produto varchar(20) NOT NULL,
     quantidade integer NOT NULL,
     idFornecedor integer,
     PRIMARY KEY(id)
