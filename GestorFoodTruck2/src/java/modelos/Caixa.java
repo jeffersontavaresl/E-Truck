@@ -15,7 +15,8 @@ public class Caixa {
     private int codProduto;
     private String nomeProduto;
     private String tipoProduto;
-    private String status;
+    private String statusPedido;
+    private String statusPagto;
 
     public Caixa consultarPedido(int codPedido) {
         Connection con = Conexao.conectar();
