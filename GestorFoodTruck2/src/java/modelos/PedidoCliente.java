@@ -19,9 +19,9 @@ public class PedidoCliente {
     private int codProduto;
 
     public boolean realizarPedido() {
-        String  sql  = "INSERT INTO pedidocliente (codpedido, codproduto,";
-                sql += "produto,observacao, statuspedido, statuspagto) ";
-                sql += "VALUES(?,?,?,?,?,?)";
+        String  sql  = "INSERT INTO pedidocliente a, cozinha b(a.codpedido, a.codproduto, a.produto";
+                sql += "a.observacao, a.statuspedido, a.statuspagto, b.codpedido, b.observacao, b.statuspedido) ";
+                sql += "VALUES(?,?,?,?,?,?,?,?,?)";
         Connection con = Conexao.conectar();
 
         try {
@@ -32,6 +32,9 @@ public class PedidoCliente {
             stm.setString(4, this.observacao);
             stm.setString(5, this.statusPedido);
             stm.setString(6, this.statusPagto);
+            stm.setInt   (7, this.codPedido);
+            stm.setString(8, this.observacao);
+            stm.setString(9, this.statusPedido);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -42,20 +45,25 @@ public class PedidoCliente {
 
     public boolean alterarPedido() {
         Connection con = Conexao.conectar();
-        String  sql  = "UPDATE pedidocliente";
-                sql += " SET codproduto    = ?,";
-                sql += "     produto       = ?,";
-                sql += "     observacao    = ?,";
-                sql += "     statusPedido      = ? ";
-                sql += " WHERE codPedido  = ? ";
+        String  sql  = "UPDATE pedidocliente a, cozinha b";
+                sql += " SET a.codpedido    = ?, ";
+                sql += "     a.produto      = ?, ";
+                sql += "     a.observacao   = ?, ";
+                sql += "     b.observacao   = ?, ";
+                sql += "     a.statuspedido = ?, ";
+                sql += "     b.statuspedido = ?, ";
+                sql += " WHERE a.codpedido  = ? ";
+                sql += " AND a.codpedido = b.codpedido ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt   (1, this.codProduto);
             stm.setString(2, this.produto);
             stm.setString(3, this.observacao);
-            stm.setString(4, this.statusPedido);
-            stm.setInt   (5, this.codPedido);
+            stm.setString(4, this.observacao);
+            stm.setString(5, this.statusPedido);
+            stm.setString(6, this.statusPedido);
+            stm.setInt   (7, this.codPedido);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -66,10 +74,10 @@ public class PedidoCliente {
 
     public PedidoCliente consultarPedido(int codPedido) {
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT codproduto, produto, observacao, ";
-                sql += "statusPedido ";
+        String  sql  = "SELECT codproduto, produto, observacao, statuspedido";
+                sql += "statuspagto ";
                 sql += "FROM pedidocliente ";
-                sql += "WHERE codPedido = ?";
+                sql += "WHERE codpedido = ?";
         PedidoCliente pedcliente = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
@@ -80,7 +88,8 @@ public class PedidoCliente {
                 pedcliente.setCodProduto(codProduto);
                 pedcliente.setProduto(rs.getString("produto"));
                 pedcliente.setObservacao(rs.getString("observacao"));
-                pedcliente.setStatusPedido(rs.getString("statusPedido"));
+                pedcliente.setStatusPedido(rs.getString("statuspedido"));
+                pedcliente.setStatusPagto(rs.getString("statuspagto"));
 
             }
         } catch (SQLException ex) {
@@ -112,8 +121,9 @@ public class PedidoCliente {
 
     public boolean cancelarPedido() {
         Connection con = Conexao.conectar();
-        String  sql  = "DELETE FROM pedidocliente ";
-                sql += " WHERE codpedido = ?";
+        String  sql  = "DELETE FROM pedidocliente a, cozinha b";
+                sql += " WHERE a.codpedido = ?" ;
+                sql += " AND a.codpedido = b.codpedido ";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt(1, this.codPedido);
@@ -166,7 +176,7 @@ public class PedidoCliente {
         this.codProduto = codProduto;
     }
 
-public String getStatusPagto() {
+    public String getStatusPagto() {
         return statusPagto;
     }
 
