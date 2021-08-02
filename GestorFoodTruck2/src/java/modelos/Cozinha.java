@@ -9,32 +9,30 @@ import utils.Conexao;
 public class Cozinha {
     
     private int id;
-    private int idPedido;
+    private int codPedido;
     private String observacao;
-    private int nrMesa;
-    private String nomeProduto;
+    private String produto;
     private int codProduto;
     private String tipoProduto;
     private float preco;
-    private String status;
+    private String statusPedido;
 
-    public Cozinha consultarPedido(int nrMesa) {
+    public Cozinha consultarPedido(int codPedido) {
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT codproduto, nomeproduto, tipoproduto, preco ";
-                sql += "FROM pedidocliente ";
-                sql += "WHERE nrmesa = ?";
+        String  sql  = "SELECT a.produto, a.observacao, a.statuspedido ";
+                sql += " FROM pedidocliente a, cozinha b";
+                sql += " WHERE a.codpedido = ? ";
+                sql += " AND a.codpedido = b.codpedido ";
         Cozinha cozinha = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, nrMesa);
+            stm.setInt(1, codPedido);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 cozinha = new Cozinha();
-                cozinha.setNrMesa(nrMesa);
-                cozinha.setCodProduto(rs.getInt("codproduto"));
-                cozinha.setNomeProduto(rs.getString("nomeproduto"));
-                cozinha.setTipoProduto(rs.getString("tipoproduto"));
-                cozinha.setPreco(rs.getFloat("preco"));
+                cozinha.setProduto(rs.getString("produto"));
+                cozinha.setNomeProduto(rs.getString("observacao"));
+                cozinha.setTipoProduto(rs.getString("statuspedido"));
             }
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -68,14 +66,17 @@ public class Cozinha {
 
     public boolean atualizarPedido() {
         Connection con = Conexao.conectar();
-        String  sql  = "UPDATE pedidocliente";
-                sql += " SET status   = ?,";
-                sql += " WHERE nrmesa  = ? ";
+        String  sql  = "UPDATE pedidocliente a, cozinha b ";
+                sql += " SET a.statuspedido   = ?, ";
+                sql += "     b.statuspedido = ? ";
+                sql += " WHERE a.codPedido  = ? ";
+                sql += " AND a.codpedido = b.codpedido ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.getStatus());
-            stm.setInt   (2, this.nrMesa);
+            stm.setString(1, this.statusPedido);
+            stm.setString(2, this.statusPedido);
+            stm.setInt   (3, this.codPedido);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -93,12 +94,12 @@ public class Cozinha {
         this.id = id;
     }
 
-    public int getIdPedido() {
-        return idPedido;
+    public int getCodPedido() {
+        return codPedido;
     }
 
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
+    public void setCodPedido(int codPedido) {
+        this.codPedido = codPedido;
     }
 
     public String getObservacao() {
@@ -109,20 +110,13 @@ public class Cozinha {
         this.observacao = observacao;
     }
     
-    public int getNrMesa() {
-        return nrMesa;
+
+    public String getProduto() {
+        return produto;
     }
 
-    public void setNrMesa(int nrMesa) {
-        this.nrMesa = nrMesa;
-    }
-
-    public String getNomeProduto() {
-        return nomeProduto;
-    }
-
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
+    public void setProduto(String produto) {
+        this.produto = produto;
     }
 
     public int getCodProduto() {
@@ -133,28 +127,12 @@ public class Cozinha {
         this.codProduto = codProduto;
     }
 
-    public String getTipoProduto() {
-        return tipoProduto;
+    public String getStatusPedido() {
+        return statusPedido;
     }
 
-    public void setTipoProduto(String tipoProduto) {
-        this.tipoProduto = tipoProduto;
-    }
-
-    public float getPreco() {
-        return preco;
-    }
-
-    public void setPreco(float preco) {
-        this.preco = preco;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatusPedido(String status) {
+        this.statusPedido = statusPedido;
     }
 
 }
