@@ -18,7 +18,7 @@ public class Cozinha {
     private float preco;
     private String status;
 
-    public Cozinha ConsultarPedido(int nrMesa) {
+    public Cozinha consultarPedido(int nrMesa) {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT codproduto, nomeproduto, tipoproduto, preco ";
                 sql += "FROM pedidocliente ";
@@ -66,7 +66,7 @@ public class Cozinha {
         return lista;
     }
 
-    public boolean AtualizarPedido() {
+    public boolean atualizarPedido() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidocliente";
                 sql += " SET status   = ?,";
