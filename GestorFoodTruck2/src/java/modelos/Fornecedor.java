@@ -14,7 +14,7 @@ public class Fornecedor {
     private String email;
     private int idProduto;
     
-    public boolean AdicionarFornecedor() {
+    public boolean adicionarFornecedor() {
         String  sql  = "INSERT INTO fornecedor (nome, telefone, email) ";
                 sql += "VALUES(?,?,?)";
         Connection con = Conexao.conectar();
@@ -32,7 +32,7 @@ public class Fornecedor {
         return true;
     }
 
-    public boolean AlterarFornecedor() {
+    public boolean alterarFornecedor() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE fornecedor";
                 sql += " SET nome   = ?,";
@@ -54,7 +54,7 @@ public class Fornecedor {
         return true;
     }
 
-    public boolean ExcluirFornecedor() {
+    public boolean excluirFornecedor() {
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM fornecedor ";
                 sql += " WHERE nome = ?";
