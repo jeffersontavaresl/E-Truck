@@ -1,14 +1,13 @@
 CREATE TABLE Cozinha (
     id serial NOT NULL,
-    idPedido integer ,
+    codPedido integer ,
     observacao varchar(30) ,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE PedidoCliente (
-    id serial NOT NULL,
+    codPedido serial NOT NULL,
     codProduto integer,
-    nrMesa integer,
     produto varchar(20) NOT NULL,
     observacao varchar(30),
     status varchar(15),
@@ -18,16 +17,10 @@ CREATE TABLE PedidoCliente (
 CREATE TABLE Caixa (
     id serial NOT NULL,
     codProduto integer,
-    nrMesa integer,
+    codPedido integer,
     formPagmento varchar(10) NOT NULL,
     preco numeric(4,2) NOT NULL,
     PRIMARY KEY (id)
-);
-
-CREATE TABLE Mesa (
-    nrMesa integer NOT NULL,
-    idPedido integer ,
-    PRIMARY KEY (nrMesa)
 );
 
 CREATE TABLE Cardapio (
@@ -83,14 +76,11 @@ CREATE TABLE Usuario (
     PRIMARY KEY (id)
 );
 
-ALTER TABLE Cozinha ADD FOREIGN KEY (idPedido) REFERENCES PedidoCliente(id);
-ALTER TABLE PedidoCliente ADD FOREIGN KEY (nrmesa) REFERENCES Mesa(nrmesa);
-ALTER TABLE Caixa ADD FOREIGN KEY (nrmesa) REFERENCES Mesa(nrmesa);
-ALTER TABLE Mesa ADD FOREIGN KEY (idPedido) REFERENCES PedidoCliente(id);
+ALTER TABLE Cozinha ADD FOREIGN KEY (codPedido) REFERENCES PedidoCliente(codPedido);
+ALTER TABLE Caixa ADD FOREIGN KEY (codPedido) REFERENCES PedidoCliente(codPedido);
 ALTER TABLE Cardapio ADD FOREIGN KEY (idEstoque) REFERENCES Estoque(id);
 ALTER TABLE Administrador ADD FOREIGN KEY (idProduto) REFERENCES Cardapio(id);
 ALTER TABLE Administrador ADD FOREIGN KEY (idEstoque) REFERENCES Estoque(id);
 ALTER TABLE Fornecedor ADD FOREIGN KEY (idProduto) REFERENCES Estoque(id);
 ALTER TABLE PedidoFornecedor ADD FOREIGN KEY (idFornecedor) REFERENCES Fornecedor(id);
 
-INSERT INTO Mesa (nrmesa) values (1), (2), (3);
