@@ -1,0 +1,43 @@
+/*html{
+
+}*/
+
+#etruck{
+  font-family: 'Lobster', cursive;
+}
+
+.opcoesnav:hover{
+  border: 0.5px solid rgba(255, 255, 255, 0.055);
+  border-radius: 25px;
+  background-color: rgb(234, 226, 250);
+  transition: 0.5s;
+}
+
+#head{
+    /* background-color: #1b2448; */
+    background-image: url('imagens/eita.gif');
+    background-size:100%;
+    background-repeat: repeat-y;
+    height:100%;
+    width:100%;
+    border-radius: 23px;
+  }
+
+#ph1{
+  font-size: 58px;
+  font-weight: 700;
+  margin-top: 130px;
+}
+
+#pheader{
+    font-size: 25px;
+}
+
+#mainh1{
+  font-weight: 700;
+}
+
+#mainborder{
+  border-radius: 23px;
+  background-image: url('imagens/fundo-site.gif');
+}

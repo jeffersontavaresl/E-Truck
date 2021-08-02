@@ -1,11 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Truck</title>
+
+    <!--ESTILO PERSONALIZADO-->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!--BOOTSTRAP REFERÊNCIA-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!--W3SCHOOLS ÍCONE-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--FONT AWESOME-->
+    <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!--BARRA DE NAVEGAÇÃO - PARTE DE CIMA -->
+
+    <nav class="navbar sticky-top bg-light navbar-expand-lg navbar-light mt-1">
+
+        <!--BOTÕES DO MENU-->
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">
+                <i class="fa fa-truck" alt="" width="30" height="24" class="d-inline-block align-text-top"></i>
+            </a>
+            <a class="navbar-brand" href="#" id="etruck">E-TRUCK</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#expandir">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="expandir">
+
+                <ul class="navbar-nav ml-auto ">
+                    <a class="opcoesnav nav-link active" aria-current="page" href="#">Início</a>
+                    <a class="opcoesnav nav-link" href="#">Funções</a>
+                    <a class="opcoesnav nav-link" href="#">Sobre</a>
+                    <a class="opcoesnav nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </ul>
+
+                <!--REGISTRO / LOGIN-->
+                <ul class="navbar-nav ml-auto">
+                    <button type="button" class="btn btn-primary mr-2"><a class="text-white" href="functions.html"><i
+                                class="fas fa-user text-white"></i>
+                            Login</a></button>
+                    <button type="button" class="btn btn-primary"><a class="text-white" href="#"><i
+                                class="fas fa-sign-in-alt text-white"></i>
+                            Cadastrar</a></button>
+                </ul>
+            </div>
+
+        </div>
+
+
+
+
+    </nav>
+    <!--FIM DA BARRA DE NAVEGAÇÃO-->
+
+    <!--HEADER-->
+    <div class="container-fluid mt-2">
+        <header class="border" id="head">
+            <h1 class="text-center text-white" id="ph1">Gerencie seu food truck com a gente!</h1>
+            <br>
+            <p class="text-center ml-3 mr-3 mt-4 text-white" id="pheader">E-Truck é um aplicativo feito no intuito de
+                auxiliar
+                pessoas<br> que gerem food trucks
+                ou pessoas no ramo alimentício com negócios pequenos.
+            </p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </header>
+    </div>
+    <!--FIM DO HEADER-->
+
+
+    <!--CORPO DO SITE-->
+    <main>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <h1 class="mt-5 ml-1" id="mainh1"">Funcionalidades E-Truck</h1>
+                <br>
+            </div>
+                <div class="container-fluid">
+                    <h1 class="mt-5">Por quê usar o E-Truck?</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, facere! Doloremque
+                        dignissimos
+                        molestiae,
+                        perspiciatis doloribus veniam reprehenderit iusto dolorem sint, non adipisci sapiente deleniti
+                        sit
+                        nisi
+                        quidem corporis! Quos, ducimus.</p>
+                </div>
+                <br>
+                <div class="container-fluid border-top">
+                    <h1 class="mt-5">Por quê usar o E-Truck?</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, facere! Doloremque
+                        dignissimos
+                        molestiae,
+                        perspiciatis doloribus veniam reprehenderit iusto dolorem sint, non adipisci sapiente deleniti
+                        sit
+                        nisi
+                        quidem corporis! Quos, ducimus.</p>
+                </div>
+        </div>
+
+    </main>
+
+
+    <!--RODAPÉ DO SITE-->
+    <br>
+    <br>
+    <footer class="container">
+        <p class="float-end"><a href="#">Voltar ao topo</a></p>
+        <p>&copy; 2021, JADEL Systems &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+
+
+    <!--JAVASCRIPT BOOTSTRAP-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
