@@ -17,7 +17,7 @@ public class PedidoCliente {
     private String status;
     private int codProduto;
 
-    public boolean RealizarPedido() {
+    public boolean realizarPedido() {
         String  sql  = "INSERT INTO pedidocliente (codproduto,";
                 sql += "produto,observacao, status) ";
                 sql += "VALUES(?,?,?,?)";
@@ -37,7 +37,7 @@ public class PedidoCliente {
         return true;
     }
 
-    public boolean AlterarPedido() {
+    public boolean alterarPedido() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidocliente";
                 sql += " SET codproduto    = ?,";
@@ -61,7 +61,7 @@ public class PedidoCliente {
         return true;
     }
 
-    public PedidoCliente ConsultarPedido(int codPedido) {
+    public PedidoCliente consultarPedido(int codPedido) {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT codproduto, produto, observacao, ";
                 sql += "status ";
@@ -107,7 +107,7 @@ public class PedidoCliente {
         return lista;
     }
 
-    public boolean CancelarPedido() {
+    public boolean cancelarPedido() {
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM pedidocliente ";
                 sql += " WHERE codpedido = ?";
