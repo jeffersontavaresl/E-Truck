@@ -11,7 +11,7 @@ CREATE TABLE PedidoCliente (
     produto varchar(20) NOT NULL,
     observacao varchar(30),
     status varchar(15),
-    PRIMARY KEY (id)
+    PRIMARY KEY (codPedido)
 );
 
 CREATE TABLE Caixa (
@@ -83,4 +83,3 @@ ALTER TABLE Administrador ADD FOREIGN KEY (idProduto) REFERENCES Cardapio(id);
 ALTER TABLE Administrador ADD FOREIGN KEY (idEstoque) REFERENCES Estoque(id);
 ALTER TABLE Fornecedor ADD FOREIGN KEY (idProduto) REFERENCES Estoque(id);
 ALTER TABLE PedidoFornecedor ADD FOREIGN KEY (idFornecedor) REFERENCES Fornecedor(id);
-
