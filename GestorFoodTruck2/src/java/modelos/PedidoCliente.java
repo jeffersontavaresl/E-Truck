@@ -14,21 +14,24 @@ public class PedidoCliente {
     private int codPedido;
     private String observacao;
     private String produto;
-    private String status;
+    private String statusPedido;
+    private String statusPagto;
     private int codProduto;
 
     public boolean realizarPedido() {
-        String  sql  = "INSERT INTO pedidocliente (codproduto,";
-                sql += "produto,observacao, status) ";
-                sql += "VALUES(?,?,?,?)";
+        String  sql  = "INSERT INTO pedidocliente (codpedido, codproduto,";
+                sql += "produto,observacao, statuspedido, statuspagto) ";
+                sql += "VALUES(?,?,?,?,?,?)";
         Connection con = Conexao.conectar();
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt   (1, this.codProduto);
-            stm.setString(2, this.produto);
-            stm.setString(3, this.observacao);
-            stm.setString(4, this.status);
+            stm.setInt   (1, this.codPedido);
+            stm.setInt   (2, this.codProduto);
+            stm.setString(3, this.produto);
+            stm.setString(4, this.observacao);
+            stm.setString(5, this.statusPedido);
+            stm.setString(6, this.statusPagto);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -43,7 +46,7 @@ public class PedidoCliente {
                 sql += " SET codproduto    = ?,";
                 sql += "     produto       = ?,";
                 sql += "     observacao    = ?,";
-                sql += "     status        = ? ";
+                sql += "     statusPedido      = ? ";
                 sql += " WHERE codPedido  = ? ";
 
         try {
@@ -51,7 +54,7 @@ public class PedidoCliente {
             stm.setInt   (1, this.codProduto);
             stm.setString(2, this.produto);
             stm.setString(3, this.observacao);
-            stm.setString(4, this.status);
+            stm.setString(4, this.statusPedido);
             stm.setInt   (5, this.codPedido);
             stm.execute();
         } catch (SQLException ex) {
@@ -64,7 +67,7 @@ public class PedidoCliente {
     public PedidoCliente consultarPedido(int codPedido) {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT codproduto, produto, observacao, ";
-                sql += "status ";
+                sql += "statusPedido ";
                 sql += "FROM pedidocliente ";
                 sql += "WHERE codPedido = ?";
         PedidoCliente pedcliente = null;
@@ -77,7 +80,7 @@ public class PedidoCliente {
                 pedcliente.setCodProduto(codProduto);
                 pedcliente.setProduto(rs.getString("produto"));
                 pedcliente.setObservacao(rs.getString("observacao"));
-                pedcliente.setStatus(rs.getString("status"));
+                pedcliente.setStatusPedido(rs.getString("statusPedido"));
 
             }
         } catch (SQLException ex) {
@@ -147,12 +150,12 @@ public class PedidoCliente {
         this.produto = produto;
     }
     
-    public String getStatus() {
-        return status;
+    public String getStatusPedido() {
+        return statusPedido;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatusPedido(String statusPedido) {
+        this.statusPedido = statusPedido;
     }
     
         public int getCodProduto() {
@@ -161,6 +164,14 @@ public class PedidoCliente {
 
     public void setCodProduto(int codProduto) {
         this.codProduto = codProduto;
+    }
+
+public String getStatusPagto() {
+        return statusPagto;
+    }
+
+    public void setStatusPagto(String statusPagto) {
+        this.statusPagto = statusPagto;
     }
 
 }
