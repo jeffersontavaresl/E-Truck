@@ -16,7 +16,7 @@ public class Estoque {
     private int codProduto;
     private float preco;
     
-    public boolean CadastrarItem() {
+    public boolean cadastrarItem() {
         String  sql  = "INSERT INTO estoque (nomeproduto, ";
                 sql += "tipoproduto,valorProduto, quantidade) ";
                 sql += "VALUES(?,?,?,?)";
@@ -37,7 +37,7 @@ public class Estoque {
         return true;
     }
 
-    public boolean AtualizarItem() {
+    public boolean atualizarItem() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE estoque";
                 sql += " SET quantidade   = ?, ";
@@ -55,7 +55,7 @@ public class Estoque {
         return true;
     }
     
-    public Estoque ConsultarItem(String nomeProduto) {
+    public Estoque consultarItem(String nomeProduto) {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT nomeproduto, tipoproduto, valorProduto, quantidade ";
                 sql += "FROM estoque ";
@@ -101,7 +101,7 @@ public class Estoque {
         return lista;
     }
 
-   public boolean ExcluirItem() {
+   public boolean excluirItem() {
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM estoque ";
                 sql += " WHERE nomeproduto = ?";
