@@ -125,7 +125,9 @@ public class PedidoCliente {
         }
         return true;
     }
-
+    
+    /* ÁREA DE GETTERS E SETTERS */ 
+    
     public int getCodPedido() {
         return codPedido;
     }
