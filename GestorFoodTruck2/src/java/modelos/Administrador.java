@@ -15,19 +15,21 @@ public class Administrador {
     private String usuario;
     private String senha;
     private int idFornecedor;
-    private String nomeProduto;
+    private String produto;
+    private int codProduto;
     private int quantidade;
 
     public boolean pedirItem() {
-        String  sql  = "INSERT INTO pedidofornecedor (nomeproduto, quantidade, idfornecedor) ";
+        String  sql  = "INSERT INTO pedidofornecedor (codproduto, produto, quantidade, idfornecedor) ";
                 sql += "VALUES(?,?,?)";
         Connection con = Conexao.conectar();
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.nomeProduto);
-            stm.setInt(2, this.quantidade);
-            stm.setInt (3, this.idFornecedor);
+            stm.setInt   (1, this.codProduto);
+            stm.setString(2, this.produto);
+            stm.setInt   (3, this.quantidade);
+            stm.setInt   (4, this.idFornecedor);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -36,19 +38,20 @@ public class Administrador {
         return true;
     }
 
-    public Administrador consultarPedidoItem(String nomeProduto) {
+    public Administrador consultarPedidoItem(int id) {
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT nomeproduto, quantidade, idfornecedor ";
+        String  sql  = "SELECT codproduto, produto, quantidade, idfornecedor ";
                 sql += "FROM pedidofornecedor ";
-                sql += "WHERE nomeproduto = ?";
+                sql += "WHERE id = ?";
         Administrador adm = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, nomeProduto);
+            stm.setInt(1, this.id);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 adm = new Administrador();
-                adm.setNomeProduto(rs.getString("nomeProduto"));
+                adm.setCodProduto(rs.getInt("codproduto"));
+                adm.setProduto(rs.getString("produto"));
                 adm.setQuantidade(rs.getInt("quantidade"));
                 adm.setIdFornecedor(rs.getInt("idfornecedor"));
             }
@@ -58,10 +61,10 @@ public class Administrador {
         return adm;
     }
     
-    public List<Administrador> lovItem() {
+    public List<Administrador> lovPedidos() {
         List<Administrador> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT nomeproduto, quantidade, idfornecedor ";
+        String  sql  = "SELECT codproduto, produto, quantidade, idfornecedor ";
                 sql += "FROM pedidofornecedor ";
                 sql += "ORDER BY idfornecedor";
         try {
@@ -69,7 +72,8 @@ public class Administrador {
             ResultSet rs = stm.executeQuery();
              while (rs.next()) {
                 Administrador adm = new Administrador();
-                adm.setNomeProduto(rs.getString("nomeProduto"));
+                adm.setCodProduto(rs.getInt("codproduto"));
+                adm.setProduto(rs.getString("nomeProduto"));
                 adm.setQuantidade(rs.getInt("quantidade"));
                 adm.setIdFornecedor(rs.getInt("idfornecedor"));
                 lista.add(adm);
@@ -98,15 +102,17 @@ public class Administrador {
     public boolean alterarPedidoItem() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidofornecedor";
-                sql += " SET nomeproduto   = ?,";
+                sql += " SET codproduto   = ?,";
+                sql += "     produto      =?" ;
                 sql += "     quantidade   = ?,";
                 sql += " WHERE id  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.nomeProduto);
-            stm.setInt(2, this.quantidade);
-            stm.setInt(3, this.id);
+            stm.setInt   (1, this.codProduto);
+            stm.setString(2, this.produto);
+            stm.setInt   (3, this.quantidade);
+            stm.setInt   (4, this.id);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -114,7 +120,41 @@ public class Administrador {
         }
         return true;
     }
+    
+    public boolean cadastrarUsuario() {
+        String  sql  = "INSERT INTO Usuario (login, senha) ";
+                sql += "VALUES(?,?)";
+        Connection con = Conexao.conectar();
 
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.usuario);
+            stm.setString(2, this.senha);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
+    }
+    
+    public boolean excluirUsuario() {
+        Connection con = Conexao.conectar();
+        String  sql  = "DELETE FROM usuario ";
+                sql += " WHERE usuario = ";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.usuario);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
+    }
+    
+    /* ÁREA DE GETTERS E SETTERS */ 
+    
     public int getId() {
         return id;
     }
@@ -131,12 +171,12 @@ public class Administrador {
         this.idFornecedor = idFornecedor;
     }
 
-    public String getNomeProduto() {
-        return nomeProduto;
+    public String getProduto() {
+        return produto;
     }
 
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
+    public void setProduto(String produto) {
+        this.produto = produto;
     }
     
     public int getQuantidade() {
@@ -145,6 +185,14 @@ public class Administrador {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public int getCodProduto() {
+        return codProduto;
+    }
+
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
     }
 
 }
