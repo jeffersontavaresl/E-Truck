@@ -52,7 +52,7 @@
            
           <p class="link">
             Ainda não tem conta?
-            <a href="signin.jsp">Cadastre-se</a>
+            <a href="signup.jsp">Cadastre-se</a>
           </p>
         </form>
       </div>
