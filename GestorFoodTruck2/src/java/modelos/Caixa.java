@@ -6,138 +6,110 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import utils.Conexao;
-public class Cardapio extends Administrador {
+public class Caixa {
 
     private int id;
-    private String produto;
+    private int codPedido;
+    private String formPagamento;
     private float preco;
-    private int idEstoque;
     private int codProduto;
-    
-        public boolean cadastrarItem() {
-        String  sql  = "INSERT INTO cardapio (codproduto, produto, preco)";
-                sql += "VALUES(?,?,?)";
-        Connection con = Conexao.conectar();
+    private String produto;
+    private String statusPagto;
 
+    public Caixa consultarPedido(int codPedido) {
+        Connection con = Conexao.conectar();
+        String  sql  = "SELECT a.codpedido, a.codproduto, a.produto, c.preco ";
+                sql += "FROM pedidocliente a, cardapio c ";
+                sql += "WHERE codpedido  = ? ";
+                sql += "AND statusPagto = ? ";
+                sql += "AND a.codproduto = c.codproduto";
+        Caixa caixa = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt   (1, this.codProduto);
-            stm.setString(2, this.produto);
-            stm.setFloat (3, this.preco);
-            stm.execute();
-        } catch (SQLException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-            return false;
-        }
-        return true;
-    }
-
-    public boolean alterarItem() {
-        Connection con = Conexao.conectar();
-        String  sql  = "UPDATE cardapio";
-                sql += " SET codproduto = ?,";
-                sql += "     produto    = ?,";
-                sql += "     preco      = ? ";
-                sql += " WHERE codproduto  = ? ";
-
-        try {
-            PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt   (1, this.codProduto);
-            stm.setString(2, this.produto);
-            stm.setFloat (3, this.preco);
-            stm.setInt   (4, this.codProduto);
-            stm.execute();
-        } catch (SQLException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-            return false;
-        }
-        return true;
-    }
-
-    public boolean excluirItem() {
-        Connection con = Conexao.conectar();
-        String  sql  = "DELETE FROM cardapio ";
-                sql += " WHERE codproduto = ?";
-        try {
-            PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.codProduto);
-            stm.execute();
-        } catch (SQLException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-            return false;
-        }
-        return true;
-    }
-
-    public Cardapio consultarItem(int codProduto) {
-        Connection con = Conexao.conectar();
-        String  sql  = "SELECT codproduto, produto, preco, idEstoque ";
-                sql += "FROM cardapio ";
-                sql += "WHERE codproduto = ?";
-        Cardapio cardapio = null;
-        try {
-            PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.codProduto);
+            stm.setInt(1, codPedido);
+            stm.setString(2, this.statusPagto);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
-                cardapio = new Cardapio();
-                cardapio.setCodProduto(rs.getInt("codproduto"));
-                cardapio.setProduto(rs.getString("produto"));
-                cardapio.setPreco(rs.getFloat("preco"));
-                cardapio.setIdEstoque(rs.getInt("idEstoque"));
+                caixa = new Caixa();
+                caixa.setCodPedido(rs.getInt("codpedido"));
+                caixa.setCodProduto(rs.getInt("codproduto"));
+                caixa.setProduto(rs.getString("produto"));
+                caixa.setPreco(rs.getFloat("preco"));
             }
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
         }
-        return cardapio;
+        return caixa;
     }
     
-    public List<Cardapio> lovCardapio() {
-        List<Cardapio> lista = new ArrayList<>();
+    public List<Caixa> lovItem() {
+        List<Caixa> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT codproduto, produto, preco, idEstoque ";
-                sql += "FROM cardapio ";
-                sql += "ORDER BY codproduto";
+        String  sql  = "SELECT a.codpedido, a.codproduto, a.produto, ";
+                sql += "c.preco, a.statuspagto ";
+                sql += "FROM pedidocliente a, cardapio c";
+                sql += "ORDER BY codpedido";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
              while (rs.next()) {
-                Cardapio cardapio = new Cardapio();
-                cardapio.setCodProduto(rs.getInt("codproduto"));
-                cardapio.setProduto(rs.getString("produto"));
-                cardapio.setPreco(rs.getFloat("preco"));
-                cardapio.setIdEstoque(rs.getInt("idEstoque"));
-                lista.add(cardapio);
+                Caixa caixa = new Caixa();
+                caixa.setCodPedido(rs.getInt("codpedido"));
+                caixa.setCodProduto(rs.getInt("codproduto"));
+                caixa.setProduto(rs.getString("produto"));
+                caixa.setPreco(rs.getFloat("preco"));
+                caixa.setStatusPagto(rs.getString("statuspagto"));
+                lista.add(caixa);
             }
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
         }
         return lista;
     }
+
+    public boolean fecharPedido() {
+        Connection con = Conexao.conectar();
+        String  sql  = "UPDATE pedidocliente";
+                sql += " SET statuspagto   = ?,";
+                sql += " WHERE codpedido  = ? ";
+
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.statusPagto);
+            stm.setInt   (2, this.codPedido);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
+    }
     
     /* ÁREA DE GETTERS E SETTERS */ 
     
-    @Override
     public int getId() {
         return id;
     }
 
-
-    @Override
     public void setId(int id) {
         this.id = id;
     }
 
-
-    public String getProduto() {
-        return produto;
+    public int getCodPedido() {
+        return codPedido;
     }
 
- 
-    public void setProduto(String produto) {
-        this.produto = produto;
+    public void setCodPedido(int codPedido) {
+        this.codPedido = codPedido;
     }
 
+    public String getFormPagamento() {
+        return formPagamento;
+    }
+
+    public void setFormPagamento(String formPagamento) {
+        this.formPagamento = formPagamento;
+    }
 
     public float getPreco() {
         return preco;
@@ -145,14 +117,6 @@ public class Cardapio extends Administrador {
 
     public void setPreco(float preco) {
         this.preco = preco;
-    }
-
-    public int getIdEstoque() {
-        return idEstoque;
-    }
-
-    public void setIdEstoque(int idEstoque) {
-        this.idEstoque = idEstoque;
     }
     
     public int getCodProduto() {
@@ -162,4 +126,21 @@ public class Cardapio extends Administrador {
     public void setCodProduto(int codProduto) {
         this.codProduto = codProduto;
     }
+
+    public String getProduto() {
+        return produto;
+    }
+
+    public void setProduto(String produto) {
+        this.produto = produto;
+    }
+
+    public String getStatusPagto() {
+        return statusPagto;
+    }
+
+    public void setStatusPagto(String statusPagto) {
+        this.statusPagto = statusPagto;
+    }
+
 }
