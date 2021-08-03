@@ -8,7 +8,7 @@
     <body>
         <nav class="navbar sticky-top bg-light navbar-expand-lg navbar-light mt-1">
 
-            <!--BOTÕES DO MENU-->
+            <!--BOTÃ•ES DO MENU-->
             <div class="container-fluid">
                 <a href="#" class="navbar-brand">
                     <i class="fa fa-truck" alt="" width="30" height="24" class="d-inline-block align-text-top"></i>
@@ -20,8 +20,8 @@
                 <div class="collapse navbar-collapse" id="expandir">
 
                     <ul class="navbar-nav ml-auto ">
-                        <a class="opcoesnav nav-link active" aria-current="page" href="index.html">Início</a>
-                        <a class="opcoesnav nav-link" href="#">Funções</a>
+                        <a class="opcoesnav nav-link active" aria-current="page" href="index.html">InÃ­cio</a>
+                        <a class="opcoesnav nav-link" href="#">FunÃ§Ãµes</a>
                         <a class="opcoesnav nav-link" href="#">Sobre</a>
                         <a class="opcoesnav nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     </ul>
@@ -52,7 +52,7 @@
           </p>
            
           <p class="link">  
-            Já tem conta?
+            JÃ¡ tem conta?
             <a href="login.jsp"> Ir para Login </a>
           </p>
         </form>
