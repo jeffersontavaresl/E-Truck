@@ -46,6 +46,7 @@ CREATE TABLE Administrador (
 
 CREATE TABLE Estoque (
     id serial NOT NULL,
+    codProduto integer NOT NULL,
     produto varchar(20) NOT NULL,
     tipoProduto varchar(20) NOT NULL,
     valorProduto numeric(4,2) NOT NULL,
