@@ -9,25 +9,24 @@ import utils.Conexao;
 public class Estoque {
 
     private int id;
-    private String nomeProduto;
+    private String produto;
     private String tipoProduto;
     private float valorProduto;
     private int quantidade;
     private int codProduto;
-    private float preco;
     
     public boolean cadastrarItem() {
-        String  sql  = "INSERT INTO estoque (nomeproduto, ";
-                sql += "tipoproduto,valorProduto, quantidade) ";
-                sql += "VALUES(?,?,?,?)";
+        String  sql  = "INSERT INTO estoque (codproduto, ";
+                sql += "produto, tipoproduto, valorproduto, quantidade) ";
+                sql += "VALUES(?,?,?,?,?)";
         Connection con = Conexao.conectar();
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt   (1, this.getCodProduto());
-            stm.setString(2, this.nomeProduto);
+            stm.setInt   (1, this.codProduto);
+            stm.setString(2, this.produto);
             stm.setString(3, this.tipoProduto);
-            stm.setFloat (4, this.getPreco());
+            stm.setFloat (4, this.valorProduto);
             stm.setInt   (5, this.quantidade);
             stm.execute();
         } catch (SQLException ex) {
@@ -41,12 +40,12 @@ public class Estoque {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE estoque";
                 sql += " SET quantidade   = ?, ";
-                sql += " WHERE nomeproduto  = ? ";
+                sql += " WHERE codproduto  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt   (1, this.quantidade);
-            stm.setString(2, this.nomeProduto);
+            stm.setInt(1, this.quantidade);
+            stm.setInt(2, this.codProduto);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -55,21 +54,22 @@ public class Estoque {
         return true;
     }
     
-    public Estoque consultarItem(String nomeProduto) {
+    public Estoque consultarItem(int codProduto) {
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT nomeproduto, tipoproduto, valorProduto, quantidade ";
+        String  sql  = "SELECT codproduto, produto, tipoProduto, valorProduto, quantidade ";
                 sql += "FROM estoque ";
-                sql += "WHERE nomeproduto = ?";
+                sql += "WHERE codproduto = ?";
         Estoque estoque = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, nomeProduto);
+            stm.setInt(1, this.codProduto);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 estoque = new Estoque();
-                estoque.setNomeProduto(nomeProduto);
-                estoque.setValorProduto(rs.getFloat("valorProduto"));
+                estoque.setCodProduto(rs.getInt("codproduto"));
+                estoque.setProduto(rs.getString("produto"));
                 estoque.setTipoProduto(rs.getString("tipoproduto"));
+                estoque.setValorProduto(rs.getFloat("valorproduto"));
                 estoque.setQuantidade(rs.getInt("quantidade"));
             }
         } catch (SQLException ex) {
@@ -81,7 +81,7 @@ public class Estoque {
     public List<Estoque> lovItem() {
         List<Estoque> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT nomeproduto, tipoproduto, valorProduto, quantidade ";
+        String  sql  = "SELECT codproduto, produto, tipoproduto,valorproduto, quantidade ";
                 sql += "FROM cardapio ";
                 sql += "ORDER BY codproduto";
         try {
@@ -89,9 +89,10 @@ public class Estoque {
             ResultSet rs = stm.executeQuery();
              while (rs.next()) {
                 Estoque estoque = new Estoque();
-                estoque.setNomeProduto(rs.getString("nomeproduto"));
-                estoque.setValorProduto(rs.getFloat("valorProduto"));
+                estoque.setCodProduto(rs.getInt("codproduto"));
+                estoque.setProduto(rs.getString("produto"));
                 estoque.setTipoProduto(rs.getString("tipoproduto"));
+                estoque.setValorProduto(rs.getFloat("valorProduto"));
                 estoque.setQuantidade(rs.getInt("quantidade"));
                 lista.add(estoque);
             }
@@ -104,10 +105,10 @@ public class Estoque {
    public boolean excluirItem() {
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM estoque ";
-                sql += " WHERE nomeproduto = ?";
+                sql += " WHERE codproduto = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.nomeProduto);
+            stm.setInt(1, this.codProduto);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -116,6 +117,8 @@ public class Estoque {
         return true;
     }
     
+    /* ÁREA DE GETTERS E SETTERS */ 
+
     public int getId() {
         return id;
     }
@@ -124,12 +127,12 @@ public class Estoque {
         this.id = id;
     }
 
-    public String getNomeProduto() {
-        return nomeProduto;
+    public String getProduto() {
+        return produto;
     }
 
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
+    public void setProduto(String produto) {
+        this.produto = produto;
     }
 
     public String getTipoProduto() {
@@ -147,7 +150,7 @@ public class Estoque {
     public void setValorProduto(float valorProduto) {
         this.valorProduto = valorProduto;
     }
-    
+
     public int getQuantidade() {
         return quantidade;
     }
@@ -162,14 +165,6 @@ public class Estoque {
 
     public void setCodProduto(int codProduto) {
         this.codProduto = codProduto;
-    }
-
-    public float getPreco() {
-        return preco;
-    }
-
-    public void setPreco(float preco) {
-        this.preco = preco;
-    }
+    }     
     
 }
