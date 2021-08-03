@@ -19,9 +19,9 @@ public class PedidoCliente {
     private int codProduto;
 
     public boolean realizarPedido() {
-        String  sql  = "INSERT INTO pedidocliente a, cozinha b(a.codpedido, a.codproduto, a.produto";
-                sql += "a.observacao, a.statuspedido, a.statuspagto, b.codpedido, b.observacao, b.statuspedido) ";
-                sql += "VALUES(?,?,?,?,?,?,?,?,?)";
+        String  sql  = "INSERT INTO pedidocliente (codpedido, codproduto, produto, ";
+                sql += " observacao, statuspedido, statuspagto) ";
+                sql += "VALUES(?,?,?,?,?,?)";
         Connection con = Conexao.conectar();
 
         try {
@@ -32,9 +32,6 @@ public class PedidoCliente {
             stm.setString(4, this.observacao);
             stm.setString(5, this.statusPedido);
             stm.setString(6, this.statusPagto);
-            stm.setInt   (7, this.codPedido);
-            stm.setString(8, this.observacao);
-            stm.setString(9, this.statusPedido);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
