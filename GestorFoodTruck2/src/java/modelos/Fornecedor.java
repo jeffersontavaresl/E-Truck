@@ -12,7 +12,7 @@ public class Fornecedor {
     private String nome;
     private String telefone;
     private String email;
-    private int idProduto;
+    private int codProduto;
     
     public boolean adicionarFornecedor() {
         String  sql  = "INSERT INTO fornecedor (nome, telefone, email) ";
@@ -23,7 +23,7 @@ public class Fornecedor {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.nome);
             stm.setString(2, this.telefone);
-            stm.setString (3, this.email);
+            stm.setString(3, this.email);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -35,17 +35,15 @@ public class Fornecedor {
     public boolean alterarFornecedor() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE fornecedor";
-                sql += " SET nome   = ?,";
-                sql += "     email   = ?,";
+                sql += " SET email   = ?,";
                 sql += "     telefone = ?";
                 sql += " WHERE nome  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.nome);
-            stm.setString(2, this.email);
-            stm.setString(3, this.telefone);
-            stm.setString(4, this.nome);
+            stm.setString(1, this.email);
+            stm.setString(2, this.telefone);
+            stm.setString(3, this.nome);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -68,8 +66,9 @@ public class Fornecedor {
         }
         return true;
     }
+       
+    /* ÁREA DE GETTERS E SETTERS */ 
     
-
     public int getId() {
         return id;
     }
@@ -102,11 +101,11 @@ public class Fornecedor {
         this.email = email;
     }
 
-    public int getIdProduto() {
-        return idProduto;
+    public int getCodProduto() {
+        return codProduto;
     }
 
-    public void setIdProduto(int idProduto) {
-        this.idProduto = idProduto;
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
     }
 }
