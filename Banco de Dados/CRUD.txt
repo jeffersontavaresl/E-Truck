@@ -85,3 +85,4 @@ ALTER TABLE Administrador ADD FOREIGN KEY (codProduto) REFERENCES Cardapio(id);
 ALTER TABLE Administrador ADD FOREIGN KEY (idEstoque) REFERENCES Estoque(id);
 ALTER TABLE Fornecedor ADD FOREIGN KEY (idProduto) REFERENCES Estoque(id);
 ALTER TABLE PedidoFornecedor ADD FOREIGN KEY (idFornecedor) REFERENCES Fornecedor(id);
+ALTER TABLE Estoque ADD FOREIGN KEY (codProduto) REFERENCES PedidoCliente(codProduto);
