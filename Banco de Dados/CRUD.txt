@@ -32,7 +32,7 @@ CREATE TABLE Cardapio (
     produto varchar(30) NOT NULL,
     preco numeric(4,2) NOT NULL,
     idEstoque integer,
-    PRIMARY KEY (id)
+    PRIMARY KEY (codProduto)
 );
 
 CREATE TABLE Administrador (
@@ -81,8 +81,8 @@ CREATE TABLE Usuario (
 ALTER TABLE Cozinha ADD FOREIGN KEY (codPedido) REFERENCES PedidoCliente(codPedido);
 ALTER TABLE Caixa ADD FOREIGN KEY (codPedido) REFERENCES PedidoCliente(codPedido);
 ALTER TABLE Cardapio ADD FOREIGN KEY (idEstoque) REFERENCES Estoque(id);
-ALTER TABLE Administrador ADD FOREIGN KEY (codProduto) REFERENCES Cardapio(id);
+ALTER TABLE Administrador ADD FOREIGN KEY (codProduto) REFERENCES Cardapio(codProduto);
 ALTER TABLE Administrador ADD FOREIGN KEY (idEstoque) REFERENCES Estoque(id);
-ALTER TABLE Fornecedor ADD FOREIGN KEY (codProduto) REFERENCES Estoque(id);
+ALTER TABLE Fornecedor ADD FOREIGN KEY (codProduto) REFERENCES Estoque(codProduto);
 ALTER TABLE PedidoFornecedor ADD FOREIGN KEY (idFornecedor) REFERENCES Fornecedor(id);
 ALTER TABLE Estoque ADD FOREIGN KEY (codProduto) REFERENCES PedidoCliente(codProduto);
