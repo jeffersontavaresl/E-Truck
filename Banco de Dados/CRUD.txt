@@ -30,7 +30,6 @@ CREATE TABLE Cardapio (
     id serial NOT NULL,
     codProduto integer, 
     produto varchar(30) NOT NULL,
-    tipoProduto varchar(30) NOT NULL,
     preco numeric(4,2) NOT NULL,
     idEstoque integer,
     PRIMARY KEY (id)
