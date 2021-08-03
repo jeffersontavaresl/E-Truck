@@ -42,25 +42,20 @@ public class PedidoCliente {
 
     public boolean alterarPedido() {
         Connection con = Conexao.conectar();
-        String  sql  = "UPDATE pedidocliente a, cozinha b";
-                sql += " SET a.codpedido    = ?, ";
-                sql += "     a.produto      = ?, ";
-                sql += "     a.observacao   = ?, ";
-                sql += "     b.observacao   = ?, ";
-                sql += "     a.statuspedido = ?, ";
-                sql += "     b.statuspedido = ?, ";
-                sql += " WHERE a.codpedido  = ? ";
-                sql += " AND a.codpedido = b.codpedido ";
+        String  sql  = "UPDATE pedidocliente ";
+                sql += " SET codproduto    = ?, ";
+                sql += "     produto      = ?, ";
+                sql += "     observacao   = ?, ";
+                sql += "     statuspedido = ? ";
+                sql += " WHERE codpedido  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt   (1, this.codProduto);
             stm.setString(2, this.produto);
             stm.setString(3, this.observacao);
-            stm.setString(4, this.observacao);
-            stm.setString(5, this.statusPedido);
-            stm.setString(6, this.statusPedido);
-            stm.setInt   (7, this.codPedido);
+            stm.setString(4, this.statusPedido);
+            stm.setInt   (5, this.codPedido);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -98,9 +93,9 @@ public class PedidoCliente {
     public List<PedidoCliente> lovPedidos() {
         List<PedidoCliente> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT codPedido, produto ";
+        String  sql  = "SELECT codpedido, produto ";
                 sql += "FROM pedidocliente ";
-                sql += "ORDER BY codPedido";
+                sql += "ORDER BY codpedido";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
@@ -118,9 +113,8 @@ public class PedidoCliente {
 
     public boolean cancelarPedido() {
         Connection con = Conexao.conectar();
-        String  sql  = "DELETE FROM pedidocliente a, cozinha b";
-                sql += " WHERE a.codpedido = ?" ;
-                sql += " AND a.codpedido = b.codpedido ";
+        String  sql  = "DELETE FROM pedidocliente ";
+                sql += " WHERE codpedido = ?" ;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt(1, this.codPedido);
