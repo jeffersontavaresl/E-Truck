@@ -6,28 +6,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import utils.Conexao;
-public class Estoque {
+public class Fornecedor {
 
     private int id;
-    private String produto;
-    private String tipoProduto;
-    private float valorProduto;
-    private int quantidade;
+    private String nome;
+    private String telefone;
+    private String email;
     private int codProduto;
     
-    public boolean cadastrarItem() {
-        String  sql  = "INSERT INTO estoque (codproduto, ";
-                sql += "produto, tipoproduto, valorproduto, quantidade) ";
-                sql += "VALUES(?,?,?,?,?)";
+    public boolean adicionarFornecedor() {
+        String  sql  = "INSERT INTO fornecedor (nome, telefone, email) ";
+                sql += "VALUES(?,?,?)";
         Connection con = Conexao.conectar();
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt   (1, this.codProduto);
-            stm.setString(2, this.produto);
-            stm.setString(3, this.tipoProduto);
-            stm.setFloat (4, this.valorProduto);
-            stm.setInt   (5, this.quantidade);
+            stm.setString(1, this.nome);
+            stm.setString(2, this.telefone);
+            stm.setString(3, this.email);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -36,16 +32,18 @@ public class Estoque {
         return true;
     }
 
-    public boolean atualizarItem() {
+    public boolean alterarFornecedor() {
         Connection con = Conexao.conectar();
-        String  sql  = "UPDATE estoque";
-                sql += " SET quantidade   = ?, ";
-                sql += " WHERE codproduto  = ? ";
+        String  sql  = "UPDATE fornecedor";
+                sql += " SET email   = ?,";
+                sql += "     telefone = ?";
+                sql += " WHERE nome  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.quantidade);
-            stm.setInt(2, this.codProduto);
+            stm.setString(1, this.email);
+            stm.setString(2, this.telefone);
+            stm.setString(3, this.nome);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -53,62 +51,14 @@ public class Estoque {
         }
         return true;
     }
-    
-    public Estoque consultarItem(int codProduto) {
-        Connection con = Conexao.conectar();
-        String  sql  = "SELECT codproduto, produto, tipoProduto, valorProduto, quantidade ";
-                sql += "FROM estoque ";
-                sql += "WHERE codproduto = ?";
-        Estoque estoque = null;
-        try {
-            PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.codProduto);
-            ResultSet rs = stm.executeQuery();
-            if (rs.next()) {
-                estoque = new Estoque();
-                estoque.setCodProduto(rs.getInt("codproduto"));
-                estoque.setProduto(rs.getString("produto"));
-                estoque.setTipoProduto(rs.getString("tipoproduto"));
-                estoque.setValorProduto(rs.getFloat("valorproduto"));
-                estoque.setQuantidade(rs.getInt("quantidade"));
-            }
-        } catch (SQLException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-        }
-        return estoque;
-    }
-    
-    public List<Estoque> lovItem() {
-        List<Estoque> lista = new ArrayList<>();
-        Connection con = Conexao.conectar();
-        String  sql  = "SELECT codproduto, produto, tipoproduto,valorproduto, quantidade ";
-                sql += "FROM cardapio ";
-                sql += "ORDER BY codproduto";
-        try {
-            PreparedStatement stm = con.prepareStatement(sql);
-            ResultSet rs = stm.executeQuery();
-             while (rs.next()) {
-                Estoque estoque = new Estoque();
-                estoque.setCodProduto(rs.getInt("codproduto"));
-                estoque.setProduto(rs.getString("produto"));
-                estoque.setTipoProduto(rs.getString("tipoproduto"));
-                estoque.setValorProduto(rs.getFloat("valorProduto"));
-                estoque.setQuantidade(rs.getInt("quantidade"));
-                lista.add(estoque);
-            }
-        } catch (SQLException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-        }
-        return lista;
-    }
 
-   public boolean excluirItem() {
+    public boolean excluirFornecedor() {
         Connection con = Conexao.conectar();
-        String  sql  = "DELETE FROM estoque ";
-                sql += " WHERE codproduto = ?";
+        String  sql  = "DELETE FROM fornecedor ";
+                sql += " WHERE nome = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.codProduto);
+            stm.setString(1, this.nome);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -116,9 +66,9 @@ public class Estoque {
         }
         return true;
     }
-    
+       
     /* ÁREA DE GETTERS E SETTERS */ 
-
+    
     public int getId() {
         return id;
     }
@@ -127,36 +77,28 @@ public class Estoque {
         this.id = id;
     }
 
-    public String getProduto() {
-        return produto;
+    public String getNome() {
+        return nome;
     }
 
-    public void setProduto(String produto) {
-        this.produto = produto;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getTipoProduto() {
-        return tipoProduto;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setTipoProduto(String tipoProduto) {
-        this.tipoProduto = tipoProduto;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public float getValorProduto() {
-        return valorProduto;
+    public String getEmail() {
+        return email;
     }
 
-    public void setValorProduto(float valorProduto) {
-        this.valorProduto = valorProduto;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getCodProduto() {
@@ -165,6 +107,5 @@ public class Estoque {
 
     public void setCodProduto(int codProduto) {
         this.codProduto = codProduto;
-    }     
-    
+    }
 }
