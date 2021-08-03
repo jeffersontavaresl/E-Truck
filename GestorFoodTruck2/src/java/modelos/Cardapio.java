@@ -9,24 +9,21 @@ import utils.Conexao;
 public class Cardapio extends Administrador {
 
     private int id;
-    private String nomeProduto;
-    private String tipoProduto;
+    private String produto;
     private float preco;
     private int idEstoque;
     private int codProduto;
     
         public boolean cadastrarItem() {
-        String  sql  = "INSERT INTO cardapio (codproduto, nomeproduto, ";
-                sql += "tipoproduto,preco) ";
-                sql += "VALUES(?,?,?,?)";
+        String  sql  = "INSERT INTO cardapio (codproduto, produto, preco)";
+                sql += "VALUES(?,?,?)";
         Connection con = Conexao.conectar();
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt   (1, this.codProduto);
-            stm.setString(2, this.nomeProduto);
-            stm.setString(3, this.tipoProduto);
-            stm.setFloat (4, this.preco);
+            stm.setString(2, this.produto);
+            stm.setFloat (3, this.preco);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -38,19 +35,17 @@ public class Cardapio extends Administrador {
     public boolean alterarItem() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE cardapio";
-                sql += " SET codproduto   = ?,";
-                sql += "     nomeproduto   = ?,";
-                sql += "     tipoproduto   = ?,";
-                sql += "     preco         = ? ";
+                sql += " SET codproduto = ?,";
+                sql += "     produto    = ?,";
+                sql += "     preco      = ? ";
                 sql += " WHERE codproduto  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt   (1, this.codProduto);
-            stm.setString(2, this.nomeProduto);
-            stm.setString(3, this.tipoProduto);
-            stm.setFloat (4, this.preco);
-            stm.setInt(5, this.codProduto);
+            stm.setString(2, this.produto);
+            stm.setFloat (3, this.preco);
+            stm.setInt   (4, this.codProduto);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -62,10 +57,10 @@ public class Cardapio extends Administrador {
     public boolean excluirItem() {
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM cardapio ";
-                sql += " WHERE nomeproduto = ?";
+                sql += " WHERE codproduto = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.nomeProduto);
+            stm.setInt(1, this.codProduto);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -74,22 +69,22 @@ public class Cardapio extends Administrador {
         return true;
     }
 
-    public Cardapio consultarItem(String nomeProduto) {
+    public Cardapio consultarItem(int codProduto) {
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT codproduto, nomeproduto, tipoproduto, preco ";
+        String  sql  = "SELECT codproduto, produto, preco, idEstoque ";
                 sql += "FROM cardapio ";
-                sql += "WHERE nomeproduto = ?";
+                sql += "WHERE codproduto = ?";
         Cardapio cardapio = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, nomeProduto);
+            stm.setInt(1, this.codProduto);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 cardapio = new Cardapio();
                 cardapio.setCodProduto(rs.getInt("codproduto"));
-                cardapio.setNomeProduto(nomeProduto);
-                cardapio.setTipoProduto(rs.getString("tipoproduto"));
+                cardapio.setProduto(rs.getString("produto"));
                 cardapio.setPreco(rs.getFloat("preco"));
+                cardapio.setIdEstoque(rs.getInt("idEstoque"));
             }
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -100,7 +95,7 @@ public class Cardapio extends Administrador {
     public List<Cardapio> lovCardapio() {
         List<Cardapio> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT codproduto, nomeproduto, tipoproduto, preco ";
+        String  sql  = "SELECT codproduto, produto, preco, idEstoque ";
                 sql += "FROM cardapio ";
                 sql += "ORDER BY codproduto";
         try {
@@ -109,9 +104,9 @@ public class Cardapio extends Administrador {
              while (rs.next()) {
                 Cardapio cardapio = new Cardapio();
                 cardapio.setCodProduto(rs.getInt("codproduto"));
-                cardapio.setNomeProduto(rs.getString("nomeproduto"));
-                cardapio.setTipoProduto(rs.getString("tipoproduto"));
+                cardapio.setProduto(rs.getString("produto"));
                 cardapio.setPreco(rs.getFloat("preco"));
+                cardapio.setIdEstoque(rs.getInt("idEstoque"));
                 lista.add(cardapio);
             }
         } catch (SQLException ex) {
@@ -119,33 +114,30 @@ public class Cardapio extends Administrador {
         }
         return lista;
     }
-
+    
+    /* ÁREA DE GETTERS E SETTERS */ 
+    
+    @Override
     public int getId() {
         return id;
     }
+
 
     @Override
     public void setId(int id) {
         this.id = id;
     }
 
-    @Override
-    public String getNomeProduto() {
-        return nomeProduto;
+
+    public String getProduto() {
+        return produto;
     }
 
-    @Override
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
+ 
+    public void setProduto(String produto) {
+        this.produto = produto;
     }
 
-    public String getTipoProduto() {
-        return tipoProduto;
-    }
-
-    public void setTipoProduto(String tipoProduto) {
-        this.tipoProduto = tipoProduto;
-    }
 
     public float getPreco() {
         return preco;
