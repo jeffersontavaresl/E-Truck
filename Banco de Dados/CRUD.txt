@@ -65,6 +65,7 @@ CREATE TABLE Fornecedor (
 
 CREATE TABLE PedidoFornecedor (
     id serial NOT NULL,
+    codProduto integer NOT NULL,
     produto varchar(20) NOT NULL,
     quantidade integer NOT NULL,
     idFornecedor integer,
