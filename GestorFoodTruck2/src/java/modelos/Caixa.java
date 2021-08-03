@@ -13,28 +13,27 @@ public class Caixa {
     private String formPagamento;
     private float preco;
     private int codProduto;
-    private String nomeProduto;
-    private String tipoProduto;
-    private String statusPedido;
+    private String produto;
     private String statusPagto;
 
     public Caixa consultarPedido(int codPedido) {
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT codproduto, nomeproduto, tipoproduto, preco ";
-                sql += "FROM pedidocliente ";
-                sql += "WHERE codpedido  = ?";
-                sql += "AND status = ?";
+        String  sql  = "SELECT a.codpedido, a.codproduto, a.produto, c.preco ";
+                sql += "FROM pedidocliente a, cardapio c ";
+                sql += "WHERE codpedido  = ? ";
+                sql += "AND statusPagto = ? ";
+                sql += "AND a.codproduto = c.codproduto";
         Caixa caixa = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt(1, codPedido);
-            stm.setString(2, this.status);
+            stm.setString(2, this.statusPagto);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 caixa = new Caixa();
+                caixa.setCodPedido(rs.getInt("codpedido"));
                 caixa.setCodProduto(rs.getInt("codproduto"));
-                caixa.setNomeProduto(rs.getString("nomeproduto"));
-                caixa.setTipoProduto(rs.getString("tipoproduto"));
+                caixa.setProduto(rs.getString("produto"));
                 caixa.setPreco(rs.getFloat("preco"));
             }
         } catch (SQLException ex) {
@@ -46,19 +45,20 @@ public class Caixa {
     public List<Caixa> lovItem() {
         List<Caixa> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT codproduto, nomeproduto, tipoproduto, preco ";
-                sql += "FROM pedidocliente ";
+        String  sql  = "SELECT a.codpedido, a.codproduto, a.produto, ";
+                sql += "c.preco, a.statuspagto ";
+                sql += "FROM pedidocliente a, cardapio c";
                 sql += "ORDER BY codpedido";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
              while (rs.next()) {
                 Caixa caixa = new Caixa();
-                caixa.setNrMesa(rs.getInt("codpedido"));
+                caixa.setCodPedido(rs.getInt("codpedido"));
                 caixa.setCodProduto(rs.getInt("codproduto"));
-                caixa.setNomeProduto(rs.getString("nomeproduto"));
-                caixa.setTipoProduto(rs.getString("tipoproduto"));
+                caixa.setProduto(rs.getString("produto"));
                 caixa.setPreco(rs.getFloat("preco"));
+                caixa.setStatusPagto(rs.getString("statuspagto"));
                 lista.add(caixa);
             }
         } catch (SQLException ex) {
@@ -70,12 +70,12 @@ public class Caixa {
     public boolean fecharPedido() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidocliente";
-                sql += " SET status   = ?,";
+                sql += " SET statuspagto   = ?,";
                 sql += " WHERE codpedido  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.status);
+            stm.setString(1, this.statusPagto);
             stm.setInt   (2, this.codPedido);
             stm.execute();
         } catch (SQLException ex) {
@@ -85,7 +85,8 @@ public class Caixa {
         return true;
     }
     
-
+    /* ÁREA DE GETTERS E SETTERS */ 
+    
     public int getId() {
         return id;
     }
@@ -126,28 +127,20 @@ public class Caixa {
         this.codProduto = codProduto;
     }
 
-    public String getNomeProduto() {
-        return nomeProduto;
+    public String getProduto() {
+        return produto;
     }
 
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
+    public void setProduto(String produto) {
+        this.produto = produto;
     }
 
-    public String getTipoProduto() {
-        return tipoProduto;
+    public String getStatusPagto() {
+        return statusPagto;
     }
 
-    public void setTipoProduto(String tipoProduto) {
-        this.tipoProduto = tipoProduto;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatusPagto(String statusPagto) {
+        this.statusPagto = statusPagto;
     }
 
 }
