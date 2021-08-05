@@ -51,7 +51,7 @@
             <% for (PedidoCliente c : pedclientes) {%>
             <tr>
                 <td><% out.write(c.getProduto()); %></td>
-                <td><% out.write(c.getStatus()); %></td>
+                <td><% out.write(c.getStatusPedido()); %></td>
                
             </tr> 
             <%}%>
