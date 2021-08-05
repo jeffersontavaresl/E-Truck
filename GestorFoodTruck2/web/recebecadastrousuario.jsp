@@ -3,7 +3,6 @@
 <%
     Administrador adm = new Administrador();
 
-    adm.setEmail(request.getParameter("email"));
     adm.setUsuario(request.getParameter("usuario"));
     adm.setSenha(request.getParameter("senha"));
     

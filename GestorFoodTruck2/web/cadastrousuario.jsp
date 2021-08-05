@@ -18,18 +18,11 @@
 
                 <div class="form-row">
                     <div class="form-group col">
-                        <label>E-mail</label>
-                        <input type="email" class="form-control" name="email" placeholder="Digite um e-mail"  pattern=".com" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col">
                         <label>Usuário</label>
                         <input type="text" class="form-control" name="usuario" placeholder="Digite um usuário" required>
                     </div>
-                </div>
 
+                </div>
                 <div class="form-group">
                     <label>Senha</label>
                     <input type="password" class="form-control" name="senha" placeholder="Digite uma senha" required>
@@ -37,7 +30,7 @@
 
                 <div class="form-row">
                     <div class="form-group col-0.5">
-                        <input type="submit" class="btn btn-success" value="Cadastrar" onclick="enviarCadastro()"/>
+                        <input type="button" class="btn btn-success" value="Cadastrar" onclick="enviarCadastro()"/>
                     </div>
                     <div class="form-group">
                         <button type="reset" class="btn btn-danger">Cancelar</button>
@@ -61,13 +54,6 @@
 
         <script>
             function enviarCadastro() {
-                var email = document.getElementsByName("email");
-                if (email [0].value === "") {
-                    email [0].focus();
-                    alert("Informe o email ");
-                    exit();
-                }
-                
                 var usuario = document.getElementsByName("usuario");
                 if (usuario[0].value === "") {
                     usuario[0].focus();
