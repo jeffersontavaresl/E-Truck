@@ -8,7 +8,6 @@
 </head>
 
 <Style>
-
     .container {
         width: 100vw;
         height: 100vh;
@@ -18,7 +17,6 @@
         justify-content: center;
         align-items: center;
     }
-
     .box {
         width: 350px;
         height: 400px;
@@ -26,17 +24,14 @@
         text-align: center;
         border: solid 3px black;
     }
-
     h2 {
         background: #FFD700;
         margin-top: 0px;
         padding-top: 8px;
     }
-
     body {
         margin: 0px;
     }
-
     .itens, label {
         text-align: center;
     }
@@ -44,11 +39,16 @@
         width: 340px;
         height: 150px;
     }
-
 </Style>
 
 <body>
-
+          <%
+          //verifica sessão - se usuário não está logado, abre a tela de login
+          String login = (String) session.getAttribute("login");
+          if(login == null){
+              response.sendRedirect("login.jsp");
+          }
+          %>
 <label class="cabecalho" id="msg"> 
          <%
             if(request.getParameter("pmensagem") != null)         
@@ -86,21 +86,18 @@
                 alert("Informe o codProduto");
                 exit();
             }
-
             var nomeItem = document.getElementsByName("produto");
             if(nomeItem[0].value === ""){
                 nomeItem[0].focus();
                 alert("Informe o Nome do produto");
                 exit();
             }
-
             var tipoItem = document.getElementsByName("preco");
             if(tipoItem[0].value === ""){
                 tipoItem[0].focus();
                 alert("Informe o preco");
                 exit();
             }
-
             document.forms[0].submit();
     }        
     
