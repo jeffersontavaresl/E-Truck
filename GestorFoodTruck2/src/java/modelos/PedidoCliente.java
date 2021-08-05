@@ -66,10 +66,10 @@ public class PedidoCliente {
 
     public PedidoCliente consultarPedido(int codPedido) {
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT codproduto, produto, observacao, statuspedido";
-                sql += "statuspagto ";
+        String  sql  = "SELECT codproduto, produto, observacao, ";
+                sql += "statuspedido, statuspagto ";
                 sql += "FROM pedidocliente ";
-                sql += "WHERE codpedido = ?";
+                sql += "WHERE codpedido = ? ";
         PedidoCliente pedcliente = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
@@ -88,6 +88,32 @@ public class PedidoCliente {
             System.out.println("Erro: " + ex.getMessage());
         }
         return pedcliente;
+    }
+    
+     public List<PedidoCliente> consultaPedido(int codPedido) {
+        List<PedidoCliente> lista = new ArrayList<>();
+        Connection con = Conexao.conectar();
+        String  sql  = "SELECT codproduto, produto, observacao, ";
+                sql += "statuspedido, statuspagto ";
+                sql += "FROM pedidocliente ";
+                sql += "WHERE codpedido = ? ";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt(1, codPedido);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                PedidoCliente pedcliente = new PedidoCliente();
+                pedcliente.setCodProduto(codProduto);
+                pedcliente.setProduto(rs.getString("produto"));
+                pedcliente.setObservacao(rs.getString("observacao"));
+                pedcliente.setStatusPedido(rs.getString("statuspedido"));
+                pedcliente.setStatusPagto(rs.getString("statuspagto"));
+                lista.add(pedcliente);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return lista;
     }
     
     public List<PedidoCliente> lovPedidos() {
