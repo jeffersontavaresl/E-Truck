@@ -1,5 +1,5 @@
 <%@page import="java.util.List"%>
-<%@page import="Modelos.Cardapio"%>
+<%@page import="modelos.Cardapio"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -34,7 +34,7 @@
         <hr />
         <%
           Cardapio card = new Cardapio();
-          List<Cardapio> listaItens = card.consultarItens();
+          List<Cardapio> listaItens = card.lovCardapio();
         %>
         <table>
             <thead>
@@ -47,9 +47,9 @@
             <tbody>
                 <% for(Cardapio c : listaItens) { %>
                    <tr>
-                       <td><% out.write("" + c.getcodProduto());   %></td>
-                        <td><% out.write(c.getproduto());  %></td>
-                        <td><% out.write("" + c.getpreco()); %></td>   
+                       <td><% out.write("" + c.getCodProduto());   %></td>
+                        <td><% out.write(c.getProduto());  %></td>
+                        <td><% out.write("" + c.getPreco()); %></td>   
                    </tr> 
                 <%}%>
             </tbody>
