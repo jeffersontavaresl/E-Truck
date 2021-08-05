@@ -1,0 +1,95 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.login{
+    height: 100vh;
+    background: linear-gradient(120deg, #00008B, #00BFFF);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginContainer{
+    min-height: 400px;
+    width: 300px;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 32px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginTitulo{
+    margin-bottom: 32px;
+    color: rgb(39, 37, 37);
+}
+
+.loginForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginInput{
+    height: 48px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 8px;
+    border: unset;
+    outline: none;
+}
+
+.loginBorder{
+    height: 1px;
+    width: 100%;
+    margin-bottom: 16px;
+    background-color: rgb(228, 228, 228);
+    transition: .3s ease-in-out;
+}
+
+.loginBorder::after{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 0;
+    margin-bottom: 16px;
+    background: linear-gradient(120deg, #00008B, #00BFFF);
+    transition: .3s ease-in-out;
+}
+
+.loginInput:focus + .loginBorder::after{
+    width: 100%;
+}
+
+.loginSubmit{
+    height: 48px;
+    width: 100%;
+    outline: none;
+    background: linear-gradient(120deg, #00008B, #00BFFF, #00008B);
+    background-size: 200%;
+    margin-bottom: 32px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: unset;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+.loginSubmit:hover{
+    background-position: right;
+}
+
+.resetSenha{
+    font-size: 12px;
+    color: #929292;
+    text-decoration: none;
+}
