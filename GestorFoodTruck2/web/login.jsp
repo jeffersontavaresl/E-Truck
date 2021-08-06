@@ -7,37 +7,19 @@
         <link rel="stylesheet" type="text/css" href="styles/login.css" />
     </head>
     <body>
-        <div>
-            <div class="container" >
-                <div class="content">      
-                  <!--FORMULÁRIO DE LOGIN-->
-                  <div id="login">
-                    <form method="POST" action=""> 
-                      <h1 class="text-center"><b>Entrada</h1> 
-                        <div class="usuario">
-                            <p> 
-                              <label for="usuario">Usuário</label>
-                              <input id="login" name="usuario" required="required" type="text" placeholder="Informe o Usuário" maxlength="25"/>
-                            </p>
-                      </div>
-        
-                      <div class="senha">
-                        <p> 
-                          <label for="senha">Senha</label>
-                          <input id="senha" name="senha" required="required" type="password" placeholder="Informe a senha" maxlength="20"/> 
-                        </p>
-                      </div>
-                      
-                      <p> 
-                        <input type="submit" value="Logar"/> 
-                      </p>
-
-                      <p class="link">Não tem conta?<a href="cadastraconfig.jsp">Cadastre-se</a></p>
-                    </form>
-                  </div>
-                </div>                  
-            </div>
-        </div>            
+    <main class="login">
+        <div class="loginContainer">
+            <h1 class="loginTitulo">Login</h1>
+            <form class="loginForm">
+                <input class="loginInput" type="text" name="usuario" placeholder="Usuário">
+                <span class="loginBorder"></span>
+                <input class="loginInput" type="password" name="senha" placeholder="Senha">
+                <span class="loginBorder"></span>
+                <button class="loginSubmit">Login</button>
+                <a class="resetSenha" href="#">Esqueceu a senha?</a>
+            </form>
+        </div>
+    </main>           
         <%
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");
