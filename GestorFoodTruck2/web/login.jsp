@@ -28,7 +28,7 @@
         if(log.podeLogar(usuario,senha)){            
             session.setAttribute("usuario", usuario);
             session.setAttribute("senha", senha);
-            response.sendRedirect("index.html");
+            response.sendRedirect("functions.jsp");
         }
         
         %>
