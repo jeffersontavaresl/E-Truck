@@ -5,15 +5,15 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import utils.Conexao;
 public class Login {
-    private String usuario;
+    private String login;
     private String senha;
     
-    public boolean podeLogar(String usuario, String senha){
+    public boolean podeLogar(String login, String senha){
         Connection con = Conexao.conectar();
-        String sql = "select * from usuario where usuario = ? and senha = ?";
+        String sql = "select * from usuario where login = ? and senha = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, usuario);
+            stm.setString(1, login);
             stm.setString(2, senha);
             ResultSet rs = stm.executeQuery();
             return rs.next();            
@@ -24,12 +24,12 @@ public class Login {
         return true;
     }  
     
-        public boolean usuarioExiste(String usuario){
+        public boolean usuarioExiste(String login){
         Connection con = Conexao.conectar();
-        String sql = "select * from usuario where usuario = ?";
+        String sql = "select * from usuario where login = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, usuario);
+            stm.setString(1, login);
             ResultSet rs = stm.executeQuery();
             return rs.next();            
         } 
@@ -41,12 +41,12 @@ public class Login {
         
     /* ÁREA DE GETTERS E SETTERS */ 
      
-    public String getUsuario() {
-        return usuario;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getSenha() {
