@@ -18,7 +18,6 @@ CREATE TABLE Caixa (
     codcaixa serial NOT NULL,
     formPagmento varchar(10) NOT NULL,
     preco numeric(4,2) NOT NULL,
-    statusPagto varchar(10),
     CONSTRAINT caixa_pkey PRIMARY KEY (codcaixa)
 );
 
