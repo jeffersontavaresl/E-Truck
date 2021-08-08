@@ -5,7 +5,7 @@ CREATE TABLE PedidoCliente (
     produto varchar(20) NOT NULL,
     observacao varchar(30),
     statusPagto varchar(10),
-    CONSTRAINT pedidocliente_pkey PRIMARY KEY (codpedido, codproduto, codmesa)
+    CONSTRAINT pedidocliente_pkey PRIMARY KEY (codpedido)
 );
 
 CREATE TABLE Mesa (
