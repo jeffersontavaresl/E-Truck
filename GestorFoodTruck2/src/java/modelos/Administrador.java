@@ -24,4 +24,12 @@ public class Administrador {
     public boolean excluirPedidoItem() { 
         return false;
     }
+    
+    public boolean realizarPedFornecedor() { 
+        return false;
+    }
+    
+    public boolean cancelarPedFornecedor() { 
+        return false;
+    }
 }
