@@ -1,7 +1,7 @@
 CREATE TABLE PedidoCliente (
     codpedido serial NOT NULL,
-    codproduto integer NOT NULL,
     codmesa integer NOT NULL, 
+    codproduto integer NOT NULL,
     produto varchar(20) NOT NULL,
     observacao varchar(30),
     statusPagto varchar(10),
