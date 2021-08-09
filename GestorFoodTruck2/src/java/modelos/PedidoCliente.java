@@ -17,11 +17,12 @@ public class PedidoCliente {
     private String produto;
     private String observacao;
     private String statusPagto;
+    private String statusPedido;
 
     public boolean realizarPedido() {
         String  sql  = "INSERT INTO pedidocliente (codmesa, ";
-                sql += " produto, observacao, statuspagto) ";
-                sql += "VALUES(?,?,?,?)";
+                sql += " produto, observacao, statuspagto, statuspedido) ";
+                sql += "VALUES(?,?,?,?,?)";
         Connection con = Conexao.conectar();
 
         try {
@@ -30,6 +31,7 @@ public class PedidoCliente {
             stm.setString(2, this.produto);
             stm.setString(3, this.observacao);
             stm.setString(4, this.statusPagto);
+            stm.setString(5, this.statusPedido);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -63,7 +65,7 @@ public class PedidoCliente {
     public PedidoCliente consultarPedido(int pCodMesa) {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT codproduto, produto, observacao, ";
-                sql += " statuspagto ";
+                sql += " statuspagto, statuspedido ";
                 sql += "FROM pedidocliente ";
                 sql += "WHERE codmesa = ? ";
         PedidoCliente pedcliente = null;
@@ -77,6 +79,7 @@ public class PedidoCliente {
                 pedcliente.setProduto(rs.getString("produto"));
                 pedcliente.setObservacao(rs.getString("observacao"));
                 pedcliente.setStatusPagto(rs.getString("statuspagto"));
+                pedcliente.setStatusPedido(rs.getString("statuspedido"));
 
             }
         } catch (SQLException ex) {
@@ -89,7 +92,7 @@ public class PedidoCliente {
         List<PedidoCliente> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
         String  sql  = "SELECT codpedido, codproduto, produto, observacao, ";
-                sql += "statuspagto, codmesa ";
+                sql += "statuspagto,statuspedido, codmesa ";
                 sql += "FROM pedidocliente ";
                 sql += "WHERE codmesa = ? ";
         try {
@@ -103,6 +106,7 @@ public class PedidoCliente {
                 pedcliente.setProduto(rs.getString("produto"));
                 pedcliente.setObservacao(rs.getString("observacao"));
                 pedcliente.setStatusPagto(rs.getString("statuspagto"));
+                pedcliente.setStatusPedido(rs.getString("statuspedido"));
                 pedcliente.setCodMesa(rs.getInt("codmesa"));
                 lista.add(pedcliente);
             }
@@ -200,6 +204,13 @@ public class PedidoCliente {
     public void setStatusPagto(String statusPagto) {
         this.statusPagto = statusPagto;
     }
-    
 
+    public String getStatusPedido() {
+        return statusPedido;
+    }
+
+    public void setStatusPedido(String statusPedido) {
+        this.statusPedido = statusPedido;
+    }
+    
 }
