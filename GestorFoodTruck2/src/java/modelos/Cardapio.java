@@ -40,7 +40,7 @@ public class Cardapio {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.produto);
             stm.setFloat (2, this.preco);
-            stm.setString(3, this.codProduto);
+            stm.setInt(3, this.codProduto);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -55,7 +55,7 @@ public class Cardapio {
                 sql += " WHERE codproduto = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.codProduto);
+            stm.setInt(1, this.codProduto);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
