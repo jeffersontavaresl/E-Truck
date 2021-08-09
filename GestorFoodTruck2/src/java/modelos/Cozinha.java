@@ -10,7 +10,9 @@ public class Cozinha extends PedidoCliente{
     
     private String observacao;
     private String produto;
+    private String statusPedido;
     private int codProduto;
+    private int codMesa;
 
     @Override
     public Cozinha consultarPedido(int pCodMesa) {
@@ -32,6 +34,24 @@ public class Cozinha extends PedidoCliente{
             System.out.println("Erro: " + ex.getMessage());
         }
         return cozinha;
+    }
+    
+    public boolean atualizarPedido() {
+        Connection con = Conexao.conectar();
+        String  sql  = "UPDATE pedidocliente ";
+                sql += " SET statuspedido = ? ";
+                sql += " WHERE codmesa  = ? ";
+
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.getStatusPedido());
+            stm.setInt   (2, this.getCodMesa());
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
     }
     
     public List<Cozinha> lovItem() {
@@ -87,6 +107,26 @@ public class Cozinha extends PedidoCliente{
     @Override
     public void setCodProduto(int codProduto) {
         this.codProduto = codProduto;
+    }
+
+    @Override
+    public String getStatusPedido() {
+        return statusPedido;
+    }
+
+    @Override
+    public void setStatusPedido(String statusPedido) {
+        this.statusPedido = statusPedido;
+    }
+
+    @Override
+    public int getCodMesa() {
+        return codMesa;
+    }
+
+    @Override
+    public void setCodMesa(int codMesa) {
+        this.codMesa = codMesa;
     }
 
 }
