@@ -124,7 +124,7 @@ public class Caixa {
                sql += "VALUES (?,?,?)";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setDate  (1, this.getDataMovimento());
+            stm.setDate  (1, this.dataMovimento);
             stm.setInt   (2, this.codFormPagto);
             stm.setFloat (3, this.vlrTotal);
             stm.execute();
