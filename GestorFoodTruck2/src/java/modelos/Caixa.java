@@ -1,5 +1,6 @@
 package modelos;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,10 +11,11 @@ public class Caixa {
 
     private int codProduto;
     private int codMesa;
-    private String formPagamento;
-    private float preco;
+    private int codFormPagto;
+    private float vlrTotal;
     private String produto;
     private String statusPagto;
+    private Date dataMovimento;
 
 
     public Caixa consultarPedido(int pCodMesa) {
@@ -35,7 +37,7 @@ public class Caixa {
                 caixa.setCodMesa(rs.getInt("codmesa"));
                 caixa.setCodProduto(rs.getInt("codproduto"));
                 caixa.setProduto(rs.getString("produto"));
-                caixa.setPreco(rs.getFloat("preco"));
+                caixa.setVlrTotal(rs.getFloat("preco"));
             }
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -61,7 +63,7 @@ public class Caixa {
                 Caixa caixa = new Caixa();
                 caixa.setCodProduto(rs.getInt("codproduto"));
                 caixa.setProduto(rs.getString("produto"));
-                caixa.setPreco(rs.getFloat("preco"));
+                caixa.setVlrTotal(rs.getFloat("preco"));
                 caixa.setStatusPagto(rs.getString("statuspagto"));
                 lista.add(caixa);
             }
@@ -85,7 +87,7 @@ public class Caixa {
                 Caixa caixa = new Caixa();
                 caixa.setCodProduto(rs.getInt("codproduto"));
                 caixa.setProduto(rs.getString("produto"));
-                caixa.setPreco(rs.getFloat("preco"));
+                caixa.setVlrTotal(rs.getFloat("preco"));
                 caixa.setStatusPagto(rs.getString("statuspagto"));
                 lista.add(caixa);
             }
@@ -113,6 +115,27 @@ public class Caixa {
         return true;
     }
     
+    public boolean InserirFormaPagto(){
+        Caixa caixa = new Caixa();
+        caixa.fecharPedido();
+        Connection con = Conexao.conectar();
+        String sql  = "INSERT INTO caixa ";
+               sql += "datamovimento, codformpagto, vlrtotal ";
+               sql += "VALUES (?,?,?)";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setDate  (1, this.getDataMovimento());
+            stm.setInt   (2, this.codFormPagto);
+            stm.setFloat (3, this.vlrTotal);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
+    }
+    
+    
     /* ÁREA DE GETTERS E SETTERS */ 
 
     public int getCodProduto() {
@@ -131,20 +154,20 @@ public class Caixa {
         this.codMesa = codMesa;
     }
 
-    public String getFormPagamento() {
-        return formPagamento;
+    public int getCodFormPagto() {
+        return codFormPagto;
     }
 
-    public void setFormPagamento(String formPagamento) {
-        this.formPagamento = formPagamento;
+    public void setCodFormPagto(int codFormPagto) {
+        this.codFormPagto = codFormPagto;
     }
 
-    public float getPreco() {
-        return preco;
+    public float getVlrTotal() {
+        return vlrTotal;
     }
 
-    public void setPreco(float preco) {
-        this.preco = preco;
+    public void setVlrTotal(float vlrTotal) {
+        this.vlrTotal = vlrTotal;
     }
 
     public String getProduto() {
@@ -162,7 +185,13 @@ public class Caixa {
     public void setStatusPagto(String statusPagto) {
         this.statusPagto = statusPagto;
     }
-    
-    
 
+    public Date getDataMovimento() {
+        return dataMovimento;
+    }
+
+    public void setDataMovimento(Date dataMovimento) {
+        this.dataMovimento = dataMovimento;
+    }
+    
 }
