@@ -1,4 +1,4 @@
-<%@page import="modelos.Login"%>
+<%@page import="modelos.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,8 +10,8 @@
     <main class="login">
         <div class="loginContainer">
             <h1 class="loginTitulo">Login</h1>
-            <form class="loginForm">
-                <input class="loginInput" type="text" name="usuario" placeholder="Usuário">
+            <form action="login.jsp" class="loginForm">
+                <input class="loginInput" type="text" name="login" placeholder="Usuário">
                 <span class="loginBorder"></span>
                 <input class="loginInput" type="password" name="senha" placeholder="Senha">
                 <span class="loginBorder"></span>
@@ -21,12 +21,12 @@
         </div>
     </main>           
         <%
-        String usuario = request.getParameter("usuario");
+        String login = request.getParameter("login");
         String senha = request.getParameter("senha");
-        Login log = new Login();
+        Usuario usu = new Usuario();
         //crie a seção 
-        if(log.podeLogar(usuario,senha)){            
-            session.setAttribute("usuario", usuario);
+        if(usu.podeLogar(login,senha)){            
+            session.setAttribute("login", login);
             session.setAttribute("senha", senha);
             response.sendRedirect("functions.jsp");
         }

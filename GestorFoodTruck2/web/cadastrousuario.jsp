@@ -19,7 +19,7 @@
                 <div class="form-row">
                     <div class="form-group col">
                         <label>Usuário</label>
-                        <input type="text" class="form-control" name="usuario" placeholder="Digite um usuário" required>
+                        <input type="text" class="form-control" name="login" placeholder="Digite um usuário" required>
                     </div>
 
                 </div>
@@ -42,7 +42,7 @@
                         <a href="index.html">Início</a>
                     </div>
                     <div class="form-group ml-auto">
-                        <a href="loginusuario.jsp">Já possui uma conta? Clique aqui para logar</a>
+                        <a href="login.jsp">Já possui uma conta? Clique aqui para logar</a>
                     </div>
                 </div>
                 <%
@@ -54,9 +54,9 @@
 
         <script>
             function enviarCadastro() {
-                var usuario = document.getElementsByName("usuario");
-                if (usuario[0].value === "") {
-                    usuario[0].focus();
+                var login = document.getElementsByName("login");
+                if (login[0].value === "") {
+                    login[0].focus();
                     alert("Informe o usuário");
                     exit();
                 }

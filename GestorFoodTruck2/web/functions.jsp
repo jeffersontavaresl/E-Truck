@@ -18,11 +18,11 @@
 
     <!--VALIDAÇÃO DE USUÁRIO PARA ENTRADA NO SITE-->
         <%
-            String usuario = (String) session.getAttribute("usuario");
-            if(usuario == null) {
-                response.sendRedirect("loginusuario.jsp");
+            String login = (String) session.getAttribute("login");
+            if(login == null) {
+                response.sendRedirect("login.jsp");
             } else {
-                out.print("Bem vindo,"+ usuario + "<br/>");
+                out.print("Bem vindo,"+ login + "<br/>");
             }
         %>
     

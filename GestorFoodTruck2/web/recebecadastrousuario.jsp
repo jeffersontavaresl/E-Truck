@@ -1,13 +1,11 @@
-<%@page import="modelos.Administrador"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="modelos.Usuario"%>
 <%
-    Administrador adm = new Administrador();
+    Usuario usu = new Usuario();
 
-    adm.setUsuario(request.getParameter("usuario"));
-    adm.setSenha(request.getParameter("senha"));
-    
+    usu.setLogin(request.getParameter("login"));
+    usu.setSenha(request.getParameter("senha"));
 
-    if (adm.cadastrarUsuario()) {
+    if (usu.cadastrarUsuario()) {
         response.sendRedirect("cadastrousuario.jsp?pmensagem=Cadastro salvo com sucesso! Retorne ao login.");
     } else {
         response.sendRedirect("cadastrousuario.jsp?pmensagem=Problemas ao salvar cadastro");
