@@ -76,8 +76,8 @@ public class Cardapio {
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 cardapio = new Cardapio();
-                cardapio.setCodProduto(rs.getInt("descproduto"));
-                cardapio.setDescProduto(rs.getString("produto"));
+                cardapio.setCodProduto(rs.getInt("codProduto"));
+                cardapio.setDescProduto(rs.getString("descProduto"));
                 cardapio.setPreco(rs.getFloat("preco"));
             }
         } catch (SQLException ex) {
@@ -89,16 +89,15 @@ public class Cardapio {
     public List<Cardapio> lovCardapio() {
         List<Cardapio> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT codproduto, descproduto, preco ";
-                sql += "FROM cardapio ";
+        String  sql  = "SELECT * from cardapio ";
                 sql += "ORDER BY codproduto";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
              while (rs.next()) {
                 Cardapio cardapio = new Cardapio();
-                cardapio.setCodProduto(rs.getInt("descproduto"));
-                cardapio.setDescProduto(rs.getString("produto"));
+                cardapio.setCodProduto(rs.getInt("codProduto"));
+                cardapio.setDescProduto(rs.getString("descProduto"));
                 cardapio.setPreco(rs.getFloat("preco"));
                 lista.add(cardapio);
             }
