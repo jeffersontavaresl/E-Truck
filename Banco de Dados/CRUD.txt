@@ -74,7 +74,7 @@ CREATE TABLE Usuario (
     codusuario serial NOT NULL,
     login varchar(20) NOT NULL,
     senha varchar(20) NOT NULL,
-    tipousuario varchar(10) NOT NULL,
+    tipousuario varchar(10),
     CONSTRAINT id_pkey PRIMARY KEY (codusuario)
 );
 
