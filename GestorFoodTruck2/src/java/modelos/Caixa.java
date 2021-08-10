@@ -20,7 +20,7 @@ public class Caixa {
 
     public Caixa consultarPedido(int pCodMesa) {
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT b.codmesa, a.codproduto, a.produto, c.preco ";
+        String  sql  = "SELECT b.codmesa, a.codproduto, c.descproduto, c.preco ";
                 sql += "FROM pedidocliente a, cardapio c, mesa b ";
                 sql += "WHERE a.codmesa  = ? ";
                 sql += "AND a.statuspagto = ? ";
@@ -36,7 +36,7 @@ public class Caixa {
                 caixa = new Caixa();
                 caixa.setCodMesa(rs.getInt("codmesa"));
                 caixa.setCodProduto(rs.getInt("codproduto"));
-                caixa.setProduto(rs.getString("produto"));
+                caixa.setProduto(rs.getString("descproduto"));
                 caixa.setVlrTotal(rs.getFloat("preco"));
             }
         } catch (SQLException ex) {
@@ -48,7 +48,7 @@ public class Caixa {
     public List<Caixa> consultaPedido(int pCodMesa) {
         List<Caixa> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT b.codmesa, a.codproduto, a.produto, c.preco ";
+        String  sql  = "SELECT b.codmesa, a.codproduto, c.descproduto, c.preco ";
                 sql += "FROM pedidocliente a, cardapio c, mesa b ";
                 sql += "WHERE a.codmesa = ? ";
                 sql += "AND a.statusPagto = ? ";
@@ -62,7 +62,7 @@ public class Caixa {
             while (rs.next()) {
                 Caixa caixa = new Caixa();
                 caixa.setCodProduto(rs.getInt("codproduto"));
-                caixa.setProduto(rs.getString("produto"));
+                caixa.setProduto(rs.getString("descproduto"));
                 caixa.setVlrTotal(rs.getFloat("preco"));
                 caixa.setStatusPagto(rs.getString("statuspagto"));
                 lista.add(caixa);
@@ -76,7 +76,7 @@ public class Caixa {
     public List<Caixa> lovItem() {
         List<Caixa> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT b.codmesa, a.codproduto, a.produto, ";
+        String  sql  = "SELECT b.codmesa, a.codproduto, c.descproduto, ";
 		sql += "c.preco, a.statuspagto "; 
                 sql += "FROM pedidocliente a, cardapio c, mesa b ";
                 sql += "ORDER BY codmesa";
