@@ -17,8 +17,8 @@ public class Cozinha extends PedidoCliente{
     @Override
     public Cozinha consultarPedido(int pCodMesa) {
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT descproduto, observacao ";
-                sql += "FROM pedidocliente ";
+        String  sql  = "SELECT c.descproduto, a.observacao ";
+                sql += "FROM pedidocliente a, cardapio c";
                 sql += "WHERE codmesa = ? ";
         Cozinha cozinha = null;
         try {
@@ -57,8 +57,8 @@ public class Cozinha extends PedidoCliente{
     public List<Cozinha> lovItem() {
         List<Cozinha> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT descproduto, observacao ";
-                sql += "FROM pedidocliente ";
+        String  sql  = "SELECT c.descproduto, a.observacao ";
+                sql += "FROM pedidocliente a, cardapio c";
                 sql += "ORDER BY codmesa";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
