@@ -2,7 +2,6 @@ CREATE TABLE PedidoCliente (
     codpedido serial NOT NULL,
     codmesa integer NOT NULL, 
     codproduto integer NOT NULL,
-    produto varchar(20) NOT NULL,
     observacao varchar(30),
     statusPagto varchar(10),
     statusPedido varchar(10),
@@ -17,43 +16,58 @@ CREATE TABLE Mesa (
 
 CREATE TABLE Caixa (
     codcaixa serial NOT NULL,
-    formPagmento varchar(10) NOT NULL,
-    preco numeric(4,2) NOT NULL,
+    datamovimento date NOT NULL,
+    codformpagto integer NOT NULL,
+    vlrtotal numeric(6,2) NOT NULL,
     CONSTRAINT caixa_pkey PRIMARY KEY (codcaixa)
+);
+
+CREATE TABLE FormaPagamento (
+    codformpagto serial NOT NULL,
+    descformpagto varchar(20) NOT NULL,
+    descbandeira varchar(10) NOT NULL,
+    CONSTRAINT formapagamento_pkey PRIMARY KEY (codformpagto)
 );
 
 CREATE TABLE Cardapio (
     codproduto serial NOT NULL, 
-    produto varchar(30) NOT NULL,
+    descproduto varchar(30) NOT NULL,
     preco numeric(4,2) NOT NULL,
     CONSTRAINT cardapio_pkey PRIMARY KEY (codproduto)
 );
 
-CREATE TABLE Estoque (
-    codestoque serial NOT NULL,
-    codproduto integer NOT NULL,
-    produto varchar(20) NOT NULL,
-    descricao varchar(20) NOT NULL,
-    valorProduto numeric(4,2) NOT NULL,
-    quantidade integer NOT NULL,
-    CONSTRAINT estoque_pkey PRIMARY KEY (codestoque, codproduto)
+CREATE TABLE Insumo (
+    codinsumo serial NOT NULL,
+    descinsumo varchar(20) NOT NULL,
+    custoinsumo numeric(4,2) NOT NULL,
+    sldestqinsumo numeric(4,2) NOT NULL,
+    codundmed integer NOT NULL, 
+    qtdestqalerta numeric(4,2) NOT NULL,
+    CONSTRAINT estoque_pkey PRIMARY KEY (codinsumo)
 );
 
 CREATE TABLE Fornecedor (
     codfornecedor serial NOT NULL,
-    codpedfornecedor integer,
-    nome varchar(20) NOT NULL,
+    razaosocial varchar(40) NOT NULL,
     telefone varchar(20) NOT NULL,
     email varchar(20) NOT NULL,
+    nomecontato varchar(20),
     CONSTRAINT fornecedor_pkey PRIMARY KEY (codfornecedor)
 );
 
 CREATE TABLE PedidoFornecedor (
-    codpedfornecedor serial NOT NULL,
-    codproduto integer NOT NULL,
-    produto varchar(20) NOT NULL,
-    quantidade integer NOT NULL,
+    codfornecedor integer NOT NULL,
+    codpedfornecedor serial NOT NULL, 
     CONSTRAINT idpedfornecedor_pkey PRIMARY KEY(codpedfornecedor)
+);
+
+CREATE TABLE PedidoFornecedorItem (
+    codfornecedor integer NOT NULL,
+    codpedfornecedor integer NOT NULL,
+    codinsumo integer NOT NULL,
+    qtdinsumo numeric(4,2) NOT NULL,
+    custoinsumo numeric(4,2) NOT NULL,
+    CONSTRAINT idpedidofornecedoritem_pk PRIMARY KEY(codfornecedor, codpedfornecedor, codinsumo)
 );
 
 CREATE TABLE Usuario (
@@ -66,4 +80,7 @@ CREATE TABLE Usuario (
 
 ALTER TABLE PedidoCliente ADD CONSTRAINT fk_pedidocliente FOREIGN KEY (codmesa) REFERENCES Mesa(codmesa);
 ALTER TABLE PedidoCliente ADD CONSTRAINT fk_pedclienteprod FOREIGN KEY(codproduto) REFERENCES Cardapio(codproduto);
-ALTER TABLE Fornecedor ADD CONSTRAINT fk_pedfornecedor FOREIGN KEY (codpedfornecedor) REFERENCES PedidoFornecedor(codpedfornecedor);
+ALTER TABLE Caixa ADD CONSTRAINT fk_formapagto FOREIGN KEY (codformpagto) REFERENCES FormaPagamento (codformpagto);
+ALTER TABLE PedidoFornecedorItem ADD CONSTRAINT fk_codfornecedor FOREIGN KEY (codfornecedor) REFERENCES Fornecedor (codfornecedor);
+ALTER TABLE PedidoFornecedorItem ADD CONSTRAINT fk_codpedfornecedor FOREIGN KEY (codpedfornecedor) REFERENCES PedidoFornecedor (codpedfornecedor);
+ALTER TABLE PedidoFornecedorItem ADD CONSTRAINT fk_codinsumo FOREIGN KEY (codinsumo) REFERENCES Insumo (codinsumo);
