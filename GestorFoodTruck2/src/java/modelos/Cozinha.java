@@ -9,7 +9,7 @@ import utils.Conexao;
 public class Cozinha extends PedidoCliente{
     
     private String observacao;
-    private String produto;
+    private String descProduto;
     private String statusPedido;
     private int codProduto;
     private int codMesa;
@@ -17,7 +17,7 @@ public class Cozinha extends PedidoCliente{
     @Override
     public Cozinha consultarPedido(int pCodMesa) {
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT produto, observacao ";
+        String  sql  = "SELECT descproduto, observacao ";
                 sql += "FROM pedidocliente ";
                 sql += "WHERE codmesa = ? ";
         Cozinha cozinha = null;
@@ -27,7 +27,7 @@ public class Cozinha extends PedidoCliente{
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 cozinha = new Cozinha();
-                cozinha.setProduto(rs.getString("produto"));
+                cozinha.setDescProduto(rs.getString("descproduto"));
                 cozinha.setObservacao(rs.getString("observacao"));
             }
         } catch (SQLException ex) {
@@ -44,8 +44,8 @@ public class Cozinha extends PedidoCliente{
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.getStatusPedido());
-            stm.setInt   (2, this.getCodMesa());
+            stm.setString(1, this.statusPedido);
+            stm.setInt   (2, this.codMesa);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -57,7 +57,7 @@ public class Cozinha extends PedidoCliente{
     public List<Cozinha> lovItem() {
         List<Cozinha> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT produto, observacao ";
+        String  sql  = "SELECT descproduto, observacao ";
                 sql += "FROM pedidocliente ";
                 sql += "ORDER BY codmesa";
         try {
@@ -65,7 +65,7 @@ public class Cozinha extends PedidoCliente{
             ResultSet rs = stm.executeQuery();
              while (rs.next()) {
                 Cozinha cozinha = new Cozinha();
-                cozinha.setProduto(rs.getString("produto"));
+                cozinha.setDescProduto(rs.getString("descproduto"));
                 cozinha.setObservacao(rs.getString("observacao"));
                 lista.add(cozinha);
             }
@@ -90,13 +90,13 @@ public class Cozinha extends PedidoCliente{
     
 
     @Override
-    public String getProduto() {
-        return produto;
+    public String getDescProduto() {
+        return descProduto;
     }
 
     @Override
-    public void setProduto(String produto) {
-        this.produto = produto;
+    public void setDescProduto(String descProduto) {
+        this.descProduto = descProduto;
     }
 
     @Override
