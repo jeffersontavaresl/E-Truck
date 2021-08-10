@@ -1,26 +1,29 @@
 package modelos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import utils.Conexao;
 public class Fornecedor {
 
-    private int id;
-    private String nome;
+    private String razaoSocial;
     private String telefone;
     private String email;
-    private int codProduto;
+    private String nomeContato;
+    private int codFornecedor;
+
     
     public boolean adicionarFornecedor() {
-        String  sql  = "INSERT INTO fornecedor (nome, telefone, email) ";
-                sql += "VALUES(?,?,?)";
+        String  sql  = "INSERT INTO fornecedor (razaosocial, telefone, email, nomecontato) ";
+                sql += "VALUES(?,?,?,?)";
         Connection con = Conexao.conectar();
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.nome);
+            stm.setString(1, this.razaoSocial);
             stm.setString(2, this.telefone);
             stm.setString(3, this.email);
+            stm.setString(4, this.nomeContato);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -31,16 +34,18 @@ public class Fornecedor {
 
     public boolean alterarFornecedor() {
         Connection con = Conexao.conectar();
-        String  sql  = "UPDATE fornecedor";
+        String  sql  = "UPDATE fornecedor ";
                 sql += " SET email   = ?,";
-                sql += "     telefone = ?";
-                sql += " WHERE nome  = ? ";
+                sql += "     telefone = ?, ";
+                sql += " nomecontato = ? ";
+                sql += " WHERE codfornecedor  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.email);
             stm.setString(2, this.telefone);
-            stm.setString(3, this.nome);
+            stm.setString(3, this.nomeContato);
+            stm.setInt(4, this.getCodFornecedor());
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -52,10 +57,10 @@ public class Fornecedor {
     public boolean excluirFornecedor() {
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM fornecedor ";
-                sql += " WHERE nome = ?";
+                sql += " WHERE codfornecedor = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.nome);
+            stm.setInt(1, this.codFornecedor);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -63,23 +68,40 @@ public class Fornecedor {
         }
         return true;
     }
+    
+    public Fornecedor consultarFonecedor(int pCodFornecedor) {
+        Connection con = Conexao.conectar();
+        String  sql  = "SELECT codfornecedor, razaosocial, telefone, ";
+                sql += " email, nomecontato ";
+                sql += "FROM fornecedor ";
+                sql += "WHERE codfornecedor  = ? ";
+        Fornecedor fornecedor = null;
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt(1, pCodFornecedor);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                fornecedor = new Fornecedor();
+                fornecedor.setCodFornecedor(rs.getInt("codfornecedor"));
+                fornecedor.setRazaoSocial(rs.getString("razaosocial"));
+                fornecedor.setTelefone(rs.getString("telefone"));
+                fornecedor.setEmail(rs.getString("email"));
+                fornecedor.setNomeContato(rs.getString("nomecontato"));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return fornecedor;
+    }
        
     /* ÁREA DE GETTERS E SETTERS */ 
-    
-    public int getId() {
-        return id;
+
+    public String getRazaoSocial() {
+        return razaoSocial;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setRazaoSocial(String razaoSocial) {
+        this.razaoSocial = razaoSocial;
     }
 
     public String getTelefone() {
@@ -98,11 +120,20 @@ public class Fornecedor {
         this.email = email;
     }
 
-    public int getCodProduto() {
-        return codProduto;
+    public String getNomeContato() {
+        return nomeContato;
     }
 
-    public void setCodProduto(int codProduto) {
-        this.codProduto = codProduto;
+    public void setNomeContato(String nomeContato) {
+        this.nomeContato = nomeContato;
     }
+
+    public int getCodFornecedor() {
+        return codFornecedor;
+    }
+
+    public void setCodFornecedor(int codFornecedor) {
+        this.codFornecedor = codFornecedor;
+    }
+    
 }
