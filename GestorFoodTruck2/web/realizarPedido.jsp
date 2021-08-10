@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="modelos.PedidoCliente"%>
+<%@page import="modelos.Cardapio"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -9,26 +10,58 @@
     </head>
     <body>
         <h1>Realizar Pedido</h1>
-
+        <h2>
+        <%
+            if(request.getParameter("pmensagem") != null)         
+               out.write(request.getParameter("pmensagem"));
+         %>
+        </h2>
         <%
             PedidoCliente pcli = new PedidoCliente();
-            List<PedidoCliente> pclientes = pcli.lovMesa();
+            List<PedidoCliente> mesas = pcli.lovMesa();
+
+            Cardapio card = new Cardapio();
+            List<Cardapio> produtos = card.lovCardapio();
 
         %>
 
         <form action="recebeRealizarPedido.jsp" method="POST">
-            <label>Código da mesa<br></label>
-            <select name="codmesa">
-                <% for (PedidoCliente pc : pclientes) {%>
-            </select>
-            <label>Código do produto<br></label>
-            <input type="text" name="codProduto" placeholder="Insira o código do produto" required><br><br>
+
+            <label>Código da mesa</label>
+            <select name="codMesa">
+                <% for (PedidoCliente m : mesas) {%>
+                <option value="<%out.write("" + m.getCodMesa());%>">
+                    <% out.write(m.getMesa());%>
+                </option>
+                <%}%>
+            </select><br><br>
+
+            <label>Produto</label>
+            <select name="codProduto">
+                <% for (Cardapio p : produtos) {%>
+                <option value="<%out.write("" + p.getCodProduto());%>">
+                    <% out.write(p.getDescProduto());%>
+                </option>
+                <%}%>
+
+            </select><br><br>
+
             <label>Observação<br></label>
-            <input type="text" name="observacao" placeholder="Observação: " required><br><br>
+            <input type="text" name="observacao" placeholder="Insira as observações"><br><br>
+
             <label>Status do Pagamento<br></label>
-            <input type="text" name="statusPagto" placeholder="Status do pagamento" required><br><br>
+            <select name="statusPagto">
+                <option value="pendente">Pendente</option>
+            </select><br><br>
+
             <label>Status do Pedido<br></label>
-            <input type="text" name="statusPedido" placeholder="Status do pedido" required>
+            <select name="statusPedido">
+                <option value="andamento">Andamento</option>
+            </select><br><br>
+
+            <a href="index.html">Início</a>
+            <input type="submit" value="Confirmar" onclick="enviarPedido()"/>
+            <input type="reset" value="Cancelar" />
         </form>
     </body>
 </html>
