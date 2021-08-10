@@ -2,7 +2,7 @@
 <%
     Cardapio cardapio = new Cardapio();
  
-    cardapio.setProduto(request.getParameter("nomPrd"));
+    cardapio.setDescProduto(request.getParameter("nomPrd"));
     cardapio.setPreco(Float.parseFloat(request.getParameter("vlrPrd")));
    
     if (cardapio.cadastrarItem()) {

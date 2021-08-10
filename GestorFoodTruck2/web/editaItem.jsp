@@ -30,13 +30,17 @@
                         
                         <label>Nome do produto</label>
                         <input type="text" name="nome" 
-                               value="<%out.write(c.getProduto());%>" />
+                               value="<%out.write(c.getDescProduto());%>" />
                         <br />
                         <label>Preço</label>
-                        <input type="text" name="email" 
+                        <input type="text" name="vlr" 
                                value="<%out.write("" + c.getPreco());%>" />
                         <br />
- 
+                        <label>Codigo Produto</label>
+                        <input type="text" name="codProduto" 
+                               value="<%out.write("" + c.getCodProduto());%>" />
+                        <br />
+                        
                         <hr />
                         <input type="submit" value="Alterar" />
                     </form>

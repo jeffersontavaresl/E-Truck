@@ -9,13 +9,14 @@
         <%
         //recebe os valores da tela HTML  
             String nome   = request.getParameter("nome");
-            Float valor  = Float.parseFloat(request.getParameter("email"));
-          
+            float vlr  = Float.parseFloat(request.getParameter("vlr"));
+            Integer idcodProduto = Integer.parseInt(request.getParameter("codProduto"));
             //instancia o Cliente
             Cardapio card = new Cardapio();
-            card.setProduto(nome);
-            card.setPreco(valor);
-          
+            card.setDescProduto(nome);
+            card.setPreco(vlr);
+            card.setCodProduto(idcodProduto);
+            
             if(card.alterarItem()){
                 response.sendRedirect("consultaItem.jsp?pmensagem=Cliente editado com sucesso");
             } else {

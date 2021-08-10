@@ -85,9 +85,9 @@
                 exit();
             }
 
-            var tipoItem = document.getElementsByName("vlrPrd");
-            if(tipoItem[0].value === ""){
-                tipoItem[0].focus();
+            var valorItem = document.getElementsByName("vlrPrd");
+            if(valorItem[0].value === ""){
+                valorItem[0].focus();
                 alert("Informe o Preço do produto");
                 exit();
             }

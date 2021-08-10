@@ -51,7 +51,7 @@
                 <% for(Cardapio c : lista) { %>
                    <tr>
                        <td><% out.write("" + c.getCodProduto());   %></td>
-                        <td><% out.write(c.getProduto());  %></td>
+                        <td><% out.write(c.getDescProduto());  %></td>
                         <td><% out.write("" + c.getPreco()); %></td>   
                         <td><%out.write("<a href=editaItem.jsp?codProduto="+c.getCodProduto()+">Editar</a>");%></td> 
                         <td><%out.write("<a href=excluiItem.jsp?codProduto="+c.getCodProduto()+">Excluir</a>");%></td>   
