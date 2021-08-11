@@ -48,29 +48,13 @@
                                 <a class="pronto nav-link pl-0" href="consultapedido.jsp">Consultar Pedido</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pl-0" href="#">Alterar Pedido</a>
+                                <a class="pronto nav-link pl-0" href="cadastraItem.jsp">Cadastrar Cardápio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pl-0" href="#">Finalizar Pedido</a>
+                                <a class="pronto nav-link pl-0" href="consultaItem.jsp">Consultar Cardápio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="pronto nav-link pl-0" href="cadastraitemcardapio.jsp">Cadastrar Cardápio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="pronto nav-link pl-0" href="#">Consultar Cardápio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0" href="#">Caixa</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0" href="#">Administrar Estoque</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0" href="#">Cadastrar Usuário</a>
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a class="nav-link pl-0" href="#">Link</a>
+                                <a class="nav-link pl-0" href="consultacaixa.jsp">Consulta Caixa</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link pl-0" href="deslogarusuario.jsp">Deslogar</a>
