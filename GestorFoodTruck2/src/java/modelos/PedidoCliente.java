@@ -27,7 +27,7 @@ public class PedidoCliente extends Cardapio{
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt   (1, this.codMesa);
-            stm.setInt   (2, this.codProduto);
+            stm.setInt   (2, this.getCodProduto());
             stm.setString(3, this.observacao);
             stm.setString(4, this.statusPagto);
             stm.setString(5, this.statusPedido);
@@ -48,7 +48,7 @@ public class PedidoCliente extends Cardapio{
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt   (1, this.codProduto);
+            stm.setInt   (1, this.getCodProduto());
             stm.setString(2, this.observacao);
             stm.setInt   (3, this.codMesa);
             stm.execute();
@@ -89,7 +89,7 @@ public class PedidoCliente extends Cardapio{
      public List<PedidoCliente> consultaPedido(int pCodMesa) {
         List<PedidoCliente> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT a.codpedido, c.codproduto, c.descproduto, a.codmesa, ";
+        String  sql  = "SELECT a.codpedido, a.codproduto, a.produto, a.codmesa, ";
                 sql += "a.observacao, a.statuspagto, a.statuspedido, c.preco ";
                 sql += "FROM pedidocliente a, cardapio c ";
                 sql += "WHERE codmesa = ? ";
@@ -119,7 +119,7 @@ public class PedidoCliente extends Cardapio{
     public List<PedidoCliente> lovPedidos() {
         List<PedidoCliente> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT a.codpedido, a.codproduto, c.descproduto, a.codmesa, ";
+        String  sql  = "SELECT a.codpedido, a.codproduto, a.produto, a.codmesa, ";
                 sql += "a.observacao, a.statuspagto, a.statuspedido, c.preco ";
                 sql += "FROM pedidocliente a, cardapio c ";
                 sql += "WHERE a.codproduto = c.codproduto ";
@@ -174,7 +174,7 @@ public class PedidoCliente extends Cardapio{
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt(1, this.codMesa);
-            stm.setInt(2, this.codProduto);
+            stm.setInt(2, this.getCodProduto());
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -231,6 +231,16 @@ public class PedidoCliente extends Cardapio{
 
     public void setMesa(String mesa) {
         this.mesa = mesa;
+    }
+
+    @Override
+    public int getCodProduto() {
+        return codProduto;
+    }
+
+    @Override
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
     }
     
 }
