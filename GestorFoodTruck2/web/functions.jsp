@@ -42,7 +42,7 @@
                                 <a class="nav-link pl-0" href="index.html">Início</a>
                             </li>
                             <li class="nav-item">
-                                <a class="pronto nav-link pl-0" href="realizapedido.jsp">Realizar Pedido</a>
+                                <a class="pronto nav-link pl-0" href="realizarPedido.jsp">Realizar Pedido</a>
                             </li>
                             <li class="nav-item">
                                 <a class="pronto nav-link pl-0" href="consultapedido.jsp">Consultar Pedido</a>
