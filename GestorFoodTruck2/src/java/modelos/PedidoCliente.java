@@ -27,7 +27,7 @@ public class PedidoCliente extends Cardapio{
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt   (1, this.codMesa);
-            stm.setInt   (2, this.getCodProduto());
+            stm.setInt   (2, this.codProduto);
             stm.setString(3, this.observacao);
             stm.setString(4, this.statusPagto);
             stm.setString(5, this.statusPedido);
@@ -48,7 +48,7 @@ public class PedidoCliente extends Cardapio{
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt   (1, this.getCodProduto());
+            stm.setInt   (1, this.codProduto);
             stm.setString(2, this.observacao);
             stm.setInt   (3, this.codMesa);
             stm.execute();
@@ -174,7 +174,7 @@ public class PedidoCliente extends Cardapio{
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt(1, this.codMesa);
-            stm.setInt(2, this.getCodProduto());
+            stm.setInt(2, this.codProduto);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
