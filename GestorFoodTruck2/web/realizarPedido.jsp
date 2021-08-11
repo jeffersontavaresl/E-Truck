@@ -60,7 +60,7 @@
             </select><br><br>
 
             <a href="index.html">Início</a>
-            <input type="submit" value="Confirmar" onclick="enviarPedido()"/>
+            <input type="submit" value="Confirmar"/>
             <input type="reset" value="Cancelar" />
         </form>
     </body>
