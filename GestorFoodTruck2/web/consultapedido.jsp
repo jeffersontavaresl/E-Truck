@@ -40,6 +40,7 @@
         <table>
             <thead>
                 <tr>
+                   
                     <th>Mesa</th>
                     <th>Código do pedido</th>
                     <th>Código do produto</th>
@@ -55,15 +56,16 @@
             <tbody>
                 <% for (PedidoCliente pc : ped) { %>
                 <tr>
-                    <td><% out.write("" + pc.getCodMesa());   %></td>
+                   
+                    <td><% out.print(""+pc.getMesa());   %></td>
                     <td><% out.write("" + pc.getCodPedido());   %></td>
                     <td><% out.write("" + pc.getCodProduto());   %></td>
                     <td><%out.write(pc.getDescProduto());  %></td>
                     <td><%out.write(pc.getObservacao()); %></td>   
                     <td><%out.write(pc.getStatusPagto()); %></td>   
                     <td><%out.write(pc.getStatusPedido()); %></td>   
-                    <td><%out.write("<a href=#?codPedido=" + pc.getCodPedido() + ">Editar</a>");%></td> 
-                    <td><%out.write("<a href=#?codPedido=" + pc.getCodPedido() + ">Excluir</a>");%></td>   
+                    <td><%out.write("<a href=editaPedido.jsp?idpaciente=" + pc.getCodPedido() + ">Editar</a>");%></td> 
+                    <td><%out.write("<a href=cancelarPedido.jsp?codMesa="+pc.getCodMesa()+">Excluir</a>");%></td>
                 </tr> 
                 <%}%>
             </tbody>
