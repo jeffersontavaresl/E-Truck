@@ -1,5 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelos.PedidoCliente"%>
+<%@page import="modelos.Cardapio"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,19 +26,23 @@
         
         <form action="recebeEditaPedido.jsp" method="POST">
              <% PedidoCliente pdCliente = new PedidoCliente();
-                 List<PedidoCliente> pedCliente1 = pdCliente.consultaPedido(Integer.parseInt(codMesa));
+                Cardapio card = new Cardapio();
                  List<PedidoCliente> mesas = pdCliente.lovMesa();
+                 List<Cardapio> cardapio = card.lovCardapio();
              %>
                         
-                        <label>Código do Produto</label>
-                        <input type="number" name="codProduto" 
-                               value="<%out.write("" + pdCliente.getCodProduto());%>" />
-                                 
+                        <label>Novo produto</label>
+                        <select name="codProduto">
+                            <% for(Cardapio c: cardapio){ %>
+                            <option value ="<%out.write(""+c.getCodProduto());%>">
+                                    <% out.write(c.getDescProduto()); %>
+                            </option>
+                                    <%}%>
+                        </select>                             
                         <br />
                         
                         <label>Observação</label>
-                        <input type="text" name="obsPedido" 
-                               value="<%out.write(""+pdCliente.getObservacao());%>" />
+                        <input type="text" name="obsPedido" placeholder="Observação" />
                         <br />
             
                         <label for="codmesa">Cod Mesa</label>
