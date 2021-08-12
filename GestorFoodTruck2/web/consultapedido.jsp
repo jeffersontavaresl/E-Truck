@@ -64,8 +64,8 @@
                     <td><%out.write(pc.getObservacao()); %></td>   
                     <td><%out.write(pc.getStatusPagto()); %></td>   
                     <td><%out.write(pc.getStatusPedido()); %></td>   
-                    <td><%out.write("<a href=editaPedido.jsp?codMesa="+pc.getCodMesa()+">Editar</a>");%></td> 
-                    <td><%out.write("<a href=cancelarPedido.jsp?codMesa="+pc.getCodMesa()+">Excluir</a>");%></td>
+                    <td><%out.write("<a href=editaPedido.jsp?codPedido="+pc.getCodPedido()+">Editar</a>");%></td> 
+                    <td><%out.write("<a href=cancelarPedido.jsp?codPedido="+pc.getCodPedido()+">Excluir</a>");%></td>
                 </tr> 
                 <%}%>
             </tbody>
