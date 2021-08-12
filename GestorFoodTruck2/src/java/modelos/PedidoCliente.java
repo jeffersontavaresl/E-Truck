@@ -39,18 +39,18 @@ public class PedidoCliente extends Cardapio{
         return true;
     }
 
-    public boolean alterarPedido() {
+    public boolean alterarPedido(int pCodPedido) {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidocliente ";
                 sql += " SET codproduto    = ?, ";
                 sql += "     observacao   = ? ";
-                sql += " WHERE codmesa  = ? ";
+                sql += " WHERE codpedido  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt   (1, this.codProduto);
             stm.setString(2, this.observacao);
-            stm.setInt   (3, this.codMesa);
+            stm.setInt   (3, pCodPedido);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -168,13 +168,13 @@ public class PedidoCliente extends Cardapio{
         return lista;
     }
 
-    public boolean cancelarPedido(int pCodMesa) {
+    public boolean cancelarPedido(int pCodPedido) {
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM pedidocliente ";
-                sql += " WHERE codmesa = ? ";
+                sql += " WHERE codpedido = ? ";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, pCodMesa);
+            stm.setInt(1, pCodPedido);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
