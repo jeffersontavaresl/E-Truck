@@ -59,7 +59,7 @@
                 <option value="andamento">Andamento</option>
             </select><br><br>
 
-            <a href="index.html">Início</a>
+            <a href="functions.jsp">Início</a>
             <input type="submit" value="Confirmar"/>
             <input type="reset" value="Cancelar" />
         </form>
