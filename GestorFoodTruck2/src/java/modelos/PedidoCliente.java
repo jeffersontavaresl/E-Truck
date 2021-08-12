@@ -120,9 +120,10 @@ public class PedidoCliente extends Cardapio{
         List<PedidoCliente> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
         String  sql  = "SELECT a.codpedido, a.codproduto, c.descproduto, a.codmesa, ";
-                sql += "a.observacao, a.statuspagto, a.statuspedido, c.preco ";
-                sql += "FROM pedidocliente a, cardapio c ";
+                sql += "a.observacao, a.statuspagto, a.statuspedido, c.preco, b.mesa ";
+                sql += "FROM pedidocliente a, cardapio c, mesa b ";
                 sql += "WHERE a.codproduto = c.codproduto ";
+                sql += "AND a.codmesa = b.codmesa ";
                 sql += "ORDER BY codmesa";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
@@ -130,6 +131,7 @@ public class PedidoCliente extends Cardapio{
              while (rs.next()) {
                 PedidoCliente pedcliente = new PedidoCliente();
                 pedcliente.setCodPedido(rs.getInt("codpedido"));
+                pedcliente.setMesa(rs.getString("mesa"));
                 pedcliente.setCodProduto(rs.getInt("codproduto"));
                 pedcliente.setDescProduto(rs.getString("descproduto"));
                 pedcliente.setCodMesa(rs.getInt("codmesa"));
@@ -166,15 +168,13 @@ public class PedidoCliente extends Cardapio{
         return lista;
     }
 
-    public boolean cancelarPedido() {
+    public boolean cancelarPedido(int pCodMesa) {
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM pedidocliente ";
                 sql += " WHERE codmesa = ? ";
-                sql += " AND codproduto = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.codMesa);
-            stm.setInt(2, this.codProduto);
+            stm.setInt(1, pCodMesa);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
