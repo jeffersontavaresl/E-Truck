@@ -61,7 +61,7 @@ public class PedidoCliente extends Cardapio{
 
     public PedidoCliente consultarPedido(int pCodMesa) {
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT a.codpedido, a.codproduto, c.produto, ";
+        String  sql  = "SELECT a.codpedido, a.codproduto, c.descproduto, ";
                 sql += "a.observacao, a.statuspagto, a.statuspedido ";
                 sql += "FROM pedidocliente a, cardapio c";
                 sql += "WHERE codmesa = ? ";
@@ -89,7 +89,7 @@ public class PedidoCliente extends Cardapio{
      public List<PedidoCliente> consultaPedido(int pCodMesa) {
         List<PedidoCliente> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT a.codpedido, a.codproduto, a.produto, a.codmesa, ";
+        String  sql  = "SELECT a.codpedido, a.codproduto, a.descproduto, a.codmesa, ";
                 sql += "a.observacao, a.statuspagto, a.statuspedido, c.preco ";
                 sql += "FROM pedidocliente a, cardapio c ";
                 sql += "WHERE codmesa = ? ";
