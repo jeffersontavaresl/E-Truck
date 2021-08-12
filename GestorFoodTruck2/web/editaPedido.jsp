@@ -15,12 +15,13 @@
         <%  
            
             List<PedidoCliente> pedclientes = new ArrayList<>();
-            String idCodMesa = request.getParameter("codMesa"); 
+            String codpedido = request.getParameter("codPedido");
+            String codPedido = "";
             String codMesa = "";
-            if (idCodMesa != null){
+            if (codpedido != null){
                 PedidoCliente pdCliente = new PedidoCliente();
-                codMesa = idCodMesa;
-                pdCliente = pdCliente.consultarPedido(Integer.parseInt(codMesa));
+                codPedido = codpedido;
+                pdCliente = pdCliente.consultarPedido(Integer.parseInt(codPedido));
                         }
         %>
         
@@ -28,6 +29,7 @@
              <% PedidoCliente pdCliente = new PedidoCliente();
                 Cardapio card = new Cardapio();
                  List<PedidoCliente> mesas = pdCliente.lovMesa();
+                 List<PedidoCliente> pedidos = pdCliente.lovPedidos();
                  List<Cardapio> cardapio = card.lovCardapio();
              %>
                         
@@ -43,19 +45,12 @@
                         
                         <label>Observação</label>
                         <input type="text" name="obsPedido" placeholder="Observação" />
-                        <br />
-            
-                        <label for="codmesa">Cod Mesa</label>
-                        <select name="codMesa">
-                            <% for(PedidoCliente m: mesas){ %>
-                            <option value ="<%out.write(""+m.getCodMesa());%>">
-                                    <% out.write(m.getMesa()); %>
-                            </option>
-                                    <%}%>
-                        </select>
+                        </br>
+                        
+                        <label>Código do Pedido</label>
+                        <input type="text" name="codPedido" placeholder="Pedido" />
 
                         <br />
-       
                         <hr />
                         <input type="submit" value="Alterar" />
         </form>
