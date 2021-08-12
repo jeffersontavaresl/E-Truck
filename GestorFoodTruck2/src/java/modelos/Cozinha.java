@@ -14,6 +14,7 @@ public class Cozinha extends PedidoCliente{
     private int codProduto;
     private int codMesa;
 
+
     @Override
     public Cozinha consultarPedido(int pCodMesa) {
         Connection con = Conexao.conectar();
@@ -36,6 +37,34 @@ public class Cozinha extends PedidoCliente{
         return cozinha;
     }
     
+    public List<Cozinha> lovPedidosCoz(String pStatusPedido) {
+        List<Cozinha> lista = new ArrayList<>();
+        Connection con = Conexao.conectar();
+        String  sql  = "SELECT c.descproduto, a.observacao, a.codmesa, a.codproduto, ";
+                sql += "a.statuspedido  ";
+                sql += "FROM pedidocliente a, cardapio c ";
+                sql += "WHERE statuspedido = ? ";
+                sql += " AND a.codproduto = c.codproduto";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, pStatusPedido);
+            ResultSet rs = stm.executeQuery();
+             while (rs.next()) {
+                Cozinha coz = new Cozinha();
+                coz.setDescProduto(rs.getString("descproduto"));
+                coz.setCodProduto(rs.getInt("codproduto"));
+                coz.setObservacao(rs.getString("observacao"));
+                coz.setStatusPedido(rs.getString("statuspedido"));
+                coz.setCodMesa(rs.getInt("codmesa"));
+                lista.add(coz);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return lista;
+    }
+    
+    
     public boolean atualizarPedido() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidocliente ";
@@ -52,27 +81,6 @@ public class Cozinha extends PedidoCliente{
             return false;
         }
         return true;
-    }
-    
-    public List<Cozinha> lovItem() {
-        List<Cozinha> lista = new ArrayList<>();
-        Connection con = Conexao.conectar();
-        String  sql  = "SELECT c.descproduto, a.observacao ";
-                sql += "FROM pedidocliente a, cardapio c";
-                sql += "ORDER BY codmesa";
-        try {
-            PreparedStatement stm = con.prepareStatement(sql);
-            ResultSet rs = stm.executeQuery();
-             while (rs.next()) {
-                Cozinha cozinha = new Cozinha();
-                cozinha.setDescProduto(rs.getString("descproduto"));
-                cozinha.setObservacao(rs.getString("observacao"));
-                lista.add(cozinha);
-            }
-        } catch (SQLException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-        }
-        return lista;
     }
 
     /* ÁREA DE GETTERS E SETTERS */ 
