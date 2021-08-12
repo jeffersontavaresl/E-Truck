@@ -57,6 +57,9 @@
                                 <a class="nav-link pl-0" href="consultacaixa.jsp">Consulta Caixa</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link pl-0" href="consultaCozinha.jsp">Consulta Cozinha</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link pl-0" href="deslogarusuario.jsp">Deslogar</a>
                             </li>
 
