@@ -9,12 +9,12 @@
     <body>
         <h1>Cancelar item do pedido</h1>
         <%
-          String codMesa = request.getParameter("codMesa");
+          String codPedido = request.getParameter("codPedido");
           PedidoCliente pedcliente = new PedidoCliente();
-          codMesa = codMesa;
-          if (codMesa != null){
-              pedcliente.consultarPedido(Integer.parseInt(codMesa));
-              if(pedcliente.cancelarPedido(Integer.parseInt(codMesa))){
+          codPedido = codPedido;
+          if (codPedido != null){
+              pedcliente.consultarPedido(Integer.parseInt(codPedido));
+              if(pedcliente.cancelarPedido(Integer.parseInt(codPedido))){
               out.write("Item excluido com sucesso");
               response.sendRedirect("consultapedido.jsp");
           }
