@@ -46,16 +46,20 @@
                     <th>Produto</th>
                     <th>Observação</th>
                     <th>Produto</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
 
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <% for (Cozinha c : cz) {%>
-                    <td><%out.write(""+c.getCodMesa());  %></td> 
-                    <td><%out.write(""+c.getCodProduto());  %></td> 
+                    <td><%out.write("" + c.getCodMesa());  %></td> 
+                    <td><%out.write("" + c.getCodProduto());  %></td> 
                     <td><%out.write(c.getObservacao());  %></td> 
                     <td><%out.write(c.getDescProduto());  %></td> 
+                    <td><%out.write("<a href=editaCozinha.jsp?observacao=" + c.getObservacao() + ">Editar</a>");%></td> 
+                    <td><%out.write("<a href=excluCozinha.jsp?observacao=" + c.getObservacao() + ">Excluir</a>");%></td>
                 </tr> 
                 <%}%>
             </tbody>
