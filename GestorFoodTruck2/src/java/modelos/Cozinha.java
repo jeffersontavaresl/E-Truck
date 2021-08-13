@@ -11,6 +11,7 @@ public class Cozinha extends PedidoCliente{
     private String observacao;
     private String descProduto;
     private String statusPedido;
+    private String mesa;
     private int codProduto;
     private int codMesa;
 
@@ -40,9 +41,9 @@ public class Cozinha extends PedidoCliente{
     public List<Cozinha> lovPedidosCoz(String pStatusPedido) {
         List<Cozinha> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT c.descproduto, a.observacao, a.codmesa, a.codproduto, ";
-                sql += "a.statuspedido  ";
-                sql += "FROM pedidocliente a, cardapio c ";
+        String  sql  = "SELECT c.descproduto, a.observacao, a.codproduto, ";
+                sql += "a.statuspedido, b.mesa  ";
+                sql += "FROM pedidocliente a, cardapio c, mesa b ";
                 sql += "WHERE statuspedido = ? ";
                 sql += " AND a.codproduto = c.codproduto";
         try {
@@ -55,7 +56,7 @@ public class Cozinha extends PedidoCliente{
                 coz.setCodProduto(rs.getInt("codproduto"));
                 coz.setObservacao(rs.getString("observacao"));
                 coz.setStatusPedido(rs.getString("statuspedido"));
-                coz.setCodMesa(rs.getInt("codmesa"));
+                coz.setMesa(rs.getString("mesa"));
                 lista.add(coz);
             }
         } catch (SQLException ex) {
@@ -135,6 +136,16 @@ public class Cozinha extends PedidoCliente{
     @Override
     public void setCodMesa(int codMesa) {
         this.codMesa = codMesa;
+    }
+
+    @Override
+    public String getMesa() {
+        return mesa;
+    }
+
+    @Override
+    public void setMesa(String mesa) {
+        this.mesa = mesa;
     }
 
 }
