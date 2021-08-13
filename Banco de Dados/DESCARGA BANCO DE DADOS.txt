@@ -1,0 +1,9 @@
+INSERT INTO Cardapio (descproduto, preco) VALUES ('Hot-Dog', 7.99), ('Coca-Cola', 5.99), ('Bauru Simples', 7.00), ('Bauru com Ovo', 9.99),
+('Suco de Laranja', 5.90), ('Pão com Salada', 3.99);
+
+INSERT INTO Mesa (mesa) VALUES ('MESA 1'), ('MESA 2'), ('MESA 3'), ('RETIRADA 1'), ('RETIRADA 2'), ('RETIRADA 3');
+
+INSERT INTO Usuario (login, senha) VALUES ('a', 'a');
+
+INSERT INTO PedidoCliente (1, 1, 'Sem salsicha', 'Pendente', 'Andamento'), (1, 2, 'Limão e Gelo', 'Pendente', 'Andamento'), 
+(3, 2, null, 'Pendente', 'Andamento');
