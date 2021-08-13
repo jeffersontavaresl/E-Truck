@@ -42,6 +42,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Cógido da Mesa</th>
                     <th>Mesa</th>
                     <th>Produto</th>
                     <th>Observação</th>
@@ -51,16 +52,19 @@
                 </tr>
             </thead>
             <tbody>
+                <form action="atualizaPedido.jsp" method="POST">
                 <tr>
                     <% for (Cozinha c : cz) {%>
+                    <td><%out.write(""+c.getCodMesa());  %></td> 
                     <td><%out.write(c.getMesa());  %></td> 
                     <td><%out.write("" + c.getCodProduto());  %></td> 
                     <td><%out.write(c.getObservacao());  %></td> 
                     <td><%out.write(c.getDescProduto());  %></td> 
-                    <td><%out.write("<a href=excluCozinha.jsp?observacao=" + c.getObservacao() + ">Atualizar Status</a>");%></td>
+                    <td><%out.write("<a href=atualizaPedido.jsp?codmesa=" + c.getCodMesa() + "&statusPedido=" + c.getStatusPedido() +">Atualizar Status</a>");%></td>
                 </tr> 
                 <%}%>
             </tbody>
+                </form>
         </table>
     </body>
 </html>
