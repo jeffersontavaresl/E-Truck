@@ -12,7 +12,7 @@ public class Fornecedor {
     private String telefone;
     private String email;
     private String nomeContato;
-    private int cnpj;
+    private String cnpj;
 
     
     public boolean adicionarFornecedor() {
@@ -22,7 +22,7 @@ public class Fornecedor {
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt   (1, this.cnpj);
+            stm.setString(1, this.cnpj);
             stm.setString(2, this.razaoSocial);
             stm.setString(3, this.telefone);
             stm.setString(4, this.email);
@@ -48,7 +48,7 @@ public class Fornecedor {
             stm.setString(1, this.email);
             stm.setString(2, this.telefone);
             stm.setString(3, this.nomeContato);
-            stm.setInt   (4, this.cnpj);
+            stm.setString   (4, this.cnpj);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -63,7 +63,7 @@ public class Fornecedor {
                 sql += " WHERE cnpj = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.cnpj);
+            stm.setString(1, this.cnpj);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -72,7 +72,7 @@ public class Fornecedor {
         return true;
     }
     
-    public Fornecedor consultarFonecedor(int pCnpj) {
+    public Fornecedor consultarFonecedor(String pCnpj) {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT cnpj, razaosocial, telefone, ";
                 sql += " email, nomecontato ";
@@ -81,11 +81,11 @@ public class Fornecedor {
         Fornecedor fornecedor = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, pCnpj);
+            stm.setString(1, pCnpj);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 fornecedor = new Fornecedor();
-                fornecedor.setCnpj(rs.getInt("cnpj"));
+                fornecedor.setCnpj(rs.getString("cnpj"));
                 fornecedor.setRazaoSocial(rs.getString("razaosocial"));
                 fornecedor.setTelefone(rs.getString("telefone"));
                 fornecedor.setEmail(rs.getString("email"));
@@ -107,7 +107,7 @@ public class Fornecedor {
             ResultSet rs = stm.executeQuery();
              while (rs.next()) {
                 Fornecedor fornecedor= new Fornecedor();
-                fornecedor.setCnpj(rs.getInt("cnpj"));
+                fornecedor.setCnpj(rs.getString("cnpj"));
                 fornecedor.setRazaoSocial(rs.getString("razaosocial"));
                 fornecedor.setTelefone(rs.getString("telefone"));
                 fornecedor.setEmail(rs.getString("email"));
@@ -153,11 +153,11 @@ public class Fornecedor {
         this.nomeContato = nomeContato;
     }
 
-    public int getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(int cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
     
