@@ -4,6 +4,3 @@ INSERT INTO Cardapio (descproduto, preco) VALUES ('Hot-Dog', 7.99), ('Coca-Cola'
 INSERT INTO Mesa (mesa) VALUES ('MESA 1'), ('MESA 2'), ('MESA 3'), ('RETIRADA 1'), ('RETIRADA 2'), ('RETIRADA 3');
 
 INSERT INTO Usuario (login, senha) VALUES ('a', 'a');
-
-INSERT INTO PedidoCliente (codmesa, codproduto, observacao, statuspagto, statuspedido) VALUES (1, 1, 'Sem salsicha', 'Pendente', 'Andamento'), (1, 2, 'Limão e Gelo', 'Pendente', 'Andamento'), 
-(3, 2, null, 'Pendente', 'Andamento');
