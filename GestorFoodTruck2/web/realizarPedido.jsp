@@ -67,6 +67,7 @@
                         <option value="andamento">Andamento</option>
                     </select><br>
                     <div class="text-center mb-3">
+                        <a href="functions.jsp" class="btn btn-primary">Início</a>
                         <input type="submit" value="Confirmar" class="btn btn-success"/>
                         <input type="reset" value="Cancelar" class="btn btn-danger"/>
                     </div>
