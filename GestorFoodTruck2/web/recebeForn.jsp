@@ -11,7 +11,7 @@
         <%
         
         Fornecedor forn= new Fornecedor();
-        forn.setCnpj(Integer.parseInt(request.getParameter("cdCnpj")));
+        forn.setCnpj(request.getParameter("cdCnpj"));
         forn.setRazaoSocial(request.getParameter("cdSoc"));
         forn.setTelefone(request.getParameter("cdTel"));
         forn.setEmail(request.getParameter("cdEml"));
