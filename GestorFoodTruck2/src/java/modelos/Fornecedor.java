@@ -3,6 +3,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import utils.Conexao;
 public class Fornecedor {
 
@@ -15,7 +17,7 @@ public class Fornecedor {
     
     public boolean adicionarFornecedor() {
         String  sql  = "INSERT INTO fornecedor (razaosocial, telefone, email, nomecontato) ";
-                sql += "VALUES(?,?,?,?)";
+                sql += "VALUES(?, ?, ?, ?)";
         Connection con = Conexao.conectar();
 
         try {
@@ -94,6 +96,28 @@ public class Fornecedor {
         return fornecedor;
     }
        
+    public List<Fornecedor> lovFornecedores() {
+        List<Fornecedor> lista = new ArrayList<>();
+        Connection con = Conexao.conectar();
+        String  sql  = "SELECT * FROM fornecedor ";
+                sql += "ORDER BY codfornecedor";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+             while (rs.next()) {
+                Fornecedor fornecedor= new Fornecedor();
+                fornecedor.setCodFornecedor(rs.getInt("codfornecedor"));
+                fornecedor.setRazaoSocial(rs.getString("razaosocial"));
+                fornecedor.setTelefone(rs.getString("telefone"));
+                fornecedor.setEmail(rs.getString("email"));
+                fornecedor.setNomeContato(rs.getString("nomecontato"));
+                lista.add(fornecedor);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return lista;
+    }
     /* ÁREA DE GETTERS E SETTERS */ 
 
     public String getRazaoSocial() {
