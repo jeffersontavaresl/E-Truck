@@ -35,7 +35,7 @@
         <hr />
         <%
             PedidoCliente pcli = new PedidoCliente();
-            List<PedidoCliente> ped = pcli.lovPedidos();
+            List<PedidoCliente> ped = pcli.consultaPedido("andamento");
         %>
         <table>
             <thead>
