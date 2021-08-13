@@ -34,7 +34,7 @@
         <table>
             <thead>
                 <tr>
-                  <th>Código do forncedor</th>
+                  <th>CNPJ</th>
                   <th>Razão Social</th>
                   <th>Telefone</th>
                   <th>E-mail</th>
@@ -45,7 +45,7 @@
             <tbody>
                 <% for(Fornecedor f : lista) { %>
                    <tr>
-                       <td><%  out.write("" + f.getCnpj());   %></td>
+                       <td><%  out.write(f.getCnpj());   %></td>
                         <td><% out.write(f.getRazaoSocial());  %></td>
                         <td><% out.write(f.getTelefone()); %></td>  
                         <td><% out.write(f.getEmail()); %></td> 
