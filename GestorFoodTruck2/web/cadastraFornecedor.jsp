@@ -16,7 +16,6 @@
         justify-content: center;
         align-items: center;
     }
-
     .box {
         width: 350px;
         height: 400px;
@@ -43,6 +42,9 @@
                <div class="box">
                    <h2>Cadastro de fornecedor</h2>
                    <div class="itens">
+                       <label><b>CNPJ</b></label> <br>
+                       <input type="text" name="cdCnpj" placeholder="CNPJ"> <br><br>
+                       
                        <label><b>Razão social</b></label> <br>
                        <input type="text" name="cdSoc" placeholder="Razão Social"> <br><br>
 
@@ -65,7 +67,14 @@
                 
 <script>
     function enviarDados(){
-
+        
+            var cnpj = document.getElementsByName("cdCnpj");
+            if(cnpj[0].value === ""){
+                cnpj[0].focus();
+                alert("Informe o CNPJ");
+                exit();
+            }
+            
             var rzSoc = document.getElementsByName("cdSoc");
             if(rzSoc[0].value === ""){
                 rzSoc[0].focus();
