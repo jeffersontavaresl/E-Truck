@@ -13,6 +13,7 @@ public class Fornecedor {
     private String email;
     private String nomeContato;
     private String cnpj;
+    private int codFornecedor;
 
     
     public boolean adicionarFornecedor() {
@@ -41,14 +42,14 @@ public class Fornecedor {
                 sql += " SET email   = ?,";
                 sql += "     telefone = ?, ";
                 sql += " nomecontato = ? ";
-                sql += " WHERE cnpj  = ? ";
+                sql += " WHERE codfornecedor  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.email);
             stm.setString(2, this.telefone);
             stm.setString(3, this.nomeContato);
-            stm.setString   (4, this.cnpj);
+            stm.setInt   (4, this.codFornecedor);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -60,10 +61,10 @@ public class Fornecedor {
     public boolean excluirFornecedor() {
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM fornecedor ";
-                sql += " WHERE cnpj = ?";
+                sql += " WHERE codfornecedor = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.cnpj);
+            stm.setInt(1, this.codFornecedor);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -72,16 +73,16 @@ public class Fornecedor {
         return true;
     }
     
-    public Fornecedor consultarFonecedor(String pCnpj) {
+    public Fornecedor consultarFonecedor(int pCodFornecedor) {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT cnpj, razaosocial, telefone, ";
                 sql += " email, nomecontato ";
                 sql += "FROM fornecedor ";
-                sql += "WHERE cnpj  = ? ";
+                sql += "WHERE codfornecedor  = ? ";
         Fornecedor fornecedor = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, pCnpj);
+            stm.setInt(1, pCodFornecedor);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 fornecedor = new Fornecedor();
@@ -159,6 +160,14 @@ public class Fornecedor {
 
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
+    }
+
+    public int getCodFornecedor() {
+        return codFornecedor;
+    }
+
+    public void setCodFornecedor(int codFornecedor) {
+        this.codFornecedor = codFornecedor;
     }
     
 }
