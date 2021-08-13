@@ -47,6 +47,7 @@ public class Cozinha extends PedidoCliente{
                 sql += "WHERE statuspedido = ? ";
                 sql += " AND a.codproduto = c.codproduto";
                 sql += " AND b.codmesa = a.codmesa";
+                sql += " ORDER BY b.codmesa";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, pStatusPedido);
