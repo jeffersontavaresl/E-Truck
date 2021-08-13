@@ -42,10 +42,11 @@ public class Cozinha extends PedidoCliente{
         List<Cozinha> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
         String  sql  = "SELECT c.descproduto, a.observacao, a.codproduto, ";
-                sql += "a.statuspedido, b.mesa  ";
+                sql += "a.statuspedido, b.mesa, b.codmesa  ";
                 sql += "FROM pedidocliente a, cardapio c, mesa b ";
                 sql += "WHERE statuspedido = ? ";
                 sql += " AND a.codproduto = c.codproduto";
+                sql += " AND b.codmesa = a.codmesa";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, pStatusPedido);
@@ -57,6 +58,7 @@ public class Cozinha extends PedidoCliente{
                 coz.setObservacao(rs.getString("observacao"));
                 coz.setStatusPedido(rs.getString("statuspedido"));
                 coz.setMesa(rs.getString("mesa"));
+                coz.setCodMesa(rs.getInt("codmesa"));
                 lista.add(coz);
             }
         } catch (SQLException ex) {
@@ -66,7 +68,7 @@ public class Cozinha extends PedidoCliente{
     }
     
     
-    public boolean atualizarPedido() {
+    public boolean atualizarPedido(int pCodMesa) {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidocliente ";
                 sql += " SET statuspedido = ? ";
@@ -75,7 +77,7 @@ public class Cozinha extends PedidoCliente{
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.statusPedido);
-            stm.setInt   (2, this.codMesa);
+            stm.setInt   (2, pCodMesa);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -97,7 +99,6 @@ public class Cozinha extends PedidoCliente{
         this.observacao = observacao;
     }
     
-
     @Override
     public String getDescProduto() {
         return descProduto;
