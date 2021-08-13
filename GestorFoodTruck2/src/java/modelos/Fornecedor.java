@@ -17,7 +17,7 @@ public class Fornecedor {
     
     public boolean adicionarFornecedor() {
         String  sql  = "INSERT INTO fornecedor (cnpj, razaosocial, telefone, email, nomecontato) ";
-                sql += "VALUES(?, ?, ?, ?)";
+                sql += "VALUES(?, ?, ?, ?, ?)";
         Connection con = Conexao.conectar();
 
         try {
