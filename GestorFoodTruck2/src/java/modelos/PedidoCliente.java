@@ -86,21 +86,25 @@ public class PedidoCliente extends Cardapio{
         return pedcliente;
     }
     
-     public List<PedidoCliente> consultaPedido(int pCodMesa) {
+     public List<PedidoCliente> consultaPedido(String pStatusPedido) {
         List<PedidoCliente> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT a.codpedido, a.codproduto, a.descproduto, a.codmesa, ";
-                sql += "a.observacao, a.statuspagto, a.statuspedido, c.preco ";
-                sql += "FROM pedidocliente a, cardapio c ";
-                sql += "WHERE codmesa = ? ";
+        String  sql  = "SELECT a.codpedido, a.codproduto, c.descproduto, a.codmesa, ";
+                sql += "a.observacao, a.statuspagto, a.statuspedido, c.preco, b.mesa ";
+                sql += "FROM pedidocliente a, cardapio c, mesa b ";
+                sql += " WHERE a.statuspedido = ? ";
                 sql += "AND a.codproduto = c.codproduto ";
+                sql += "AND a.codmesa = b.codmesa ";
+                sql += "AND a.codproduto = c.codproduto ";
+                sql += "ORDER BY codmesa";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, pCodMesa);
+            stm.setString(1, pStatusPedido);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 PedidoCliente pedcliente = new PedidoCliente();
-                pedcliente.setCodProduto(rs.getInt("codpedido"));
+                pedcliente.setCodPedido(rs.getInt("codpedido"));
+                pedcliente.setMesa(rs.getString("mesa"));
                 pedcliente.setCodProduto(rs.getInt("codproduto"));
                 pedcliente.setDescProduto(rs.getString("descproduto"));
                 pedcliente.setCodMesa(rs.getInt("codmesa"));
