@@ -36,7 +36,7 @@
 
                             <!-- LINKS SIDEBAR -->
                             <li class="nav-item">
-                                <p class="h2" style="border-bottom: 1px solid rgb(255, 217, 217); color:white;">teste</p>
+                                <p class="h2" style="border-bottom: 1px solid rgb(255, 217, 217); color:white;">E-Truck</p>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link pl-0" href="index.html">Início</a>
