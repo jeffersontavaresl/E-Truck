@@ -12,7 +12,6 @@
     table, th, td {
   border: 1px solid black;
     }
-
     table {
       width: 35%;
     }
@@ -46,7 +45,7 @@
             <tbody>
                 <% for(Fornecedor f : lista) { %>
                    <tr>
-                       <td><%  out.write("" + f.getCodFornecedor());   %></td>
+                       <td><%  out.write("" + f.getCnpj());   %></td>
                         <td><% out.write(f.getRazaoSocial());  %></td>
                         <td><% out.write(f.getTelefone()); %></td>  
                         <td><% out.write(f.getEmail()); %></td> 
