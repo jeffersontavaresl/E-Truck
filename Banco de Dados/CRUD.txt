@@ -47,22 +47,22 @@ CREATE TABLE Insumo (
 );
 
 CREATE TABLE Fornecedor (
-    codfornecedor serial NOT NULL,
+    cnpjforn integer NOT NULL,
     razaosocial varchar(40) NOT NULL,
     telefone varchar(20) NOT NULL,
     email varchar(45) NOT NULL,
     nomecontato varchar(20),
-    CONSTRAINT fornecedor_pkey PRIMARY KEY (codfornecedor)
+    CONSTRAINT fornecedor_pkey PRIMARY KEY (cnpjforn)
 );
 
 CREATE TABLE PedidoFornecedor (
-    codfornecedor integer NOT NULL,
+    cnpjforn integer NOT NULL,
     codpedfornecedor serial NOT NULL, 
     CONSTRAINT idpedfornecedor_pkey PRIMARY KEY(codpedfornecedor)
 );
 
 CREATE TABLE PedidoFornecedorItem (
-    codfornecedor integer NOT NULL,
+    cnpjforn integer NOT NULL,
     codpedfornecedor integer NOT NULL,
     codinsumo integer NOT NULL,
     qtdinsumo numeric(4,2) NOT NULL,
@@ -74,13 +74,12 @@ CREATE TABLE Usuario (
     codusuario serial NOT NULL,
     login varchar(20) NOT NULL,
     senha varchar(20) NOT NULL,
-    tipousuario varchar(10),
     CONSTRAINT id_pkey PRIMARY KEY (codusuario)
 );
 
 ALTER TABLE PedidoCliente ADD CONSTRAINT fk_pedidocliente FOREIGN KEY (codmesa) REFERENCES Mesa(codmesa);
 ALTER TABLE PedidoCliente ADD CONSTRAINT fk_pedclienteprod FOREIGN KEY(codproduto) REFERENCES Cardapio(codproduto);
 ALTER TABLE Caixa ADD CONSTRAINT fk_formapagto FOREIGN KEY (codformpagto) REFERENCES FormaPagamento (codformpagto);
-ALTER TABLE PedidoFornecedorItem ADD CONSTRAINT fk_codfornecedor FOREIGN KEY (codfornecedor) REFERENCES Fornecedor (codfornecedor);
+ALTER TABLE PedidoFornecedorItem ADD CONSTRAINT fk_cnpjforn FOREIGN KEY (cnpjforn) REFERENCES Fornecedor (cnpjforn);
 ALTER TABLE PedidoFornecedorItem ADD CONSTRAINT fk_codpedfornecedor FOREIGN KEY (codpedfornecedor) REFERENCES PedidoFornecedor (codpedfornecedor);
 ALTER TABLE PedidoFornecedorItem ADD CONSTRAINT fk_codinsumo FOREIGN KEY (codinsumo) REFERENCES Insumo (codinsumo);
