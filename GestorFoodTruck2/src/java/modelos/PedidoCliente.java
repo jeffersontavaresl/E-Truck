@@ -124,6 +124,7 @@ public class PedidoCliente extends Cardapio{
                 sql += "FROM pedidocliente a, cardapio c, mesa b ";
                 sql += "WHERE a.codproduto = c.codproduto ";
                 sql += "AND a.codmesa = b.codmesa ";
+                sql += "AND a.codproduto = c.codproduto ";
                 sql += "ORDER BY codmesa";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
