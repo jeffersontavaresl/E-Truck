@@ -96,7 +96,7 @@ public class PedidoCliente extends Cardapio{
                 sql += "AND a.codproduto = c.codproduto ";
                 sql += "AND a.codmesa = b.codmesa ";
                 sql += "AND a.codproduto = c.codproduto ";
-                sql += "ORDER BY codmesa";
+                sql += "ORDER BY b.codmesa";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, pStatusPedido);
