@@ -1,0 +1,9 @@
+#head{
+    background-color: white;
+    background-size:100%;
+    border-radius: 23px;
+  }
+
+body{
+  background: linear-gradient(120deg, #00008B, #00BFFF);
+}
