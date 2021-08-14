@@ -15,22 +15,22 @@
         <%
         List<Caixa> caixas = new ArrayList();
         String codmesa = request.getParameter("idmesa");
-        String status = request.getParameter("statuspagto");
+        String statusPagto = "pendente";
         int idmesa = 0;
         if(codmesa != null){
             Caixa caixa = new Caixa();
             idmesa = Integer.parseInt(codmesa);
-            caixas = caixa.consultaPedido(idmesa, status);
+            caixas = caixa.consultaPedido(idmesa, statusPagto);
         }
         %>
         <form action="consultacaixa.jsp" method="POST">
             <%
             PedidoCliente pedcliente = new PedidoCliente();
-            List<PedidoCliente> pedclientes = pedcliente.consultaPedido(idmesa);
+            Caixa caixa = new Caixa();
             List<PedidoCliente> mesas = pedcliente.lovMesa();
            %>
            <section>
-           <div id="mesa">
+           <div class="form-group col-md-3 h-1">
                     <label for="codmesa">Mesas</label>
                     <select name="idmesa">
                         <% for(PedidoCliente m: mesas){ %>
@@ -40,7 +40,7 @@
                         <%}%>
                     </select>  
                 </div>
-                <div id="btnfinalizar">
+                <div class="form-group col-md-3 h-1">
                     <input type="submit" value="Consultar" class="btn btn-primary"/>
                 </div>
                 
@@ -53,62 +53,28 @@
         </thead>
         
         <tbody>
-            <% for (Caixa p : caixas) {%>
+            <% for (Caixa c : caixas) {%>
             <tr>
-                <td><% out.write(""+p.getCodProduto()); %></td>
-                <td><% out.write(p.getDescProduto()); %></td>
-                <td><% out.write(p.getStatusPagto()); %></td>
-                <td><% out.print(p.getPreco());%></td> 
-                <td>
-                    
-                </td>
+                <td><% out.write(""+c.getCodProduto()); %></td>
+                <td><% out.write(c.getDescProduto()); %></td>
+                <td><% out.write(c.getStatusPagto()); %></td>
+                <td><% out.print(c.getVlrTotal());%></td>
+                <td><%out.write("<a href=finalizarPedido.jsp?codmesa=" + c.getCodMesa() + "&statusPagto=" + c.getStatusPagto() +">Atualizar Status</a>");%></td>
             </tr> 
             <%}%>
             <%  
                 float vlrTotal = 0;
                 for(Caixa c : caixas){
-                    float vlrUnd = c.getPreco();
+                    float vlrUnd = c.getVlrTotal();
                     vlrTotal += vlrUnd;
-                    }           
+                    } 
+
         %>
         <td id="vlr"><%out.write("Valor Total: " + vlrTotal); %></td>
+        
         </tbody>
         </table>
         </form>
-        <form action="realizapagamento.jsp" method="POST">
-            <select name="statuspagto">
-            <option value="Pago">Pago</option>
-            <option value="Nao Pago" selected>Não pago</option>
-            </select>
-            <select name="codmesa">
-            <option value="1">MESA 1</option>
-            <option value="2">MESA 2</option>
-            <option value="3">MESA 3</option>
-            <option value="4">RETIRADA</option>
-            </select>
-            <input type="submit" value="Continuar" name="continuar" onclick="enviarpagto()" />
-        </form>
-        </section>
-    <script>
-    function enviapagto(){
-
-            var statusPagto = document.getElementsByName("statuspagto");
-            if(statusPagto[0].value === ""){
-                statusPagto[0].focus();
-                alert("Informe o pagamento");
-                exit();
-            }
-
-            var codmesa = document.getElementsByName("codmesa");
-            if(codmesa[0].value === ""){
-                codmesa[0].focus();
-                alert("Informe a mesa");
-                exit();
-            }
-
-            document.forms[0].submit();
-    }        
-    
-</script>
+            </section>
     </body>
 </html>

@@ -10,26 +10,9 @@
         <title>Consulta dos Pedidos</title>
         <link rel="stylesheet" href="styles/estilos.css"> 
     </head>
-    <header>
-
-        <style>     
-
-            table, th, td {
-                border: 1px solid black;
-            }
-
-            table {
-                width: 35%;
-            }
-
-            td{
-                text-align: center;
-            }
-        </style>
-
-    </header>
-
     <body>
+        <div class="container-fluid border w-50 h-75 mt-3 mb-4" id="head">
+            <div class="container-fluid d-flex justify-content-center mt-4">
         <p><a href="functions.jsp">Voltar</a></p>
         <h1>Consulta Itens</h1>
         <hr />
@@ -37,6 +20,8 @@
             PedidoCliente pcli = new PedidoCliente();
             List<PedidoCliente> ped = pcli.consultaPedido("andamento");
         %>
+        </div>
+        <div class="container-fluid mt-2 mr-4">
         <table>
             <thead>
                 <tr>
