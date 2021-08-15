@@ -124,7 +124,7 @@ public class Caixa {
     public boolean InserirFormaPagto(){
         Connection con = Conexao.conectar();
         String sql  = "INSERT INTO caixa ";
-               sql += "datamovimento, codformpagto, vlrtotal ";
+               sql += "(datamovimento, codformpagto, vlrtotal) ";
                sql += "VALUES (?,?,?)";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
