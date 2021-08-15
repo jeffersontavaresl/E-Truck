@@ -10,14 +10,14 @@
     <body>
         <%
         
-            String data = request.getParameter("data");
-            String vlrTotal = request.getParameter("vlrTotal");
-            String codpagto = request.getParameter("formPagto");
+            Date data = Date.valueOf(request.getParameter("data"));
+            float vlrTotal = Float.parseFloat(request.getParameter("vlrTotal"));
+            int codpagto = Integer.parseInt(request.getParameter("formPagto"));
             
             Caixa caixa = new Caixa ();
-            caixa.setDataMovimento(Date.valueOf(data));
-            caixa.setCodFormPagto(Integer.parseInt(codpagto));
-            caixa.setVlrTotal(Float.parseFloat(vlrTotal));
+            caixa.setDataMovimento(data);
+            caixa.setCodFormPagto(codpagto);
+            caixa.setVlrTotal(vlrTotal);
             
             if(caixa.InserirFormaPagto()){
             response.sendRedirect("consultacaixa.jsp?pmensagem=Pagamento inserido com sucesso");
