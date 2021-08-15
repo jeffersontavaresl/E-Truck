@@ -25,7 +25,7 @@ CREATE TABLE Caixa (
 CREATE TABLE FormaPagamento (
     codformpagto serial NOT NULL,
     descformpagto varchar(20) NOT NULL,
-    descbandeira varchar(10) NOT NULL,
+    descbandeira varchar(10),
     CONSTRAINT formapagamento_pkey PRIMARY KEY (codformpagto)
 );
 
