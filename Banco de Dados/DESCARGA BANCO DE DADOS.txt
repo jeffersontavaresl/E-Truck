@@ -4,3 +4,7 @@ INSERT INTO Cardapio (descproduto, preco) VALUES ('Hot-Dog', 7.99), ('Coca-Cola'
 INSERT INTO Mesa (mesa) VALUES ('MESA 1'), ('MESA 2'), ('MESA 3'), ('RETIRADA 1'), ('RETIRADA 2'), ('RETIRADA 3');
 
 INSERT INTO Usuario (login, senha) VALUES ('a', 'a');
+
+INSERT INTO formapagamento (descformpagto, descbandeira) VALUES ('Dinheiro', ''), ('Crédito', 'MasterCard'), ('Crédito', 'Visa'),
+('Crédito', 'Elo'), ('Débito', 'MasterCard'), ('Débito', 'Visa'),
+('Débito', 'Elo');
