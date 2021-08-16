@@ -13,12 +13,12 @@ public class Insumo {
     private float custoInsumo;
     private float sldEstqInsumo;
     private float qtdEstqAlerta;
-    private int codUndMed;
+    private String undMedida;
 
     
     public boolean cadastrarItem() {
         String  sql  = "INSERT INTO insumo (descinsumo, ";
-                sql += "custoinsumo, sldestqinsumo, codundmed, qtdestqalerta) ";
+                sql += "custoinsumo, sldestqinsumo, undMedida, qtdestqalerta) ";
                 sql += "VALUES(?,?,?,?,?)";
         Connection con = Conexao.conectar();
 
@@ -27,7 +27,7 @@ public class Insumo {
             stm.setString(1, this.descInsumo);
             stm.setFloat (2, this.custoInsumo);
             stm.setFloat (3, this.sldEstqInsumo);
-            stm.setInt   (4, this.codUndMed);
+            stm.setString   (4, this.undMedida);
             stm.setFloat (5, this.qtdEstqAlerta);
             stm.execute();
         } catch (SQLException ex) {
@@ -58,7 +58,7 @@ public class Insumo {
     public Insumo consultarInsumo(int pCodInsumo) {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT codinsumo, descinsumo, ";
-		sql += "custoinsumo, sldestqinsumo, codundmed, qtdestqalerta ";
+		sql += "custoinsumo, sldestqinsumo, undMedida, qtdestqalerta ";
                 sql += "FROM insumo ";
                 sql += "WHERE codinsumo = ?";
         Insumo estoque = null;
@@ -72,7 +72,7 @@ public class Insumo {
                 estoque.setDescInsumo(rs.getString("descinsumo"));
                 estoque.setCustoInsumo(rs.getFloat("custoinsumo"));
                 estoque.setSldEstqInsumo(rs.getFloat("sldestqinsumo"));
-                estoque.setCodUndMed(rs.getInt("codundmed"));
+                estoque.setUndMedida(rs.getString("undMedida"));
                 estoque.setQtdEstqAlerta(rs.getFloat("qtdestqalerta"));
             }
         } catch (SQLException ex) {
@@ -85,7 +85,7 @@ public class Insumo {
         List<Insumo> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
         String  sql  = "SELECT codinsumo, descinsumo, ";
-		sql += "custoinsumo, sldestqinsumo, codundmed, qtdestqalerta ";
+		sql += "custoinsumo, sldestqinsumo, undMedida, qtdestqalerta ";
                 sql += "FROM insumo ";
                 sql += "ORDER BY codproduto";
         try {
@@ -97,7 +97,7 @@ public class Insumo {
                 estoque.setDescInsumo(rs.getString("descinsumo"));
                 estoque.setCustoInsumo(rs.getFloat("custoinsumo"));
                 estoque.setSldEstqInsumo(rs.getFloat("sldestqinsumo"));
-                estoque.setCodUndMed(rs.getInt("codundmed"));
+                estoque.setUndMedida(rs.getString("undMedida"));
                 estoque.setQtdEstqAlerta(rs.getFloat("qtdestqalerta"));
                 lista.add(estoque);
             }
@@ -164,12 +164,12 @@ public class Insumo {
         this.qtdEstqAlerta = qtdEstqAlerta;
     }
 
-    public int getCodUndMed() {
-        return codUndMed;
+    public String getUndMedida() {
+        return undMedida;
     }
 
-    public void setCodUndMed(int codUndMed) {
-        this.codUndMed = codUndMed;
+    public void setUndMedida(String undMedida) {
+        this.undMedida = undMedida;
     }
   
 }
