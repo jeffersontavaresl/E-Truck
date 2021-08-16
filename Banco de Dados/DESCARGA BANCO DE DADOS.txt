@@ -8,3 +8,8 @@ INSERT INTO Usuario (login, senha) VALUES ('a', 'a');
 INSERT INTO formapagamento (descformpagto, descbandeira) VALUES ('Dinheiro', ''), ('Crédito', 'MasterCard'), ('Crédito', 'Visa'),
 ('Crédito', 'Elo'), ('Débito', 'MasterCard'), ('Débito', 'Visa'),
 ('Débito', 'Elo');
+
+INSERT INTO insumo (descinsumo, custoinsumo, sldestqinsumo, undmedida, qtdestqalerta) VALUES ('Milho', 7.99, 5, 'KG', 10),
+('Ketchup', 5.99, 5, 'KG', 10), ('Salsicha', 8.99, 45, 'KG', 50), ('Pão', 4.55, 10, 'Unidade', 10), ('Maionese', 7.99, 5, 'KG', 10),
+('Batata Palha', 8.90, 3, 'KG', 5), ('Ovos', 10.90, 3, 'Duzia', 2), ('Coca-Cola', 12.90, 2, 'Duzia', 5),
+('Fanta', 10.80, 3, 'Duzia', 5);
