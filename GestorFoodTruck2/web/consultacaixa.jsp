@@ -12,6 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <main class="login">
         <%
         List<Caixa> caixas = new ArrayList();
         String codmesa = request.getParameter("idmesa");
@@ -30,8 +31,8 @@
             List<PedidoCliente> mesas = pedcliente.lovMesa();
            %>
            <section>
-           <div class="form-group col-md-3 h-1">
-                    <label for="codmesa">Mesas</label>
+           <div class="loginContainer">
+                    <label for="codmesa" class="loginTitulo">Mesas</label>
                     <select name="idmesa">
                         <% for(PedidoCliente m: mesas){ %>
                            <option value="<%out.write(""+m.getCodMesa());%>">
@@ -39,12 +40,12 @@
                            </option>
                         <%}%>
                     </select>  
-                </div>
-                <div class="form-group col-md-3 h-1">
-                    <input type="submit" value="Consultar" class="btn btn-primary"/>
+                
+                <div>
+                    <input type="submit" value="Consultar" class="loginSubmit"/>
                 </div>
                 
-            <table id="config">
+            <table class="loginBorder">
             <thead>
             <th>Cod Produto</th>
             <th>Produto</th>
@@ -52,14 +53,18 @@
             <th>Valor</th>
         </thead>
         
-        <tbody>
+        <tbody class="produtos">
+            <% int mesa = 0;
+               String status = "";
+            %>
             <% for (Caixa c : caixas) {%>
             <tr>
                 <td><% out.write(""+c.getCodProduto()); %></td>
                 <td><% out.write(c.getDescProduto()); %></td>
                 <td><% out.write(c.getStatusPagto()); %></td>
                 <td><% out.print(c.getVlrTotal());%></td>
-                <td><%out.write("<a href=finalizarPedido.jsp?codmesa=" + c.getCodMesa() + "&statusPagto=" + c.getStatusPagto() +">Atualizar Status</a>");%></td>
+                    <% mesa = c.getCodMesa(); %>
+                    <% status = c.getStatusPagto(); %>
             </tr> 
             <%}%>
             <%  
@@ -68,13 +73,14 @@
                     float vlrUnd = c.getVlrTotal();
                     vlrTotal += vlrUnd;
                     } 
-
-        %>
-        <td id="vlr"><%out.write("Valor Total: " + vlrTotal); %></td>
-        
+            %>
+        <td><%out.write("Valor Total: " + vlrTotal); %></td>
         </tbody>
         </table>
+        <button class="loginSubmit"><%out.write("<a href=finalizarPedido.jsp?codmesa=" + mesa + "&statusPagto=" + status +">Finalizar Pedido</a>");%></button>
+        </div>
         </form>
             </section>
+        </main> 
     </body>
 </html>
