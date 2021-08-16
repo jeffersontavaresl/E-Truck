@@ -67,7 +67,6 @@ CREATE TABLE PedidoFornecedorItem (
     codpedfornecedor integer NOT NULL,
     codinsumo integer NOT NULL,
     qtdinsumo numeric(4,2) NOT NULL,
-    custoinsumo numeric(4,2) NOT NULL,
     CONSTRAINT idpedidofornecedoritem_pk PRIMARY KEY(codfornecedor, codpedfornecedor, codinsumo)
 );
 
