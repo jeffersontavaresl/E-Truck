@@ -39,10 +39,10 @@ CREATE TABLE Cardapio (
 CREATE TABLE Insumo (
     codinsumo serial NOT NULL,
     descinsumo varchar(20) NOT NULL,
-    custoinsumo numeric(4,2) NOT NULL,
-    sldestqinsumo numeric(4,2) NOT NULL,
+    custoinsumo numeric(6,2) NOT NULL,
+    sldestqinsumo numeric(6,2) NOT NULL,
     undmedida varchar(30) NOT NULL, 
-    qtdestqalerta numeric(4,2) NOT NULL,
+    qtdestqalerta numeric(6,2) NOT NULL,
     CONSTRAINT estoque_pkey PRIMARY KEY (codinsumo)
 );
 
@@ -66,7 +66,7 @@ CREATE TABLE PedidoFornecedorItem (
     codfornecedor integer NOT NULL,
     codpedfornecedor integer NOT NULL,
     codinsumo integer NOT NULL,
-    qtdinsumo numeric(4,2) NOT NULL,
+    qtdinsumo numeric(6,2) NOT NULL,
     CONSTRAINT idpedidofornecedoritem_pk PRIMARY KEY(codfornecedor, codpedfornecedor, codinsumo)
 );
 
