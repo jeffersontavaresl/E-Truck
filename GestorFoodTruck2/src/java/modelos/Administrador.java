@@ -23,9 +23,9 @@ public class Administrador {
         Connection con = Conexao.conectar();
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt   (1, this.codFornecedor);
-            stm.setInt   (2, this.codPedFornecedor);
-            stm.setInt(3, this.codInsumo);
+            stm.setInt  (1, this.codFornecedor);
+            stm.setInt  (2, this.codPedFornecedor);
+            stm.setInt  (3, this.codInsumo);
             stm.setFloat(4, this.qtdInsumo);
             stm.setFloat(5, this.custoInsumo);
             stm.execute();
@@ -100,8 +100,24 @@ public class Administrador {
         return lista;
     }
     
-    public boolean alterarPedidoItem() { 
-        return false;
+    public boolean alterarPedidoItem(int pCodPedFornecedor) { 
+        Connection con = Conexao.conectar();
+        String  sql  = "UPDATE pedidofornecedoritem ";
+                sql += " SET codinsumo    = ?, ";
+                sql += "     qtdinsumo   = ? ";
+                sql += " WHERE codpedfornecedor  = ? ";
+
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt  (1, this.codInsumo);
+            stm.setFloat(2, this.qtdInsumo);
+            stm.setInt  (3, pCodPedFornecedor);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
     }
     
     public boolean excluirPedidoItem(int pCodPedFornecedor) { 
