@@ -87,7 +87,7 @@ public class Insumo {
         String  sql  = "SELECT codinsumo, descinsumo, ";
 		sql += "custoinsumo, sldestqinsumo, undMedida, qtdestqalerta ";
                 sql += "FROM insumo ";
-                sql += "ORDER BY codproduto";
+                sql += "ORDER BY codinsumo";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
