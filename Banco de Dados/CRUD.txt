@@ -41,7 +41,7 @@ CREATE TABLE Insumo (
     descinsumo varchar(20) NOT NULL,
     custoinsumo numeric(4,2) NOT NULL,
     sldestqinsumo numeric(4,2) NOT NULL,
-    undmedidade varchar(30) NOT NULL, 
+    undmedida varchar(30) NOT NULL, 
     qtdestqalerta numeric(4,2) NOT NULL,
     CONSTRAINT estoque_pkey PRIMARY KEY (codinsumo)
 );
