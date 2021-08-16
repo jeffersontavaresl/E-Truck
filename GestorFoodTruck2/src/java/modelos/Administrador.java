@@ -17,6 +17,21 @@ public class Administrador extends Insumo{
     private String cnpj;
     private String descInsumo;
     
+    public boolean cadastrarPedido() { 
+        String  sql  = "INSERT INTO pedidofornecedor (codfornecedor) ";
+                sql += "VALUES(?)";
+        Connection con = Conexao.conectar();
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt  (1, this.codFornecedor);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
+    }
+    
     public boolean realizarPedidoItem() { 
         String  sql  = "INSERT INTO pedidofornecedoritem (codfornecedor, ";
                 sql += " codpedfornecedor, codinsumo, qtdinsumo, custoinsumo) ";
