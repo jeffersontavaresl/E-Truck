@@ -1,0 +1,31 @@
+.dropdown-container {
+    display: none;
+    padding-left: 8px;
+  }
+
+#etruck{
+    color:white;
+    background-color: #046fce;
+    font-weight: bold;
+    font-size: 100px;
+}
+
+.btn-funcoes{
+    text-decoration: none;
+    background-color: #288ce4;
+    color: white;
+}
+
+.dropdown-btn:active{
+    background-color: #288ce4;
+    color: white;
+}
+
+.btn-funcoes-drop{
+    color:white;
+    background-color: #046fce;
+}
+
+.hover{
+    font-weight: bold;
+}
