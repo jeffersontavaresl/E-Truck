@@ -1,81 +1,77 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>E-Truck - Funções</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="styles/imagens/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="styles/functions.css" rel="stylesheet"/>
+        <link href="styles/botoes.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Truck</title>
+            <div class="border-end  bg-primary" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-primary" id="etruck">E-Truck<br></div>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/style.css">
+                <div class="list-group list-group-flush bg-primary">
 
-</head>
-
-<body>
-
-    <!--VALIDAÇÃO DE USUÁRIO PARA ENTRADA NO SITE-->
-        <%
-            String login = (String) session.getAttribute("login");
-            if(login == null) {
-                response.sendRedirect("login.jsp");
-            } else {
-                out.print("Bem vindo,"+ login + "<br/>");
-            }
-        %>
-    
-    <!-- INÍCIO SIDEBAR -->
-    <div class="container-fluid h-100">
-        <div class="row h-100">
-            <aside class="col-12 col-md-2 p-0 bg-dark">
-                <nav class="navbar navbar-expand navbar-dark bg-primary flex-md-column flex-row align-items-start">
-                    <div class="collapse navbar-collapse">
-                        <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
-
-                            <!-- LINKS SIDEBAR -->
-                            <li class="nav-item">
-                                <p class="h2" style="border-bottom: 1px solid rgb(255, 217, 217); color:white;">E-Truck</p>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0" href="index.html">Início</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="pronto nav-link pl-0" href="realizarPedido.jsp">Realizar Pedido</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="pronto nav-link pl-0" href="consultapedido.jsp">Consultar Pedido</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="pronto nav-link pl-0" href="cadastraItem.jsp">Cadastrar Cardápio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="pronto nav-link pl-0" href="consultaItem.jsp">Consultar Cardápio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0" href="consultacaixa.jsp">Consulta Caixa</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0" href="consultaCozinha.jsp">Consulta Cozinha</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0" href="deslogarusuario.jsp">Deslogar</a>
-                            </li>
-
-                        </ul>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Garçom</a>
+                    <div class="dropdown-container">
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultapedido.jsp">Consultar Pedido</a>
                     </div>
-                </nav>
-            </aside>
-            <main class="col">
-            </main>
+
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Cozinha</a>
+                    <div class="dropdown-container">
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="atualizaPedido.jsp">Atualizar Pedido</a>
+                    </div>
+
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Caixa</a>
+                    <div class="dropdown-container">
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultacaixa.jsp">Finalizar Pedido</a>
+                    </div>
+
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Administrador</a>
+                    <div class="dropdown-container">
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="#!">nsei</a>
+                    </div>
+                    
+                    <%
+                        String login = (String) session.getAttribute("login");
+                        if (login == null) {
+                            response.sendRedirect("login.jsp");
+                        } else {
+                            out.print("Bem vindo," + login + "<br/>");
+                        }
+                        %>
+
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Page content-->
+                <div class="container-fluid">
+                    <h1 class="mt-4">Simple Sidebar</h1>
+                    <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
+                    <p>
+                        Make sure to keep all page content within the
+                        <code>#page-content-wrapper</code>
+                        . The top navbar is optional, and just for demonstration. Just create an element with the
+                        <code>#sidebarToggle</code>
+                        ID which will toggle the menu when clicked.
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-
-    
-    
-
-    
-</body>
-
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
