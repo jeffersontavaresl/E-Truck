@@ -13,3 +13,7 @@ INSERT INTO insumo (descinsumo, custoinsumo, sldestqinsumo, undmedida, qtdestqal
 ('Ketchup', 5.99, 5, 'KG', 10), ('Salsicha', 8.99, 45, 'KG', 50), ('Pão', 4.55, 10, 'Unidade', 10), ('Maionese', 7.99, 5, 'KG', 10),
 ('Batata Palha', 8.90, 3, 'KG', 5), ('Ovos', 10.90, 3, 'Duzia', 2), ('Coca-Cola', 12.90, 2, 'Duzia', 5),
 ('Fanta', 10.80, 3, 'Duzia', 5);
+
+INSERT INTO fornecedor (cnpj, razaosocial, telefone, email, nomecontato) 
+VALUES ('30857545000125', 'MILHOS SANTA CATARINA', '(47)33221202', 'milhossc@milhossc.com.br', 'Rafael Spitz'),
+('3025421200102', 'Coca-Cola Blumenau', '(47)33252514', 'brunosouza@cocacola.com.br', 'Bruno Souza');
