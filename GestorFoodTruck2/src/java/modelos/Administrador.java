@@ -6,7 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import utils.Conexao;
-public class Administrador {
+
+public class Administrador extends Insumo{
     
     private int codFornecedor;
     private int codPedFornecedor;
@@ -100,6 +101,37 @@ public class Administrador {
         return lista;
     }
     
+    public List<Administrador> lovPedidosForn() {
+        List<Administrador> lista = new ArrayList<>();
+        Connection con = Conexao.conectar();
+        String  sql  = "SELECT a.codfornecedor, c.codpedfornecedor, b.codinsumo, ";
+                sql += "d.qtdinusmo, a.cnpj, b.descinsumo, b.custoinsumo ";
+                sql += "FROM fornecedor a, insumo b, pedidofornecedor c, pedidofornecedoritem d ";
+                sql += "WHERE a.codfornecedor = c.codfornecedor ";
+                sql += "AND c.codfornecedor = d.codfornecedor ";
+                sql += "AND b.codinsumo = d.codinsumo ";
+                sql += "AND c.codpedfornecedor = d.codfornecdor ";
+                sql += "ORDER BY a.codfornecedor";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+             while (rs.next()) {
+                Administrador adm = new Administrador();
+                adm.setCodFornecedor(rs.getInt("codfornecedor"));
+                adm.setCodPedFornecedor(rs.getInt("codpedfornecedor"));
+                adm.setCodInsumo(rs.getInt("codinsumo"));
+                adm.setQtdInsumo(rs.getFloat("qtdinusmo"));
+                adm.setCnpj(rs.getString("cnpj"));
+                adm.setDescInsumo(rs.getString("descinsumo"));
+                adm.setCustoInsumo(rs.getFloat("custoinsumo"));
+                lista.add(adm);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return lista;
+    }
+    
     public boolean alterarPedidoItem(int pCodPedFornecedor) { 
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidofornecedoritem ";
@@ -152,10 +184,12 @@ public class Administrador {
         this.codPedFornecedor = codPedFornecedor;
     }
 
+    @Override
     public int getCodInsumo() {
         return codInsumo;
     }
 
+    @Override
     public void setCodInsumo(int codInsumo) {
         this.codInsumo = codInsumo;
     }
@@ -168,10 +202,12 @@ public class Administrador {
         this.qtdInsumo = qtdInsumo;
     }
 
+    @Override
     public float getCustoInsumo() {
         return custoInsumo;
     }
 
+    @Override
     public void setCustoInsumo(float custoInsumo) {
         this.custoInsumo = custoInsumo;
     }
@@ -184,10 +220,12 @@ public class Administrador {
         this.cnpj = cnpj;
     }
 
+    @Override
     public String getDescInsumo() {
         return descInsumo;
     }
 
+    @Override
     public void setDescInsumo(String descInsumo) {
         this.descInsumo = descInsumo;
     }
