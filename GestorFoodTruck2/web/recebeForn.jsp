@@ -19,9 +19,9 @@
         
         
         if (forn.adicionarFornecedor()) {
-            response.sendRedirect("consultaForn.jsp?pmensagem=Fornecedor salvo com sucesso");
+            response.sendRedirect("cadastraFornecedor.jsp?pmensagem=Fornecedor salvo com sucesso");
         } else {
-            response.sendRedirect("consultaForn.jsp?pmensagem=Problema ao salvar Fornecedor");
+            response.sendRedirect("cadastraFornecedor.jsp?pmensagem=Problema ao salvar Fornecedor");
     }
         %>
         

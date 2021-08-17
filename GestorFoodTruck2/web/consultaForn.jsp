@@ -34,23 +34,27 @@
         <table>
             <thead>
                 <tr>
+                  <th>Código do Fornecedor</th>
                   <th>CNPJ</th>
                   <th>Razão Social</th>
                   <th>Telefone</th>
                   <th>E-mail</th>
                   <th>Nome Contato</th>
-                  
+                  <th>Editar</th>
+                  <th>Exclui</th>
                 </tr>
             </thead>
             <tbody>
                 <% for(Fornecedor f : lista) { %>
                    <tr>
-                       <td><%  out.write(f.getCnpj());   %></td>
+                       <td><%  out.write("" + f.getCodFornecedor());%></td>
+                        <td><% out.write(f.getCnpj());   %></td>
                         <td><% out.write(f.getRazaoSocial());  %></td>
                         <td><% out.write(f.getTelefone()); %></td>  
                         <td><% out.write(f.getEmail()); %></td> 
                         <td><% out.write(f.getNomeContato()); %></td> 
-                          
+                        <td><% out.write("<a href=editaFornecedor.jsp?codFornecedor="+f.getCodFornecedor()+">Editar</a>");%></td> 
+                        <td><% out.write("<a href=excluiFornecedor.jsp?codFornecedor="+f.getCodFornecedor()+">Excluir</a>");%></td>
                    </tr> 
                 <%}%>
             </tbody>
