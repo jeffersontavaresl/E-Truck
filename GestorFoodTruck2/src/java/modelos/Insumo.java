@@ -40,13 +40,17 @@ public class Insumo {
     public boolean atualizarSldEstoque() {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE insumo ";
-                sql += " SET sldestqinsumo   = ? ";
+                sql += " SET sldestqinsumo  = ?, ";
+                sql += " custoinsumo = ?, ";
+                sql += " qtdestqalerta = ? ";
                 sql += " WHERE codinsumo  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setFloat(1, this.sldEstqInsumo);
-            stm.setInt  (2, this.codInsumo);
+            stm.setFloat(2, this.custoInsumo);
+            stm.setFloat(3, this.qtdEstqAlerta);
+            stm.setInt  (4, this.codInsumo);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -109,7 +113,7 @@ public class Insumo {
 
    public boolean excluirItem() {
         Connection con = Conexao.conectar();
-        String  sql  = "DELETE FROM estoque ";
+        String  sql  = "DELETE FROM insumo ";
                 sql += " WHERE codinsumo = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
