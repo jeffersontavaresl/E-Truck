@@ -76,7 +76,7 @@ public class Fornecedor {
     public Fornecedor consultarFonecedor(int pCodFornecedor) {
         Connection con = Conexao.conectar();
         String  sql  = "SELECT cnpj, razaosocial, telefone, ";
-                sql += " email, nomecontato ";
+                sql += " email, nomecontato, codfornecedor ";
                 sql += "FROM fornecedor ";
                 sql += "WHERE codfornecedor  = ? ";
         Fornecedor fornecedor = null;
@@ -91,6 +91,7 @@ public class Fornecedor {
                 fornecedor.setTelefone(rs.getString("telefone"));
                 fornecedor.setEmail(rs.getString("email"));
                 fornecedor.setNomeContato(rs.getString("nomecontato"));
+                fornecedor.setCodFornecedor(rs.getInt("codfornecedor"));
             }
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -113,6 +114,7 @@ public class Fornecedor {
                 fornecedor.setTelefone(rs.getString("telefone"));
                 fornecedor.setEmail(rs.getString("email"));
                 fornecedor.setNomeContato(rs.getString("nomecontato"));
+                fornecedor.setCodFornecedor(rs.getInt("codfornecedor"));
                 lista.add(fornecedor);
             }
         } catch (SQLException ex) {
