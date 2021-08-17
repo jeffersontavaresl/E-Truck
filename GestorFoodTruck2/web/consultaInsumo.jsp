@@ -42,9 +42,9 @@
                   <th>Código do produto</th>
                   <th>Nome do produto</th>
                   <th>Valor</th>
-                  <th>Und, de Medida</th>
+                  <th>Und de Medida</th>
                   <th>Saldo em Estoque</th>
-                  <th>Qtdede Estoque Alerta</th>
+                  <th>Qtde de Estoque Alerta</th>
                   <th>Editar</th>
                   <th>Excluir</th>
                   
@@ -58,9 +58,9 @@
                         <td><% out.write("" + c.getCustoInsumo()); %></td>
                         <td><% out.write(c.getUndMedida()); %></td>
                         <td><% out.write("" + c.getSldEstqInsumo()); %></td>
-                        <td><% out.write("" + c.getSldEstqInsumo()); %></td>
-                        <td><%out.write("<a href=editaItem.jsp?codProduto="+c.getCodInsumo()+">Editar</a>");%></td> 
-                        <td><%out.write("<a href=excluiItem.jsp?codProduto="+c.getCodInsumo()+">Excluir</a>");%></td>   
+                        <td><% out.write("" + c.getQtdEstqAlerta()); %></td>
+                        <td><%out.write("<a href=editaInsumo.jsp?codInsumo="+c.getCodInsumo()+">Editar</a>");%></td> 
+                        <td><%out.write("<a href=excluiInsumo.jsp?codInsumo="+c.getCodInsumo()+">Excluir</a>");%></td>   
                    </tr> 
                 <%}%>
             </tbody>
