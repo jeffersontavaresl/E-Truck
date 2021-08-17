@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>E-Truck - Funções</title>
+        <title>E-Truck - FunÃ§Ãµes</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="styles/imagens/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -21,7 +21,7 @@
 
                 <div class="list-group list-group-flush bg-primary">
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Garçom</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">GarÃ§om</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultapedido.jsp">Consultar Pedido</a>
@@ -29,7 +29,9 @@
 
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Cozinha</a>
                     <div class="dropdown-container">
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="atualizaPedido.jsp">Atualizar Pedido</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaCozinha.jsp">Consulta Cozinha</a>
+
+
                     </div>
 
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Caixa</a>
@@ -37,11 +39,17 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultacaixa.jsp">Finalizar Pedido</a>
                     </div>
 
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">CardÃ¡pio</a>
+                    <div class="dropdown-container">
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraItem.jsp">Adiciona Item</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaItem.jsp">Consultar Itens</a>
+                    </div>
+
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Administrador</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="#!">nsei</a>
                     </div>
-                    
+
                     <%
                         String login = (String) session.getAttribute("login");
                         if (login == null) {
@@ -49,7 +57,7 @@
                         } else {
                             out.print("Bem vindo," + login + "<br/>");
                         }
-                        %>
+                    %>
 
                 </div>
             </div>
