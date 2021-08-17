@@ -16,34 +16,20 @@ public class Administrador extends Insumo{
     private float custoInsumo;
     private String cnpj;
     private String descInsumo;
+    private String razaoSocial;
+    private String nomeContato;
     
-    public boolean cadastrarPedido() { 
-        String  sql  = "INSERT INTO pedidofornecedor (codfornecedor) ";
-                sql += "VALUES(?)";
-        Connection con = Conexao.conectar();
-        try {
-            PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt  (1, this.codFornecedor);
-            stm.execute();
-        } catch (SQLException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-            return false;
-        }
-        return true;
-    }
     
     public boolean realizarPedidoItem() { 
         String  sql  = "INSERT INTO pedidofornecedoritem (codfornecedor, ";
-                sql += " codpedfornecedor, codinsumo, qtdinsumo, custoinsumo) ";
-                sql += "VALUES(?,?,?,?,?)";
+                sql += " codinsumo, qtdinsumo) ";
+                sql += "VALUES(?,?,?)";
         Connection con = Conexao.conectar();
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt  (1, this.codFornecedor);
-            stm.setInt  (2, this.codPedFornecedor);
-            stm.setInt  (3, this.codInsumo);
-            stm.setFloat(4, this.qtdInsumo);
-            stm.setFloat(5, this.custoInsumo);
+            stm.setInt  (2, this.codInsumo);
+            stm.setFloat(3, this.qtdInsumo);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -54,14 +40,13 @@ public class Administrador extends Insumo{
     
     public Administrador consultarPedidoItem(int pCodFornecedor) { 
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT a.codfornecedor, c.codpedfornecedor, b.codinsumo, ";
-                sql += "d.qtdinusmo, a.cnpj, b.descinsumo, b.custoinsumo ";
-                sql += "FROM fornecedor a, insumo b, pedidofornecedor c, pedidofornecedoritem d ";
-                sql += "WHERE a.codpedfornecedor = ? ";
-                sql += "AND a.codfornecedor = c.codfornecedor ";
-                sql += "AND c.codfornecedor = d.codfornecedor ";
-                sql += "AND b.codinsumo = d.codinsumo ";
-                sql += "AND c.codpedfornecedor = d.codfornecdor ";
+        String  sql  = "SELECT a.codfornecedor, a.cnpj, a.razaosocial, ";
+                sql += "a.nomecontato, b.codpedfornecedor, b.qtdinsumo, ";
+                sql += "c.codinsumo, c.descinsumo, c.custoinsumo ";
+                sql += "FROM fornecedor a, pedidofornecedoritem b, insumo c ";
+                sql += "WHERE a.codfornecedor = ? ";
+                sql += "AND a.codfornecedor = b.codfornecedor ";
+                sql += "AND c.codinsumo = b.codinsumo ";
 
         Administrador adm = null;
         try {
@@ -77,6 +62,8 @@ public class Administrador extends Insumo{
                 adm.setCnpj(rs.getString("cnpj"));
                 adm.setDescInsumo(rs.getString("descinsumo"));
                 adm.setCustoInsumo(rs.getFloat("custoinsumo"));
+                adm.setRazaoSocial(rs.getString("razaosocial"));
+                adm.setNomeContato(rs.getString("nomecontato"));
             }
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -87,14 +74,13 @@ public class Administrador extends Insumo{
     public List<Administrador> consultaPedidoItem(int pCodPedFornecedor) {
         List<Administrador> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT a.codfornecedor, c.codpedfornecedor, b.codinsumo, ";
-                sql += "d.qtdinusmo, a.cnpj, b.descinsumo, b.custoinsumo ";
-                sql += "FROM fornecedor a, insumo b, pedidofornecedor c, pedidofornecedoritem d ";
-                sql += "WHERE a.codpedfornecedor = ? ";
-                sql += "AND a.codfornecedor = c.codfornecedor ";
-                sql += "AND c.codfornecedor = d.codfornecedor ";
-                sql += "AND b.codinsumo = d.codinsumo ";
-                sql += "AND c.codpedfornecedor = d.codfornecdor ";
+        String  sql  = "SELECT a.codfornecedor, a.cnpj, a.razaosocial, ";
+                sql += "a.nomecontato, b.codpedfornecedor, b.qtdinsumo, ";
+                sql += "c.codinsumo, c.descinsumo, c.custoinsumo ";
+                sql += "FROM fornecedor a, pedidofornecedoritem b, insumo c ";
+                sql += "WHERE a.codfornecedor = ? ";
+                sql += "AND a.codfornecedor = b.codfornecedor ";
+                sql += "AND c.codinsumo = b.codinsumo ";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt(1, pCodPedFornecedor);
@@ -108,6 +94,8 @@ public class Administrador extends Insumo{
                 adm.setCnpj(rs.getString("cnpj"));
                 adm.setDescInsumo(rs.getString("descinsumo"));
                 adm.setCustoInsumo(rs.getFloat("custoinsumo"));
+                adm.setRazaoSocial(rs.getString("razaosocial"));
+                adm.setNomeContato(rs.getString("nomecontato"));
                 lista.add(adm);
             }
         } catch (SQLException ex) {
@@ -119,13 +107,13 @@ public class Administrador extends Insumo{
     public List<Administrador> lovPedidosForn() {
         List<Administrador> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT a.codfornecedor, c.codpedfornecedor, b.codinsumo, ";
-                sql += "d.qtdinusmo, a.cnpj, b.descinsumo, b.custoinsumo ";
-                sql += "FROM fornecedor a, insumo b, pedidofornecedor c, pedidofornecedoritem d ";
-                sql += "WHERE a.codfornecedor = c.codfornecedor ";
-                sql += "AND c.codfornecedor = d.codfornecedor ";
-                sql += "AND b.codinsumo = d.codinsumo ";
-                sql += "AND c.codpedfornecedor = d.codfornecdor ";
+        String  sql  = "SELECT a.codfornecedor, a.cnpj, a.razaosocial, ";
+                sql += "a.nomecontato, b.codpedfornecedor, b.qtdinsumo, ";
+                sql += "c.codinsumo, c.descinsumo, c.custoinsumo ";
+                sql += "FROM fornecedor a, pedidofornecedoritem b, insumo c ";
+                sql += "WHERE a.codfornecedor = ? ";
+                sql += "AND a.codfornecedor = b.codfornecedor ";
+                sql += "AND c.codinsumo = b.codinsumo ";
                 sql += "ORDER BY a.codfornecedor";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
@@ -139,6 +127,8 @@ public class Administrador extends Insumo{
                 adm.setCnpj(rs.getString("cnpj"));
                 adm.setDescInsumo(rs.getString("descinsumo"));
                 adm.setCustoInsumo(rs.getFloat("custoinsumo"));
+                adm.setRazaoSocial(rs.getString("razaosocial"));
+                adm.setNomeContato(rs.getString("nomecontato"));
                 lista.add(adm);
             }
         } catch (SQLException ex) {
@@ -243,5 +233,21 @@ public class Administrador extends Insumo{
     @Override
     public void setDescInsumo(String descInsumo) {
         this.descInsumo = descInsumo;
+    }
+
+    public String getRazaoSocial() {
+        return razaoSocial;
+    }
+
+    public void setRazaoSocial(String razaoSocial) {
+        this.razaoSocial = razaoSocial;
+    }
+
+    public String getNomeContato() {
+        return nomeContato;
+    }
+
+    public void setNomeContato(String nomeContato) {
+        this.nomeContato = nomeContato;
     }
 }
