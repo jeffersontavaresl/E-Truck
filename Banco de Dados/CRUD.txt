@@ -56,12 +56,6 @@ CREATE TABLE Fornecedor (
     CONSTRAINT fornecedor_pkey PRIMARY KEY (codfornecedor)
 );
 
-CREATE TABLE PedidoFornecedor (
-    codfornecedor integer NOT NULL,
-    codpedfornecedor serial NOT NULL, 
-    CONSTRAINT idpedfornecedor_pkey PRIMARY KEY(codpedfornecedor)
-);
-
 CREATE TABLE PedidoFornecedorItem (
     codfornecedor integer NOT NULL,
     codpedfornecedor integer NOT NULL,
@@ -81,6 +75,5 @@ ALTER TABLE PedidoCliente ADD CONSTRAINT fk_pedidocliente FOREIGN KEY (codmesa) 
 ALTER TABLE PedidoCliente ADD CONSTRAINT fk_pedclienteprod FOREIGN KEY(codproduto) REFERENCES Cardapio(codproduto);
 ALTER TABLE Caixa ADD CONSTRAINT fk_formapagto FOREIGN KEY (codformpagto) REFERENCES FormaPagamento (codformpagto);
 ALTER TABLE PedidoFornecedorItem ADD CONSTRAINT fk_codfornecedor FOREIGN KEY (codfornecedor) REFERENCES Fornecedor (codfornecedor);
-ALTER TABLE PedidoFornecedorItem ADD CONSTRAINT fk_codpedfornecedor FOREIGN KEY (codpedfornecedor) REFERENCES PedidoFornecedor (codpedfornecedor);
 ALTER TABLE PedidoFornecedorItem ADD CONSTRAINT fk_codinsumo FOREIGN KEY (codinsumo) REFERENCES Insumo (codinsumo);
 ALTER TABLE Fornecedor ADD CONSTRAINT un_cnpj UNIQUE (cnpj);
