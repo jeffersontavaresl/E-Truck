@@ -58,10 +58,10 @@ CREATE TABLE Fornecedor (
 
 CREATE TABLE PedidoFornecedorItem (
     codfornecedor integer NOT NULL,
-    codpedfornecedor integer NOT NULL,
+    codpedfornecedor serial NOT NULL,
     codinsumo integer NOT NULL,
     qtdinsumo numeric(6,2) NOT NULL,
-    CONSTRAINT idpedidofornecedoritem_pk PRIMARY KEY(codfornecedor, codpedfornecedor, codinsumo)
+    CONSTRAINT idpedidofornecedoritem_pk PRIMARY KEY(codpedfornecedor, codinsumo)
 );
 
 CREATE TABLE Usuario (
