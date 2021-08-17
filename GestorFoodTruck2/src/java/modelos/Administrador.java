@@ -18,18 +18,20 @@ public class Administrador extends Insumo{
     private String descInsumo;
     private String razaoSocial;
     private String nomeContato;
+    private String undMedida;
     
     
     public boolean realizarPedidoItem() { 
         String  sql  = "INSERT INTO pedidofornecedoritem (codfornecedor, ";
-                sql += " codinsumo, qtdinsumo) ";
-                sql += "VALUES(?,?,?)";
+                sql += " codinsumo, qtdinsumo, undmedida) ";
+                sql += "VALUES(?,?,?,?)";
         Connection con = Conexao.conectar();
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt  (1, this.codFornecedor);
             stm.setInt  (2, this.codInsumo);
             stm.setFloat(3, this.qtdInsumo);
+            stm.setString(4, this.undMedida);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -42,7 +44,7 @@ public class Administrador extends Insumo{
         Connection con = Conexao.conectar();
         String  sql  = "SELECT a.codfornecedor, a.cnpj, a.razaosocial, ";
                 sql += "a.nomecontato, b.codpedfornecedor, b.qtdinsumo, ";
-                sql += "c.codinsumo, c.descinsumo, c.custoinsumo ";
+                sql += "b.undmedida, c.codinsumo, c.descinsumo, c.custoinsumo ";
                 sql += "FROM fornecedor a, pedidofornecedoritem b, insumo c ";
                 sql += "WHERE a.codfornecedor = ? ";
                 sql += "AND a.codfornecedor = b.codfornecedor ";
@@ -64,6 +66,7 @@ public class Administrador extends Insumo{
                 adm.setCustoInsumo(rs.getFloat("custoinsumo"));
                 adm.setRazaoSocial(rs.getString("razaosocial"));
                 adm.setNomeContato(rs.getString("nomecontato"));
+                adm.setUndMedida(rs.getString("undmedida"));
             }
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -76,7 +79,7 @@ public class Administrador extends Insumo{
         Connection con = Conexao.conectar();
         String  sql  = "SELECT a.codfornecedor, a.cnpj, a.razaosocial, ";
                 sql += "a.nomecontato, b.codpedfornecedor, b.qtdinsumo, ";
-                sql += "c.codinsumo, c.descinsumo, c.custoinsumo ";
+                sql += "b.undmedida, c.codinsumo, c.descinsumo, c.custoinsumo ";
                 sql += "FROM fornecedor a, pedidofornecedoritem b, insumo c ";
                 sql += "WHERE a.codfornecedor = ? ";
                 sql += "AND a.codfornecedor = b.codfornecedor ";
@@ -96,6 +99,7 @@ public class Administrador extends Insumo{
                 adm.setCustoInsumo(rs.getFloat("custoinsumo"));
                 adm.setRazaoSocial(rs.getString("razaosocial"));
                 adm.setNomeContato(rs.getString("nomecontato"));
+                adm.setUndMedida(rs.getString("undmedida"));
                 lista.add(adm);
             }
         } catch (SQLException ex) {
@@ -109,7 +113,7 @@ public class Administrador extends Insumo{
         Connection con = Conexao.conectar();
         String  sql  = "SELECT a.codfornecedor, a.cnpj, a.razaosocial, ";
                 sql += "a.nomecontato, b.codpedfornecedor, b.qtdinsumo, ";
-                sql += "c.codinsumo, c.descinsumo, c.custoinsumo ";
+                sql += "b.undmedida, c.codinsumo, c.descinsumo, c.custoinsumo ";
                 sql += "FROM fornecedor a, pedidofornecedoritem b, insumo c ";
                 sql += "WHERE a.codfornecedor = ? ";
                 sql += "AND a.codfornecedor = b.codfornecedor ";
@@ -129,6 +133,7 @@ public class Administrador extends Insumo{
                 adm.setCustoInsumo(rs.getFloat("custoinsumo"));
                 adm.setRazaoSocial(rs.getString("razaosocial"));
                 adm.setNomeContato(rs.getString("nomecontato"));
+                adm.setUndMedida(rs.getString("undmedida"));
                 lista.add(adm);
             }
         } catch (SQLException ex) {
@@ -249,5 +254,13 @@ public class Administrador extends Insumo{
 
     public void setNomeContato(String nomeContato) {
         this.nomeContato = nomeContato;
+    }
+
+    public String getUndMedida() {
+        return undMedida;
+    }
+
+    public void setUndMedida(String undMedida) {
+        this.undMedida = undMedida;
     }
 }
