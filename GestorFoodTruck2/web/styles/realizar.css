@@ -7,3 +7,7 @@
 body{
   background-color: rgb(58, 42, 148);
 }
+
+label{
+  font-weight: 600;
+}
