@@ -21,7 +21,7 @@
 
                 <div class="list-group list-group-flush bg-primary">
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">GarÃ§om</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Garçom</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultapedido.jsp">Consultar Pedido</a>
@@ -39,10 +39,16 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultacaixa.jsp">Finalizar Pedido</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">CardÃ¡pio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Cardápio</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraItem.jsp">Adiciona Item</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaItem.jsp">Consultar Itens</a>
+                    </div>
+
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Mesa</a>
+                    <div class="dropdown-container">
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraMesa.jsp">Cadastrar Mesa</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaMesas.jsp">Consultar Mesa</a>
                     </div>
 
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Administrador</a>
