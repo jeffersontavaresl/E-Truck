@@ -62,6 +62,7 @@ CREATE TABLE PedidoFornecedorItem (
     codinsumo integer NOT NULL,
     qtdinsumo numeric(6,2) NOT NULL,
     undmedida varchar(20) NOT NULL,
+    statuspedido varchar(20) NOT NULL,
     CONSTRAINT idpedidofornecedoritem_pk PRIMARY KEY(codpedfornecedor, codinsumo)
 );
 
