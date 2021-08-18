@@ -53,7 +53,9 @@
 
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Administrador</a>
                     <div class="dropdown-container">
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="#!">nsei</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraFornecedor.jsp">Cadastrar Fornecedor</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaForn.jsp">Consulta Fornecedor</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedFornecedor.jsp">Realizar Pedido Fornecedor</a>
                     </div>
 
                     <%
