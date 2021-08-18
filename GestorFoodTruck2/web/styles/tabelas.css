@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(17, 71, 172);
+    background-color: rgb(58, 42, 148);
 }
 
 .tabela{
@@ -8,4 +8,35 @@ body{
     margin-right: 10px;
     margin-top:70px;
     box-sizing: content-box;
+}
+
+.valorTotal{
+    font-weight: bold;
+    background-color: white;
+    border: 1px;
+    border-radius:23px;
+    text-align: center;
+    width: 40%;
+    margin-left: 29%;
+}
+
+.consultarMesa{
+    font-size: medium;
+    font-weight: bold;
+    background-color: white;
+    border: 1px;
+    border-bottom-left-radius: 23px;
+    border-bottom-right-radius: 23px;
+    text-align: center;
+    width:20%;
+    margin-left:40%;
+}
+
+.submit{
+    color: white;
+}
+
+.submit:hover{
+    color: white;
+    text-decoration: none;
 }
