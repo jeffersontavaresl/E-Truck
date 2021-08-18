@@ -74,6 +74,11 @@
                        
                         <label><b>Unidade de Medida</b></label> <br>
                         <input type="text" name="undMedida" placeholder="Unidade de Medida"> <br><br>
+                        
+                        <label><b>Status</b></label> <br>
+                        <select name="statusPedido" class="form-control">
+                                    <option value="pendente">Pendente</option>
+                        </select><br><br>
                        
                        <input type="button" value="Realizar Pedido" onclick="enviarDados()" />
                        <input type="button" value="Consultar Pedidos" onclick="consultaPedFornecedor.jsp" />
@@ -112,6 +117,13 @@
             if(undMedida[0].value === ""){
                 undMedida[0].focus();
                 alert("Informe a unidade de medida");
+                exit();
+            }
+            
+            var statusPedido = document.getElementsByName("statusPedido");
+            if(statusPedido[0].value === ""){
+                statusPedido[0].focus();
+                alert("Informe o status");
                 exit();
             }
             

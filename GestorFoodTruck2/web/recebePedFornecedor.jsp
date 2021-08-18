@@ -6,6 +6,7 @@
     adm.setCodInsumo(Integer.parseInt(request.getParameter("codInsumo")));
     adm.setQtdInsumo(Float.parseFloat(request.getParameter("qntdeinsumo")));
     adm.setUndMedida(request.getParameter("undMedida"));
+    adm.setStatusPedido(request.getParameter("statusPedido"));
    
     if (adm.realizarPedidoItem()) {
             response.sendRedirect("realizarPedFornecedor.jsp?pmensagem=Item salvo com sucesso");
