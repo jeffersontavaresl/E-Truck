@@ -2,99 +2,69 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title>Cadastrar produtos</title>
-</head>
+    <head>
+        <meta charset="utf-8" />
+        <title>Cadastrar produtos</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="styles/realizar.css" rel="stylesheet"/>
+    </head>
+    <body>
 
-<Style>
 
-    .container {
-        width: 100vw;
-        height: 100vh;
-        background: #FF7F24;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
+        <div class="container-fluid">
+            <div class="container-fluid border w-50 h-75 mt-3 mb-4" id="head">
+                <div class="container-fluid d-flex justify-content-center mt-4">
+                    <h2>Cadastro de Itens</h2><br>  
+                </div>
 
-    .box {
-        width: 350px;
-        height: 400px;
-        background: #fff;
-        text-align: center;
-        border: solid 3px black;
-    }
+                <div class="container-fluid mt-2 mr-4">
+                    <form action="recebeItem.jsp" method="POST">
+                        <p class="font-weight-bold">
+                            <%                        if (request.getParameter("pmensagem") != null)
+                                    out.write(request.getParameter("pmensagem"));
+                            %>
+                        </p>
 
-    h2 {
-        background: #FFD700;
-        margin-top: 0px;
-        padding-top: 8px;
-    }
+                        <label class="form-label">Nome do Produto</label> <br>
+                        <input type="text" class="form-control" name="nomPrd" placeholder="Nome do produto"> <br><br>
 
-    body {
-        margin: 0px;
-    }
+                        <label class="form-label">Preço do Produto</label> <br>
+                        <input type="text" class="form-control" name="vlrPrd" placeholder="Preço do produto"> <br><br>
 
-    .itens, label {
-        text-align: center;
-    }
-    textarea{
-        width: 340px;
-        height: 150px;
-    }
+                        <div class="text-center mb-3">
+                            <a href="functions.jsp" class="btn btn-primary">Início</a>
+                            <input type="submit" value="Confirmar" class="btn btn-success"/>
+                            <input type="reset" value="Cancelar" class="btn btn-danger"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-</Style>
 
-<body>
 
-<label class="cabecalho" id="msg"> 
-         <%
-            if(request.getParameter("pmensagem") != null)         
-               out.write(request.getParameter("pmensagem"));
-         %>
-</label>   
-    
-        <form action="recebeItem.jsp" method="POST">
-           <div class="container">
-               <div class="box">
-                   <h2>Cadastro de Itens</h2>
-                   <div class="itens">
-                       <label><b>Nome do Item</b></label> <br>
-                       <input type="text" name="nomPrd" placeholder="Nome do produto"> <br><br>
 
-                       <label><b>Tipo do Item</b></label> <br>
-                       <input type="text" name="vlrPrd" placeholder="Preço do produto"> <br><br>
+        <script>
+            function enviarDados() {
 
-                       <input type="button" value="Salvar" onclick="enviarDados()" />
-                       <input type="reset" value="Cancelar" />
-                   </div>
-               </div> 
-           </div>
-        </form>  
-        
-                
-<script>
-    function enviarDados(){
+                var nomeItem = document.getElementsByName("nomPrd");
+                if (nomeItem[0].value === "") {
+                    nomeItem[0].focus();
+                    alert("Informe o Nome do produto");
+                    exit();
+                }
 
-            var nomeItem = document.getElementsByName("nomPrd");
-            if(nomeItem[0].value === ""){
-                nomeItem[0].focus();
-                alert("Informe o Nome do produto");
-                exit();
+                var valorItem = document.getElementsByName("vlrPrd");
+                if (valorItem[0].value === "") {
+                    valorItem[0].focus();
+                    alert("Informe o Preço do produto");
+                    exit();
+                }
+
+                document.forms[0].submit();
             }
 
-            var valorItem = document.getElementsByName("vlrPrd");
-            if(valorItem[0].value === ""){
-                valorItem[0].focus();
-                alert("Informe o Preço do produto");
-                exit();
-            }
-
-            document.forms[0].submit();
-    }        
-    
-</script>  
-</body>
+        </script>  
+    </body>
 </html>
