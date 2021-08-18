@@ -168,6 +168,23 @@ public class Administrador extends Insumo{
         return true;
     }
     
+    public boolean atualizarStatusPed(int pCodPedFornecedor) { 
+        Connection con = Conexao.conectar();
+        String  sql  = "UPDATE pedidofornecedoritem ";
+                sql += " SET statuspedido    = ? ";
+                sql += " WHERE codpedfornecedor  = ? ";
+
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt  (1, pCodPedFornecedor);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
+    }
+    
     public boolean excluirPedidoItem(int pCodPedFornecedor) { 
         Connection con = Conexao.conectar();
         String  sql  = "DELETE FROM pedidofornecedor ";
