@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import utils.Conexao;
-public class Fornecedor {
+public class Fornecedor extends Administrador{
 
     private String razaoSocial;
     private String telefone;
@@ -124,10 +124,12 @@ public class Fornecedor {
     }
     /* ÁREA DE GETTERS E SETTERS */ 
 
+    @Override
     public String getRazaoSocial() {
         return razaoSocial;
     }
 
+    @Override
     public void setRazaoSocial(String razaoSocial) {
         this.razaoSocial = razaoSocial;
     }
@@ -148,26 +150,32 @@ public class Fornecedor {
         this.email = email;
     }
 
+    @Override
     public String getNomeContato() {
         return nomeContato;
     }
 
+    @Override
     public void setNomeContato(String nomeContato) {
         this.nomeContato = nomeContato;
     }
 
+    @Override
     public String getCnpj() {
         return cnpj;
     }
 
+    @Override
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
+    @Override
     public int getCodFornecedor() {
         return codFornecedor;
     }
 
+    @Override
     public void setCodFornecedor(int codFornecedor) {
         this.codFornecedor = codFornecedor;
     }
