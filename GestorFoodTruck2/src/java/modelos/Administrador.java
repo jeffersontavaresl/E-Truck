@@ -48,7 +48,7 @@ public class Administrador extends Insumo{
                 sql += "a.nomecontato, b.codpedfornecedor, b.qtdinsumo, ";
                 sql += "b.undmedida, b.statuspedido, c.codinsumo, c.descinsumo, c.custoinsumo ";
                 sql += "FROM fornecedor a, pedidofornecedoritem b, insumo c ";
-                sql += "WHERE a.codfornecedor = ? ";
+                sql += "WHERE b.codpedfornecedor = ? ";
                 sql += "AND a.codfornecedor = b.codfornecedor ";
                 sql += "AND c.codinsumo = b.codinsumo ";
 
@@ -152,14 +152,16 @@ public class Administrador extends Insumo{
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidofornecedoritem ";
                 sql += " SET codinsumo    = ?, ";
-                sql += "     qtdinsumo   = ? ";
+                sql += "     qtdinsumo   = ?, ";
+                sql += "     undmedida = ? ";
                 sql += " WHERE codpedfornecedor  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt  (1, this.codInsumo);
             stm.setFloat(2, this.qtdInsumo);
-            stm.setInt  (3, pCodPedFornecedor);
+            stm.setString(3, this.undMedida);
+            stm.setInt  (4, pCodPedFornecedor);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
