@@ -185,13 +185,13 @@ public class Administrador extends Insumo{
         return true;
     }
     
-    public boolean excluirPedidoItem(int pCodPedFornecedor) { 
+    public boolean excluirPedidoItem() { 
         Connection con = Conexao.conectar();
-        String  sql  = "DELETE FROM pedidofornecedor ";
+        String  sql  = "DELETE FROM pedidofornecedoritem ";
                 sql += " WHERE codpedfornecedor = ? ";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, pCodPedFornecedor);
+            stm.setInt(1, this.codPedFornecedor);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
