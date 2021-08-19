@@ -63,9 +63,10 @@ public class PedidoCliente extends Cardapio{
         Connection con = Conexao.conectar();
         String  sql  = "SELECT a.codpedido, a.codproduto, c.descproduto, ";
                 sql += "a.observacao, a.statuspagto, a.statuspedido ";
-                sql += "FROM pedidocliente a, cardapio c";
-                sql += "WHERE codmesa = ? ";
-                sql += "AND a.codproduto = c.codproduto";
+                sql += "FROM pedidocliente a, cardapio c, mesa b ";
+                sql += "WHERE b.codmesa = ? ";
+                sql += "AND a.codproduto = c.codproduto ";
+                sql += "AND a.codmesa = b.codmesa ";
         PedidoCliente pedcliente = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
@@ -79,6 +80,7 @@ public class PedidoCliente extends Cardapio{
                 pedcliente.setObservacao(rs.getString("observacao"));
                 pedcliente.setStatusPagto(rs.getString("statuspagto"));
                 pedcliente.setStatusPedido(rs.getString("statuspedido"));
+                pedcliente.setCodMesa(rs.getInt("codmesa"));
             }
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
