@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>E-Truck - FunÃ§Ãµes</title>
+        <title>E-Truck - FunÃÂ§ÃÂµes</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="styles/imagens/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -21,7 +21,7 @@
 
                 <div class="list-group list-group-flush bg-primary">
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Garçom</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">GarÃ§om</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultapedido.jsp">Consultar Pedido</a>
@@ -39,7 +39,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultacaixa.jsp">Finalizar Pedido</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Cardápio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">CardÃ¡pio</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraItem.jsp">Adiciona Item</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaItem.jsp">Consultar Itens</a>
@@ -54,6 +54,7 @@
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Administrador</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraFornecedor.jsp">Cadastrar Fornecedor</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaInsumo.jsp">Consultar Estoque</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaForn.jsp">Consulta Fornecedor</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedFornecedor.jsp">Realizar Pedido Fornecedor</a>
                     </div>
