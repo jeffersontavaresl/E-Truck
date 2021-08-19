@@ -1,5 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelos.PedidoCliente"%>
+<%@page import="modelos.Mesa"%>
 <%@page import="modelos.Cardapio"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,24 +20,22 @@
                     <h1>Editar Pedido</h1>
 
                     <%
-
-                        List<PedidoCliente> pedclientes = new ArrayList<>();
                         String codpedido = request.getParameter("codPedido");
                         String codPedido = "";
                         String codMesa = "";
-                        if (codpedido != null) {
-                            PedidoCliente pdCliente = new PedidoCliente();
+                        PedidoCliente pdClientes = new PedidoCliente();
+                        if (codpedido != null) {                           
                             codPedido = codpedido;
-                            pdCliente = pdCliente.consultarPedido(Integer.parseInt(codPedido));
+                            pdClientes = pdClientes.consultarPedido(Integer.parseInt(codPedido));
                         }
                     %>
                 </div>
                 <div class="container-fluid mt-3 mr-4">
                     <form action="recebeEditaPedido.jsp" method="POST">
-                        <% PedidoCliente pdCliente = new PedidoCliente();
+                        <%  Mesa mesa = new Mesa();
+                            PedidoCliente pdCliente = new PedidoCliente();
                             Cardapio card = new Cardapio();
-                            List<PedidoCliente> mesas = pdCliente.lovMesa();
-                            List<PedidoCliente> pedidos = pdCliente.lovPedidos();
+                            List<Mesa> mesas = mesa.lovMesa();
                             List<Cardapio> cardapio = card.lovCardapio();
                         %>
                         
@@ -53,9 +52,10 @@
                         <label>Observação</label>
                         <input type="text" class="form-control" name="obsPedido" placeholder="Observação" />
                         <br>
-
+                        
                         <label>Código do Pedido</label>
-                        <input type="text" class="form-control" name="codPedido" placeholder="Pedido" />
+                        <input type="text" class="form-control" name="codPedido" readonly
+                               value="<%out.write("" + pdClientes.getCodPedido());%>" />
                         <br>
                         
                         <div class="text-center mb-3">
