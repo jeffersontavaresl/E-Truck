@@ -125,6 +125,33 @@ public class Insumo {
         }
         return true;
     }
+   
+   public List<Insumo> AlertaEstq(){
+       List<Insumo> lista = new ArrayList<>();
+        Connection con = Conexao.conectar();
+        String  sql  = "SELECT sldestqinsumo, qtdestqalerta, ";
+                sql += "codinsumo, descinsumo, undmedida ";
+                sql += "FROM insumo ";
+                sql += "WHERE sldestqinsumo < qtdestqalerta ";
+                sql += "ORDER BY codinsumo ";
+
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+             while (rs.next()) {
+                Insumo estoque = new Insumo();
+                estoque.setCodInsumo(rs.getInt("codinsumo"));
+                estoque.setDescInsumo(rs.getString("descinsumo"));
+                estoque.setSldEstqInsumo(rs.getFloat("sldestqinsumo"));
+                estoque.setUndMedida(rs.getString("undMedida"));
+                estoque.setQtdEstqAlerta(rs.getFloat("qtdestqalerta"));
+                lista.add(estoque);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return lista;
+   }
     
     /* ÁREA DE GETTERS E SETTERS */ 
 
