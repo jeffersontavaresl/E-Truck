@@ -6,29 +6,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Alerta de Estoque</title>
-    </head>
-    <header>
-        <style>     
-    
-    table, th, td {
-  border: 1px solid black;
-    }
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    table {
-      width: 35%;
-    }
-    
-    td{
-        text-align: center;
-    }
-        </style>
-    </header>   
+        <link rel="stylesheet" href="styles/tabelas.css">
+    </head> 
     <body>
         <%
           Insumo insumo = new Insumo();
           List<Insumo> lista = insumo.AlertaEstq();
         %>
-        <table>
+        <div class="container-fluid">
+            <table class="tabela table table-borderless table-striped rounded-1">
             <thead>
                 <tr>
                   <th>Código do produto</th>
