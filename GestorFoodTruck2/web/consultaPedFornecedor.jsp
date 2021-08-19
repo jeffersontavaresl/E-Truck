@@ -46,8 +46,8 @@
                         <td><% out.write("" + a.getUndMedida());%></td>
                         <td><% out.write("" + a.getCustoInsumo());%></td>
                         <td><% out.write("" + a.getStatusPedido());%></td>
-                        <td><%out.write("<a href=editaPedido.jsp?codPedido=" + a.getCodPedFornecedor() + ">Editar</a>");%></td> 
-                        <td><%out.write("<a href=cancelarPedido.jsp?codPedido=" + a.getCodPedFornecedor() + ">Excluir</a>");%></td>
+                        <td><%out.write("<a href=editaPedFornecedor.jsp?codPedFornecedor=" + a.getCodPedFornecedor() + ">Editar</a>");%></td> 
+                        <td><%out.write("<a href=excluiPedFornecedor.jsp?codPedFornecedor=" + a.getCodPedFornecedor() + ">Excluir</a>");%></td>
                     </tr> 
                     <%}%>
                 </tbody>
