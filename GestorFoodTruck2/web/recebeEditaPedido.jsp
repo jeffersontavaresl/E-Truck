@@ -8,7 +8,7 @@
     <body>
         
         <%
-        
+            
             int codPedido = Integer.parseInt(request.getParameter("codPedido"));
             int codProduto = Integer.parseInt(request.getParameter("codProduto"));
             String obsPedido = request.getParameter("obsPedido");
@@ -16,6 +16,7 @@
             PedidoCliente pc = new PedidoCliente ();
             pc.setCodProduto(codProduto);
             pc.setObservacao(obsPedido);
+            pc.setCodPedido(codPedido);
             
             if(pc.alterarPedido(codPedido)){
             response.sendRedirect("consultapedido.jsp?pmensagem=Pedido alterado com sucesso");
