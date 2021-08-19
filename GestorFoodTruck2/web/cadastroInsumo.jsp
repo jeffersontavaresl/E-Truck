@@ -3,81 +3,51 @@
 
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>Cadastrar Insumo</title>
+   <meta charset="utf-8" />
+        <title>Cadastrar Insumo</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="styles/realizar.css" rel="stylesheet"/>
 </head>
 
-<Style>
+    <body>
+  
+    <div class="container-fluid">
+            <div class="container-fluid border w-50 h-75 mt-3 mb-4" id="head">
+                <div class="container-fluid d-flex justify-content-center mt-4">
+                    <h2>Cadastro de Insumo</h2><br>  
+                </div>
+                <div class="container-fluid mt-2 mr-4">
+                <form action="recebeItemEstoque.jsp" method="POST">
+                     <p class="font-weight-bold">
+                            <%                        if (request.getParameter("pmensagem") != null)
+                                    out.write(request.getParameter("pmensagem"));
+                            %>
+                        </p>
+                    <div class="container">
+                        <div class="box">
+                        
+                        <div class="itens">
+                       <label class="form-label">Nome do Item</label>
+                       <input type="text" class="form-control" name="descInsumo" placeholder="Nome do Insumo"> <br>
 
-    .container {
-        width: 100vw;
-        height: 100vh;
-        background: #FF7F24;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .box {
-        width: 350px;
-        height: 400px;
-        background: #fff;
-        text-align: center;
-        border: solid 3px black;
-    }
-
-    h2 {
-        background: #FFD700;
-        margin-top: 0px;
-        padding-top: 8px;
-    }
-
-    body {
-        margin: 0px;
-    }
-
-    .itens, label {
-        text-align: center;
-    }
-    textarea{
-        width: 340px;
-        height: 150px;
-    }
-
-</Style>
-
-<body>
-
-<label class="cabecalho" id="msg"> 
-         <%
-            if(request.getParameter("pmensagem") != null)         
-               out.write(request.getParameter("pmensagem"));
-         %>
-</label>   
-    
-        <form action="recebeItemEstoque.jsp" method="POST">
-           <div class="container">
-               <div class="box">
-                   <h2>Cadastro de Insumo</h2>
-                   <div class="itens">
-                       <label><b>Nome do Item</b></label> <br>
-                       <input type="text" name="descInsumo" placeholder="Nome do Insumo"> <br><br>
-
-                       <label><b>Custo Insumo</b></label> <br>
-                       <input type="text" name="custoInsumo" placeholder="Preço do produto"> <br><br>
+                       <label class="form-label">Custo Insumo</label>
+                       <input type="text" class="form-control" name="custoInsumo" placeholder="Preço do produto"> <br>
                        
-                       <label><b>Saldo em Estoque</b></label> <br>
-                       <input type="text" name="sldEstoque" placeholder="Saldo em estoque"> <br><br>
+                       <label class="form-label">Saldo em Estoque</label> <br>
+                       <input type="text" class="form-control" name="sldEstoque" placeholder="Saldo em estoque"> <br>
                        
-                       <label><b>Unidade de Medida</b></label> <br>
-                       <input type="text" name="undMedida" placeholder="Unidade de Medida"> <br><br>
+                       <label class="form-label">Unidade de Medida</label> <br>
+                       <input type="text" class="form-control" name="undMedida" placeholder="Unidade de Medida"> <br>
                        
-                       <label><b>Quantidade para Est. Alerta</b></label> <br>
-                       <input type="text" name="qtdEstqAlerta" placeholder="Estoque de Alerta"> <br><br>
+                       <label class="form-label">Quantidade para Est. Alerta</label> <br>
+                       <input type="text" class="form-control" name="qtdEstqAlerta" placeholder="Estoque de Alerta"> <br>
 
-                       <input type="button" value="Salvar" onclick="enviarDados()" />
-                       <input type="reset" value="Cancelar" />
+                       <div class="text-center mb-3">
+                       <a href="functions.jsp" class="btn btn-primary">Início</a>
+                       <input type="button" value="Salvar" onclick="enviarDados()" class="btn btn-success" />
+                       <input type="reset" value="Cancelar" class="btn btn-danger"/>
+                       
                    </div>
                </div> 
            </div>
