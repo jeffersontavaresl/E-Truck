@@ -50,7 +50,7 @@
                         <br>
 
                         <label>Observação</label>
-                        <input type="text" class="form-control" name="obsPedido" placeholder="Observação" />
+                        <input type="text" class="form-control" maxlength="90" name="obsPedido" placeholder="Observação" />
                         <br>
                         
                         <label>Código do Pedido</label>
