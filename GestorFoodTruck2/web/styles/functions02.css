@@ -1,0 +1,57 @@
+body{
+    color:white;
+    background-color: rgb(58, 42, 148);
+    background-repeat: repeat;
+}
+
+h2, p{
+    text-align: center;
+}
+
+label, p, a, h1{
+    color:black;
+}
+
+.bg-padrao{
+    background-color: white;
+}
+
+.dropdown-container {
+    display: none;
+    padding-left: 8px;
+  }
+
+#etruck{
+    color:black;
+    font-weight: bold;
+    font-size: 100px;
+    border-bottom: 1px solid black;
+}
+
+#login{
+    color:black;
+    font-weight: bold;
+}
+
+.btn-funcoes{
+    color:black;
+    text-decoration: none;
+    background-color: rgb(240, 240, 240);
+}
+
+.dropdown-btn:active{
+    color:black;
+    background-color: rgb(187, 187, 187);
+}
+
+.btn-funcoes-drop{
+    color:black;
+    transition: 0.25s;
+    background-color: rgb(219, 218, 218);
+}
+
+.hover{
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
