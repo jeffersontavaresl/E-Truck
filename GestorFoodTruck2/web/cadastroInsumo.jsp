@@ -29,19 +29,19 @@
                         
                         <div class="itens">
                        <label class="form-label">Nome do Item</label>
-                       <input type="text" class="form-control" name="descInsumo" placeholder="Nome do Insumo"> <br>
+                       <input type="text" maxlength="20" class="form-control" name="descInsumo" placeholder="Nome do Insumo"> <br>
 
                        <label class="form-label">Custo Insumo</label>
-                       <input type="text" class="form-control" name="custoInsumo" placeholder="Preço do produto"> <br>
+                       <input type="text" maxlength="6" class="form-control" name="custoInsumo" placeholder="Preço do produto"> <br>
                        
                        <label class="form-label">Saldo em Estoque</label> <br>
-                       <input type="text" class="form-control" name="sldEstoque" placeholder="Saldo em estoque"> <br>
+                       <input type="text" maxlength="6" class="form-control" name="sldEstoque" placeholder="Saldo em estoque"> <br>
                        
                        <label class="form-label">Unidade de Medida</label> <br>
-                       <input type="text" class="form-control" name="undMedida" placeholder="Unidade de Medida"> <br>
+                       <input type="text" maxlength="20" class="form-control" name="undMedida" placeholder="Unidade de Medida"> <br>
                        
                        <label class="form-label">Quantidade para Est. Alerta</label> <br>
-                       <input type="text" class="form-control" name="qtdEstqAlerta" placeholder="Estoque de Alerta"> <br>
+                       <input type="text" maxlength="6" class="form-control" name="qtdEstqAlerta" placeholder="Estoque de Alerta"> <br>
 
                        <div class="text-center mb-3">
                        <a href="functions.jsp" class="btn btn-primary">Início</a>
