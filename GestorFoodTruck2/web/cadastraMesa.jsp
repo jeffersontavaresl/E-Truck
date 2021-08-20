@@ -25,7 +25,7 @@
                 <div class="container-fluid mt-2 mr-4">
                     <form action="recebeDadosMesa.jsp" method="POST">
                         <label class="form-label"><b>Nome da mesa</b></label> <br>
-                        <input type="text" class="form-control" name="nomMesa" placeholder="Nome da mesa"> <br><br>
+                        <input type="text" maxlength="10" class="form-control" name="nomMesa" placeholder="Nome da mesa"> <br><br>
                         <div class="text-center mb-3">
                             <input type="button" class="btn btn-success"value="Salvar" onclick="enviarDados()" />
                             <input type="reset" class="btn btn-danger" value="Cancelar" />
