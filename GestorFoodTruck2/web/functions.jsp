@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>E-Truck - FunÃÂ§ÃÂµes</title>
+        <title>E-Truck - Funções</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="styles/imagens/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -21,7 +21,7 @@
 
                 <div class="list-group list-group-flush bg-primary">
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">GarÃ§om</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Garçom</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultapedido.jsp">Consultar Pedido</a>
@@ -39,7 +39,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultacaixa.jsp">Finalizar Pedido</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">CardÃ¡pio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Cardápio</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraItem.jsp">Adiciona Item</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaItem.jsp">Consultar Itens</a>
