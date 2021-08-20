@@ -159,7 +159,7 @@ public class Caixa {
         return lista;
     }
 	
-	public List<Caixa> gerarRelatorio(java.util.Date pDataRelatorio) {
+	public List<Caixa> gerarRelatorio(Date pDataRelatorio) {
     List<Caixa> lista = new ArrayList<>();
     Connection con = Conexao.conectar();
     String  sql  = "SELECT a.datamovimento, a.codformpagto, a.vlrtotal, ";
@@ -170,7 +170,7 @@ public class Caixa {
             sql += "AND a.codformpagto = b.codformpagto ";
     try {
         PreparedStatement stm = con.prepareStatement(sql);
-        stm.setDate(1, (java.sql.Date) pDataRelatorio);
+        stm.setDate(1,  pDataRelatorio);
         ResultSet rs = stm.executeQuery();
          while (rs.next()) {
             Caixa rel = new Caixa();
