@@ -33,7 +33,6 @@
                     Caixa caixa = new Caixa();
                     List<PedidoCliente> mesas = pedcliente.lovMesa();
                 %>
-                <section>
                     <div class="consultarMesa">
                         <label for="codmesa">Mesas</label>
                         <select name="idmesa">
@@ -46,7 +45,7 @@
                         <input type="submit" value="Consultar" class="btn btn-primary"/>
 
                     </div>
-                    <div class="container-fluid">
+                    <div  id="consultas" >
                         <table class="tabela table table-borderless table-striped rounded-1">
                             <thead>
                             <th>Cod Produto</th>
@@ -79,14 +78,75 @@
 
                             </tbody>
                         </table>
-                    </div> 
+                    
             </form>
             <div class="valorTotal">
                 <h3><%out.write("Valor Total: " + vlrTotal);%></h3>
                 <button class="submit btn btn-primary"><%out.write("<a class=submit href=finalizarPedido.jsp?codmesa=" + mesa + "&statusPagto=" + status + ">Finalizar Pedido</a>");%></button>
+            </div> 
+                
+        <%            
+            List<Caixa> forms = caixa.lovPagtos();
+        %>
+        <form action="recebeFormPagto.jsp" method="POST">
+           <div id="pagamentos">
+                   <div id="conteudo">
+                   <h2>Forma de Pagamento</h2>
+                   <div class="itens">
+                       <label><b>Data do pagamento</b></label> <br>
+                       <input type="date" name="data" placeholder="Data do pagamento"> <br><br>
 
-            </div>
-        </section>
+                       <label><b>Valor Pago</b></label> <br>
+                        <input type="text" maxlength="10" class="form-control" name="vlrTotal" 
+                               value="<%out.write("" + vlrTotal);%>" />                            
+                        <br><br>
+                       
+                        <label>Forma de Pagamento</label><br>
+                        <select name="formPagto" class="form-control">
+                        <% for (Caixa c : forms) {%>
+                        <option value="<%out.write("" + c.getCodFormPagto());%>">
+                            <% out.write(c.getDescFormPagto());%>
+                            <% out.write(c.getDescBandeira());%>
+                        </option>
+                        <%}%>
+                    </select><br>
+                   </div>
+                       <input class="submit btn btn-primary" type="button" value="Salvar" onclick="enviarDados()" />
+                       <input class="danger btn btn-primary" type="reset" value="Cancelar" />
+                   </div>
+           </div>
+    </div>
+        </form>  
+        
+                
+<script>
+    function enviarDados(){
+
+            var data = document.getElementsByName("data");
+            if(data[0].value === ""){
+                data[0].focus();
+                alert("Informe a data");
+                exit();
+            }
+
+            var vlrTotal = document.getElementsByName("vlrTotal");
+            if(vlrTotal[0].value === ""){
+                vlrTotal[0].focus();
+                alert("Informe o valor total");
+                exit();
+            }
+            
+            var formPagto = document.getElementsByName("formPagto");
+            if(formPagto[0].value === ""){
+                formPagto[0].focus();
+                alert("Informe a forma de pagamento");
+                exit();
+            }
+
+            document.forms[0].submit();
+    }        
+    
+</script>  
     </main>
 </body>
 </html>
