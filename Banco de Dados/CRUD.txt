@@ -2,7 +2,7 @@ CREATE TABLE PedidoCliente (
     codpedido serial NOT NULL,
     codmesa integer NOT NULL, 
     codproduto integer NOT NULL,
-    observacao varchar(30),
+    observacao varchar(100),
     statusPagto varchar(10),
     statusPedido varchar(10),
     CONSTRAINT pedidocliente_pkey PRIMARY KEY (codpedido)
