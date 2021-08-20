@@ -33,7 +33,7 @@
                                value="<%out.write("" + m.getCodmesa());%>" />
                         <br />
                         <label>Nome da mesa</label>
-                        <input type="text" class="form-control" name="nomMesa" 
+                        <input type="text" maxlength="10" class="form-control" name="nomMesa" 
                                value="<%out.write("" + m.getMesa());%>" />
 
                         <hr />
