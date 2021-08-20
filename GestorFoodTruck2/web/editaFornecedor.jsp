@@ -26,15 +26,15 @@
                     <form action="recebeEditaForn.jsp" method="POST">
 
                         <label class="form-label">E-mail</label> <br>
-                        <input type="text" class="form-control" name="emlF" placeholder="E-mail"
+                        <input type="text" maxlength="40" class="form-control" name="emlF" placeholder="E-mail"
                                value="<%out.write(f.getEmail());%>"/> <br>
 
                         <label class="form-label">Telefone</label> <br>
-                        <input type="number" class="form-control" name="telF" placeholder="Telefone"
+                        <input type="number" maxlength="20" class="form-control" name="telF" placeholder="Telefone"
                                value="<%out.write(f.getTelefone());%>"/> <br>
 
                         <label class="form-label">Nome</label> <br>
-                        <input type="text" class="form-control" name="nomF" placeholder="Nome"
+                        <input type="text" maxlength="20" class="form-control" name="nomF" placeholder="Nome"
                                value="<%out.write(f.getNomeContato());%>"/> <br>
 
                         <label class="form-label">Código do fornecedor</label> <br>
