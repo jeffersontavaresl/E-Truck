@@ -30,11 +30,11 @@
                     <form action="recebeEditaItens.jsp" method="POST">
 
                         <label>Nome do produto</label>
-                        <input type="text" class="form-control" name="nome" 
+                        <input type="text" maxlength="30" class="form-control" name="nome" 
                                value="<%out.write(c.getDescProduto());%>" />
                         <br />
                         <label>Preço</label>
-                        <input type="text" class="form-control" name="vlr" 
+                        <input type="text" maxlength="4" class="form-control" name="vlr" 
                                value="<%out.write("" + c.getPreco());%>" />
                         <br />
                         <label>Código do Produto</label>
