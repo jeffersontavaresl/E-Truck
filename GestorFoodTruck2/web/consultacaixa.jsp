@@ -63,7 +63,7 @@
                                     <td><% out.write("" + c.getCodProduto()); %></td>
                                     <td><% out.write(c.getDescProduto()); %></td>
                                     <td><% out.write(c.getStatusPagto()); %></td>
-                                    <td><% out.print(c.getVlrTotal());%></td>
+                                    <td><% out.print("R$" + c.getVlrTotal());%></td>
                                     <% mesa = c.getCodMesa(); %>
                                     <% status = c.getStatusPagto(); %>
                                 </tr> 
@@ -81,7 +81,7 @@
                     
             </form>
             <div class="valorTotal">
-                <h3><%out.write("Valor Total: " + vlrTotal);%></h3>
+                <h3><%out.write("Valor Total: R$" + vlrTotal);%></h3>
                 <button class="submit btn btn-primary"><%out.write("<a class=submit href=finalizarPedido.jsp?codmesa=" + mesa + "&statusPagto=" + status + ">Finalizar Pedido</a>");%></button>
             </div> 
                 
