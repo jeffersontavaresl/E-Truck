@@ -46,10 +46,10 @@
                         </select><br>
 
                         <label class="form-label">Quantidade</label> <br>
-                        <input type="text" class="form-control" name="quantidade" placeholder="Quantidade" /> <br>
+                        <input type="text" maxlength="6" class="form-control" name="quantidade" placeholder="Quantidade" /> <br>
 
                         <label class="form-label">Unidade de Medida</label> <br>
-                        <input type="text" class="form-control" name="undMedida" placeholder="Unidade de Medida"/> <br>
+                        <input type="text" maxlength="30" class="form-control" name="undMedida" placeholder="Unidade de Medida"/> <br>
 
                             <input type="submit" value="Alterar" class="btn btn-primary"/>
                         </div>
