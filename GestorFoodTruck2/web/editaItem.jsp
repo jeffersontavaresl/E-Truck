@@ -34,11 +34,11 @@
                                value="<%out.write(c.getDescProduto());%>" />
                         <br />
                         <label>Preço</label>
-                        <input type="text" maxlength="4" class="form-control" name="vlr" 
+                        <input type="text" maxlength="5" class="form-control" name="vlr" 
                                value="<%out.write("" + c.getPreco());%>" />
                         <br />
                         <label>Código do Produto</label>
-                        <input type="text" class="form-control" name="codProduto" 
+                        <input type="text" class="form-control" name="codProduto" readonly
                                value="<%out.write("" + c.getCodProduto());%>" />
                         <br />
                         <div class="text-center mb-3">
