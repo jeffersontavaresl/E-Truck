@@ -19,13 +19,13 @@
                 <div class="form-row">
                     <div class="form-group col">
                         <label>Usuário</label>
-                        <input type="text" class="form-control" name="login" placeholder="Digite um usuário" required>
+                        <input type="text" maxlength="15" class="form-control" name="login" placeholder="Digite um usuário" required>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label>Senha</label>
-                    <input type="password" class="form-control" name="senha" placeholder="Digite uma senha" required>
+                    <input type="password" maxlength="15" class="form-control" name="senha" placeholder="Digite uma senha" required>
                 </div>
 
                 <div class="form-row">
