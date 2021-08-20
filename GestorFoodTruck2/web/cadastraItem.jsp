@@ -27,10 +27,10 @@
                         </p>
 
                         <label class="form-label">Nome do Produto</label> <br>
-                        <input type="text" class="form-control" name="nomPrd" placeholder="Nome do produto"> <br><br>
+                        <input type="text" class="form-control" maxlength="30" name="nomPrd" placeholder="Nome do produto"> <br><br>
 
                         <label class="form-label">Preço do Produto</label> <br>
-                        <input type="text" class="form-control" name="vlrPrd" placeholder="Preço do produto"> <br><br>
+                        <input type="text" class="form-control" maxlength="4" name="vlrPrd" placeholder="Preço do produto"> <br><br>
 
                         <div class="text-center mb-3">
                             <a href="functions.jsp" class="btn btn-primary">Início</a>
