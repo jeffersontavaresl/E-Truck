@@ -52,10 +52,10 @@
                         </select><br>
                         
                         <label class="form-label">Quantidade</label> <br>
-                        <input type="text" class="form-control" name="qntdeinsumo" placeholder="Quantidade"> <br>
+                        <input type="text" maxlength="5" class="form-control" name="qntdeinsumo" placeholder="Quantidade"> <br>
                        
                         <label class="form-label">Unidade de Medida</label> <br>
-                        <input type="text" class="form-control" name="undMedida" placeholder="Unidade de Medida"> <br>
+                        <input type="text" maxlength="15" class="form-control" name="undMedida" placeholder="Unidade de Medida"> <br>
                         
                         <label class="form-label">Status</label> <br>
                         <select class="form-control" name="statusPedido" class="form-control">
