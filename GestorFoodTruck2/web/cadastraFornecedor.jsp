@@ -30,13 +30,13 @@
                         <input type="text" maxlength="40" class="form-control" name="cdSoc" placeholder="Razão Social"> <br>
 
                         <label class="form-label">Telefone</label>
-                        <input type="number" class="form-control" name="cdTel" placeholder="Telefone"> <br>
+                        <input type="number" maxlength="20" class="form-control" name="cdTel" placeholder="Telefone"> <br>
 
                         <label class="form-label">E-mail</label>
                         <input type="email" maxlength="45" class="form-control" name="cdEml" placeholder="E-mail"> <br>
 
                         <label class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="cdNom" placeholder="Nome"> <br>
+                        <input type="text" maxlength="20" class="form-control" name="cdNom" placeholder="Nome"> <br>
 
                         <div class="text-center mb-3">
                             <a href="functions.jsp" class="btn btn-primary">Início</a>
