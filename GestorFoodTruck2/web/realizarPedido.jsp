@@ -56,7 +56,7 @@
                         </select><br>
 
                         <label>Observação</label><br>
-                        <input type="text" name="observacao" class="form-control" placeholder="Insira as observações"><br>
+                        <input type="text" name="observacao" maxlength="90" class="form-control" placeholder="Insira as observações"><br>
 
                         <label>Status do Pagamento</label><br>
                         <select name="statusPagto" class="form-control">
