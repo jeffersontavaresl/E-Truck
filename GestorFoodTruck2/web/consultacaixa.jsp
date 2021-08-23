@@ -43,7 +43,7 @@
                             <%}%>
                         </select>  
                         <input type="submit" value="Consultar" class="btn btn-primary"/>
-
+            </form>
                     </div>
                     <div  id="consultas" >
                         <table class="tabela table table-borderless table-striped rounded-1">
@@ -79,12 +79,10 @@
                             </tbody>
                         </table>
                     
-            </form>
             <div class="valorTotal">
                 <h3><%out.write("Valor Total: R$" + vlrTotal);%></h3>
                 <button class="submit btn btn-primary"><%out.write("<a class=submit href=finalizarPedido.jsp?codmesa=" + mesa + "&statusPagto=" + status + ">Finalizar Pedido</a>");%></button>
-            </div> 
-                
+            </div>           
         <%            
             List<Caixa> forms = caixa.lovPagtos();
         %>
@@ -111,15 +109,14 @@
                         <%}%>
                     </select><br>
                    </div>
-                       <input class="submit btn btn-primary" type="button" value="Salvar" onclick="enviarDados()" />
+                    <button class="submit btn btn-primary" onclick="enviarDados()">Salvar</button>
                        <input class="danger btn btn-primary" type="reset" value="Cancelar" />
                    </div>
            </div>
     </div>
         </form>  
-        
-                
-<script>
+    </main>
+ <script>
     function enviarDados(){
 
             var data = document.getElementsByName("data");
@@ -144,9 +141,7 @@
             }
 
             document.forms[0].submit();
-    }        
-    
+    }          
 </script>  
-    </main>
 </body>
 </html>
