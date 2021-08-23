@@ -10,39 +10,47 @@
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
         <link rel="stylesheet" href="styles/tabelas.css">
-    </head> 
+    </head>
+    <p id="login">
+        <%
+            String login = (String) session.getAttribute("login");
+            if (login == null) {
+                response.sendRedirect("login.jsp");
+            }
+        %>
+    </p>
     <body>
         <%
-          Insumo insumo = new Insumo();
-          List<Insumo> lista = insumo.AlertaEstq();
+            Insumo insumo = new Insumo();
+            List<Insumo> lista = insumo.AlertaEstq();
         %>
         <div class="container-fluid">
             <table class="tabela table table-borderless table-striped rounded-1">
-            <thead>
-                <tr>
-                  <th>Código do produto</th>
-                  <th>Nome do produto</th>
-                  <th>Saldo em Estoque</th>
-                  <th>Qtde de Estoque Alerta</th>
-                  <th>Und de Medida</th>
-                  <th>Realizar Pedido</th>                 
-                </tr>
-            </thead>
-                <tbody>
-              
-                <%for(Insumo c : lista) { %>
+                <thead>
                     <tr>
-                    <td><% out.write("" + c.getCodInsumo());   %></td>
-                    <td><% out.write(c.getDescInsumo());  %></td>
-                    <td><% out.write("" + c.getSldEstqInsumo()); %></td>
-                    <td><% out.write("" + c.getQtdEstqAlerta()); %></td>
-                    <td><% out.write(c.getUndMedida()); %></td>
-                    <td><%out.write("<a href=realizarPedFornecedor.jsp?>Pedir</a>");%></td> 
+                        <th>Código do produto</th>
+                        <th>Nome do produto</th>
+                        <th>Saldo em Estoque</th>
+                        <th>Qtde de Estoque Alerta</th>
+                        <th>Und de Medida</th>
+                        <th>Realizar Pedido</th>                 
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <%for (Insumo c : lista) { %>
+                    <tr>
+                        <td><% out.write("" + c.getCodInsumo());   %></td>
+                        <td><% out.write(c.getDescInsumo());  %></td>
+                        <td><% out.write("" + c.getSldEstqInsumo()); %></td>
+                        <td><% out.write("" + c.getQtdEstqAlerta()); %></td>
+                        <td><% out.write(c.getUndMedida()); %></td>
+                        <td><%out.write("<a href=realizarPedFornecedor.jsp?>Pedir</a>");%></td> 
                     </tr> 
 
-                <%}%>
-            </tbody>
-        </table>
+                    <%}%>
+                </tbody>
+            </table>
         </div>
     </body>
 </html>

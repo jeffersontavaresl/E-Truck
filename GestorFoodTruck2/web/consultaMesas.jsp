@@ -11,6 +11,14 @@
 
         <link rel="stylesheet" href="styles/tabelas.css">
     </head>
+    <p id="login">
+        <%
+            String login = (String) session.getAttribute("login");
+            if (login == null) {
+                response.sendRedirect("login.jsp");
+            }
+        %>
+    </p>
     <body>
         <%
             Mesa mesa = new Mesa();

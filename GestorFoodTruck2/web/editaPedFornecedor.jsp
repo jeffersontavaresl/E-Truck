@@ -11,6 +11,14 @@
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="styles/editar.css" rel="stylesheet"/>
     </head>
+    <p id="login">
+        <%
+            String login = (String) session.getAttribute("login");
+            if (login == null) {
+                response.sendRedirect("login.jsp");
+            }
+        %>
+    </p>
     <body> 
         <div class="container-fluid">
             <div class="container-fluid border w-50 h-75 mt-5 mb-4" id="tabela">
@@ -21,7 +29,7 @@
                         Administrador adm = new Administrador();
                         if (idCodPedFornecedor != null) {
                             adm = adm.consultarPedidoItem(Integer.parseInt(idCodPedFornecedor));
-                        }                  
+                        }
                     %>
                 </div>
                 <div class="container-fluid mt-3 mr-4">
@@ -30,26 +38,26 @@
                             Insumo ins = new Insumo();
                             List<Insumo> insumos = ins.lovItem();
                         %>
-                        
+
                         <label class="form-label">Código do Pedido</label> <br>
                         <input type="text" class="form-control" name="codPedFornecedor" placeholder="Código do fornecedor" 
-                        readonly  value="<%out.write("" + adm.getCodPedFornecedor());%>"/> <br>
+                               readonly  value="<%out.write("" + adm.getCodPedFornecedor());%>"/> <br>
                         <div class="text-center mb-3"> 
-                            
-                        <label class="form-label">Descrição</label> <br>
-                         <select name="codInsumo" class="form-label">
-                            <% for (Insumo i : insumos) {%>
-                            <option value="<%out.write("" + i.getCodInsumo());%>">
-                                <% out.write(i.getDescInsumo());%>
-                            </option>
+
+                            <label class="form-label">Descrição</label> <br>
+                            <select name="codInsumo" class="form-label">
+                                <% for (Insumo i : insumos) {%>
+                                <option value="<%out.write("" + i.getCodInsumo());%>">
+                                    <% out.write(i.getDescInsumo());%>
+                                </option>
                                 <%}%>
-                        </select><br>
+                            </select><br>
 
-                        <label class="form-label">Quantidade</label> <br>
-                        <input type="text" maxlength="6" class="form-control" name="quantidade" placeholder="Quantidade" /> <br>
+                            <label class="form-label">Quantidade</label> <br>
+                            <input type="text" maxlength="6" class="form-control" name="quantidade" placeholder="Quantidade" /> <br>
 
-                        <label class="form-label">Unidade de Medida</label> <br>
-                        <input type="text" maxlength="30" class="form-control" name="undMedida" placeholder="Unidade de Medida"/> <br>
+                            <label class="form-label">Unidade de Medida</label> <br>
+                            <input type="text" maxlength="30" class="form-control" name="undMedida" placeholder="Unidade de Medida"/> <br>
 
                             <input type="submit" value="Alterar" class="btn btn-primary"/>
                         </div>

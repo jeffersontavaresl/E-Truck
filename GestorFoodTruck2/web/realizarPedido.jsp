@@ -10,10 +10,18 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Realizar Pedido</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="styles/realizar.css" rel="stylesheet"/>
     </head>
+    <p id="login">
+        <%
+            String login = (String) session.getAttribute("login");
+            if (login == null) {
+                response.sendRedirect("login.jsp");
+            }
+        %>
+    </p>
     <body>
         <div class="container-fluid">
             <div class="container-fluid border w-50 h-75 mt-3 mb-4" id="head">
@@ -76,5 +84,5 @@
                 </div>
             </div>
         </div>
-</body>
+    </body>
 </html>

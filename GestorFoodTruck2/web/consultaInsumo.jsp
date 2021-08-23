@@ -11,41 +11,49 @@
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="styles/tabelas.css">
     </head>
+    <p id="login">
+        <%
+            String login = (String) session.getAttribute("login");
+            if (login == null) {
+                response.sendRedirect("login.jsp");
+            }
+        %>
+    </p>
     <body>   
         <%
-          Insumo insumo = new Insumo();
-          List<Insumo> lista = insumo.lovItem();
+            Insumo insumo = new Insumo();
+            List<Insumo> lista = insumo.lovItem();
         %>
         <div class="container-fluid">
             <table class="tabela table table-borderless table-striped rounded-1">
-            <thead>
-                <tr>
-                  <th>Código do produto</th>
-                  <th>Nome do produto</th>
-                  <th>Saldo em Estoque</th>
-                  <th>Qtde de Estoque Alerta</th>
-                  <th>Und de Medida</th>
-                  <th>Valor</th>
-                  <th>Editar</th>
-                  <th>Excluir</th>
-                  
-                </tr>
-            </thead>
-            <tbody>
-                <% for(Insumo c : lista) { %>
-                   <tr>
-                       <td><% out.write("" + c.getCodInsumo());   %></td>
+                <thead>
+                    <tr>
+                        <th>Código do produto</th>
+                        <th>Nome do produto</th>
+                        <th>Saldo em Estoque</th>
+                        <th>Qtde de Estoque Alerta</th>
+                        <th>Und de Medida</th>
+                        <th>Valor</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (Insumo c : lista) { %>
+                    <tr>
+                        <td><% out.write("" + c.getCodInsumo());   %></td>
                         <td><% out.write(c.getDescInsumo());  %></td>
                         <td><% out.write("" + c.getSldEstqInsumo()); %></td>
                         <td><% out.write("" + c.getQtdEstqAlerta()); %></td>
                         <td><% out.write(c.getUndMedida()); %></td>
                         <td><% out.write("R$" + c.getCustoInsumo()); %></td>
-                        <td><%out.write("<a href=editaInsumo.jsp?codInsumo="+c.getCodInsumo()+">Editar</a>");%></td> 
-                        <td><%out.write("<a href=excluiInsumo.jsp?codInsumo="+c.getCodInsumo()+">Excluir</a>");%></td>   
-                   </tr> 
-                <%}%>
-            </tbody>
-        </table>
+                        <td><%out.write("<a href=editaInsumo.jsp?codInsumo=" + c.getCodInsumo() + ">Editar</a>");%></td> 
+                        <td><%out.write("<a href=excluiInsumo.jsp?codInsumo=" + c.getCodInsumo() + ">Excluir</a>");%></td>   
+                    </tr> 
+                    <%}%>
+                </tbody>
+            </table>
         </div>
     </body>
 </html>

@@ -9,6 +9,14 @@
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="styles/editar.css" rel="stylesheet"/>
     </head>
+    <p id="login">
+        <%
+            String login = (String) session.getAttribute("login");
+            if (login == null) {
+                response.sendRedirect("login.jsp");
+            }
+        %>
+    </p>
     <body> 
         <div class="container-fluid">
             <div class="container-fluid border w-50 h-75 mt-5 mb-4" id="tabela">

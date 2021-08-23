@@ -10,6 +10,14 @@
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="styles/tabelas.css">
     </head>
+    <p id="login">
+        <%
+            String login = (String) session.getAttribute("login");
+            if (login == null) {
+                response.sendRedirect("login.jsp");
+            }
+        %>
+    </p>
     <body>
         <%
             Administrador adm = new Administrador();
@@ -18,20 +26,20 @@
         <div class="container-fluid">
             <table class="tabela table table-borderless table-striped rounded-1">
                 <thead>
-                            <th>Cod Fornecedor</th>
-                            <th>CNPJ</th>
-                            <th>Razao Social</th>
-                            <th>Nome Contato</th>
-                            <th>Cod do Pedido</th>
-                            <th>Cod do Insumo</th>
-                            <th>Descrição do Insumo</th>
-                            <th>Quantidade</th>
-                            <th>Unidade de Medida</th>
-                            <th>Custo</th>
-                            <th>Stauts</th>
-                            <th>Editar</th>
-                            <th>Excluir</th>
-                            </thead>
+                <th>Cod Fornecedor</th>
+                <th>CNPJ</th>
+                <th>Razao Social</th>
+                <th>Nome Contato</th>
+                <th>Cod do Pedido</th>
+                <th>Cod do Insumo</th>
+                <th>Descrição do Insumo</th>
+                <th>Quantidade</th>
+                <th>Unidade de Medida</th>
+                <th>Custo</th>
+                <th>Stauts</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+                </thead>
                 <tbody>
                     <% for (Administrador a : adms) {%>
                     <tr>

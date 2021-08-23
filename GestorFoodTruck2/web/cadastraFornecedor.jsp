@@ -10,6 +10,14 @@
     </head>
 
     <body>
+        <p id="login">
+            <%
+             String login = (String) session.getAttribute("login");
+              if (login == null) {
+                  response.sendRedirect("login.jsp");
+              }
+            %>
+        </p>
         <div class="container-fluid">
             <div class="container-fluid border w-50 h-75 mt-3 mb-4" id="head">
                 <div class="container-fluid d-flex justify-content-center mt-4">
