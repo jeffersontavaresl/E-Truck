@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cozinha</title>
+        <title>Caixa</title>
     </head>
     <body>
         <%
@@ -16,7 +16,7 @@
             caixa.setStatusPagto("Pago");
             
             if(caixa.fecharPedido(codmesa)){
-            response.sendRedirect("inserirFormPagto.jsp?pmensagem=Pedido finalizado com sucesso");
+            response.sendRedirect("consultacaixa.jsp?pmensagem=Pedido finalizado com sucesso");
             } else { 
             response.sendRedirect("consultacaixa.jsp?pmensagem=Falha ao finalizar pedido");
             }
