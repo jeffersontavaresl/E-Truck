@@ -104,7 +104,7 @@
                         <p class="txt-funcoes">Funções da mesa</p>
 
                         <h2 class="titulo-funcoes mt-4">Administrador</h2>
-                        <p class="txt-funcoes">Fun??es de ADM</p>
+                        <p class="txt-funcoes">Funções de ADM</p>
                     </div>
                 </div>
             </div>
