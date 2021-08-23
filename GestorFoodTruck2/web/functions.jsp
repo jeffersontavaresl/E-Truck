@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>E-Truck / Funções</title>
+        <title>E-Truck / Fun��es</title>
         <!-- �cone da P�gina-->
         <link rel="icon" type="image/x-icon" href="styles/imagens/favicon.ico" />
         <!-- Bootstrap e Bot�es-->
@@ -23,44 +23,48 @@
 
                 <div class="bg-padrao list-group list-group-flush">
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Garçom</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> Gar�om</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultapedido.jsp">Consultar Pedido</a>
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="functions2.jsp">Consultar Pedido</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-hat-chef"></i> Cozinha</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-utensils"></i> Cozinha</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaCozinha.jsp">Consulta Cozinha</a>
 
 
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Caixa</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-cash-register"></i> Caixa</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultacaixa.jsp">Finalizar Pedido</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Cardápio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Card�pio</a>
                     <div class="dropdown-container">
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraItem.jsp">Adicionar Item</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraItem.jsp">Adiciona Item</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaItem.jsp">Consultar Itens</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Mesa</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-table"></i> Mesa</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraMesa.jsp">Cadastrar Mesa</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaMesas.jsp">Consultar Mesa</a>
                     </div>
 
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-cart-arrow-down"></i> Insumo</a>
+                    <div class="dropdown-container">
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="cadastroInsumo.jsp">Cadastrar Estoque</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaInsumo.jsp">Consultar Estoque</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedFornecedor.jsp">Realizar Pedido Fornecedor</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaPedFornecedor.jsp">Consultar Pedido Fornecedor</a>
+                    </div>
+
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user-tie"></i> Administrador</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraFornecedor.jsp">Cadastrar Fornecedor</a>
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaForn.jsp">Consultar Fornecedor</a>
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedFornecedor.jsp">Realizar Pedido Fornecedor</a>
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaInsumo.jsp">Cadastrar Estoque</a>
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaInsumo.jsp">Consultar Estoque</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaForn.jsp">Consulta Fornecedor</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="gerarRelatorio.jsp">Relatório de Pagamentos</a>
                     </div>
                     <br><br><br>
@@ -85,23 +89,23 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
 
                     <div class="container-fluid area-funcoes">
-                        <h2 class="titulo-funcoes mt-4">Garçom</h2>
-                        <p class="txt-funcoes">Funções do Garçom</p>
+                        <h2 class="titulo-funcoes mt-4">Gar�om</h2>
+                        <p class="txt-funcoes">Fun??es do gar�om</p>
 
                         <h2 class="titulo-funcoes mt-4">Cozinha</h2>
-                        <p class="txt-funcoes">Funções da Cozinha</p>
+                        <p class="txt-funcoes">Fun??es da cozinha</p>
 
                         <h2 class="titulo-funcoes mt-4">Caixa</h2>
-                        <p class="txt-funcoes">Funções do caixa</p>
+                        <p class="txt-funcoes">Fun??es do caixa</p>
 
-                        <h2 class="titulo-funcoes mt-4">Cardápio</h2>
-                        <p class="txt-funcoes">Funções do Cardápio</p>
+                        <h2 class="titulo-funcoes mt-4">Card�pio</h2>
+                        <p class="txt-funcoes">Fun??es do card�pio</p>
 
                         <h2 class="titulo-funcoes mt-4">Mesa</h2>
-                        <p class="txt-funcoes">Funções da mesa</p>
+                        <p class="txt-funcoes">Fun??es da mesa</p>
 
                         <h2 class="titulo-funcoes mt-4">Administrador</h2>
-                        <p class="txt-funcoes">Funções do Administrador</p>
+                        <p class="txt-funcoes">Fun??es de ADM</p>
                     </div>
                 </div>
             </div>
