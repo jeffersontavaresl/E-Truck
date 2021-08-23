@@ -38,7 +38,7 @@ h2, p{
     color:black;
     font-weight: bold;
     font-size: 100px;
-    border-bottom: 1px solid rgb(190, 190, 190);
+    border-bottom: 1px solid rgb(190, 190, 190);    
 }
 
 #login{
@@ -49,26 +49,25 @@ h2, p{
 .btn-funcoes{
     color:black;
     text-decoration: none;
-    background-color: rgb(240, 240, 240);
 }
 
-.dropdown-btn:active{
+.btn-funcoes:hover, .btn-funcoes-drop:hover{
+    text-decoration: none;
     color:black;
-    background-color: rgb(187, 187, 187);
-}
-
-.dropdown-btn{
-    transition: 0.25s;
+    font-weight: bold;
 }
 
 .btn-funcoes-drop{
     color:black;
-    transition: 0.25s;
-    background-color: rgb(219, 218, 218);
+    transition: 0.15s;
+    background-color: rgb(248, 248, 248);
 }
 
-.hover{
-    text-decoration: none;
+.dropdown-btn:active{
     color:black;
-    font-weight: bold;
+    background-color: rgb(241, 241, 241);
+}
+
+.dropdown-btn{
+    transition: 0.25s;
 }
