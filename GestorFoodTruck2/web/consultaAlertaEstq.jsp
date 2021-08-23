@@ -22,9 +22,9 @@
                 <tr>
                   <th>Código do produto</th>
                   <th>Nome do produto</th>
-                  <th>Und de Medida</th>
                   <th>Saldo em Estoque</th>
                   <th>Qtde de Estoque Alerta</th>
+                  <th>Und de Medida</th>
                   <th>Realizar Pedido</th>                 
                 </tr>
             </thead>
@@ -34,9 +34,9 @@
                     <tr>
                     <td><% out.write("" + c.getCodInsumo());   %></td>
                     <td><% out.write(c.getDescInsumo());  %></td>
-                    <td><% out.write(c.getUndMedida()); %></td>
                     <td><% out.write("" + c.getSldEstqInsumo()); %></td>
                     <td><% out.write("" + c.getQtdEstqAlerta()); %></td>
+                    <td><% out.write(c.getUndMedida()); %></td>
                     <td><%out.write("<a href=realizarPedFornecedor.jsp?>Pedir</a>");%></td> 
                     </tr> 
 
