@@ -32,26 +32,23 @@
             <table class="tabela table table-borderless table-striped rounded-1">
                 <thead>
                     <tr>
-                        <th>Código da Mesa</th>
                         <th>Mesa</th>
                         <th>Produto</th>
                         <th>Observação</th>
-                        <th>Produto</th>
                         <th>Atualizar</th>
-
                     </tr>
                 </thead>
                 <tbody>
                 <form action="atualizaPedido.jsp" method="POST">
                     <tr>
                         <% for (Cozinha c : cz) {%>
-                        <td><%out.write("" + c.getCodMesa());  %></td> 
-                        <td><%out.write(c.getMesa());  %></td> 
-                        <td><%out.write("" + c.getCodProduto());  %></td> 
-                        <td><%out.write(c.getObservacao());  %></td> 
-                        <td><%out.write(c.getDescProduto());  %></td> 
+                        <td><%out.write(c.getMesa());  %></td>
+                        <td><%out.write(c.getDescProduto());  %></td>
+                        <td><%out.write(c.getObservacao());  %></td>
                         <td><%out.write("<a href=atualizaPedido.jsp?codmesa=" + c.getCodMesa() + "&statusPedido=" + c.getStatusPedido() + ">Atualizar Status</a>");%></td>
-                    </tr> 
+                        <td><%c.getCodMesa();%></td> 
+                        <td><% c.getCodProduto();%></td>                                                 
+                        </tr> 
                     <%}%>
                     </tbody>
                 </form>
