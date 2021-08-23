@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>E-Truck / Funções</title>
-        <!-- Ícone da Página-->
+        <title>E-Truck / Fun��es</title>
+        <!-- �cone da P�gina-->
         <link rel="icon" type="image/x-icon" href="styles/imagens/favicon.ico" />
-        <!-- Bootstrap e Botões-->
+        <!-- Bootstrap e Bot�es-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="styles/functions.css" rel="stylesheet"/>
@@ -23,13 +23,14 @@
 
                 <div class="bg-padrao list-group list-group-flush">
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Garçom</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Gar�om</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultapedido.jsp">Consultar Pedido</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="functions2.jsp">Consultar Pedido</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Cozinha</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-hat-chef"></i> Cozinha</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaCozinha.jsp">Consulta Cozinha</a>
 
@@ -41,7 +42,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultacaixa.jsp">Finalizar Pedido</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Cardápio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Card�pio</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraItem.jsp">Adiciona Item</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaItem.jsp">Consultar Itens</a>
@@ -53,7 +54,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaMesas.jsp">Consultar Mesa</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!">Administrador</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user-tie"></i> Administrador</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraFornecedor.jsp">Cadastrar Fornecedor</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaInsumo.jsp">Consultar Estoque</a>
@@ -75,30 +76,40 @@
                 </div>
             </div>
             <div id="page-content-wrapper">
-                <!-- Conteúdo da Página-->
+                <!-- Conte�do da P�gina-->
                 <div class="container-fluid">
-                    <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <button class="btn btn-primary" id="sidebarToggle">Menu</button>
+                    
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-                        <h2 class="mt-4">Garçom</h2>
-                        <p>Funções do garçom</p>
-                        <h2 class="mt-4">Cozinha</h2>
-                        <p>Funções da cozinha</p>
-                        <h2 class="mt-4">Caixa</h2>
-                        <p>Funções do caixa</p>
-                        <h2 class="mt-4">Cardápio</h2>
-                        <p>Funções do cardápio</p>
-                        <h2 class="mt-4">Mesa</h2>
-                        <p>Funções da mesa</p>
-                        <h2 class="mt-4">Administrador</h2>
-                        <p>Funções de ADM</p>
+
+                    <div class="container-fluid area-funcoes">
+                        <h2 class="titulo-funcoes mt-4">Gar�om</h2>
+                        <p class="txt-funcoes">Fun??es do gar�om</p>
+
+                        <h2 class="titulo-funcoes mt-4">Cozinha</h2>
+                        <p class="txt-funcoes">Fun??es da cozinha</p>
+
+                        <h2 class="titulo-funcoes mt-4">Caixa</h2>
+                        <p class="txt-funcoes">Fun??es do caixa</p>
+
+                        <h2 class="titulo-funcoes mt-4">Card�pio</h2>
+                        <p class="txt-funcoes">Fun??es do card�pio</p>
+
+                        <h2 class="titulo-funcoes mt-4">Mesa</h2>
+                        <p class="txt-funcoes">Fun??es da mesa</p>
+
+                        <h2 class="titulo-funcoes mt-4">Administrador</h2>
+                        <p class="txt-funcoes">Fun??es de ADM</p>
                     </div>
                 </div>
             </div>
-            <!-- Bootstrap-->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-            <!--JS - SIDEBAR-->
-            <script src="js/sidebar.js"></script>
-            <script src="js/scripts.js"></script>
+        </div>
+
+        <!--JS - SIDEBAR-->
+        <script src="js/sidebar.js"></script>
+        <script src="js/scripts.js"></script>
+
+        <!--FONT AWESOME-->
+        <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
     </body>
 </html>
