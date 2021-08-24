@@ -8,14 +8,14 @@
     </head>
     <body>
         <%
-            int codmesa = Integer.parseInt(request.getParameter("codmesa"));
+            int codpedido = Integer.parseInt(request.getParameter("codpedido"));
             String statusPedido = request.getParameter("statusPedido");
            
             Cozinha coz = new Cozinha ();
-            coz.setCodMesa(codmesa);
+            coz.setCodPedido(codpedido);
             coz.setStatusPedido("Pronto");
             
-            if(coz.atualizarPedido(codmesa)){
+            if(coz.atualizarPedido(codpedido)){
             response.sendRedirect("consultaCozinha.jsp?pmensagem=Pedido finalizado com sucesso");
             } else { 
             response.sendRedirect("consultaCozinha.jsp?pmensagem=Falha ao finalizar pedido");
