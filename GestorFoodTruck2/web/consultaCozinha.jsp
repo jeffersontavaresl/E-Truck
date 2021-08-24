@@ -42,12 +42,13 @@
                 <form action="atualizaPedido.jsp" method="POST">
                     <tr>
                         <% for (Cozinha c : cz) {%>
-                        <td><%out.write(c.getMesa());  %></td>
+                                                <td><%out.write(c.getMesa());  %></td>
                         <td><%out.write(c.getDescProduto());  %></td>
                         <td><%out.write(c.getObservacao());  %></td>
-                        <td><%out.write("<a href=atualizaPedido.jsp?codmesa=" + c.getCodMesa() + "&statusPedido=" + c.getStatusPedido() + ">Atualizar Status</a>");%></td>
+                        <td><%out.write("<a href=atualizaPedido.jsp?codpedido=" + c.getCodPedido() + "&statusPedido=" + c.getStatusPedido() + ">Atualizar Status</a>");%></td>
                         <td><%c.getCodMesa();%></td> 
-                        <td><% c.getCodProduto();%></td>                                                 
+                        <td><% c.getCodProduto();%></td>  
+                        <td><% c.getCodPedido();%></td>                        
                         </tr> 
                     <%}%>
                     </tbody>
