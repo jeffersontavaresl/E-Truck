@@ -92,10 +92,12 @@
                         <p id="alerta"> 
                             <%  
                             Insumo ins = new Insumo();
-                            if(ins.alertaDeEstq() == true){
-                                out.write("VOCÊ POSSUI ITENS COM BAIXO ESTOQUE!!!");
-                            }
-                            %>
+                            if(ins.alertaDeEstq() == true){ 
+                                out.write("VOCÊ POSSUI ITENS COM BAIXO ESTOQUE!!!"); %>
+                                    <script>
+                                    alert("VOCÊ POSSUI ITENS COM BAIXO ESTOQUE!!!");
+                                    </script>
+                          <% } %>
                         </p>
                     <div class="container-fluid area-funcoes">
                         <h2 class="titulo-funcoes mt-4">Garçom</h2>
@@ -111,10 +113,10 @@
                         <p class="txt-funcoes">Responsável por adicionar e editar os pedidos.</p>
 
                         <h2 class="titulo-funcoes mt-4">Mesa</h2>
-                        <p class="txt-funcoes">Funções da mesa</p>
+                        <p class="txt-funcoes">Rensposável por adicionar e editar as mesa</p>
 
                         <h2 class="titulo-funcoes mt-4">Administrador</h2>
-                        <p class="txt-funcoes">Funções de ADM</p>
+                        <p class="txt-funcoes">Responsável para realizar pedidos e consultar relatórios</p>
                     </div>
                 </div>
             </div>
