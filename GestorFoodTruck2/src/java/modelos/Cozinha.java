@@ -14,6 +14,7 @@ public class Cozinha extends PedidoCliente{
     private String mesa;
     private int codProduto;
     private int codMesa;
+    private int codPedido;
 
 
     @Override
@@ -41,7 +42,7 @@ public class Cozinha extends PedidoCliente{
     public List<Cozinha> lovPedidosCoz(String pStatusPedido) {
         List<Cozinha> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String  sql  = "SELECT c.descproduto, a.observacao, a.codproduto, ";
+        String  sql  = "SELECT c.descproduto, a.observacao, a.codproduto, a.codpedido, ";
                 sql += "a.statuspedido, b.mesa, b.codmesa  ";
                 sql += "FROM pedidocliente a, cardapio c, mesa b ";
                 sql += "WHERE statuspedido = ? ";
@@ -59,6 +60,7 @@ public class Cozinha extends PedidoCliente{
                 coz.setStatusPedido(rs.getString("statuspedido"));
                 coz.setMesa(rs.getString("mesa"));
                 coz.setCodMesa(rs.getInt("codmesa"));
+                coz.setCodPedido(rs.getInt("codpedido"));
                 lista.add(coz);
             }
         } catch (SQLException ex) {
@@ -68,16 +70,16 @@ public class Cozinha extends PedidoCliente{
     }
     
     
-    public boolean atualizarPedido(int pCodMesa) {
+    public boolean atualizarPedido(int pCodPedido) {
         Connection con = Conexao.conectar();
         String  sql  = "UPDATE pedidocliente ";
                 sql += " SET statuspedido = ? ";
-                sql += " WHERE codmesa  = ? ";
+                sql += " WHERE codpedido  = ? ";
 
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.statusPedido);
-            stm.setInt   (2, pCodMesa);
+            stm.setInt   (2, pCodPedido);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -147,6 +149,16 @@ public class Cozinha extends PedidoCliente{
     @Override
     public void setMesa(String mesa) {
         this.mesa = mesa;
+    }
+
+    @Override
+    public int getCodPedido() {
+        return codPedido;
+    }
+    
+    @Override
+    public void setCodPedido(int codPedido) {
+        this.codPedido = codPedido;
     }
 
 }
