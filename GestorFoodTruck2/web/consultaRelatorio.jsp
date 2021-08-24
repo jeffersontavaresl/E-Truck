@@ -36,28 +36,28 @@
                 Caixa caixa = new Caixa();
             %>
             <div class="consultarMesa">
-            <label>Data do pagamento</label> <br>
-            <input type="date" name="data"> <br><br>
+                <label>Data do pagamento</label> <br>
+                <input type="date" name="data"> <br><br>
 
-            <input type="submit" value="Consultar" class="btn btn-primary"/>
+                <input type="submit" value="Consultar" class="btn btn-primary"/>
             </div>
         </form>
 
         <table class="tabela table table-borderless table-striped rounded-1">
             <thead>
-            <th>Cod Produto</th>
-            <th>Produto</th>
-            <th>Status Pagamento</th>
-            <th>Valor</th>
+            <th>Data do Pagamento</th>
+            <th>Forma de Pagamento</th>
+            <th>Bandeira</th>
+            <th>Valor Pago</th>            
         </thead>
 
         <tbody class="produtos">
             <% for (Caixa c : caixas) {%>
             <tr>
                 <td><% out.write("" + c.getDataMovimento()); %></td>
-                <td><% out.write("R$" + c.getVlrTotal()); %></td>
                 <td><% out.write(c.getDescFormPagto()); %></td>
                 <td><% out.print(c.getDescBandeira());%></td>
+                <td><% out.write("R$" + c.getVlrTotal()); %></td>
             </tr> 
             <%}%>
             <%
