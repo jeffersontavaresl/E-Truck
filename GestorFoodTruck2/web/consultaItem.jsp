@@ -110,7 +110,7 @@
                             <tr>
                                 <td><% out.write("" + c.getCodProduto());   %></td>
                                 <td><% out.write(c.getDescProduto());  %></td>
-                                <td><% out.write("" + c.getPreco()); %></td>   
+                                <td><% out.write("R$" + c.getPreco()); %></td>   
                                 <td><%out.write("<a href=editaItem.jsp?codProduto=" + c.getCodProduto() + ">Editar</a>");%></td> 
                                 <td><%out.write("<a href=excluiItem.jsp?codProduto=" + c.getCodProduto() + ">Excluir</a>");%></td>   
                             </tr> 
