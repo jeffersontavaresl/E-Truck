@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="modelos.Insumo"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -88,19 +89,26 @@
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-
+                        <p id="alerta"> 
+                            <%  
+                            Insumo ins = new Insumo();
+                            if(ins.alertaDeEstq() == true){
+                                out.write("VOCÊ POSSUI ITENS COM BAIXO ESTOQUE!!!");
+                            }
+                            %>
+                        </p>
                     <div class="container-fluid area-funcoes">
                         <h2 class="titulo-funcoes mt-4">Garçom</h2>
-                        <p class="txt-funcoes">Funções do garçom</p>
+                        <p class="txt-funcoes">Responsável por realizar e consultar os pedidos</p>
 
                         <h2 class="titulo-funcoes mt-4">Cozinha</h2>
-                        <p class="txt-funcoes">Funções da cozinha</p>
+                        <p class="txt-funcoes">Responsável por consultar e atualizar os pedidos.</p>
 
                         <h2 class="titulo-funcoes mt-4">Caixa</h2>
-                        <p class="txt-funcoes">Funções do caixa</p>
+                        <p class="txt-funcoes">Responsável por finalizar os pedidos.</p>
 
                         <h2 class="titulo-funcoes mt-4">Cardápio</h2>
-                        <p class="txt-funcoes">Funções do cardápio</p>
+                        <p class="txt-funcoes">Responsável por adicionar e editar os pedidos.</p>
 
                         <h2 class="titulo-funcoes mt-4">Mesa</h2>
                         <p class="txt-funcoes">Funções da mesa</p>
