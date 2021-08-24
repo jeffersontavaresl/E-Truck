@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -5,9 +6,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>E-Truck / Funções</title>
-        <!-- Icone da Página-->
+        <!-- Icone da PÃ¡gina-->
         <link rel="icon" type="image/x-icon" href="styles/imagens/favicon.ico" />
-        <!-- Bootstrap e Botões-->
+        <!-- Bootstrap e BotÃµes-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="styles/functions.css" rel="stylesheet"/>
@@ -82,7 +83,7 @@
                 </div>
             </div>
             <div id="page-content-wrapper">
-                <!-- Conteúdo da Página-->
+                <!-- ConteÃºdo da PÃ¡gina-->
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     
