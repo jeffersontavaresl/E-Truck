@@ -64,7 +64,7 @@ public class PedidoCliente extends Cardapio{
         String  sql  = "SELECT a.codpedido, a.codproduto, c.descproduto, ";
                 sql += "a.observacao, a.statuspagto, a.statuspedido ";
                 sql += "FROM pedidocliente a, cardapio c, mesa b ";
-                sql += "WHERE b.codmesa = ? ";
+                sql += "WHERE a.codpedido = ? ";
                 sql += "AND a.codproduto = c.codproduto ";
                 sql += "AND a.codmesa = b.codmesa ";
         PedidoCliente pedcliente = null;
