@@ -1,9 +1,11 @@
+<%@page import="java.math.RoundingMode"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <%@page import="modelos.PedidoCliente"%>
 <%@page import="modelos.Cardapio"%>
 <%@page import="modelos.Caixa"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.math.BigDecimal"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -112,6 +114,7 @@
                 PedidoCliente pedcliente = new PedidoCliente();
                 Caixa caixa = new Caixa();
                 List<PedidoCliente> mesas = pedcliente.lovMesa();
+
             %>
 
             <div class="principal">
@@ -159,6 +162,7 @@
                                 float vlrUnd = c.getVlrTotal();
                                 vlrTotal += vlrUnd;
                             }
+                            BigDecimal bd = new BigDecimal(vlrTotal).setScale(3, RoundingMode.HALF_EVEN);
                         %>
                         
                     </tbody>
@@ -167,7 +171,7 @@
                         <br>
                         
                 <div class="PGcaixa">
-                    <h3 class="vlrTotal"><%out.write("Valor Total: R$" + vlrTotal);%></h3>
+                    <h3 class="vlrTotal"><%out.write("Valor Total: R$" + bd.doubleValue());%></h3>
         
                 </div>     
             </div>
@@ -196,8 +200,8 @@
                         <input type="date" name="data" id="dat"> <br>
 
                         <label><b>Valor Pago</b></label>
-                        <input type="text" maxlength="10" class="form-control" name="vlrTotal" 
-                               value="<%out.write("" + vlrTotal);%>" />                            
+                        <input type="text" maxlength="10" class="form-control" name="vlrTotal"
+                               value="<%out.write("" + bd.doubleValue());%>" />                            
                         <br>
 
                         <label><b>Forma de Pagamento<b></label>
