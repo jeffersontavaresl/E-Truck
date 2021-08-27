@@ -47,13 +47,15 @@
 
                 <div class="consultarMesa">
                     
-                    <select name="idmesa">
+                    <select name="idmesa" style="width: 95px;">
                         <% for (PedidoCliente m : mesas) { %>
                         <option value="<%out.write("" + m.getCodMesa());%>">
                             <% out.write(m.getMesa());%>
                         </option>
                         <%}%>
-                    </select>  <br>
+                    </select> 
+                     
+                    <br>
                     <input type="submit" value="Consultar" class="btn btn-primary"/>
                     </form>
                 </div>
