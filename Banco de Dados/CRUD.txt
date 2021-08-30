@@ -79,3 +79,4 @@ ALTER TABLE Caixa ADD CONSTRAINT fk_formapagto FOREIGN KEY (codformpagto) REFERE
 ALTER TABLE PedidoFornecedorItem ADD CONSTRAINT fk_codfornecedor FOREIGN KEY (codfornecedor) REFERENCES Fornecedor (codfornecedor);
 ALTER TABLE PedidoFornecedorItem ADD CONSTRAINT fk_codinsumo FOREIGN KEY (codinsumo) REFERENCES Insumo (codinsumo);
 ALTER TABLE Fornecedor ADD CONSTRAINT un_cnpj UNIQUE (cnpj);
+ALTER TABLE Usuario ADD CONSTRAINT un_login UNIQUE (login);
