@@ -16,7 +16,7 @@
                 <input class="loginInput" type="password" name="senha" placeholder="Senha">
                 <span class="loginBorder"></span>
                 <button class="loginSubmit">Login</button>
-                <a class="resetSenha" href="#">Esqueceu a senha?</a>
+                <a class="resetSenha" href="cadastrousuario.jsp"><b>Cadastre-se</b></a>
             </form>
         </div>
     </main>           

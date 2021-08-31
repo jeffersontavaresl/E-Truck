@@ -27,7 +27,7 @@
             <input type="password" class="cadastroInput" maxlength="15" name="senha" placeholder="Digite uma senha" required>
             <span class="cadastroBorder"></span>
             <input type="button"  class="cadastroSubmit" value="Cadastrar" onclick="enviarCadastro()"/>
-            
+            <a href="login.jsp" class="rtLogin"><b>Retornar ao login</b></a>
                 </form>
             </div>
         </main>
