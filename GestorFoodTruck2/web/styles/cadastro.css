@@ -6,7 +6,7 @@ body{
 
 .cadastro{
     height: 100vh;
-    background: linear-gradient(120deg, #00008B, #00BFFF);
+    background: rgb(58, 42, 148);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,7 +55,6 @@ body{
     width: 100%;
     margin-bottom: 16px;
     background-color: #cfcfcf;
-    transition: .3s ease-in-out;
 }
 
 .cadastroBorder::after{
@@ -64,14 +63,15 @@ body{
     height: 1px;
     width: 0;
     margin-bottom: 16px;
-    background: linear-gradient(120deg, #00008B, #00BFFF);
+    background: rgb(58, 42, 148);
+    transition: .3s ease-in-out;
 }
 
 .cadastroSubmit{
     height: 48px;
     width: 100%;
     outline: none;
-    background: linear-gradient(120deg, #00008B, #00BFFF, #00008B);
+    background: rgb(58, 42, 148);
     background-size: 200%;
     margin-bottom: 32px;
     color: white;
@@ -85,4 +85,10 @@ body{
 
 .cadastroSubmit:hover{
     background-position: right;
+}
+
+.rtLogin{
+    font-size: 16px;
+    color: rgb(58, 42, 148);
+    text-decoration: none;
 }
