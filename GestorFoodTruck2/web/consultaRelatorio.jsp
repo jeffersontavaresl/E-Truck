@@ -37,9 +37,10 @@
             %>
             <div class="consultarMesa">
                 <label>Data do pagamento</label> <br>
-                <input type="date" name="data"> <br><br>
+                <input type="date" name="data" required> <br><br>
 
                 <input type="submit" value="Consultar" class="btn btn-primary"/>
+                <a class="btn btn-primary" href="consultaRelatorioMetodo.jsp">Consulta Avançada</a>
             </div>
         </form>
 
@@ -74,3 +75,5 @@
     </div>  
 </body>
 </html>
+
+
