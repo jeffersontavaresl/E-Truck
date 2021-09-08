@@ -76,7 +76,7 @@
                             if (login == null) {
                                 response.sendRedirect("login.jsp");
                             } else {
-                                out.print("Bem vindo," + login + "<br/>");
+                                out.print("Bem vindo, " + login + "<br/>");
                             }
                         %>
                     </p>
