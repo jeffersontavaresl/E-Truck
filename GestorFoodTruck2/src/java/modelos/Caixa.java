@@ -186,6 +186,38 @@ public class Caixa {
     }
     return lista;
     }
+	
+	public List<Caixa> gerarRelatorioMetodo(Date pDataRelatorio, int pCodFormPagto) {
+    List<Caixa> lista = new ArrayList<>();
+    Connection con = Conexao.conectar();
+    String  sql  = "SELECT a.datamovimento, a.codformpagto, a.vlrtotal, " +
+                    "b.codformpagto, b.descformpagto, " +
+                    "b.descbandeira " +
+                    "FROM caixa a, formapagamento b " +
+                    "WHERE datamovimento = ? " +
+                    "AND a.codformpagto = ? " +
+                    "AND a.codformpagto = b.codformpagto " +
+                    "ORDER BY b.codformpagto ";
+
+    try {
+        PreparedStatement stm = con.prepareStatement(sql);
+        stm.setDate(1, pDataRelatorio);
+        stm.setInt(2, pCodFormPagto);
+        ResultSet rs = stm.executeQuery();
+         while (rs.next()) {
+            Caixa rel = new Caixa();
+            rel.setDataMovimento(rs.getDate("datamovimento"));
+            rel.setCodFormPagto(rs.getInt("codformpagto"));
+            rel.setVlrTotal(rs.getFloat("vlrtotal"));
+            rel.setDescFormPagto(rs.getString("descformpagto"));
+            rel.setDescBandeira(rs.getString("descbandeira"));            
+            lista.add(rel);
+        }
+    } catch (SQLException ex) {
+        System.out.println("Erro: " + ex.getMessage());
+    }
+    return lista;
+    }   
     
     /* ÁREA DE GETTERS E SETTERS */ 
 
