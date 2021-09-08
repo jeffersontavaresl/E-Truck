@@ -100,7 +100,7 @@
                           <% } %>
                         </p>
                         <div class="container-fluid">
-                            <iframe width="1250" height="650" src="https://app.powerbi.com/reportEmbed?reportId=1402625f-fa88-48aa-b535-ecc0d6107b95&autoAuth=true&ctid=022bf58a-06fd-45a0-bd72-21e90d738883&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWJyYXppbC1zb3V0aC1iLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe>
+                            <iframe width="1250" height="650" src="https://app.powerbi.com/view?r=eyJrIjoiYWVjZDBhNWItZjdmMy00MGVmLWEwZmEtZDg3ZTVhZDM1ZjU5IiwidCI6IjAyMmJmNThhLTA2ZmQtNDVhMC1iZDcyLTIxZTkwZDczODg4MyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
                         </div>
                     </div>
             </div>
