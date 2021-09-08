@@ -15,7 +15,7 @@
 
 #head{
     /* background-color: #1b2448; */
-    background-image: url('imagens/eita.gif');
+    background-image: url('imagens/eita2.gif');
     background-size:100%;
     background-repeat: repeat-y;
     height:100%;
@@ -39,5 +39,12 @@
 
 #mainborder{
   border-radius: 23px;
-  background-image: url('imagens/fundo-site.gif');
+}
+
+.ptexto {
+    color: #575968;
+}
+
+.ahover:hover{
+  background-color:rgba(167, 0, 255, 1)
 }
