@@ -99,26 +99,10 @@
                                     </script>
                           <% } %>
                         </p>
-                    <div class="container-fluid area-funcoes">
-                        <h2 class="titulo-funcoes mt-4">Garçom</h2>
-                        <p class="txt-funcoes">Responsável por realizar e consultar os pedidos</p>
-
-                        <h2 class="titulo-funcoes mt-4">Cozinha</h2>
-                        <p class="txt-funcoes">Responsável por consultar e atualizar os pedidos.</p>
-
-                        <h2 class="titulo-funcoes mt-4">Caixa</h2>
-                        <p class="txt-funcoes">Responsável por finalizar os pedidos.</p>
-
-                        <h2 class="titulo-funcoes mt-4">Cardápio</h2>
-                        <p class="txt-funcoes">Responsável por adicionar e editar os pedidos.</p>
-
-                        <h2 class="titulo-funcoes mt-4">Mesa</h2>
-                        <p class="txt-funcoes">Rensposável por adicionar e editar as mesa</p>
-
-                        <h2 class="titulo-funcoes mt-4">Administrador</h2>
-                        <p class="txt-funcoes">Responsável para realizar pedidos e consultar relatórios</p>
+                        <div class="container-fluid">
+                            <iframe width="1250" height="650" src="https://app.powerbi.com/reportEmbed?reportId=1402625f-fa88-48aa-b535-ecc0d6107b95&autoAuth=true&ctid=022bf58a-06fd-45a0-bd72-21e90d738883&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWJyYXppbC1zb3V0aC1iLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe>
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
 
