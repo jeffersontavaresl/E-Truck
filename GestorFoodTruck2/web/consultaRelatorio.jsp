@@ -3,6 +3,8 @@
 <%@page import="java.util.List"%>
 <%@page import="modelos.Caixa"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.math.BigDecimal"%>
+<%@page import="java.math.RoundingMode"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -140,11 +142,12 @@
                         float vlrUnd = c.getVlrTotal();
                         vlrTotal += vlrUnd;
                     }
+                   BigDecimal bd = new BigDecimal(vlrTotal).setScale(3, RoundingMode.HALF_EVEN); 
                 %>
             </tbody>
         </table>
         <div class="valorTotal">
-            <h3><%out.write("Valor Total: R$" + vlrTotal);%></h3>
+            <h3><%out.write("Valor Total: R$" + bd.doubleValue());%></h3>
         </div>  ]
         </div>
 
