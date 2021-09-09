@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cancelar Pedido</title>
+        <title>E-truck Management - Cancelar Pedido</title>
     </head>
     <body>
         <h1>Cancelar item do pedido</h1>
