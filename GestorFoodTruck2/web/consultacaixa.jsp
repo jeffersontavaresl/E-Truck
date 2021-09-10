@@ -119,8 +119,7 @@
 
             <div class="principal">
 
-                <div class="consultarMesa">
-                    
+                <div class="consultarMesa">                    
                     <select name="idmesa" style="width: 95px;">
                         <% for (PedidoCliente m : mesas) { %>
                         <option value="<%out.write("" + m.getCodMesa());%>">
@@ -128,8 +127,7 @@
                         </option>
                         <%}%>
                     </select> 
-                     
-                    <br>
+                      
                     <input type="submit" value="Consultar" class="btn btn-primary"/>
                     </form>
                 </div>
@@ -167,25 +165,21 @@
                         
                     </tbody>
                 </table>
-
-                        <br>
                         
                 <div class="PGcaixa">
                     <h3 class="vlrTotal"><%out.write("Valor Total: R$" + bd.doubleValue());%></h3>
         
                 </div>     
             </div>
-                <br><br>
+                <br>
             <main class="formpag">
                 <%
                     List<Caixa> forms = caixa.lovPagtos();
                 %>
 
                 <div class="divpag">
-                    <h2  class="pagTit">Forma de Pagamento</h2>
                     <form action="finalizarPedido.jsp" method="POST" class="tpPagForm">
                         
-
                         <select hidden type="text" name="codmesa" class="form-control">
                             <option value="<%out.write("" + mesa);%>">
                                         <% out.write(""+mesa);%>
