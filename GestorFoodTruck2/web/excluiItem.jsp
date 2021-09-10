@@ -6,24 +6,19 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cardapio</title>
     </head>
-    <body>
-        
+    <body> 
         <h1>Itens do Cardapio</h1>
         <%
-          String idcodPedido = request.getParameter("codProduto");
-          Cardapio c = new Cardapio();
-          if (idcodPedido != null){
-              c = c.consultarItem(Integer.parseInt(idcodPedido));
-              if(c.excluirItem()){
-              out.write("Item excluido com sucesso");
-              response.sendRedirect("consultaItem.jsp");
-          }
-          else
-          {
-              out.write("Problemas ao excluir item");
-          }
-          }          
-        %>
-      
+          String idProduto = request.getParameter("codProduto");
+          Cardapio c = new Cardapio();  
+          if (idProduto != null) {
+            c = c.consultarItem(Integer.parseInt(idProduto));
+            if(c.excluirItem()){
+                response.sendRedirect("consultaItem.jsp?pmensagem=Item excluido com sucesso");
+            } else {
+                response.sendRedirect("consultaItem.jsp?pmensagem=Erro ao excluir item");
+            }
+        }
+        %>   
     </body>
 </html>

@@ -9,18 +9,15 @@
     <body>
         <%
           String idForn = request.getParameter("codFornecedor");
-          Fornecedor f = new Fornecedor();
-          if (idForn != null){
-              f = f.consultarFonecedor(Integer.parseInt(idForn));
-              if(f.excluirFornecedor()){
-              out.write("Fornecedor excluido com sucesso");
-              response.sendRedirect("consultaForn.jsp");
-          }
-          else
-          {
-              out.write("Problemas ao excluir o fornecedor");
-          }
-          }          
+          Fornecedor f = new Fornecedor();  
+          if (idForn != null) {
+            f = f.consultarFonecedor(Integer.parseInt(idForn));
+            if(f.excluirFornecedor()){
+                response.sendRedirect("consultaForn.jsp?pmensagem=Fornecedor excluido com sucesso");
+            } else {
+                response.sendRedirect("consultaForn.jsp?pmensagem=Erro ao excluir Fornecedor");
+            }
+        }
         %>
     </body>
 </html>
