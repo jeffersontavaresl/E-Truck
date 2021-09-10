@@ -100,7 +100,7 @@
                           <% } %>
                         </p>
                         <div class="container-fluid">
-                            <iframe width="1250" height="650" src="https://app.powerbi.com/view?r=eyJrIjoiYWVjZDBhNWItZjdmMy00MGVmLWEwZmEtZDg3ZTVhZDM1ZjU5IiwidCI6IjAyMmJmNThhLTA2ZmQtNDVhMC1iZDcyLTIxZTkwZDczODg4MyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+                            <iframe width="1000" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiYWVjZDBhNWItZjdmMy00MGVmLWEwZmEtZDg3ZTVhZDM1ZjU5IiwidCI6IjAyMmJmNThhLTA2ZmQtNDVhMC1iZDcyLTIxZTkwZDczODg4MyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
                         </div>
                     </div>
             </div>
@@ -112,5 +112,9 @@
 
         <!--FONT AWESOME-->
         <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
+        
+        <!--JIVO CHAT-->
+        <script src="//code-eu1.jivosite.com/widget/wUayrgmqks" async></script>
+        
     </body>
 </html>
