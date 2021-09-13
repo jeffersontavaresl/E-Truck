@@ -18,11 +18,30 @@
         <link href="styles/functions02.css" rel="stylesheet"/>
         <link rel="stylesheet" href="styles/tabelas.css">
     </head>
+    <style>
+        .msg-popup2 {
+            z-index: 10;
+            width: 20%;
+            height: 15vh;
+            margin-left:  700px;
+            margin-right: 400px;
+            top: 250px;
+            background-color: rgb(58, 42, 200);
+            display: none;
+            position: absolute;
+            border: 2px solid #b2b2b2;
+            -webkit-border-radius: 15px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0px 1px 4px 0px rgba(43, 40, 40, 0.6) inset;
+            box-shadow: 0px 1px 4px 0px rgba(43, 40, 40, 0.6) inset;
+            -webkit-transition: all 0.2s linear;
+            transition: all 0.2s linear;       
+        }
+    </style>
     <body>
         <div class="d-flex" id="wrapper">
-            
-            
             <!-- Sidebar-->
+
             <div class="bg-padrao border-end" id="sidebar-wrapper">
                 <div class="bg-padrao list-group list-group-flush">
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> Início</a>
@@ -121,30 +140,12 @@
                                 <td><%out.write(pc.getObservacao()); %></td>   
                                 <td><%out.write(pc.getStatusPagto()); %></td>   
                                 <td><%out.write(pc.getStatusPedido()); %></td>   
-                                <td><%out.write("<a class='btn' href=editaPedido.jsp?codPedido=" + pc.getCodPedido() + ">" + "<i class='far fa-edit'       style='color:blue'></i></a>");%></td> 
-
-                                <!--BOTÃO EXCLUIR-->
-                                <td><button type="button" class="btn" data-toggle="modal" data-target="#excluirDados">
-                                        <i class='far fa-trash-alt'  style='color:red'></i>  
-                                    </button>
-
-                                    <!--MODAL EXCLUSÃO DE ITEM-->
-                                    <div class="modal fade" id="excluirDados" tabindex="-1" role="dialog" aria-labelledby="modalExclusao" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="modalExclusao">Deseja cancelar o pedido?</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                    <a class="btn text-white" style="background-color:rgb(58, 42, 148)"<%out.write(" href=cancelarPedido.jsp?codPedido=" + pc.getCodPedido() + ">" + "Cancelar");%> </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <td><%out.write("<a href=editaPedido.jsp?codPedido=" + pc.getCodPedido() + ">" + "<i class='far fa-edit'       style='color:blue'></i></a>");%></td> 
+                                <td>
+                                    <a type="button" id="botaoexcluir" 
+                                       onclick="mostrarExclusao(<%out.write("" + pc.getCodPedido());%>)">
+                                        <i class='far fa-trash-alt' style='color:red'></i> 
+                                    </a>
                                 </td>
                             </tr> 
                             <%}%>
@@ -153,22 +154,32 @@
                 </div>
             </div>
         </div>
+        <!-- POP UP DE CONFIRMAÇÃO DE EXCLUSÃO -->                
 
+        <div class="msg-popup2">
+            <h5 class="text-center" style="color: #ffffff; font-family: arial-bold ">EXCLUSÃO</h5>
+            <h5 class="text-center" style="color: #ffffff;">Confirma a <b>exclusão</b>?</h5>
+            <div class="text-center">                
+                <a href=""><button class="btn btn-dark" click="cancela()"> Não </button></a>
+                <a id="exclui" href="#"><button class="btn btn-danger" id="excluir"> Sim </button></a>                    
+            </div>
+        </div>       
+        <script>
+            function cancela() {
+                document.getElementsByClassName("msg-popup2")[0].style.display = "none";
+            }
+
+            function mostrarExclusao(pedido) {
+                document.getElementsByClassName("msg-popup2")[0].style.display = "block";
+                var link = document.getElementById("exclui");
+                link.href = "cancelarPedido.jsp?codPedido=" + pedido;
+            }
+        </script>
         <!--JS - SIDEBAR-->
         <script src="js/sidebar.js"></script>
         <script src="js/scripts.js"></script>
 
         <!--FONT AWESOME-->
         <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
-
-        <!--JQUERY E POPPER.JS-->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
     </body>
 </html>
