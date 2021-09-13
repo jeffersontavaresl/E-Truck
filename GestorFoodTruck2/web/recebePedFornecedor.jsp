@@ -9,9 +9,9 @@
     adm.setStatusPedido(request.getParameter("statusPedido"));
    
     if (adm.realizarPedidoItem()) {
-            response.sendRedirect("realizarPedFornecedor.jsp?pmensagem=Item salvo com sucesso");
+            response.sendRedirect("realizarPedFornecedor.jsp?pmensagem=Pedido realizado com sucesso");
     } else {
-            response.sendRedirect("realizarPedFornecedor.jsp?pmensagem=Problemas ao salvar Item");
+            response.sendRedirect("realizarPedFornecedor.jsp?pmensagem=Problemas ao realizar pedido");
     }
     
 %>
