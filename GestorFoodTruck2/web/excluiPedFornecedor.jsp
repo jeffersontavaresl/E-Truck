@@ -8,20 +8,16 @@
     </head>
     <body>
         <%
-          String idCodPedFornecedor = request.getParameter("codPedFornecedor");
-          Administrador adm = new Administrador();
-          if (idCodPedFornecedor != null){
-              adm = adm.consultarPedidoItem(Integer.parseInt(idCodPedFornecedor));
-              if(adm.excluirPedidoItem()){
-              out.write("Item excluido com sucesso");
-              response.sendRedirect("consultaPedFornecedor.jsp");
-          }
-          else
-          {
-              out.write("Problemas ao excluir o fornecedor");
-              response.sendRedirect("consultaPedFornecedor.jsp");
-          }
-          }          
+            String idCodPedFornecedor = request.getParameter("codPedFornecedor");
+            Administrador adm = new Administrador();
+            if (idCodPedFornecedor != null) {
+                adm = adm.consultarPedidoItem(Integer.parseInt(idCodPedFornecedor));
+                if (adm.excluirPedidoItem()) {
+                    response.sendRedirect("consultaPedFornecedor.jsp?pmensagem=Pedido excluido com sucesso");
+                } else {
+                    response.sendRedirect("consultaPedFornecedor.jsp?pmensagem=Erro ao excluir pedido");
+                }
+            }
         %>
     </body>
 </html>
