@@ -8,19 +8,16 @@
     </head>
     <body>
         <%
-          String idMesa = request.getParameter("codmesa");
-          Mesa m = new Mesa();
-          if (idMesa != null){
-              m = m.consultaMesa(Integer.parseInt(idMesa));
-              if(m.excluiMesa()){
-              out.write("Mesa excluido com sucesso");
-              response.sendRedirect("consultaMesas.jsp");
-          }
-          else
-          {
-              out.write("Problemas ao excluir mesa");
-          }
-          }          
-        %>
+            String idMesa = request.getParameter("codmesa");;
+            Mesa m = new Mesa();
+            if (idMesa != null) {
+                m = m.consultaMesa(Integer.parseInt(idMesa));
+                if (m.excluiMesa()) {
+                    response.sendRedirect("consultaMesas.jsp?pmensagem=Mesa excluido com sucesso");
+                } else {
+                    response.sendRedirect("consultaMesas.jsp?pmensagem=Erro ao excluir mesa");
+                }
+            }
+        %>       
     </body>
 </html>
