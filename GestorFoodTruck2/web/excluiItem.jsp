@@ -16,7 +16,7 @@
             if(c.excluirItem()){
                 response.sendRedirect("consultaItem.jsp?pmensagem=Item excluido com sucesso");
             } else {
-                response.sendRedirect("consultaItem.jsp?pmensagem=Erro ao excluir item");
+                response.sendRedirect("consultaItem.jsp?pmensagem=PRODUTO ATRELADO AO RELATORIO DE PAGAMENTO. PARA MAIS INFORMACOES CONTATE O SUPORTE.");
             }
         }
         %>   
