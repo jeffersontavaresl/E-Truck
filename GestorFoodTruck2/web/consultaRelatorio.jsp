@@ -29,10 +29,9 @@
             <!-- Sidebar-->
 
             <div class="bg-padrao border-end" id="sidebar-wrapper">
-                <div class="bg-padrao sidebar-heading" id="etruck">E-Truck<br></div>
 
                 <div class="bg-padrao list-group list-group-flush">
-
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> Início</a>
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> Garçom</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
@@ -148,7 +147,7 @@
         </table>
         <div class="valorTotal">
             <h3><%out.write("Valor Total: R$" + bd.doubleValue());%></h3>
-        </div>  ]
+        </div>  
         </div>
 
         <!--JS - SIDEBAR-->
