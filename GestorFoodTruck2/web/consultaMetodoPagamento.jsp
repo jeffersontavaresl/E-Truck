@@ -1,16 +1,16 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <%@page import="modelos.Administrador"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>E-Truck / Funções</title>
-        <!-- Icone da Página-->
+        <title>E-Truck Management - Consultar Formas de Pagamento</title>
+        <!-- Icone da PÃ¡gina-->
         <link rel="icon" type="image/x-icon" href="styles/imagens/favicon.ico" />
-        <!-- Bootstrap e Botões-->
+        <!-- Bootstrap e BotÃµes-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="styles/functions.css" rel="stylesheet"/>
@@ -22,10 +22,9 @@
             <!-- Sidebar-->
 
             <div class="bg-padrao border-end" id="sidebar-wrapper">
-                <div class="bg-padrao sidebar-heading" id="etruck">E-Truck<br></div>
 
                 <div class="bg-padrao list-group list-group-flush">
-
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> Início</a>
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> Garçom</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
@@ -78,7 +77,7 @@
                             if (login == null) {
                                 response.sendRedirect("login.jsp");
                             } else {
-                                out.print("Bem vindo," + login + "<br/>");
+                                out.print("Bem vindo, " + login + "<br/>");
                             }
                         %>
                     </p>
@@ -86,7 +85,7 @@
                 </div>
             </div>
             <div id="page-content-wrapper">
-                <!-- Conteúdo da Página-->
+                <!-- ConteÃºdo da PÃ¡gina-->
                 <%
                     Administrador metodo = new Administrador();
                     List<Administrador> lista = metodo.lovMetodoPagamento();
@@ -125,5 +124,7 @@
 
         <!--FONT AWESOME-->
         <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
+
+
     </body>
 </html>
