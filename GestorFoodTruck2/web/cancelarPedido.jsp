@@ -9,20 +9,16 @@
     <body>
         <h1>Cancelar item do pedido</h1>
         <%
-          String codPedido = request.getParameter("codPedido");
-          PedidoCliente pedcliente = new PedidoCliente();
-          codPedido = codPedido;
-          if (codPedido != null){
-              pedcliente.consultarPedido(Integer.parseInt(codPedido));
-              if(pedcliente.cancelarPedido(Integer.parseInt(codPedido))){
-              out.write("Item excluido com sucesso");
-              response.sendRedirect("consultapedido.jsp");
-          }
-          else
-          {
-              out.write("Problemas ao excluir item");
-          }
-          } 
+            String codPedido = request.getParameter("codPedido");
+            PedidoCliente pedcliente = new PedidoCliente();
+            if (codPedido != null) {
+                pedcliente.consultarPedido(Integer.parseInt(codPedido));
+                if (pedcliente.cancelarPedido(Integer.parseInt(codPedido))) {
+                    response.sendRedirect("consultapedido.jsp?pmensagem=Pedido excluido com sucesso");
+                } else {
+                    response.sendRedirect("consultapedido.jsp?pmensagem=Erro ao excluir pedido");
+                }
+            }
         %>
     </body>
 </html>
