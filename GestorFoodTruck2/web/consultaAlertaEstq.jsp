@@ -40,8 +40,6 @@
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-cash-register"></i> Caixa</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultacaixa.jsp">Finalizar Pedido</a>
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="cadastroMetodoPagamento.jsp">Cadastrar Forma de Pagamento</a>
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaMetodoPagamento.jsp">Consultar Formas de Pagamento</a>
                     </div>
 
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Cardápio</a>
@@ -114,7 +112,7 @@
                                 <td><% out.write("" + c.getSldEstqInsumo()); %></td>
                                 <td><% out.write("" + c.getQtdEstqAlerta()); %></td>
                                 <td><% out.write(c.getUndMedida()); %></td>
-                                <td><%out.write("<a href=realizarPedFornecedor.jsp?>Pedir</a>");%></td> 
+                                <td><%out.write("<a href=realizarPedFornecedor.jsp?><i class='fas fa-shopping-cart'></i></a>");%></td> 
                             </tr> 
 
                             <%}%>
