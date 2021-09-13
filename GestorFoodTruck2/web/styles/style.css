@@ -15,12 +15,12 @@
 
 #head{
     /* background-color: #1b2448; */
-    background-image: url('imagens/eita2.gif');
+    background-image: url('imagens/wallpaper2.jpg');
     background-size:100%;
     background-repeat: repeat-y;
     height:100%;
     width:100%;
-    border-radius: 23px;
+    border-radius: 10px;
   }
 
 #ph1{
