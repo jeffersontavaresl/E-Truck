@@ -95,6 +95,11 @@
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
                     <table class="tabela table table-borderless table-striped rounded-1">
+                        <p class="font-weight-bold" style="color:red">
+                            <%      if (request.getParameter("pmensagem") != null)
+                                    out.write(request.getParameter("pmensagem"));
+                            %>
+                        </p>
                         <thead>
                             <tr>
                                 <th>Código do produto</th>
@@ -152,7 +157,7 @@
             </div>
         </div>
         <script>
-            
+
             function nrExcluir(insumo) {
                 var link = document.getElementById("confirmar");
                 link.href = "excluiInsumo.jsp?codInsumo=" + insumo;
