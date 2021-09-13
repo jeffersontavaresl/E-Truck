@@ -8,7 +8,7 @@
     </head>
     <body>
         <%
-            String idMesa = request.getParameter("codmesa");;
+            String idMesa = request.getParameter("codmesa");
             Mesa m = new Mesa();
             if (idMesa != null) {
                 m = m.consultaMesa(Integer.parseInt(idMesa));
