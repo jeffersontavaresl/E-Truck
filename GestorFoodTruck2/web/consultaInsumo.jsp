@@ -120,7 +120,7 @@
                                 <td><%out.write("<a class='btn' href=editaInsumo.jsp?codInsumo=" + c.getCodInsumo() + ">" + "<i class='far fa-edit'       style='color:blue'></i></a>");%></td>
 
                                 <!--BOTÃO QUE INICIA O MODAL DE EXCLUSÃO DO INSUMO-->
-                                <td><button type="button" class="btn" data-toggle="modal" data-target="#excluirDados">
+                                <td><button type="button" class="btn" data-toggle="modal" data-target="#excluirDados" onclick="nrExcluir(<%out.write("" + c.getCodInsumo());%>)">
                                         <i class='far fa-trash-alt'  style='color:red'></i>  
                                     </button>
 
@@ -136,7 +136,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                    <a class="btn text-white" style="background-color:rgb(58, 42, 148)"<%out.write(" href=excluiInsumo.jsp?codInsumo=" + c.getCodInsumo() + ">" + "Excluir");%> </a>
+                                                    <a class="btn text-white" style="background-color:rgb(58, 42, 148)" id="confirmar">Excluir</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -149,7 +149,14 @@
                 </div>
             </div>
         </div>
+        <script>
+            
+            function nrExcluir(insumo) {
+                var link = document.getElementById("confirmar");
+                link.href = "excluiInsumo.jsp?codInsumo=" + insumo;
+            }
 
+        </script>
         <!--JS - SIDEBAR-->
         <script src="js/sidebar.js"></script>
         <script src="js/scripts.js"></script>
