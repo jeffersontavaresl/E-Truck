@@ -160,8 +160,8 @@
                 </tbody>
             </table>
             <div class="valorTotal">
-                <h3><%out.write("Valor Total: R$" + vlrTotal);%></h3>
-            </div>  ]
+                <h3><%out.write("Valor Total: R$" + bd.doubleValue());%></h3>
+            </div>  
         </div>
 
         <!--JS - SIDEBAR-->
