@@ -18,23 +18,23 @@
         <link rel="stylesheet" href="styles/tabelas.css">
     </head>
     <style>
-    .msg-popup2 {
-        z-index: 10;
-        width: 20%;
-        height: 15vh;
-        margin-left:  700px;
-        margin-right: 400px;
-        top: 250px;
-        background-color: rgb(58, 42, 200);
-        display: none;
-        position: absolute;
-        border: 2px solid #b2b2b2;
-        -webkit-border-radius: 15px;
-        border-radius: 10px;
-        -webkit-box-shadow: 0px 1px 4px 0px rgba(43, 40, 40, 0.6) inset;
-        box-shadow: 0px 1px 4px 0px rgba(43, 40, 40, 0.6) inset;
-        -webkit-transition: all 0.2s linear;
-        transition: all 0.2s linear;       
+        .msg-popup2 {
+            z-index: 10;
+            width: 20%;
+            height: 15vh;
+            margin-left:  700px;
+            margin-right: 400px;
+            top: 250px;
+            background-color: rgb(58, 42, 200);
+            display: none;
+            position: absolute;
+            border: 2px solid #b2b2b2;
+            -webkit-border-radius: 15px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0px 1px 4px 0px rgba(43, 40, 40, 0.6) inset;
+            box-shadow: 0px 1px 4px 0px rgba(43, 40, 40, 0.6) inset;
+            -webkit-transition: all 0.2s linear;
+            transition: all 0.2s linear;       
         }
     </style>
     <body>
@@ -113,6 +113,11 @@
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
                     <table class="tabela table table-borderless table-striped rounded-1">
+                        <p class="font-weight-bold" style="color:red">
+                            <%      if (request.getParameter("pmensagem") != null)
+                                    out.write(request.getParameter("pmensagem"));
+                            %>
+                        </p>
                         <thead>
                             <tr>
                                 <th>Código do produto</th>
@@ -132,7 +137,7 @@
                                 <td><%out.write("<a href=editaItem.jsp?codProduto=" + c.getCodProduto() + ">" + "<i class='far fa-edit'       style='color:blue'></i></a>");%></td> 
                                 <td>
                                     <a type="button" id="botaoexcluir" 
-                                        onclick="mostrarExclusao(<%out.write("" + c.getCodProduto());%>)">
+                                       onclick="mostrarExclusao(<%out.write("" + c.getCodProduto());%>)">
                                         <i class='far fa-trash-alt' style='color:red'></i> 
                                     </a>
                                 </td>
@@ -144,7 +149,7 @@
             </div>
         </div>
         <!-- POP UP DE CONFIRMAÇÃO DE EXCLUSÃO -->                
-        
+
         <div class="msg-popup2">
             <h5 class="text-center" style="color: #ffffff; font-family: arial-bold ">EXCLUSÃO</h5>
             <h5 class="text-center" style="color: #ffffff;">Confirma a <b>exclusão</b>?</h5>
@@ -157,14 +162,14 @@
             function cancela() {
                 document.getElementsByClassName("msg-popup2")[0].style.display = "none";
             }
-        
+
             function mostrarExclusao(item) {
                 document.getElementsByClassName("msg-popup2")[0].style.display = "block";
                 var link = document.getElementById("exclui");
                 link.href = "excluiItem.jsp?codProduto=" + item;
             }
         </script> 
-        
+
         <!--JS - SIDEBAR-->
         <script src="js/sidebar.js"></script>
         <script src="js/scripts.js"></script>
