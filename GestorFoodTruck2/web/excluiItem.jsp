@@ -1,24 +1,23 @@
-<%@page import="modelos.Cardapio"%>
+<%@page import="modelos.Administrador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cardapio</title>
+        <title>Exclui Mesa</title>
     </head>
-    <body> 
-        <h1>Itens do Cardapio</h1>
+    <body>
         <%
-          String idProduto = request.getParameter("codProduto");
-          Cardapio c = new Cardapio();  
-          if (idProduto != null) {
-            c = c.consultarItem(Integer.parseInt(idProduto));
-            if(c.excluirItem()){
-                response.sendRedirect("consultaItem.jsp?pmensagem=Item excluido com sucesso");
-            } else {
-                response.sendRedirect("consultaItem.jsp?pmensagem=PRODUTO ATRELADO AO RELATORIO DE PAGAMENTO. PARA MAIS INFORMACOES CONTATE O SUPORTE.");
+            String codMetodo = request.getParameter("codPagto");
+            Administrador m = new Administrador();
+            if (codMetodo != null) {
+                m = m.consultarMetodoPagamento(Integer.parseInt(codMetodo));
+                if (m.excluiMetodoPagamento()) {
+                    response.sendRedirect("consultaMetodoPagamento.jsp?pmensagem=Forma de pagamento excluida com sucesso");
+                } else {
+                    response.sendRedirect("consultaMesas.jsp?pmensagem=Erro ao excluir forma de pagamento");
+                }
             }
-        }
-        %>   
+        %>
     </body>
 </html>
