@@ -124,7 +124,7 @@
                         <th>Quantidade</th>
                         <th>Unidade de Medida</th>
                         <th>Custo</th>
-                        <th>Stauts</th>
+                        <th>Status</th>
                         <th>Editar</th>
                         <th>Excluir</th>
                         </thead>
