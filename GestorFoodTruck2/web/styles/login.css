@@ -1,10 +1,7 @@
 body{
-    padding: 0;
-    margin: 0;
     font-family: sans-serif;
     background-image: url('imagens/wallpaper.jpg');
-    width: 1400px;
-    height: 1000px;
+    background-size: 100%;
 }
 
 .login{
