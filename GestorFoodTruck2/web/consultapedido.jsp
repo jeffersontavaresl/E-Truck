@@ -18,6 +18,26 @@
         <link href="styles/functions02.css" rel="stylesheet"/>
         <link rel="stylesheet" href="styles/tabelas.css">
     </head>
+    <style>
+        .msg-popup2 {
+            z-index: 10;
+            width: 20%;
+            height: 15vh;
+            margin-left:  700px;
+            margin-right: 400px;
+            top: 250px;
+            background-color: rgb(58, 42, 200);
+            display: none;
+            position: absolute;
+            border: 2px solid #b2b2b2;
+            -webkit-border-radius: 15px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0px 1px 4px 0px rgba(43, 40, 40, 0.6) inset;
+            box-shadow: 0px 1px 4px 0px rgba(43, 40, 40, 0.6) inset;
+            -webkit-transition: all 0.2s linear;
+            transition: all 0.2s linear;       
+        }
+    </style>
     <body>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
@@ -120,8 +140,13 @@
                                 <td><%out.write(pc.getObservacao()); %></td>   
                                 <td><%out.write(pc.getStatusPagto()); %></td>   
                                 <td><%out.write(pc.getStatusPedido()); %></td>   
-                                <td><%out.write("<a href=editaPedido.jsp?codPedido=" + pc.getCodPedido() + ">Editar</a>");%></td> 
-                                <td><%out.write("<a href=cancelarPedido.jsp?codPedido=" + pc.getCodPedido() + ">Excluir</a>");%></td>
+                                <td><%out.write("<a href=editaPedido.jsp?codPedido=" + pc.getCodPedido() + ">" + "<i class='far fa-edit'       style='color:blue'></i></a>");%></td> 
+                                <td>
+                                    <a type="button" id="botaoexcluir" 
+                                       onclick="mostrarExclusao(<%out.write("" + pc.getCodPedido());%>)">
+                                        <i class='far fa-trash-alt' style='color:red'></i> 
+                                    </a>
+                                </td>
                             </tr> 
                             <%}%>
                         </tbody>
@@ -129,7 +154,27 @@
                 </div>
             </div>
         </div>
+        <!-- POP UP DE CONFIRMAÇÃO DE EXCLUSÃO -->                
 
+        <div class="msg-popup2">
+            <h5 class="text-center" style="color: #ffffff; font-family: arial-bold ">EXCLUSÃO</h5>
+            <h5 class="text-center" style="color: #ffffff;">Confirma a <b>exclusão</b>?</h5>
+            <div class="text-center">                
+                <a href=""><button class="btn btn-dark" click="cancela()"> Não </button></a>
+                <a id="exclui" href="#"><button class="btn btn-danger" id="excluir"> Sim </button></a>                    
+            </div>
+        </div>       
+        <script>
+            function cancela() {
+                document.getElementsByClassName("msg-popup2")[0].style.display = "none";
+            }
+
+            function mostrarExclusao(pedido) {
+                document.getElementsByClassName("msg-popup2")[0].style.display = "block";
+                var link = document.getElementById("exclui");
+                link.href = "cancelarPedido.jsp?codPedido=" + pedido;
+            }
+        </script>
         <!--JS - SIDEBAR-->
         <script src="js/sidebar.js"></script>
         <script src="js/scripts.js"></script>
