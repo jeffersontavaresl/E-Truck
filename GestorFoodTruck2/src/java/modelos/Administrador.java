@@ -12,6 +12,7 @@ public class Administrador extends Insumo{
     private int codFornecedor;
     private int codPedFornecedor;
     private int codInsumo;
+    private int codPagto;
     private float qtdInsumo;
     private float custoInsumo;
     private String cnpj;
@@ -20,6 +21,8 @@ public class Administrador extends Insumo{
     private String nomeContato;
     private String undMedida;
     private String statusPedido;
+    private String descPagto;
+    private String descBandeira;
     
     
     public boolean realizarPedidoItem() { 
@@ -202,6 +205,124 @@ public class Administrador extends Insumo{
         return true;
     }
     
+    public boolean cadastraMetodoPagamento() {
+        String sql = "INSERT INTO formapagamento (descformpagto, descbandeira) ";
+        sql += "values (?, ?)";
+        Connection con = Conexao.conectar();
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.descPagto);
+            stm.setString(2, this.descBandeira);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
+    }
+    
+    public List<Administrador> lovMetodoPagamento() {
+        List<Administrador> lista = new ArrayList<>();
+        Connection con = Conexao.conectar();
+        String  sql  = "SELECT * from formapagamento ";
+                sql += "ORDER BY codformpagto";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+             while (rs.next()) {
+                Administrador metodo = new Administrador();
+                metodo.setCodPagto(rs.getInt("codformpagto"));
+                metodo.setDescPagto(rs.getString("descformpagto"));
+                metodo.setDescBandeira(rs.getString("descBandeira"));
+                lista.add(metodo);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return lista;
+    }
+    
+     public boolean alterarMetodoPagamento() {
+        Connection con = Conexao.conectar();
+        String  sql  = "UPDATE formapagamento ";
+                sql += " SET descformpagto = ?, ";
+                sql += "     descbandeira      = ? ";
+                sql += " WHERE codformpagto = ? ";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.descPagto);
+            stm.setString (2, this.descBandeira);
+            stm.setInt   (3, this.codPagto);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
+    }
+     
+     public Administrador consultarMetodoPagamento(int pCodMetodoPagamento) {
+        Connection con = Conexao.conectar();
+        String  sql  = "SELECT codformpagto, descformpagto, descbandeira ";
+                sql += "FROM formapagamento ";
+                sql += "WHERE codformpagto = ?";
+        Administrador metodo = null;
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt(1, pCodMetodoPagamento);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                metodo = new Administrador();
+                metodo.setCodPagto(rs.getInt("codformpagto"));
+                metodo.setDescPagto(rs.getString("descformpagto"));
+                metodo.setDescBandeira(rs.getString("descbandeira"));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return metodo;
+    }
+     
+     public boolean excluiMetodoPagamento() {
+        Connection con = Conexao.conectar();
+        String sql = "delete from formapagamento ";
+        sql += "where codformpagto = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt(1, this.codPagto);
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
+    }
+    
+    
+    public int getCodPagto() {
+        return codPagto;
+    }
+
+    public void setCodPagto(int codPagto) {
+        this.codPagto = codPagto;
+    }
+
+    public String getDescPagto() {
+        return descPagto;
+    }
+
+    public void setDescPagto(String descPagto) {
+        this.descPagto = descPagto;
+    }
+
+    public String getDescBandeira() {
+        return descBandeira;
+    }
+
+    public void setDescBandeira(String descBandeira) {
+        this.descBandeira = descBandeira;
+    }
+    
 
     public int getCodFornecedor() {
         return codFornecedor;
@@ -299,3 +420,4 @@ public class Administrador extends Insumo{
         this.statusPedido = statusPedido;
     }
 }
+
