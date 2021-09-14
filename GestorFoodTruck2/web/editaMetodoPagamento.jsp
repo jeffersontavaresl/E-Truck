@@ -7,8 +7,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>E-Truck Management - Consultar Formas de Pagamento</title>
-        <!-- Icone da PÃ¡gina-->
-        <link rel="icon" type="image/x-icon" href="styles/imagens/favicon.ico" />
+        <!--FAVICON-->
+        <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
         <!-- Bootstrap e BotÃµes-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -19,7 +19,6 @@
     <body>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
-
             <div class="bg-padrao border-end" id="sidebar-wrapper">
 
                 <div class="bg-padrao list-group list-group-flush">
@@ -33,8 +32,6 @@
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-utensils"></i> Cozinha</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaCozinha.jsp">Consulta Cozinha</a>
-
-
                     </div>
 
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-cash-register"></i> Caixa</a>
@@ -82,7 +79,6 @@
                             }
                         %>
                     </p>
-
                 </div>
             </div>
             <div id="page-content-wrapper">
@@ -93,7 +89,6 @@
                     <div class="container-fluid border w-50 h-75 mt-5 mb-4" id="tabela">
                         <div class="container-fluid d-flex justify-content-center mt-4">
                             <h1>Editar Método de Pagamento
-
                                 <%
                                     String codMetodo = request.getParameter("codPagto");
                                     Administrador m = new Administrador();
@@ -104,7 +99,6 @@
                         </div>
                         <div class="container-fluid mt-3 mr-4">
                             <form action="recebeEditaMetodoPagamento.jsp" method="POST">
-
                                 <label>Código</label>
                                 <input type="text" class="form-control" name="codPagto" readonly="true"
                                        value="<%out.write("" + m.getCodPagto());%>" />

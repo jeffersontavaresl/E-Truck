@@ -7,8 +7,7 @@
         <title>Recebe edita Método</title>
     </head>
     <body>
-        <%
-        
+        <%      
         String codMetodo = request.getParameter("codPagto");
         String descMetodo = request.getParameter("descMetodo");
         String descBandeira = request.getParameter("descBandeira");

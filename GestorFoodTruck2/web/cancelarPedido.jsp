@@ -5,6 +5,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>E-truck Management - Cancelar Pedido</title>
+        <!--FAVICON-->
+        <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
     </head>
     <body>
         <h1>Cancelar item do pedido</h1>

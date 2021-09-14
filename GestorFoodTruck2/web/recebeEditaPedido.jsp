@@ -5,26 +5,22 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
-    <body>
-        
+    <body>      
         <%
-            
             int codPedido = Integer.parseInt(request.getParameter("codPedido"));
             int codProduto = Integer.parseInt(request.getParameter("codProduto"));
             String obsPedido = request.getParameter("obsPedido");
-            
-            PedidoCliente pc = new PedidoCliente ();
+
+            PedidoCliente pc = new PedidoCliente();
             pc.setCodProduto(codProduto);
             pc.setObservacao(obsPedido);
             pc.setCodPedido(codPedido);
-            
-            if(pc.alterarPedido(codPedido)){
-            response.sendRedirect("consultapedido.jsp?pmensagem=Pedido alterado com sucesso");
-            } else { 
-            response.sendRedirect("consultapedido.jsp?pmensagem=Falha ao editar pedido");
+
+            if (pc.alterarPedido(codPedido)) {
+                response.sendRedirect("consultapedido.jsp?pmensagem=Pedido alterado com sucesso");
+            } else {
+                response.sendRedirect("consultapedido.jsp?pmensagem=Falha ao editar pedido");
             }
-        %>
-        
-        
+        %>       
     </body>
 </html>

@@ -4,6 +4,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!--FAVICON-->
+        <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
         <title>Exclui Mesa</title>
     </head>
     <body>
@@ -15,7 +17,7 @@
                 if (c.excluirItem()) {
                     response.sendRedirect("consultaItem.jsp?pmensagem=Item excluido com sucesso");
                 } else {
-                    response.sendRedirect("consultaItem.jsp?pmensagem=Erro ao excluir item");
+                    response.sendRedirect("consultaItem.jsp?pmensagem=PRODUTO ATRELADO AO RELATORIO DE PAGAMENTOS. CASO TENHA DUVIDAS, NOS CONTATE NO CHAT.");
                 }
             }
         %>

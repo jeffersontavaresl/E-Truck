@@ -13,8 +13,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>E-Truck Management - Caixa</title>
-        <!-- Icone da PÃ¡gina-->
-        <link rel="icon" type="image/x-icon" href="styles/imagens/favicon.ico" />
+        <!--FAVOICON-->
+        <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
         <!-- Bootstrap e BotÃµes-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -25,7 +25,6 @@
     <body>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
-
             <div class="bg-padrao border-end" id="sidebar-wrapper">
                 <div class="bg-padrao list-group list-group-flush">
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> Início</a>
@@ -38,13 +37,13 @@
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-utensils"></i> Cozinha</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaCozinha.jsp">Consulta Cozinha</a>
-
-
                     </div>
 
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-cash-register"></i> Caixa</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultacaixa.jsp">Finalizar Pedido</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="cadastroMetodoPagamento.jsp">Cadastrar Forma de Pagamento</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaMetodoPagamento.jsp">Consultar Formas de Pagamento</a>
                     </div>
 
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Cardápio</a>
@@ -85,16 +84,13 @@
                             }
                         %>
                     </p>
-
                 </div>
             </div>
             <div id="page-content-wrapper">
                 <!-- ConteÃºdo da PÃ¡gina-->
                 <div class="container-fluid">
-                    <button class="btn btn-primary" id="sidebarToggle">Menu</button>
-
+                    <button class="btn btn-primary" id="sidebarToggle">Menu</button>                
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-
                     <%
                         List<Caixa> caixas = new ArrayList();
                         String codmesa = request.getParameter("idmesa");
@@ -106,17 +102,13 @@
                             caixas = caixa.consultaPedido(idmesa, statusPagto);
                         }
                     %>
-
                     <form action="consultacaixa.jsp" method="POST">
                         <%
                             PedidoCliente pedcliente = new PedidoCliente();
                             Caixa caixa = new Caixa();
                             List<PedidoCliente> mesas = pedcliente.lovMesa();
-
                         %>
-
                         <div class="principal">
-
                             <div class="consultarMesa">                    
                                 <select name="idmesa" style="width: 95px;">
                                     <% for (PedidoCliente m : mesas) { %>
@@ -125,11 +117,9 @@
                                     </option>
                                     <%}%>
                                 </select> 
-
                                 <input type="submit" value="Consultar" class="btn btn-primary"/>
                                 </form>
                             </div>
-
                             <table class="TBcaixa">
                                 <thead>
                                 <th>Cod Produto</th>
@@ -137,7 +127,6 @@
                                 <th>Status Pagamento</th>
                                 <th>Valor</th>
                                 </thead>
-
                                 <tbody>
                                     <% int mesa = 0;
                                         String status = "";
@@ -160,13 +149,10 @@
                                         }
                                         BigDecimal bd = new BigDecimal(vlrTotal).setScale(3, RoundingMode.HALF_EVEN);
                                     %>
-
                                 </tbody>
                             </table>
-
                             <div class="PGcaixa">
                                 <h3 class="vlrTotal"><%out.write("Valor Total: R$" + bd.doubleValue());%></h3>
-
                             </div>     
                         </div>
                         <br>
@@ -174,10 +160,8 @@
                             <%
                                 List<Caixa> forms = caixa.lovPagtos();
                             %>
-
                             <div class="divpag">
                                 <form action="finalizarPedido.jsp" method="POST" class="tpPagForm">
-
                                     <select hidden type="text" name="codmesa" class="form-control">
                                         <option value="<%out.write("" + mesa);%>">
                                             <% out.write("" + mesa);%>
@@ -211,7 +195,6 @@
                         </main>
                         <script>
                             function enviarDados() {
-
                                 var data = document.getElementsByName("data");
                                 if (data[0].value === "") {
                                     data[0].focus();
@@ -249,7 +232,6 @@
 
                                 document.forms[0].submit();
                             }
-
 
                             document.getElementById('dat').value = new Date().toISOString().substring(0, 10);
                         </script>  

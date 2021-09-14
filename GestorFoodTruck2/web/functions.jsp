@@ -7,8 +7,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>E-Truck Management - Funções</title>
-        <!-- Icone da PÃ¡gina-->
-        <link rel="icon" type="image/x-icon" href="styles/imagens/favicon.ico" />
+        <!--FAVICON-->
+        <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
         <!-- Bootstrap e BotÃµes-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -18,9 +18,7 @@
     <body>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
-
             <div class="bg-padrao border-end" id="sidebar-wrapper">
-
                 <div class="bg-padrao list-group list-group-flush">
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> Início</a>
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> Garçom</a>
@@ -32,8 +30,6 @@
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-utensils"></i> Cozinha</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaCozinha.jsp">Consulta Cozinha</a>
-
-
                     </div>
 
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-cash-register"></i> Caixa</a>
@@ -81,29 +77,27 @@
                             }
                         %>
                     </p>
-
                 </div>
             </div>
             <div id="page-content-wrapper">
                 <!-- ConteÃºdo da PÃ¡gina-->
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
-                    
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-                        <p id="alerta"> 
-                            <%  
+                    <p id="alerta"> 
+                        <%
                             Insumo ins = new Insumo();
-                            if(ins.alertaDeEstq() == true){ 
+                            if (ins.alertaDeEstq() == true) {
                                 out.write("VOCÊ POSSUI ITENS COM BAIXO ESTOQUE!!!"); %>
-                                    <script>
-                                    alert("VOCÊ POSSUI ITENS COM BAIXO ESTOQUE!!!");
-                                    </script>
-                          <% } %>
-                        </p>
-                        <div class="container-fluid">
-                            <iframe width="1000" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiYWVjZDBhNWItZjdmMy00MGVmLWEwZmEtZDg3ZTVhZDM1ZjU5IiwidCI6IjAyMmJmNThhLTA2ZmQtNDVhMC1iZDcyLTIxZTkwZDczODg4MyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
-                        </div>
+                        <script>
+                            alert("VOCÊ POSSUI ITENS COM BAIXO ESTOQUE!!!");
+                        </script>
+                        <% }%>
+                    </p>
+                    <div class="container-fluid">
+                        <iframe width="1000" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiYWVjZDBhNWItZjdmMy00MGVmLWEwZmEtZDg3ZTVhZDM1ZjU5IiwidCI6IjAyMmJmNThhLTA2ZmQtNDVhMC1iZDcyLTIxZTkwZDczODg4MyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
                     </div>
+                </div>
             </div>
         </div>
 
@@ -113,9 +107,9 @@
 
         <!--FONT AWESOME-->
         <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
-        
+
         <!--JIVO CHAT-->
         <script src="//code-eu1.jivosite.com/widget/wUayrgmqks" async></script>
-        
+
     </body>
 </html>

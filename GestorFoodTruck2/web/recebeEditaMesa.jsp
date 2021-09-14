@@ -7,8 +7,7 @@
         <title>Recebe edita mesa</title>
     </head>
     <body>
-        <%
-        
+        <%     
         String nomMesa = request.getParameter("nomMesa");
         Integer idMesa = Integer.parseInt(request.getParameter("codMesa"));
         

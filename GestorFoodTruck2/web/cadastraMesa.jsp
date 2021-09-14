@@ -6,8 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>E-Truck Management - Cadastrar Mesa</title>
-        <!-- Icone da Página-->
-        <link rel="icon" type="image/x-icon" href="styles/imagens/favicon.ico" />
+        <!--FAVOICON-->
+        <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
         <!-- Bootstrap e Botões-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -18,7 +18,6 @@
     <body>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
-
             <div class="bg-padrao border-end" id="sidebar-wrapper">
                 <div class="bg-padrao list-group list-group-flush">
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> Início</a>
@@ -31,8 +30,6 @@
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-utensils"></i> Cozinha</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaCozinha.jsp">Consulta Cozinha</a>
-
-
                     </div>
 
                     <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-cash-register"></i> Caixa</a>
@@ -80,7 +77,6 @@
                             }
                         %>
                     </p>
-
                 </div>
             </div>
             <div id="page-content-wrapper">
@@ -109,19 +105,14 @@
                         </div>
                     </div>
                 </div> 
-
-
                 <script>
                     function enviarDados() {
-
                         var cnpj = document.getElementsByName("nomMesa");
                         if (cnpj[0].value === "") {
                             cnpj[0].focus();
                             alert("Informe o Nome da mesa");
                             exit();
                         }
-
-
                         document.forms[0].submit();
                     }
 

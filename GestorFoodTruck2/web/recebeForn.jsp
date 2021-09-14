@@ -6,25 +6,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastra fornecedor</title>
     </head>
-    <body>
-        
+    <body>        
         <%
-        
-        Fornecedor forn= new Fornecedor();
-        forn.setCnpj(request.getParameter("cdCnpj"));
-        forn.setRazaoSocial(request.getParameter("cdSoc"));
-        forn.setTelefone(request.getParameter("cdTel"));
-        forn.setEmail(request.getParameter("cdEml"));
-        forn.setNomeContato(request.getParameter("cdNom"));
-        
-        
-        if (forn.adicionarFornecedor()) {
-            response.sendRedirect("cadastraFornecedor.jsp?pmensagem=Fornecedor salvo com sucesso");
-        } else {
-            response.sendRedirect("cadastraFornecedor.jsp?pmensagem=Problema ao salvar Fornecedor");
-    }
-        %>
-        
-        
+            Fornecedor forn = new Fornecedor();
+            forn.setCnpj(request.getParameter("cdCnpj"));
+            forn.setRazaoSocial(request.getParameter("cdSoc"));
+            forn.setTelefone(request.getParameter("cdTel"));
+            forn.setEmail(request.getParameter("cdEml"));
+            forn.setNomeContato(request.getParameter("cdNom"));
+
+            if (forn.adicionarFornecedor()) {
+                response.sendRedirect("cadastraFornecedor.jsp?pmensagem=Fornecedor salvo com sucesso");
+            } else {
+                response.sendRedirect("cadastraFornecedor.jsp?pmensagem=Problema ao salvar Fornecedor");
+            }
+        %>     
     </body>
 </html>

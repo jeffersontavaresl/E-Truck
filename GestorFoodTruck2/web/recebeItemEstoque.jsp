@@ -12,6 +12,5 @@
             response.sendRedirect("cadastroInsumo.jsp?pmensagem=Item salvo com sucesso");
     } else {
             response.sendRedirect("cadastroInsumo.jsp?pmensagem=Problemas ao salvar Item");
-    }
-    
+    }   
 %>

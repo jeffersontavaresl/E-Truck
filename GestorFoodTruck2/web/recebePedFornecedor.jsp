@@ -12,6 +12,5 @@
             response.sendRedirect("realizarPedFornecedor.jsp?pmensagem=Pedido realizado com sucesso");
     } else {
             response.sendRedirect("realizarPedFornecedor.jsp?pmensagem=Problemas ao realizar pedido");
-    }
-    
+    } 
 %>
