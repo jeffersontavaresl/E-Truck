@@ -4,23 +4,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Exclui Mesa</title>
+        <title>Exclui Metodo de Pagamento</title>
     </head>
     <body>
         <%
-          String codMetodo = request.getParameter("codPagto");
-          Administrador m = new Administrador();
-          if (codMetodo != null){
-              m = m.consultarMetodoPagamento(Integer.parseInt(codMetodo));
-              if(m.excluiMetodoPagamento()){
-              out.write("Método excluido com sucesso");
-              response.sendRedirect("consultaMetodoPagamento.jsp");
-          }
-          else
-          {
-              out.write("Problemas ao excluir método");
-          }
-          }          
+            String codMetodo = request.getParameter("codPagto");
+            Administrador m = new Administrador();
+            if (codMetodo != null) {
+                m = m.consultarMetodoPagamento(Integer.parseInt(codMetodo));
+                if (m.excluiMetodoPagamento()) {
+                    response.sendRedirect("consultaMetodoPagamento.jsp?pmensagem=Metodo de pagamento excluido com sucesso");
+                } else {
+                    response.sendRedirect("consultaMetodoPagamento.jsp?pmensagem=Erro ao excluir metodo de pagamento");
+                }
+            }
         %>
     </body>
 </html>
