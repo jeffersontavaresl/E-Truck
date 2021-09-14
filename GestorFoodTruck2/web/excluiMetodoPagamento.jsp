@@ -15,7 +15,7 @@
                 if (m.excluiMetodoPagamento()) {
                     response.sendRedirect("consultaMetodoPagamento.jsp?pmensagem=Metodo de pagamento excluido com sucesso");
                 } else {
-                    response.sendRedirect("consultaMetodoPagamento.jsp?pmensagem=Erro ao excluir metodo de pagamento");
+                    response.sendRedirect("consultaMetodoPagamento.jsp?pmensagem=ERRO AO EXCLUIR. FORMA DE PAGAMENTO ATRELADA AO RELATORIO. CASO TENHA DUVIDAS, NOS CONTATE NO CHAT.");
                 }
             }
         %>
