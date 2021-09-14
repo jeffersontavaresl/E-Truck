@@ -110,15 +110,47 @@
                                 <td><% out.write("" + m.getCodPagto());   %></td>
                                 <td><% out.write(m.getDescPagto());   %></td>
                                 <td><% out.write(m.getDescBandeira());  %></td>  
-                                <td><%out.write("<a href=editaMetodoPagamento.jsp?codPagto=" + m.getCodPagto() + ">Editar</a>");%></td> 
-                                <td><%out.write("<a href=excluiMetodoPagamento.jsp?codPagto=" + m.getCodPagto() + ">Excluir</a>");%></td>   
-                            </tr> 
+                                <!--EDITAR PAGAMENTO-->
+                                <td><%out.write("<a class='btn' href=editaMetodoPagamento.jsp?codPagto=" + m.getCodPagto() + ">" + "<i class='far fa-edit'       style='color:blue'></i></a>");%></td>
+
+                                <!--BOTÃO QUE INICIA O MODAL DE EXCLUSÃO DO PAGAMENTO-->
+                                <td><button type="button" class="btn" data-toggle="modal" data-target="#excluirDados" onclick="nrExcluir(<%out.write("" + m.getCodPagto());%>)">
+                                        <i class='far fa-trash-alt'  style='color:red'></i>  
+                                    </button>
+
+                                    <!--MODAL EXCLUSÃO DE ITEM-->
+                                    <div class="modal fade" id="excluirDados" tabindex="-1" role="dialog" aria-labelledby="modalExclusao" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="modalExclusao">Deseja excluir o metodo de pagamento?</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                    <a class="btn text-white" style="background-color:rgb(58, 42, 148)" id="confirmar">Excluir</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
                             <%}%>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        <script>
+
+            function nrExcluir(metodo) {
+                var link = document.getElementById("confirmar");
+                link.href = "excluiMetodoPagamento.jsp?codPagto=" + metodo;
+            }
+
+        </script>
 
         <!--JS - SIDEBAR-->
         <script src="js/sidebar.js"></script>
@@ -127,6 +159,14 @@
         <!--FONT AWESOME-->
         <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
 
+        <!--JQUERY E POPPER.JS-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     </body>
 </html>
