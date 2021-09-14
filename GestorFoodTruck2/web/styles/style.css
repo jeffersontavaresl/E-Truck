@@ -1,29 +1,31 @@
 #etruck{
-  font-family: 'Lobster', cursive;
+    font-family: 'Lobster', cursive;
 }
 
 .opcoesnav:hover{
-  border: 0.5px solid rgba(255, 255, 255, 0.055);
-  border-radius: 25px;
-  background-color: rgb(234, 226, 250);
-  transition: 0.5s;
+    border: 0.5px solid rgba(255, 255, 255, 0.055);
+    border-radius: 25px;
+    background-color: rgb(234, 226, 250);
+    transition: 0.5s;
 }
 
 #head{
-    /* background-color: #1b2448; */
-    background-image: url('imagens/wallpaper2.jpg');
-    background-size:100%;
-    background-repeat: no-repeat;
-    height:100%;
-    width:100%;
-    border-radius: 10px;
-    margin: 0 auto;
-  }
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    background-image: url(imagens/wallpaper2.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
 
 #ph1{
-  font-size: 58px;
-  font-weight: 700;
-  margin-top: 130px;
+    font-size: 58px;
+    font-weight: 700;
+    margin-top: 130px;
 }
 
 #pheader{
@@ -31,11 +33,11 @@
 }
 
 #mainh1{
-  font-weight: 700;
+    font-weight: 700;
 }
 
 #mainborder{
-  border-radius: 23px;
+    border-radius: 23px;
 }
 
 .ptexto {
@@ -43,5 +45,5 @@
 }
 
 .ahover:hover{
-  background-color:rgba(167, 0, 255, 1)
+    background-color:rgba(167, 0, 255, 1)
 }
