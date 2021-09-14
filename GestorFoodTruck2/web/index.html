@@ -1,136 +1,124 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-truck Management</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>E-truck Management</title>
 
-    <!--ESTILO PERSONALIZADO-->
-    <link rel="stylesheet" href="styles/style.css">
+        <!--ESTILO PERSONALIZADO-->
+        <link rel="stylesheet" href="styles/style.css">
 
-    <!--BOOTSTRAP REFERÊNCIA-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-
-</head>
-
-<body>
-
-    <!--BARRA DE NAVEGAÇÃO - PARTE DE CIMA -->
-
-    <nav class="navbar sticky-top bg-light navbar-expand-lg navbar-light mt-1">
-
-        <!--BOTÕES DO MENU-->
-        <div class="container-fluid">
-            <a href="#" class="navbar-brand">
-                <i alt="" class="d-inline-block align-text-top">
-                    <img src="styles/imagens/logo2.png">
-                </i>
-            </a>
-            <a class="navbar-brand" href="#" id="etruck" img src="styles/imagens/logo.png" </a>
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#expandir">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="expandir">
-
-                <!--REGISTRO / LOGIN-->
-                <ul class="navbar-nav ml-auto">
-                    <a class="btn mr-2 text-white ahover" href="login.jsp"
-                        style="background-color: rgba(52, 48, 142, 1)"><i class="fas fa-user text-white"></i> Login</a>
-                    <a class="btn mr-2 text-white ahover" href="cadastrousuario.jsp"
-                        style="background-color: rgba(52, 48, 142, 1)"><i class="fas fa-sign-in-alt text-white"></i>
-                        Cadastrar</a></button>
-                </ul>
-            </div>
-
-        </div>
+        <!--BOOTSTRAP REFERÊNCIA-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 
+    </head>
 
+    <body>
 
-    </nav>
-    <!--FIM DA BARRA DE NAVEGAÇÃO-->
+        <!--BARRA DE NAVEGAÇÃO - PARTE DE CIMA -->
 
-    <!--HEADER-->
-    <div class="container-fluid mt-2">
-       <header class="border" id="head">
-            <h1 class="text-center text-white" id="ph1"></h1>
-            <br><br><br>
-            <p class="text-center ml-3 mr-3 mt-4 text-white" id="pheader">
-            </p> 
-            <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-        </header>
-    </div>
-    <!--FIM DO HEADER-->
+        <nav class="navbar sticky-top bg-light navbar-expand-lg navbar-light mt-1">
 
-
-    <!--CORPO DO SITE-->
-    <main>
-        <div class="container-fluid">
+            <!--BOTÕES DO MENU-->
             <div class="container-fluid">
-                <h1 class="mt-5 ml-1" id="mainh1">Por quê usar o E-Truck?</h1>
+                <a href="#" class="navbar-brand">
+                    <i alt="" class="d-inline-block align-text-top">
+                        <img src="styles/imagens/logo2.png">
+                    </i>
+                </a>
+                <a class="navbar-brand" href="#" id="etruck" img src="styles/imagens/logo.png" </a>
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#expandir">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="expandir">
+
+                        <!--REGISTRO / LOGIN-->
+                        <ul class="navbar-nav ml-auto">
+                            <a class="btn mr-2 text-white ahover" href="login.jsp"
+                               style="background-color: rgba(52, 48, 142, 1)"><i class="fas fa-user text-white"></i> Login</a>
+                            <a class="btn mr-2 text-white ahover" href="cadastrousuario.jsp"
+                               style="background-color: rgba(52, 48, 142, 1)"><i class="fas fa-sign-in-alt text-white"></i>
+                                Cadastrar</a></button>
+                        </ul>
+                    </div>
             </div>
-            <div class=" container-fluid">
-                <h1 class="mt-5"><i class="fas fa-box-open"></i> Praticidade</h1>
-                <p class="ptexto mt-3">Nosso sistema possui uma grande praticidade de uso, sendo necessário somente uma ação
-                    para já ser acessado
-                    sua área de funcionamento, com menus responsivos, sucintos e focados no fácil entendimento e
-                    navegação
-                    do usuário no qual estiver mexendo.</p>
-            </div>
-            <br>
-            <div class="container-fluid border-top">
-                <h1 class="mt-5"><i class="fas fa-bolt"></i> Rapidez</h1>
-                <p class="ptexto mt-3">Ao desenvolver o programa, foi-se impregnado em nossos integrantes que, deveriamos
-                    fazer um sistema
-                    que funcionasse de maneira eficiente em qualquer tipo de local no qual fosse necessário, seja este
-                    um computador
-                    poderoso ou um simples celular não tão potente, o que gerou um programa que não pesa em seu
-                    funcionamento, trazendo
-                    rapidez e bom funcionamento ao programa.</p>
-            </div>
-            <br>
-            <div class="container-fluid border-top">
-                <h1 class="mt-5"><i class="fas fa-chart-bar"></i> Controle de vendas e estoque</h1>
-                <p class="ptexto mt-3">Dentro de nosso gestor, possuímos diversas funções que facilitam o seu dia-a-dia
-                    empreendendo,
-                    sendo uma destas a possibilidade de um melhor controle e visão sobre suas vendas e o estoque de seus
-                    produtos.</p>
-            </div>
+        </nav>
+        <!--FIM DA BARRA DE NAVEGAÇÃO-->
+
+        <!--HEADER-->
+        <div class="container-fluid mt-2">
+            <header class="border" id="head">  
+            </header>
         </div>
+        <!--FIM DO HEADER-->
 
-    </main>
+        <!--CORPO DO SITE-->
+        <main>
+            <div class="container-fluid">
+                <div class="container-fluid">
+                    <h1 class="mt-5 ml-1" id="mainh1">Por que usar o E-Truck?</h1>
+                </div>
+                <div class=" container-fluid">
+                    <h1 class="mt-5"><i class="fas fa-box-open"></i> Praticidade</h1>
+                    <p class="ptexto mt-3">Nosso sistema possui uma grande praticidade de uso, sendo necessário somente uma ação
+                        para já ser acessado
+                        sua área de funcionamento, com menus responsivos, sucintos e focados no fácil entendimento e
+                        navegação
+                        do usuário no qual estiver mexendo.</p>
+                </div>
+                <br>
+                <div class="container-fluid border-top">
+                    <h1 class="mt-5"><i class="fas fa-bolt"></i> Rapidez</h1>
+                    <p class="ptexto mt-3">Ao desenvolver o programa, foi-se impregnado em nossos integrantes que, deveriamos
+                        fazer um sistema
+                        que funcionasse de maneira eficiente em qualquer tipo de local no qual fosse necessário, seja este
+                        um computador
+                        poderoso ou um simples celular não tão potente, o que gerou um programa que não pesa em seu
+                        funcionamento, trazendo
+                        rapidez e bom funcionamento ao programa.</p>
+                </div>
+                <br>
+                <div class="container-fluid border-top">
+                    <h1 class="mt-5"><i class="fas fa-chart-bar"></i> Controle de vendas e estoque</h1>
+                    <p class="ptexto mt-3">Dentro de nosso gestor, possuímos diversas funções que facilitam o seu dia-a-dia
+                        empreendendo,
+                        sendo uma destas a possibilidade de um melhor controle e visão sobre suas vendas e o estoque de seus
+                        produtos.</p>
+                </div>
+            </div>
+        </main>
 
 
-    <!--RODAPÉ DO SITE-->
-    <br>
-    <br>
-    <footer class="container">
-        <p class="float-end"><a href="#">Voltar ao topo</a></p>
-        <p>&copy; 2021, JADEL Systems &copy;</p>
-    </footer>
+        <!--RODAPÉ DO SITE-->
+        <br>
+        <br>
+        <footer class="container">
+            <p class="float-end"><a href="#">Voltar ao topo</a></p>
+            <p>&copy; 2021, JADEL Systems &copy;</p>
+        </footer>
 
-    <!--JAVASCRIPT BOOTSTRAP-->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        <!--JAVASCRIPT BOOTSTRAP-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 
-    <!--FONT AWESOME-->
-    <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
-    
-    <!--JIVO CHAT-->
-    <script src="//code-eu1.jivosite.com/widget/wUayrgmqks" async></script>
-    
-    
-</body>
+        <!--FONT AWESOME-->
+        <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
+
+        <!--JIVO CHAT-->
+        <script src="//code-eu1.jivosite.com/widget/wUayrgmqks" async></script>
+
+
+    </body>
 
 </html>
