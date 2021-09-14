@@ -96,6 +96,13 @@
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
                     <table class="tabela table table-borderless table-striped rounded-1">
+                        <%      if (request.getParameter("pmensagem") != null) { %>
+                        <div class="alert alert-danger" role="alert">
+                            <p class="font-weight-bold" style="color:red">
+                                <% out.write(request.getParameter("pmensagem")); %>
+                            </p>
+                        </div>            
+                        <% } %>
                         <thead>
                             <tr>
                                 <th>Código</th>
