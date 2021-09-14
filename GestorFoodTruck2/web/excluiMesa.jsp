@@ -1,7 +1,7 @@
 <%@page import="modelos.Mesa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Exclui Mesa</title>
@@ -15,7 +15,7 @@
                 if (m.excluiMesa()) {
                     response.sendRedirect("consultaMesas.jsp?pmensagem=Mesa excluido com sucesso");
                 } else {
-                    response.sendRedirect("consultaMesas.jsp?pmensagem=Erro ao excluir mesa");
+                    response.sendRedirect("consultaMesas.jsp?pmensagem=ERRO AO EXCLUIR MESA. A MESA ESTA ATRELADA AO SISTEMA. CASO TENHA DUVIDAS, NOS CONTATE NO CHAT!");
                 }
             }
         %>       
