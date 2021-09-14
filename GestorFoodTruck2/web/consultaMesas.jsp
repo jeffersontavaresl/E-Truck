@@ -94,6 +94,13 @@
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <table class="tabela table table-borderless table-striped rounded-1">
+                        <%      if (request.getParameter("pmensagem") != null) { %>
+                        <div class="alert alert-danger" role="alert">
+                            <p class="font-weight-bold" style="color:red">
+                                <% out.write(request.getParameter("pmensagem")); %>
+                            </p>
+                        </div>            
+                        <% } %>
                         <thead>
                             <tr>
                                 <th>Código da mesa</th>
@@ -148,14 +155,14 @@
             }
 
         </script>
-            <!--JS - SIDEBAR-->
-            <script src="js/sidebar.js"></script>
-            <script src="js/scripts.js"></script>
+        <!--JS - SIDEBAR-->
+        <script src="js/sidebar.js"></script>
+        <script src="js/scripts.js"></script>
 
-            <!--FONT AWESOME-->
-            <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
-            
-            <!--JQUERY E POPPER.JS-->
+        <!--FONT AWESOME-->
+        <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
+
+        <!--JQUERY E POPPER.JS-->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
                 integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
