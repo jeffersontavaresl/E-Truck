@@ -13,7 +13,7 @@
             if (idMesa != null) {
                 m = m.consultaMesa(Integer.parseInt(idMesa));
                 if (m.excluiMesa()) {
-                    response.sendRedirect("consultaMesas.jsp?pmensagem=Mesa excluido com sucesso");
+                    response.sendRedirect("consultaMesas.jsp?pmensagem=Mesa excluida com sucesso");
                 } else {
                     response.sendRedirect("consultaMesas.jsp?pmensagem=ERRO AO EXCLUIR MESA. A MESA ESTA ATRELADA AO SISTEMA. CASO TENHA DUVIDAS, NOS CONTATE NO CHAT!");
                 }
