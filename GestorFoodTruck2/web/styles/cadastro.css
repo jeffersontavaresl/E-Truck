@@ -1,10 +1,13 @@
 body{
-    font-family: sans-serif;
-    background-image: url('imagens/wallpaper_login.jpg');   
+    font-family: sans-serif;   
     background-repeat: no-repeat;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+    background-image: url(imagens/wallpaper_login.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: hidden;
 }
 
 .cadastro{
