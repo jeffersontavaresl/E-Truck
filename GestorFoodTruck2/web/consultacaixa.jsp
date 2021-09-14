@@ -92,175 +92,175 @@
                 <!-- ConteÃºdo da PÃ¡gina-->
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
-                    
+
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
 
-<%
-            List<Caixa> caixas = new ArrayList();
-            String codmesa = request.getParameter("idmesa");
-            String statusPagto = "pendente";
-            int idmesa = 0;
-            if (codmesa != null) {
-                Caixa caixa = new Caixa();
-                idmesa = Integer.parseInt(codmesa);
-                caixas = caixa.consultaPedido(idmesa, statusPagto);
-            }
-        %>
+                    <%
+                        List<Caixa> caixas = new ArrayList();
+                        String codmesa = request.getParameter("idmesa");
+                        String statusPagto = "pendente";
+                        int idmesa = 0;
+                        if (codmesa != null) {
+                            Caixa caixa = new Caixa();
+                            idmesa = Integer.parseInt(codmesa);
+                            caixas = caixa.consultaPedido(idmesa, statusPagto);
+                        }
+                    %>
 
-        <form action="consultacaixa.jsp" method="POST">
-            <%
-                PedidoCliente pedcliente = new PedidoCliente();
-                Caixa caixa = new Caixa();
-                List<PedidoCliente> mesas = pedcliente.lovMesa();
-
-            %>
-
-            <div class="principal">
-
-                <div class="consultarMesa">                    
-                    <select name="idmesa" style="width: 95px;">
-                        <% for (PedidoCliente m : mesas) { %>
-                        <option value="<%out.write("" + m.getCodMesa());%>">
-                            <% out.write(m.getMesa());%>
-                        </option>
-                        <%}%>
-                    </select> 
-                      
-                    <input type="submit" value="Consultar" class="btn btn-primary"/>
-                    </form>
-                </div>
-
-                <table class="TBcaixa">
-                    <thead>
-                    <th>Cod Produto</th>
-                    <th>Produto</th>
-                    <th>Status Pagamento</th>
-                    <th>Valor</th>
-                    </thead>
-
-                    <tbody>
-                        <% int mesa = 0;
-                            String status = "";
-                        %>
-                        <% for (Caixa c : caixas) {%>
-                        <tr>
-                            <td><% out.write("" + c.getCodProduto()); %></td>
-                            <td><% out.write(c.getDescProduto()); %></td>
-                            <td><% out.write(c.getStatusPagto()); %></td>
-                            <td><% out.print("R$" + c.getVlrTotal());%></td>
-                            <% mesa = c.getCodMesa(); %>
-                            <% status = c.getStatusPagto(); %>
-                        </tr> 
-                        <%}%>
+                    <form action="consultacaixa.jsp" method="POST">
                         <%
-                            float vlrTotal = 0;
-                            for (Caixa c : caixas) {
-                                float vlrUnd = c.getVlrTotal();
-                                vlrTotal += vlrUnd;
-                            }
-                            BigDecimal bd = new BigDecimal(vlrTotal).setScale(3, RoundingMode.HALF_EVEN);
+                            PedidoCliente pedcliente = new PedidoCliente();
+                            Caixa caixa = new Caixa();
+                            List<PedidoCliente> mesas = pedcliente.lovMesa();
+
                         %>
-                        
-                    </tbody>
-                </table>
-                        
-                <div class="PGcaixa">
-                    <h3 class="vlrTotal"><%out.write("Valor Total: R$" + bd.doubleValue());%></h3>
-        
-                </div>     
-            </div>
-                <br>
-            <main class="formpag">
-                <%
-                    List<Caixa> forms = caixa.lovPagtos();
-                %>
 
-                <div class="divpag">
-                    <form action="finalizarPedido.jsp" method="POST" class="tpPagForm">
-                        
-                        <select hidden type="text" name="codmesa" class="form-control">
-                            <option value="<%out.write("" + mesa);%>">
-                                        <% out.write(""+mesa);%>
-                            </option>
-                        </select>
-                        <select hidden type="text" name="statusPagto" class="form-control">
-                            <option value="<%out.write(status);%>">
-                                        <% out.write(status);%>
-                            </option>
-                        </select>
-                        <label><b>Data do pagamento</b></label>
-                        <input type="date" name="data" id="dat"> <br>
+                        <div class="principal">
 
-                        <label><b>Valor Pago</b></label>
-                        <input type="text" maxlength="10" class="form-control" name="vlrTotal"
-                               value="<%out.write("" + bd.doubleValue());%>" />                            
+                            <div class="consultarMesa">                    
+                                <select name="idmesa" style="width: 95px;">
+                                    <% for (PedidoCliente m : mesas) { %>
+                                    <option value="<%out.write("" + m.getCodMesa());%>">
+                                        <% out.write(m.getMesa());%>
+                                    </option>
+                                    <%}%>
+                                </select> 
+
+                                <input type="submit" value="Consultar" class="btn btn-primary"/>
+                                </form>
+                            </div>
+
+                            <table class="TBcaixa">
+                                <thead>
+                                <th>Cod Produto</th>
+                                <th>Produto</th>
+                                <th>Status Pagamento</th>
+                                <th>Valor</th>
+                                </thead>
+
+                                <tbody>
+                                    <% int mesa = 0;
+                                        String status = "";
+                                    %>
+                                    <% for (Caixa c : caixas) {%>
+                                    <tr>
+                                        <td><% out.write("" + c.getCodProduto()); %></td>
+                                        <td><% out.write(c.getDescProduto()); %></td>
+                                        <td><% out.write(c.getStatusPagto()); %></td>
+                                        <td><% out.print("R$" + c.getVlrTotal());%></td>
+                                        <% mesa = c.getCodMesa(); %>
+                                        <% status = c.getStatusPagto(); %>
+                                    </tr> 
+                                    <%}%>
+                                    <%
+                                        float vlrTotal = 0;
+                                        for (Caixa c : caixas) {
+                                            float vlrUnd = c.getVlrTotal();
+                                            vlrTotal += vlrUnd;
+                                        }
+                                        BigDecimal bd = new BigDecimal(vlrTotal).setScale(3, RoundingMode.HALF_EVEN);
+                                    %>
+
+                                </tbody>
+                            </table>
+
+                            <div class="PGcaixa">
+                                <h3 class="vlrTotal"><%out.write("Valor Total: R$" + bd.doubleValue());%></h3>
+
+                            </div>     
+                        </div>
                         <br>
+                        <main class="formpag">
+                            <%
+                                List<Caixa> forms = caixa.lovPagtos();
+                            %>
 
-                        <label><b>Forma de Pagamento<b></label>
-                        <select name="formPagto" class="form-control">
-                            <% for (Caixa c : forms) {%>
-                            <option value="<%out.write("" + c.getCodFormPagto());%>">
-                                <% out.write(c.getDescFormPagto());%>
-                                <% out.write(c.getDescBandeira());%>
-                            </option>
-                            <%}%>
-                        </select><br>
-                        <button class="btnFN" onclick="enviarDados()" >Finalizar</button>
-                    </form>  
+                            <div class="divpag">
+                                <form action="finalizarPedido.jsp" method="POST" class="tpPagForm">
+
+                                    <select hidden type="text" name="codmesa" class="form-control">
+                                        <option value="<%out.write("" + mesa);%>">
+                                            <% out.write("" + mesa);%>
+                                        </option>
+                                    </select>
+                                    <select hidden type="text" name="statusPagto" class="form-control">
+                                        <option value="<%out.write(status);%>">
+                                            <% out.write(status);%>
+                                        </option>
+                                    </select>
+                                    <label><b>Data do pagamento</b></label>
+                                    <input type="date" name="data" id="dat"> <br>
+
+                                    <label><b>Valor Pago</b></label>
+                                    <input type="text" maxlength="10" class="form-control" name="vlrTotal"
+                                           value="<%out.write("" + bd.doubleValue());%>" />                            
+                                    <br>
+
+                                    <label><b>Forma de Pagamento</b></label>
+                                    <select name="formPagto" class="form-control">
+                                        <% for (Caixa c : forms) {%>
+                                        <option value="<%out.write("" + c.getCodFormPagto());%>">
+                                            <% out.write(c.getDescFormPagto());%>
+                                            <% out.write(c.getDescBandeira());%>
+                                        </option>
+                                        <%}%>
+                                    </select><br>
+                                    <button class="btnFN" onclick="enviarDados()" >Finalizar</button>
+                                </form>  
+                            </div>
+                        </main>
+                        <script>
+                            function enviarDados() {
+
+                                var data = document.getElementsByName("data");
+                                if (data[0].value === "") {
+                                    data[0].focus();
+                                    alert("Informe a data");
+                                    exit();
+                                }
+
+                                var vlrTotal = document.getElementsByName("vlrTotal");
+                                if (vlrTotal[0].value === "") {
+                                    vlrTotal[0].focus();
+                                    alert("Informe o valor total");
+                                    exit();
+                                }
+
+                                var formPagto = document.getElementsByName("formPagto");
+                                if (formPagto[0].value === "") {
+                                    formPagto[0].focus();
+                                    alert("Informe a forma de pagamento");
+                                    exit();
+                                }
+
+                                var codmesa = document.getElementsByName("codmesa");
+                                if (codmesa[0].value === "") {
+                                    codmesa[0].focus();
+                                    alert("Informe a mesa");
+                                    exit();
+                                }
+
+                                var statusPagto = document.getElementsByName("statusPagto");
+                                if (statusPagto[0].value === "") {
+                                    statusPagto[0].focus();
+                                    alert("Informe o stauts");
+                                    exit();
+                                }
+
+                                document.forms[0].submit();
+                            }
+
+
+                            document.getElementById('dat').value = new Date().toISOString().substring(0, 10);
+                        </script>  
                 </div>
-            </main>
-            <script>
-                function enviarDados() {
-
-                    var data = document.getElementsByName("data");
-                    if (data[0].value === "") {
-                        data[0].focus();
-                        alert("Informe a data");
-                        exit();
-                    }
-
-                    var vlrTotal = document.getElementsByName("vlrTotal");
-                    if (vlrTotal[0].value === "") {
-                        vlrTotal[0].focus();
-                        alert("Informe o valor total");
-                        exit();
-                    }
-
-                    var formPagto = document.getElementsByName("formPagto");
-                    if (formPagto[0].value === "") {
-                        formPagto[0].focus();
-                        alert("Informe a forma de pagamento");
-                        exit();
-                    }
-                    
-                    var codmesa = document.getElementsByName("codmesa");
-                    if (codmesa[0].value === "") {
-                        codmesa[0].focus();
-                        alert("Informe a mesa");
-                        exit();
-                    }
-                    
-                    var statusPagto = document.getElementsByName("statusPagto");
-                    if (statusPagto[0].value === "") {
-                        statusPagto[0].focus();
-                        alert("Informe o stauts");
-                        exit();
-                    }
-                    
-                    document.forms[0].submit();
-                }
-                
-                
-                document.getElementById('dat').value = new Date().toISOString().substring(0, 10);
-            </script>  
             </div>
-        </div>
 
-        <!--JS - SIDEBAR-->
-        <script src="js/sidebar.js"></script>
-        <script src="js/scripts.js"></script>
+            <!--JS - SIDEBAR-->
+            <script src="js/sidebar.js"></script>
+            <script src="js/scripts.js"></script>
 
-        <!--FONT AWESOME-->
-        <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
+            <!--FONT AWESOME-->
+            <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
     </body>
 </html>
