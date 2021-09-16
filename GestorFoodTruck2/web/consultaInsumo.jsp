@@ -69,6 +69,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relatório de Pagamentos</a>
                     </div>
                     <br><br><br>
+                    <!-- Verifica se o usuário está logado -->
                     <p id="login">
                         <%
                             String login = (String) session.getAttribute("login");
@@ -91,6 +92,7 @@
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
                     <table class="tabela table table-borderless table-striped rounded-1">
+                        <!-- Mensagem de confirmação da ação realizada -->
                         <p class="font-weight-bold" style="color:red">
                             <%      if (request.getParameter("pmensagem") != null)
                                     out.write(request.getParameter("pmensagem"));
@@ -152,13 +154,12 @@
                 </div>
             </div>
         </div>
+        <!-- Função para confirmar da exclusão do insumo -->
         <script>
-
             function nrExcluir(insumo) {
                 var link = document.getElementById("confirmar");
                 link.href = "excluiInsumo.jsp?codInsumo=" + insumo;
             }
-
         </script>
         <!--JS - SIDEBAR-->
         <script src="js/sidebar.js"></script>
