@@ -13,6 +13,7 @@
     <body>       
         <main class="cadastro">
             <div class="cadastroContainer">
+                <!-- Mensagem de confirmação da ação realizada -->
                 <%
                     if (request.getParameter("pmensagem") != null)
                         out.write(request.getParameter("pmensagem"));
@@ -28,6 +29,7 @@
                 </form>
             </div>
         </main>
+        <!-- Envia os dados para confirmação -->
         <script>
             function enviarCadastro() {
                 var login = document.getElementsByName("login");
