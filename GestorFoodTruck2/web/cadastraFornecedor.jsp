@@ -67,6 +67,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relatório de Pagamentos</a>
                     </div>
                     <br><br><br>
+                    <!-- Verifica se o usuário está logado -->
                     <p id="login">
                         <%
                             String login = (String) session.getAttribute("login");
@@ -91,8 +92,9 @@
                         <div class="container-fluid mt-2 mr-4">
                             <form action="recebeForn.jsp" method="POST">
                                 <p class="font-weight-bold">
-                                    <%                        if (request.getParameter("pmensagem") != null)
-                                            out.write(request.getParameter("pmensagem"));
+                                    <!-- Mensagem de confirmação da ação realizada na página -->
+                                    <%      if (request.getParameter("pmensagem") != null)
+                                                out.write(request.getParameter("pmensagem"));
                                     %>
                                 </p>
 
