@@ -69,6 +69,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relatório de Pagamentos</a>
                     </div>
                     <br><br><br>
+                    <!-- Verifica se o usuário está logado -->
                     <p id="login">
                         <%
                             String login = (String) session.getAttribute("login");
@@ -90,9 +91,10 @@
                         <div class="container-fluid d-flex justify-content-center mt-4">
                             <h2>Cadastro de Métodos de Pagamento</h2><br>
                         </div>
+                        <!-- Mensagem de confirmação da ação realizada -->
                         <p class="font-weight-bold">
-                            <%                        if (request.getParameter("pmensagem") != null)
-                                    out.write(request.getParameter("pmensagem"));
+                            <%      if (request.getParameter("pmensagem") != null)
+                                        out.write(request.getParameter("pmensagem"));
                             %>
                         </p>
                         <div class="container-fluid mt-2 mr-4">
@@ -109,6 +111,7 @@
                         </div>
                     </div>
                 </div> 
+                <!-- Envia os dados para confirmação -->
                 <script>
                     function enviarDados() {
 
