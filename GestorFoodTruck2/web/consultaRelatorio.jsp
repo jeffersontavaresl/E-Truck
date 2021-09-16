@@ -75,6 +75,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relatório de Pagamentos</a>
                     </div>
                     <br><br><br>
+                    <!-- Verifica se o usuário está logado -->
                     <p id="login">
                         <%
                             String login = (String) session.getAttribute("login");
@@ -88,7 +89,7 @@
                 </div>
             </div>
             <div id="page-content-wrapper">
-                <!-- ConteÃºdo da PÃ¡gina-->              
+                <!-- Conteúdo da página -->              
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <%
@@ -128,12 +129,14 @@
                                 <td><% out.write("R$" + c.getVlrTotal()); %></td>
                             </tr> 
                             <%}%>
+                            <!-- Loop para soma do valor total -->
                             <%
                                 float vlrTotal = 0;
                                 for (Caixa c : caixas) {
                                     float vlrUnd = c.getVlrTotal();
                                     vlrTotal += vlrUnd;
                                 }
+                                <!-- Função para ajustar o valor total para duas cadas decimais -->
                                 BigDecimal bd = new BigDecimal(vlrTotal).setScale(3, RoundingMode.HALF_EVEN);
                             %>
                         </tbody>
