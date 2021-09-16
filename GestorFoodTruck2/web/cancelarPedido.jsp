@@ -9,6 +9,7 @@
         <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
     </head>
     <body>
+        <!-- Recebe os dados da página para excluir um pedido realizado -->
         <h1>Cancelar item do pedido</h1>
         <%
             String codPedido = request.getParameter("codPedido");
