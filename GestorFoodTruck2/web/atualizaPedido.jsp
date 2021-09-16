@@ -9,6 +9,7 @@
         <title>Cozinha</title>
     </head>
     <body>
+        <!-- Recebe os parâmetros da página para a cozinha atualizar o status do pedido -->
         <%
             int codpedido = Integer.parseInt(request.getParameter("codpedido"));
             String statusPedido = request.getParameter("statusPedido");
