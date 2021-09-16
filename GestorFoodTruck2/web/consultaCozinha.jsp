@@ -70,6 +70,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relatório de Pagamentos</a>
                     </div>
                     <br><br><br>
+                    <!-- Verifica se o usuário está logado -->
                     <p id="login">
                         <%
                             String login = (String) session.getAttribute("login");
@@ -102,6 +103,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <!-- Form para atualizar o pedido pelo código do pedido -->
                         <form action="atualizaPedido.jsp" method="POST">
                             <tr>
                                 <% for (Cozinha c : cz) {%>
