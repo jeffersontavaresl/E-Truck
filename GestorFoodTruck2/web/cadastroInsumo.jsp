@@ -68,6 +68,7 @@
                     </div>
                     <br><br><br>
                     <p id="login">
+                        <!-- Verifica se o usuário está logado -->
                         <%
                             String login = (String) session.getAttribute("login");
                             if (login == null) {
@@ -90,9 +91,10 @@
                         </div>
                         <div class="container-fluid mt-2 mr-4">
                             <form action="recebeItemEstoque.jsp" method="POST">
+                                <!-- Mensagem de confirmação da ação realizada -->
                                 <p class="font-weight-bold">
-                                    <%                        if (request.getParameter("pmensagem") != null)
-                                            out.write(request.getParameter("pmensagem"));
+                                    <%      if (request.getParameter("pmensagem") != null)
+                                                out.write(request.getParameter("pmensagem"));
                                     %>
                                 </p>
                                 <label class="form-label">Nome do Item</label>
@@ -121,6 +123,7 @@
                 </div>
             </div>
         </div>
+        <!-- Envia os dados para confirmação -->
         <script>
             function enviarDados() {
 
