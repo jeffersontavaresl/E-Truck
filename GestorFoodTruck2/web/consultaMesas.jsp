@@ -69,6 +69,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relatório de Pagamentos</a>
                     </div>
                     <br><br><br>
+                    <!-- Verifica se o usuário está logado -->
                     <p id="login">
                         <%
                             String login = (String) session.getAttribute("login");
@@ -82,7 +83,7 @@
                 </div>
             </div>
             <div id="page-content-wrapper">
-                <!-- ConteÃºdo da PÃ¡gina-->
+                <!-- Conteúdo da página -->
                 <%
                     Mesa mesa = new Mesa();
                     List<Mesa> lista = mesa.lovMesa();
@@ -90,6 +91,7 @@
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <table class="tabela table table-borderless table-striped rounded-1">
+                        <!-- Mensagem de confirmação da ação realizada -->
                         <%      if (request.getParameter("pmensagem") != null) { %>
                         <div class="alert alert-danger" role="alert">
                             <p class="font-weight-bold" style="color:red">
@@ -143,6 +145,7 @@
                 </div>
             </div>
         </div>
+        <!-- Função para confirmação da exclusão da mesa -->
         <script>
             function nrExcluir(mesa) {
                 var link = document.getElementById("confirmar");
