@@ -17,7 +17,7 @@
                 if(f.excluirFornecedor()){
                     response.sendRedirect("consultaForn.jsp?pmensagem=Fornecedor excluido com sucesso");
                 } else {
-                    response.sendRedirect("consultaForn.jsp?pmensagem=PRODUTO ATRELADO AO RELATORIO DE PAGAMENTOS. CASO TENHA DUVIDAS, NOS CONTATE NO CHAT.");
+                    response.sendRedirect("consultaForn.jsp?pmensagem=FORNECEDOR ATRELADO A PEDIDOS DE INSUMOS. CASO TENHA DUVIDAS, NOS CONTATE NO CHAT.");
                 }
             }
         %>
