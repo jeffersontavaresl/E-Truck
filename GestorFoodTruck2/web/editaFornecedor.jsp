@@ -99,22 +99,23 @@
                         <div class="container-fluid mt-3 mr-4">
                             <form action="recebeEditaForn.jsp" method="POST">
                                 <label class="form-label">E-mail</label> <br>
-                                <input type="text" maxlength="40" class="form-control" name="emlF" placeholder="E-mail"
+                                <input type="text" maxlength="40" class="form-control" name="emlF" placeholder="E-mail" required 
                                        value="<%out.write(f.getEmail());%>"/> <br>
 
                                 <label class="form-label">Telefone</label> <br>
-                                <input type="number" maxlength="20" class="form-control" name="telF" placeholder="Telefone"
+                                <input type="number" maxlength="20" class="form-control" name="telF" placeholder="Telefone" required 
                                        value="<%out.write(f.getTelefone());%>"/> <br>
 
                                 <label class="form-label">Nome</label> <br>
-                                <input type="text" maxlength="20" class="form-control" name="nomF" placeholder="Nome"
+                                <input type="text" maxlength="20" class="form-control" name="nomF" placeholder="Nome" required 
                                        value="<%out.write(f.getNomeContato());%>"/> <br>
 
                                 <label class="form-label">Código do fornecedor</label> <br>
-                                <input type="text" class="form-control" name="codF" readonly="true" placeholder="Código do fornecedor" 
+                                <input type="number" class="form-control" name="codF" readonly="true" placeholder="Código do fornecedor"  
                                        value="<%out.write("" + f.getCodFornecedor());%>"/> <br>
                                 <div class="text-center mb-3">
                                     <input type="submit" value="Alterar" class="btn btn-primary"/>
+                                    <a href="consultaForn.jsp" class="btn btn-danger">Cancelar</a>
                                 </div>
                             </form>
                         </div>
