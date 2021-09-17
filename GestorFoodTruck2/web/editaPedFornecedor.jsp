@@ -126,6 +126,7 @@
 
                                 <div class="text-center mb-3"> 
                                     <input type="submit" value="Alterar" class="btn btn-primary"/>
+                                    <a href="consultaPedFornecedor.jsp" class="btn btn-danger">Cancelar</a>
                                 </div>
                             </form>
                         </div>
