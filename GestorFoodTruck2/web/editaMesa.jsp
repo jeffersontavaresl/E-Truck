@@ -101,15 +101,16 @@
                         <div class="container-fluid mt-3 mr-4">
                             <form action="recebeEditaMesa.jsp" method="POST">
                                 <label>Código da mesa</label>
-                                <input type="text" class="form-control" name="codMesa" readonly="true"
+                                <input type="text" class="form-control" name="codMesa" readonly="true" 
                                        value="<%out.write("" + m.getCodmesa());%>" />
                                 <br />
                                 <label>Nome da mesa</label>
-                                <input type="text" maxlength="10" class="form-control" required="true" name="nomMesa" 
+                                <input type="text" maxlength="10" class="form-control" name="nomMesa" required 
                                        value="<%out.write("" + m.getMesa());%>" />
                                 <br />
                                 <div class="text-center mb-3">
                                     <input type="submit" class="btn btn-primary" value="Alterar" class="btn btn-primary"/>
+                                    <a href="consultaMesas.jsp" class="btn btn-danger">Cancelar</a>
                                 </div>
                             </form>
                         </div>
@@ -126,3 +127,4 @@
         <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
     </body>
 </html>
+
