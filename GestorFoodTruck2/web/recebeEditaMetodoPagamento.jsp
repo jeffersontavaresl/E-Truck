@@ -18,7 +18,7 @@
         metodo.setDescBandeira(descBandeira);
         
         if(metodo.alterarMetodoPagamento()){
-                response.sendRedirect("consultaMetodoPagamento.jsp?pmensagem=Método editado com sucesso");
+                response.sendRedirect("consultaMetodoPagamento.jsp?pmensagem=Metodo editado com sucesso");
             } else {
                 response.sendRedirect("consultaMetodoPagamento.jsp?pmensagem=Problemas ao editar Método");
             }    
