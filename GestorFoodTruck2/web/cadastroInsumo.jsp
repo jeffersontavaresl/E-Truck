@@ -136,7 +136,7 @@
 
                 var custoInsumo = document.getElementsByName("custoInsumo");
                 if (custoInsumo[0].value === "") {
-                    valorItem[0].focus();
+                    custoInsumo[0].focus();
                     alert("Informe o Preço do produto");
                     exit();
                 }
