@@ -175,7 +175,7 @@
                                     <input type="date" required name="data" id="dat"> <br>
 
                                     <label><b>Valor Pago</b></label>
-                                    <input type="text" required maxlength="10" class="form-control" name="vlrTotal"
+                                    <input type="text" required="true" readonly="true" maxlength="10" class="form-control" name="vlrTotal"
                                            value="<%out.write("" + bd.doubleValue());%>" />                            
                                     <br>
 
