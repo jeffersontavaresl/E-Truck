@@ -104,15 +104,18 @@
                                        value="<%out.write("" + m.getCodPagto());%>" />
                                 <br />
                                 <label>Método de Pagamento</label>
-                                <input type="text" maxlength="10" class="form-control" required="true" name="descMetodo" 
+                                <input type="text" maxlength="10" class="form-control" name="descMetodo" required 
                                        value="<%out.write("" + m.getDescPagto());%>" />
+
                                 <br />
                                 <label>Bandeira (se tiver)</label>
                                 <input type="text" maxlength="10" class="form-control" name="descBandeira" 
                                        value="<%out.write("" + m.getDescBandeira());%>" />
+
                                 <br />
                                 <div class="text-center mb-3">
                                     <input type="submit" class="btn btn-primary" value="Alterar" class="btn btn-primary"/>
+                                    <a href="consultaMetodoPagamento.jsp" class="btn btn-danger">Cancelar</a>
                                 </div>
                             </form>
                         </div>
