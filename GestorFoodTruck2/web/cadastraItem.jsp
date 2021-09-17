@@ -99,10 +99,10 @@
                                     %>
                                 </p>
                                 <label class="form-label">Nome do Produto</label> <br>
-                                <input type="text" class="form-control" maxlength="30" name="nomPrd" required placeholder="Nome do produto"> <br><br>
+                                <input type="text" class="form-control" maxlength="30" name="nomPrd" placeholder="Nome do produto" required> <br><br>
 
                                 <label class="form-label">Preço do Produto</label> <br>
-                                <input type="text" class="form-control" maxlength="5" name="vlrPrd" required placeholder="Preço do produto"> <br><br>
+                                <input type="text" class="form-control" maxlength="5" name="vlrPrd" placeholder="Preço do produto" required> <br><br>
 
                                 <div class="text-center mb-3">
                                     <a href="functions.jsp" class="btn btn-primary">Início</a>
@@ -147,3 +147,4 @@
         <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
     </body>
 </html>
+
