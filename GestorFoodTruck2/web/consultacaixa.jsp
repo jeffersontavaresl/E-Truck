@@ -172,7 +172,7 @@
                                         </option>
                                     </select>
                                     <label><b>Data do pagamento</b></label>
-                                    <input type="date" name="data" id="dat"> <br>
+                                    <input type="date" required name="data" id="dat"> <br>
 
                                     <label><b>Valor Pago</b></label>
                                     <input type="text" required maxlength="10" class="form-control" name="vlrTotal"
@@ -216,7 +216,7 @@
                                                         </option>
                                                     </select>
                                                     <input hidden type="radio" checked name="vlrTotal" id="subtracao"/>
-                                                    Resposta: R$<div id="resp"></div>
+                                                    Troco: R$<div id="resp"></div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
