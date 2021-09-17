@@ -108,19 +108,20 @@
                                        value="<%out.write(i.getDescInsumo());%>" />
                                 <br />
                                 <label>Saldo em Estoque</label>
-                                <input type="text" class="form-control" required="true" maxlength="6" name="sldEstoque"  />
+                                <input type="text" class="form-control" maxlength="6" name="sldEstoque" required  />
                                 <br />
                                 <label>Qtde de Estoque Alerta</label>
-                                <input type="text" class="form-control" required="true" maxlength="6" name="qtdEstqAlerta" 
+                                <input type="text" class="form-control" maxlength="6" name="qtdEstqAlerta" required 
                                        value="<%out.write("" + i.getQtdEstqAlerta());%>" />
                                 <br />
 
                                 <label>Valor</label>
-                                <input type="text" class="form-control" required="true" maxlength="6" name="vlr" 
+                                <input type="number" class="form-control" maxlength="6" name="vlr" required 
                                        value="<%out.write("" + i.getCustoInsumo());%>" />
                                 <br />
                                 <div class="text-center mb-3">
                                     <input type="submit" value="Alterar" class="btn btn-primary" />
+                                    <a href="consultaInsumo.jsp" class="btn btn-danger">Cancelar</a>
                                 </div>
                             </form>
                         </div>
@@ -137,3 +138,4 @@
         <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
     </body>
 </html>
+
