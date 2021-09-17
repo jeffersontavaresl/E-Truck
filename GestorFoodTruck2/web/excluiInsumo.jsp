@@ -16,12 +16,11 @@
             if (idCodInsumo != null) {
                 i = i.consultarInsumo(Integer.parseInt(idCodInsumo));
                 if (i.excluirItem()) {
-                    out.write("Item excluido com sucesso");
-                    response.sendRedirect("consultaInsumo.jsp");
+                    response.sendRedirect("consultaInsumo.jsp?pmensagem=Insumo excluido com sucesso.");
                 } else {
-                    out.write("Problemas ao excluir item");
+                    response.sendRedirect("consultaInsumo.jsp?pmensagem=Erro ao excluir insumo");
                 }
             }
-        %>   
+        %>  
     </body>
 </html>
