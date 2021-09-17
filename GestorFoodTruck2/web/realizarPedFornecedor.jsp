@@ -114,7 +114,7 @@
                                 </select><br>
 
                                 <label class="form-label">Insumo</label> <br>
-                                <select class="form-control" name="codInsumo">
+                                <select required="true" class="form-control" name="codInsumo">
                                     <% for (Insumo i : insumos) {%>
                                     <option value="<%out.write("" + i.getCodInsumo());%>">
                                         <% out.write(i.getDescInsumo());%>
@@ -123,13 +123,13 @@
                                 </select><br>
 
                                 <label class="form-label">Quantidade</label> <br>
-                                <input type="text" maxlength="5" class="form-control" name="qntdeinsumo" placeholder="Quantidade"> <br>
+                                <input required="true" type="text" maxlength="5" class="form-control" name="qntdeinsumo" placeholder="Quantidade"> <br>
 
                                 <label class="form-label">Unidade de Medida</label> <br>
-                                <input type="text" maxlength="15" class="form-control" name="undMedida" placeholder="Unidade de Medida"> <br>
+                                <input required="true" type="text" maxlength="15" class="form-control" name="undMedida" placeholder="Unidade de Medida"> <br>
 
                                 <label class="form-label">Status</label> <br>
-                                <select class="form-control" name="statusPedido" class="form-control">
+                                <select required="true" class="form-control" name="statusPedido" class="form-control">
                                     <option value="pendente">Pendente</option>
                                 </select><br><br>
 

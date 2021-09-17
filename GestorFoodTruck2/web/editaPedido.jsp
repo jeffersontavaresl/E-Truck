@@ -105,7 +105,7 @@
                                         List<Cardapio> cardapio = card.lovCardapio();
                                     %>
                                     <label>Novo produto</label>
-                                    <select name="codProduto" class="form-control">
+                                    <select required="true" name="codProduto" class="form-control">
                                         <% for (Cardapio c : cardapio) { %>
                                         <option value ="<%out.write("" + c.getCodProduto());%>">
                                             <% out.write(c.getDescProduto()); %>

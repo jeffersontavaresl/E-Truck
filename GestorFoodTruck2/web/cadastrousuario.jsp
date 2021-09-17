@@ -20,9 +20,9 @@
                 %>
                 <h1 class="cadastroTitulo">Cadastro</h1>
                 <form class="cadastroForm" action="recebecadastrousuario.jsp" method="POST">              
-                    <input type="text" class="cadastroInput" maxlength="15" name="login" placeholder="Informe um usuario" required>
+                    <input type="text" class="cadastroInput" maxlength="15" required="true" name="login" placeholder="Informe um usuario" required>
                     <span class="cadastroBorder"></span>
-                    <input type="password" class="cadastroInput" maxlength="15" name="senha" placeholder="Digite uma senha" required>
+                    <input type="password" class="cadastroInput" maxlength="15" required="true" name="senha" placeholder="Digite uma senha" required>
                     <span class="cadastroBorder"></span>
                     <input type="button"  class="cadastroSubmit" value="Cadastrar" onclick="enviarCadastro()"/>
                     <a href="login.jsp" class="rtLogin"><b>Retornar ao login</b></a>

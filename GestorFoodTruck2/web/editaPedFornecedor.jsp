@@ -110,7 +110,7 @@
                                        readonly  value="<%out.write("" + adm.getCodPedFornecedor());%>"/> <br>
 
                                 <label>Descrição</label> <br>
-                                <select name="codInsumo" class="form-control">
+                                <select required="true" name="codInsumo" class="form-control">
                                     <% for (Insumo i : insumos) {%>
                                     <option value="<%out.write("" + i.getCodInsumo());%>">
                                         <% out.write(i.getDescInsumo());%>
@@ -119,10 +119,10 @@
                                 </select><br>
 
                                 <label class="form-label">Quantidade</label> <br>
-                                <input type="text" maxlength="6" class="form-control" name="quantidade" placeholder="Quantidade" /> <br>
+                                <input type="text" maxlength="6" class="form-control" required="true" name="quantidade" placeholder="Quantidade" /> <br>
 
                                 <label class="form-label">Unidade de Medida</label> <br>
-                                <input type="text" maxlength="30" class="form-control" name="undMedida" placeholder="Unidade de Medida"/> <br>
+                                <input type="text" maxlength="30" class="form-control" required="true" name="undMedida" placeholder="Unidade de Medida"/> <br>
 
                                 <div class="text-center mb-3"> 
                                     <input type="submit" value="Alterar" class="btn btn-primary"/>

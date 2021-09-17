@@ -111,7 +111,7 @@
                                        value="<%out.write(f.getNomeContato());%>"/> <br>
 
                                 <label class="form-label">Código do fornecedor</label> <br>
-                                <input type="text" class="form-control" name="codF" placeholder="Código do fornecedor" 
+                                <input type="text" class="form-control" name="codF" readonly="true" placeholder="Código do fornecedor" 
                                        value="<%out.write("" + f.getCodFornecedor());%>"/> <br>
                                 <div class="text-center mb-3">
                                     <input type="submit" value="Alterar" class="btn btn-primary"/>

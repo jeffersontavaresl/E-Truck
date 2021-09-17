@@ -108,15 +108,15 @@
                                        value="<%out.write(i.getDescInsumo());%>" />
                                 <br />
                                 <label>Saldo em Estoque</label>
-                                <input type="text" class="form-control" maxlength="6" name="sldEstoque"  />
+                                <input type="text" class="form-control" required="true" maxlength="6" name="sldEstoque"  />
                                 <br />
                                 <label>Qtde de Estoque Alerta</label>
-                                <input type="text" class="form-control" maxlength="6" name="qtdEstqAlerta" 
+                                <input type="text" class="form-control" required="true" maxlength="6" name="qtdEstqAlerta" 
                                        value="<%out.write("" + i.getQtdEstqAlerta());%>" />
                                 <br />
 
                                 <label>Valor</label>
-                                <input type="text" class="form-control" maxlength="6" name="vlr" 
+                                <input type="text" class="form-control" required="true" maxlength="6" name="vlr" 
                                        value="<%out.write("" + i.getCustoInsumo());%>" />
                                 <br />
                                 <div class="text-center mb-3">

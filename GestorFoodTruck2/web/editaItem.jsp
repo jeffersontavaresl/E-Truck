@@ -101,11 +101,11 @@
                         <div class="container-fluid mt-3 mr-4">
                             <form action="recebeEditaItens.jsp" method="POST">
                                 <label>Nome do produto</label>
-                                <input type="text" maxlength="30" class="form-control" name="nome" 
+                                <input type="text" maxlength="30" class="form-control" required="true" name="nome" 
                                        value="<%out.write(c.getDescProduto());%>" />
                                 <br />
                                 <label>Preço</label>
-                                <input type="text" maxlength="5" class="form-control" name="vlr" 
+                                <input type="text" maxlength="5" class="form-control" required="true" name="vlr" 
                                        value="<%out.write("" + c.getPreco());%>" />
                                 <br />
                                 <label>Código do Produto</label>

@@ -106,7 +106,7 @@
                                     %>
                                 </p>
                                 <label>Código da mesa</label><br>
-                                <select name="codMesa" class="form-control">
+                                <select required="true" name="codMesa" class="form-control">
                                     <% for (PedidoCliente m : mesas) {%>
                                     <option value="<%out.write("" + m.getCodMesa());%>">
                                         <% out.write(m.getMesa());%>
@@ -114,7 +114,7 @@
                                     <%}%>
                                 </select><br>
                                 <label>Produto</label><br>
-                                <select name="codProduto" class="form-control">
+                                <select required="true" name="codProduto" class="form-control">
                                     <% for (Cardapio p : produtos) {%>
                                     <option value="<%out.write("" + p.getCodProduto());%>">
                                         <% out.write(p.getDescProduto());%>
@@ -125,12 +125,12 @@
                                 <input type="text" name="observacao" maxlength="90" class="form-control" placeholder="Insira as observações"><br>
 
                                 <label>Status do Pagamento</label><br>
-                                <select name="statusPagto" class="form-control">
+                                <select required="true" name="statusPagto" class="form-control">
                                     <option value="pendente">Pendente</option>
                                 </select><br>
 
                                 <label>Status do Pedido</label><br>
-                                <select name="statusPedido" class="form-control">
+                                <select required="true" name="statusPedido" class="form-control">
                                     <option value="andamento">Andamento</option>
                                 </select><br>
                                 <div class="text-center mb-3">
