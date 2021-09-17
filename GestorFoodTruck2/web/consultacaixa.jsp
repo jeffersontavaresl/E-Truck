@@ -148,14 +148,13 @@
                                             vlrTotal += vlrUnd;
                                         }
                                         BigDecimal bd = new BigDecimal(vlrTotal).setScale(3, RoundingMode.HALF_EVEN);
-                                    %>
+                                    %>                               
                                 </tbody>
                             </table>
                             <div class="PGcaixa">
                                 <h3 class="vlrTotal"><%out.write("Valor Total: R$" + bd.doubleValue());%></h3>
-                            </div>     
-                        </div>
-                        <br>
+                            </div>  
+                        </div>                           
                         <main class="formpag">
                             <%
                                 List<Caixa> forms = caixa.lovPagtos();
@@ -189,8 +188,46 @@
                                         </option>
                                         <%}%>
                                     </select><br>
-                                    <button class="btnFN" onclick="enviarDados()" >Finalizar</button>
+                                    <button class="btn btn-primary" onclick="enviarDados()" >Finalizar</button>
                                 </form>  
+                                </br>
+                                <!-- Calculadora do troco -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                    Troco
+                                </button>
+
+                                <!-- MODAL PARA CALCULAR TROCO -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Calcular Troco</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="calcular">
+                                                    Valor Recebido:<input id="num1" type="number">
+                                                    <br />
+                                                    <select  hidden type="number" id="num2" class="form-control">
+                                                        <option value="<%out.write("" + bd.doubleValue());%>"> 
+                                                            <% out.write("" + bd.doubleValue());%>
+                                                        </option>
+                                                    </select>
+                                                    <input hidden type="radio" checked name="vlrTotal" id="subtracao"/>
+                                                    Resposta: R$<div id="resp"></div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" onclick="main()" >Calcular</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                            <!-- Fim Calculadora -->  
                             </div>
                         </main>
                         <script>
@@ -234,6 +271,27 @@
                             }
 
                             document.getElementById('dat').value = new Date().toISOString().substring(0, 10);
+
+                            //Função para calcular o troco
+                            function main()
+                            {
+                                var resp = document.getElementById('resp');
+                                var num1 = parseFloat(document.getElementById("num1").value);
+                                var num2 = parseFloat(document.getElementById("num2").value);
+                                var texto = '';
+
+
+                                if (document.getElementById('subtracao').checked)
+                                    texto = subtracao(num1, num2);
+
+                                resp.innerHTML = texto;
+                            }
+
+                            function subtracao(x, y)
+                            {
+
+                                return (x - y);
+                            }
                         </script>  
                 </div>
             </div>
@@ -244,5 +302,14 @@
 
             <!--FONT AWESOME-->
             <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
+
+            <!--JQUERY E POPPER.JS-->
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>
