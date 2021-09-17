@@ -172,10 +172,9 @@
                                         </option>
                                     </select>
                                     <label><b>Data do pagamento</b></label>
-                                    <input type="date" required name="data" id="dat"> <br>
+                                    <input type="date" required name="data" id="dat">
 
-                                    <label><b>Valor Pago</b></label>
-                                    <input type="text" required="true" readonly="true" maxlength="10" class="form-control" name="vlrTotal"
+                                    <input type="text" hidden required="true" readonly="true" maxlength="10" class="form-control" name="vlrTotal"
                                            value="<%out.write("" + bd.doubleValue());%>" />                            
                                     <br>
 
@@ -192,7 +191,7 @@
                                 </form>  
                                 </br>
                                 <!-- Calculadora do troco -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                                     Troco
                                 </button>
 
@@ -208,7 +207,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="calcular">
-                                                    Valor Recebido:<input id="num1" type="number">
+                                                    Valor Recebido R$<input id="num1" type="number">
                                                     <br />
                                                     <select  hidden type="number" id="num2" class="form-control">
                                                         <option value="<%out.write("" + bd.doubleValue());%>"> 
@@ -216,7 +215,7 @@
                                                         </option>
                                                     </select>
                                                     <input hidden type="radio" checked name="vlrTotal" id="subtracao"/>
-                                                    Troco: R$<div id="resp"></div>
+                                                    Troco R$<label id="resp"></label>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -289,7 +288,6 @@
 
                             function subtracao(x, y)
                             {
-
                                 return (x - y);
                             }
                         </script>  
