@@ -2,11 +2,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastra fornecedor</title>
-    </head>
     <body>        
+        <!-- Recebe os dados da página HTML -->
         <%
             Fornecedor forn = new Fornecedor();
             forn.setCnpj(request.getParameter("cdCnpj"));
