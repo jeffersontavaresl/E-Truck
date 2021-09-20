@@ -5,8 +5,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--FAVICON E CSS-->
         <link rel="stylesheet" href="styles/cadastro.css">
-        <!--FAVICON-->
         <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
         <title>E-truck Management - Cadastrar Usuario</title>       
     </head>   
