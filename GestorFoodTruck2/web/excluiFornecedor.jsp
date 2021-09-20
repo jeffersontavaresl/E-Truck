@@ -9,6 +9,7 @@
         <title>Exclui fornecedor</title>
     </head>
     <body>
+        <!--Requerimento do código vindo da consulta para exclusão-->
         <%
             String idForn = request.getParameter("codFornecedor");
             Fornecedor f = new Fornecedor();  
