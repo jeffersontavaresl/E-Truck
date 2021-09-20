@@ -191,7 +191,7 @@
                                 </form>  
                                 </br>
                                 <!-- Calculadora do troco -->
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                                     Troco
                                 </button>
 
