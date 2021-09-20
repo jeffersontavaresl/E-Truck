@@ -88,6 +88,7 @@
                     <div class="container-fluid border w-50 h-75 mt-5 mb-4" id="tabela">
                         <div class="container-fluid d-flex justify-content-center mt-4">
                             <h1>Edita fornecedor</h1>
+                            <!--Requerimento do código vindo da consulta para edição-->
                             <%
                                 String idForn = request.getParameter("codFornecedor");
                                 Fornecedor f = new Fornecedor();
