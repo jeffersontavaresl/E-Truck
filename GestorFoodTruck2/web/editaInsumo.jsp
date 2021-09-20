@@ -118,7 +118,7 @@
                                 <br />
 
                                 <label>Valor</label>
-                                <input type="number" class="form-control" maxlength="6" name="vlr" required 
+                                <input type="text" class="form-control" maxlength="6" name="vlr" required 
                                        value="<%out.write("" + i.getCustoInsumo());%>" />
                                 <br />
                                 <div class="text-center mb-3">
