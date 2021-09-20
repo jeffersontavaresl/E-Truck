@@ -298,7 +298,8 @@ public class Administrador extends Insumo{
         return true;
     }
     
-    
+    /* ÁREA DE GETTERS E SETTERS */ 
+ 
     public int getCodPagto() {
         return codPagto;
     }
