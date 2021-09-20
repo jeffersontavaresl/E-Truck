@@ -2,13 +2,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Recebe edita Fornecedor</title>
-    </head>
     <body>
-        <%
-        
+        <!-- Recebe os dados da página HTML -->
+        <%       
         String emlForn = request.getParameter("emlF");
         String telForn = request.getParameter("telF");        
         String nomForn = request.getParameter("nomF");
