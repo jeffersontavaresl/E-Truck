@@ -68,6 +68,8 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relatório de Pagamentos</a>
                     </div>
                     <br><br><br>
+                    
+                    <!--Verifica se o usuário está logado-->
                     <p id="login">
                         <%
                             String login = (String) session.getAttribute("login");
@@ -89,6 +91,8 @@
                         <div class="container-fluid d-flex justify-content-center mt-4">
                             <h1>Editar Mesa</h1>
                             <hr />
+                            
+                            <!--Requerimento do código vindo da consulta para edição-->
                             <%
                                 String idMesa = request.getParameter("codmesa");
                                 int mesa = 0;
