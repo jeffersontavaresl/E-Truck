@@ -104,10 +104,9 @@
                                 <label class="form-label">Preço do Produto</label> <br>
                                 <input type="text" class="form-control" maxlength="5" name="vlrPrd" placeholder="Preço do produto" required> <br><br>
 
-                                <div class="text-center mb-3">
-                                    <a href="functions.jsp" class="btn btn-primary">Início</a>
+                                <div class="text-center mb-3">                                   
                                     <input type="submit" value="Confirmar" class="btn btn-success"/>
-                                    <input type="reset" value="Cancelar" class="btn btn-danger"/>
+                                    <input type="reset" value="Limpar" class="btn btn-danger"/>
                                 </div>
                             </form>
                         </div>
