@@ -1,12 +1,15 @@
 <%@page import="modelos.Cardapio"%>
+<%@page import="utils.Formatador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <body>
         <!-- Recebe os dados da página HTML -->
         <% 
+            Formatador form = new Formatador();
+            
             String nome   = request.getParameter("nome");
-            float vlr  = Float.parseFloat(request.getParameter("vlr"));
+            float vlr  = form.converterVirgulaParaPonto(request.getParameter("vlr"));
             Integer idcodProduto = Integer.parseInt(request.getParameter("codProduto"));
             
             Cardapio card = new Cardapio();
