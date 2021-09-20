@@ -99,13 +99,13 @@
                                 </p>
 
                                 <label class="form-label">CNPJ</label>
-                                <input type="number" maxlength="40" class="form-control" name="cdCnpj" placeholder="CNPJ" required > <br>
+                                <input type="text" maxlength="40" class="form-control" name="cdCnpj" placeholder="CNPJ" required > <br>
 
                                 <label class="form-label">Razão social</label>
                                 <input type="text" maxlength="40" class="form-control" name="cdSoc" placeholder="Razão Social" required > <br>
 
                                 <label class="form-label">Telefone</label>
-                                <input type="number" maxlength="20" class="form-control" name="cdTel" placeholder="Telefone" required > <br>
+                                <input type="text" maxlength="20" class="form-control" name="cdTel" placeholder="Telefone" required > <br>
 
                                 <label class="form-label">E-mail</label>
                                 <input type="email" maxlength="45" class="form-control" name="cdEml" placeholder="E-mail" required > <br>
