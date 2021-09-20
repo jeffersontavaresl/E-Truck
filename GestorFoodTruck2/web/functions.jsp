@@ -9,7 +9,7 @@
         <title>E-Truck Management - Funções</title>
         <!--FAVICON-->
         <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
-        <!-- Bootstrap e BotÃµes-->
+        <!-- Bootstrap e Botões-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="styles/functions.css" rel="stylesheet"/>
@@ -67,6 +67,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relatório de Pagamentos</a>
                     </div>
                     <br><br><br>
+                    <!-- Verifica se o usuário está logado -->
                     <p id="login">
                         <%
                             String login = (String) session.getAttribute("login");
@@ -80,10 +81,11 @@
                 </div>
             </div>
             <div id="page-content-wrapper">
-                <!-- ConteÃºdo da PÃ¡gina-->
+                <!-- Conteúdo da Página-->
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+                    <!-- Mensagem para informa quando tem itens com baixo estoque -->
                     <p id="alerta"> 
                         <%
                             Insumo ins = new Insumo();
@@ -94,6 +96,7 @@
                         </script>
                         <% }%>
                     </p>
+                    <!-- iframe para gerar os gráficos do power bi -->
                     <div class="container-fluid">
                         <iframe width="1000" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiYWVjZDBhNWItZjdmMy00MGVmLWEwZmEtZDg3ZTVhZDM1ZjU5IiwidCI6IjAyMmJmNThhLTA2ZmQtNDVhMC1iZDcyLTIxZTkwZDczODg4MyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
                     </div>
@@ -110,6 +113,5 @@
 
         <!--JIVO CHAT-->
         <script src="//code-eu1.jivosite.com/widget/wUayrgmqks" async></script>
-
     </body>
 </html>
