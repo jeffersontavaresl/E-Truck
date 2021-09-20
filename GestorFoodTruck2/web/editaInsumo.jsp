@@ -82,6 +82,8 @@
             </div>
             <div id="page-content-wrapper">
                 <!-- Conteúdo da Página-->
+                
+                <!--Requerimento do código vindo da consulta para edição-->
                 <%
                     String idCodInsumo = request.getParameter("codInsumo");
                     Insumo i = new Insumo();
