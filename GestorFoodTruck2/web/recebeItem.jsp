@@ -1,4 +1,5 @@
 <%@page import="modelos.Cardapio"%>
+<!-- Recebe os dados da página HTML -->
 <%
     Cardapio cardapio = new Cardapio();
     cardapio.setDescProduto(request.getParameter("nomPrd"));
