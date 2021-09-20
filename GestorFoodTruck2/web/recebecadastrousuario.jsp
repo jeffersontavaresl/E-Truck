@@ -1,4 +1,5 @@
 <%@page import="modelos.Usuario"%>
+<!-- Recebe os dados da página HTML -->
 <%
     Usuario usu = new Usuario();
 
