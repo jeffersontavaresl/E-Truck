@@ -101,6 +101,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!--Loop para amostra de itens presentes no banco de dados-->
                             <%for (Insumo c : lista) { %>
                             <tr>
                                 <td><% out.write("" + c.getCodInsumo());   %></td>
