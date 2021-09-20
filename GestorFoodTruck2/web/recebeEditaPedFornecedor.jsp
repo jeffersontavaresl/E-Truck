@@ -2,11 +2,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Recebe edita Pedido</title>
-    </head>
     <body>
+        <!-- Recebe os dados da página HTML -->
         <%
         int idCodPedFornecedor = Integer.parseInt(request.getParameter("codPedFornecedor"));
         int codInsumo = Integer.parseInt(request.getParameter("codInsumo"));
