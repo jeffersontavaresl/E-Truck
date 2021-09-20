@@ -1,14 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="modelos.Insumo"%>
+<%@page import="utils.Formatador"%>
 <!DOCTYPE html>
 <html>
     <body>
         <!-- Recebe os dados da página HTML -->
         <%
+            Formatador form = new Formatador();
+            
             String nome   = request.getParameter("nome");
-            float sldEstoque  = Float.parseFloat(request.getParameter("sldEstoque"));
-            float qtdEstqAlerta  = Float.parseFloat(request.getParameter("qtdEstqAlerta"));
-            float vlr = Float.parseFloat(request.getParameter("vlr"));
+            float sldEstoque  = form.converterVirgulaParaPonto(request.getParameter("sldEstoque"));
+            float qtdEstqAlerta  = form.converterVirgulaParaPonto(request.getParameter("qtdEstqAlerta"));
+            float vlr = form.converterVirgulaParaPonto(request.getParameter("vlr"));
             int codInsumo = Integer.parseInt(request.getParameter("codInsumo"));
             
             Insumo insumo = new Insumo();
