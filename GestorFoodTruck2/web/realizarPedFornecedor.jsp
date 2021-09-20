@@ -135,11 +135,9 @@
                                     <option value="pendente">Pendente</option>
                                 </select><br><br>
 
-                                <div class="text-center mb-3">
-                                    <a href="functions.jsp" class="btn btn-primary">Início</a>
+                                <div class="text-center mb-3">                                    
                                     <input type="button" class="btn btn-success" value="Realizar Pedido" onclick="enviarDados()" />
-                                    <a href="consultaPedFornecedor.jsp" class="btn btn-danger">Consultar Pedidos</a>
-
+                                    <input type="reset" value="Limpar" class="btn btn-danger"/>
                                 </div>
                             </form>
                         </div> 
