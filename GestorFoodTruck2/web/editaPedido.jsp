@@ -2,7 +2,7 @@
 <%@page import="modelos.PedidoCliente"%>
 <%@page import="modelos.Cardapio"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
