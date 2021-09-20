@@ -2,13 +2,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!--FAVICON-->
-        <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
-        <title>Exclui Mesa</title>
-    </head>
     <body>
+        <!--Requerimento do código vindo da consulta para exclusão-->
         <%
             String idMesa = request.getParameter("codmesa");
             Mesa m = new Mesa();
