@@ -70,6 +70,8 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relatório de Pagamentos</a>
                     </div>
                     <br><br><br>
+                    
+                    <!--Verifica se o usuário está logado-->
                     <p id="login">
                         <%
                             String login = (String) session.getAttribute("login");
@@ -89,6 +91,8 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
                     <div class="container-fluid border w-50 h-75 mt-5 mb-4" id="tabela">
                         <div class="container-fluid d-flex justify-content-center mt-4">
+                            
+                            <!--Requerimento do código vindo da consulta para edição-->
                             <h1>Editar pedido</h1>
                             <%
                                 String idCodPedFornecedor = request.getParameter("codPedFornecedor");
