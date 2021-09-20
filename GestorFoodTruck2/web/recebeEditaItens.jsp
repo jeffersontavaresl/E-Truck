@@ -15,9 +15,9 @@
             card.setCodProduto(idcodProduto);
             
             if(card.alterarItem()){
-                response.sendRedirect("consultaItem.jsp?pmensagem=Cliente editado com sucesso");
+                response.sendRedirect("consultaItem.jsp?pmensagem=Item editado com sucesso");
             } else {
-                response.sendRedirect("consultaItem.jsp?pmensagem=Problemas ao editar cliente");
+                response.sendRedirect("consultaItem.jsp?pmensagem=Problemas ao editar item");
             }          
         %>        
     </body>
