@@ -104,7 +104,7 @@
                                        value="<%out.write(f.getEmail());%>"/> <br>
 
                                 <label class="form-label">Telefone</label> <br>
-                                <input type="number" maxlength="20" class="form-control" name="telF" placeholder="Telefone" required 
+                                <input type="text" maxlength="20" class="form-control" name="telF" placeholder="Telefone" required 
                                        value="<%out.write(f.getTelefone());%>"/> <br>
 
                                 <label class="form-label">Nome</label> <br>
