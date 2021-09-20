@@ -2,11 +2,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Recebe edita mesa</title>
-    </head>
     <body>
+        <!-- Recebe os dados da página HTML -->
         <%     
         String nomMesa = request.getParameter("nomMesa");
         Integer idMesa = Integer.parseInt(request.getParameter("codMesa"));
