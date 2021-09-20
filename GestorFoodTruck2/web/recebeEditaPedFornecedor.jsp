@@ -1,13 +1,16 @@
 <%@page import="modelos.Administrador"%>
+<%@page import="utils.Formatador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <body>
         <!-- Recebe os dados da página HTML -->
         <%
+        Formatador form = new Formatador();
+        
         int idCodPedFornecedor = Integer.parseInt(request.getParameter("codPedFornecedor"));
         int codInsumo = Integer.parseInt(request.getParameter("codInsumo"));
-        float quantidade = Float.parseFloat(request.getParameter("quantidade"));        
+        float quantidade = form.converterVirgulaParaPonto(request.getParameter("quantidade"));        
         String undMedida = request.getParameter("undMedida");
                 
         Administrador adm = new Administrador();
