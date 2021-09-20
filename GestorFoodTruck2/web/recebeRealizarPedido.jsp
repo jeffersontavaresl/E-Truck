@@ -1,5 +1,5 @@
 <%@page import="modelos.PedidoCliente"%>
-
+<!-- Recebe os dados da página HTML -->
 <%
     String codMesa = request.getParameter("codMesa");
     String codProduto = request.getParameter("codProduto");
