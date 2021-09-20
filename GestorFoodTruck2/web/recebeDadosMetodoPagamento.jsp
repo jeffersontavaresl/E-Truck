@@ -2,11 +2,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Recebe Metodo Pagamento</title>
-    </head>
     <body>
+        <!-- Recebe os dados da página HTML -->
         <%
             Administrador metodo = new Administrador();
             metodo.setDescPagto(request.getParameter("nomeMetodo"));
