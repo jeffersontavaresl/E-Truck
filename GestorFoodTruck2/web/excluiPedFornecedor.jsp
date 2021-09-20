@@ -2,13 +2,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!--FAVICON-->
-        <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
-        <title>Excluir pedido de fornecedor</title>
-    </head>
     <body>
+        <!--Requerimento do código vindo da consulta para exclusão-->
         <%
             String idCodPedFornecedor = request.getParameter("codPedFornecedor");
             Administrador adm = new Administrador();
