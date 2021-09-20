@@ -1,4 +1,5 @@
 <%@page import="modelos.Administrador"%>
+<!-- Recebe os dados da página HTML -->
 <%
     Administrador adm = new Administrador();
    
