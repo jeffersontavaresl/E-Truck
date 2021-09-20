@@ -2,11 +2,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Recebe edita Método</title>
-    </head>
     <body>
+        <!-- Recebe os dados da página HTML -->
         <%      
         String codMetodo = request.getParameter("codPagto");
         String descMetodo = request.getParameter("descMetodo");
