@@ -75,6 +75,8 @@
             </div>
             <div id="page-content-wrapper">
                 <!-- Conteúdo da Página-->
+                
+                <!-- Verifica se o usuário está logado-->
                 <p id="login">
                     <%
                         String login = (String) session.getAttribute("login");
@@ -87,6 +89,8 @@
                     <div class="container-fluid">
                         <div class="container-fluid border w-50 h-75 mt-5 mb-4" id="tabela">
                             <div class="container-fluid borderless w-50 h-75 mt-3 mb-4">
+                                
+                                <!--Requerimento do código vindo da consulta para edição-->
                                 <h1>Editar Pedido</h1>
                                 <%
                                     String codpedido = request.getParameter("codPedido");
