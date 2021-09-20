@@ -9,7 +9,7 @@
         <title>E-Truck Management - Funções</title>
         <!--FAVICON-->
         <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
-        <!-- Bootstrap e BotÃµes-->
+        <!-- Bootstrap e Botões-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="styles/functions.css" rel="stylesheet"/>
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div id="page-content-wrapper">
-                <!-- ConteÃºdo da PÃ¡gina-->
+                <!-- Conteúdo da Página-->
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
