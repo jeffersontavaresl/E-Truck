@@ -20,7 +20,5 @@
                 response.sendRedirect("consultaItem.jsp?pmensagem=Problemas ao editar cliente");
             }          
         %>        
-       <hr />
-       <a href="consultacliente.jsp">Consulta item</a> 
     </body>
 </html>
