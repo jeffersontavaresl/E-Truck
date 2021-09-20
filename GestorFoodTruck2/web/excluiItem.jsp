@@ -9,6 +9,7 @@
         <title>Exclui Mesa</title>
     </head>
     <body>
+        <!--Requerimento do código vindo da consulta para exclusão-->
         <%
             String codProduto = request.getParameter("codProduto");
             Cardapio c = new Cardapio();
