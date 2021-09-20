@@ -2,11 +2,8 @@
 <%@page import="modelos.Insumo"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
     <body>
+        <!-- Recebe os dados da página HTML -->
         <%
             String nome   = request.getParameter("nome");
             float sldEstoque  = Float.parseFloat(request.getParameter("sldEstoque"));
