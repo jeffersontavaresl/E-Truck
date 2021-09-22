@@ -187,11 +187,11 @@
                                         </option>
                                         <%}%>
                                     </select><br>
-                                    <button class="btn btn-primary" onclick="enviarDados()" >Finalizar</button>
+                                    <button class="btn btn-success" onclick="enviarDados()" >Finalizar</button>
                                 </form>  
                                 </br>
                                 <!-- Calculadora do troco -->
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                     Troco
                                 </button>
 
@@ -262,7 +262,7 @@
                                 var statusPagto = document.getElementsByName("statusPagto");
                                 if (statusPagto[0].value === "") {
                                     statusPagto[0].focus();
-                                    alert("Informe o stauts");
+                                    alert("Informe o status");
                                     exit();
                                 }
 
