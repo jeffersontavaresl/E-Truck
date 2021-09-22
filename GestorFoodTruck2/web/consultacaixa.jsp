@@ -187,14 +187,31 @@
                                         </option>
                                         <%}%>
                                     </select><br>
-                                    <button class="btn btn-success" onclick="enviarDados()" >Finalizar</button>
+                                    <a class="btn btn-success" style="color: white" data-toggle="modal" data-target="#confirmarCaixa">Finalizar</a>
+                                    
+                                    <!--MODAL CONFIRMAÇÃO DO CAIXA-->
+                                    <div class="modal fade" id="confirmarCaixa" tabindex="-1" role="dialog" aria-labelledby="modalConfirma" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="modalConfirma">Deseja finalizar o pedido?</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                    <button class="btn text-white" style="background-color:rgb(58, 42, 148)" id="confirmar" onclick="enviarDados()">Confirmar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </form>  
                                 </br>
                                 <!-- Calculadora do troco -->
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                     Troco
                                 </button>
-
                                 <!-- MODAL PARA CALCULAR TROCO -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -237,40 +254,33 @@
                                     alert("Informe a data");
                                     exit();
                                 }
-
                                 var vlrTotal = document.getElementsByName("vlrTotal");
                                 if (vlrTotal[0].value === "") {
                                     vlrTotal[0].focus();
                                     alert("Informe o valor total");
                                     exit();
                                 }
-
                                 var formPagto = document.getElementsByName("formPagto");
                                 if (formPagto[0].value === "") {
                                     formPagto[0].focus();
                                     alert("Informe a forma de pagamento");
                                     exit();
                                 }
-
                                 var codmesa = document.getElementsByName("codmesa");
                                 if (codmesa[0].value === "") {
                                     codmesa[0].focus();
                                     alert("Informe a mesa");
                                     exit();
                                 }
-
                                 var statusPagto = document.getElementsByName("statusPagto");
                                 if (statusPagto[0].value === "") {
                                     statusPagto[0].focus();
                                     alert("Informe o status");
                                     exit();
                                 }
-
                                 document.forms[0].submit();
                             }
-
                             document.getElementById('dat').value = new Date().toISOString().substring(0, 10);
-
                             //Função para calcular o troco
                             function main()
                             {
@@ -278,14 +288,10 @@
                                 var num1 = parseFloat(document.getElementById("num1").value);
                                 var num2 = parseFloat(document.getElementById("num2").value);
                                 var texto = '';
-
-
                                 if (document.getElementById('subtracao').checked)
                                     texto = subtracao(num1, num2);
-
                                 resp.innerHTML = texto;
                             }
-
                             function subtracao(x, y)
                             {
                                 return (x - y);
