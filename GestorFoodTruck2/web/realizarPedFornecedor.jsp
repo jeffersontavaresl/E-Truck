@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset="UTF-8" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
 <%@page import="modelos.Fornecedor"%>
 <%@page import="modelos.Insumo"%>
 <%@page import="java.util.List"%>
@@ -155,35 +155,30 @@
                     alert("Informe o fornecedor");
                     exit();
                 }
-
                 var codInsumo = document.getElementsByName("codInsumo");
                 if (codInsumo[0].value === "") {
                     codInsumo[0].focus();
                     alert("Informe o insumo");
                     exit();
                 }
-
                 var qntdeinsumo = document.getElementsByName("qntdeinsumo");
                 if (qntdeinsumo[0].value === "") {
                     qntdeinsumo[0].focus();
                     alert("Informe a quantidade");
                     exit();
                 }
-
                 var undMedida = document.getElementsByName("undMedida");
                 if (undMedida[0].value === "") {
                     undMedida[0].focus();
                     alert("Informe a unidade de medida");
                     exit();
                 }
-
                 var statusPedido = document.getElementsByName("statusPedido");
                 if (statusPedido[0].value === "") {
                     statusPedido[0].focus();
                     alert("Informe o status");
                     exit();
                 }
-
                 document.forms[0].submit();
             }
         </script> 
