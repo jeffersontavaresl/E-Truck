@@ -95,7 +95,7 @@
                         <thead>
                         <th>Cod Fornecedor</th>
                         <th>CNPJ</th>
-                        <th>Razao Social</th>
+                        <th>Razão Social</th>
                         <th>Nome Contato</th>
                         <th>Cod do Pedido</th>
                         <th>Cod do Insumo</th>
