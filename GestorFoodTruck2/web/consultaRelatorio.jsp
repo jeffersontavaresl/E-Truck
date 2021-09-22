@@ -136,7 +136,7 @@
                                     float vlrUnd = c.getVlrTotal();
                                     vlrTotal += vlrUnd;
                                 }
-                                <!-- Função para ajustar o valor total para duas cadas decimais -->
+                                  /* Função para ajustar o valor total para duas cadas decimais */
                                 BigDecimal bd = new BigDecimal(vlrTotal).setScale(3, RoundingMode.HALF_EVEN);
                             %>
                         </tbody>
