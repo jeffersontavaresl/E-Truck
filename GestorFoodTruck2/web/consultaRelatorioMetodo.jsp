@@ -14,7 +14,7 @@
         <title>E-truck Management - Consultar Relatório</title>
         <!--FAVICON-->
         <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
-        <!-- Bootstrap e BotÃµes-->
+        <!-- Bootstrap e Botões-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
