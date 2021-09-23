@@ -14,10 +14,6 @@ INSERT INTO insumo (descinsumo, custoinsumo, sldestqinsumo, undmedida, qtdestqal
 ('Batata Palha', 8.90, 3, 'KG', 5), ('Ovos', 10.90, 3, 'Duzia', 2), ('Coca-Cola', 12.90, 2, 'Duzia', 5),
 ('Fanta', 10.80, 3, 'Duzia', 5);
 
-INSERT INTO fornecedor (cnpj, razaosocial, telefone, email, nomecontato) 
-VALUES ('30857545000125', 'MILHOS SANTA CATARINA', '(47)33221202', 'milhossc@milhossc.com.br', 'Rafael Spitz'),
-('3025421200102', 'Coca-Cola Blumenau', '(47)33252514', 'brunosouza@cocacola.com.br', 'Bruno Souza');
-
 INSERT INTO caixa (datamovimento, codformpagto, vlrtotal)
 VALUES('2021-08-27', 3, 20.99), ('2021-08-27', 2, 35.99), ('2021-08-27', 1, 47.00), ('2021-08-27', 1, 19.99), ('2021-08-27', 2, 23.99), ('2021-08-27', 3, 35.90), ('2021-08-27', 2, 47.99), ('2021-08-27', 1, 68.99), ('2021-08-27', 1, 7.99), ('2021-08-27', 1, 47.99);
 
