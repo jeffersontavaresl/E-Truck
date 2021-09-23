@@ -15,13 +15,18 @@ INSERT INTO insumo (descinsumo, custoinsumo, sldestqinsumo, undmedida, qtdestqal
 ('Fanta', 10.80, 3, 'Duzia', 5);
 
 INSERT INTO caixa (datamovimento, codformpagto, vlrtotal)
-VALUES('2021-08-27', 3, 20.99), ('2021-08-27', 2, 35.99), ('2021-08-27', 1, 47.00), ('2021-08-27', 1, 19.99), ('2021-08-27', 2, 23.99), ('2021-08-27', 3, 35.90), ('2021-08-27', 2, 47.99), ('2021-08-27', 1, 68.99), ('2021-08-27', 1, 7.99), ('2021-08-27', 1, 47.99);
+VALUES('2021-08-27', 3, 20.99), ('2021-08-27', 2, 35.99), ('2021-08-27', 1, 47.00), ('2021-08-27', 1, 19.99), ('2021-08-27', 2, 23.99), 
+('2021-08-27', 3, 35.90), ('2021-08-27', 2, 47.99), ('2021-08-27', 1, 68.99), ('2021-08-27', 1, 7.99), ('2021-08-27', 1, 47.99);
 
 INSERT INTO fornecedor (cnpj, razaosocial, telefone, email, nomecontato)
-VALUES('30742324000102', 'Coca Cola BR', '(47)3322-2014', 'rafaelsptiz@cocacolabr.com', 'Rafael Sptiz'), ('30212521000120', 'Milho Blumenau', '(47)3314-6252', 'brunosouza@milhosc.com', 'Bruno Souza'), ('30793528000120', 'Pão do Brasil', '(47)3320-3625', 'mariaeduarda@paobrasil.com', 'Maria Eduarda');
+VALUES('30742324000102', 'Coca Cola BR', '(47)3322-2014', 'rafaelsptiz@cocacolabr.com', 'Rafael Sptiz'), 
+('30212521000120', 'Milho Blumenau', '(47)3314-6252', 'brunosouza@milhosc.com', 'Bruno Souza'), 
+('30793528000120', 'Pão do Brasil', '(47)3320-3625', 'mariaeduarda@paobrasil.com', 'Maria Eduarda');
 
 INSERT INTO pedidocliente (codmesa, codproduto, observacao, statuspagto, statuspedido)
-VALUES(1, 1, '2 salsichas, add ervilha', 'pendente', 'andamento'), (1, 1, '2 salsichas s/ milho e ervilha', 'pendente', 'andamento'), (1, 2, 'limão e gelo', 'pendente', 'andamento'), (1, 2, 'gelo', 'pendente', 'andamento'), (4, 1, '3 salsichas, add maionese', 'pendente', 'andamento'), (4, 1, 'sem milho', 'pendente', 'andamento');
+VALUES(1, 1, '2 salsichas, add ervilha', 'pendente', 'andamento'), (1, 1, '2 salsichas s/ milho e ervilha', 'pendente', 'andamento'), 
+(1, 2, 'limão e gelo', 'pendente', 'andamento'), (1, 2, 'gelo', 'pendente', 'andamento'), 
+(4, 1, '3 salsichas, add maionese', 'pendente', 'andamento'), (4, 1, 'sem milho', 'pendente', 'andamento');
 
 INSERT INTO pedidofornecedoritem (codfornecedor, codinsumo, qtdinsumo, undmedida, statuspedido)
 VALUES(1, 8, 12, 'Unidade', 'pendente'), (2, 1, 5, 'KG', 'pendente'), (3, 4, 60, 'Unidade', 'pendente');
