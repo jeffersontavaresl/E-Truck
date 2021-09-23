@@ -9,7 +9,7 @@
         <title>E-Truck Management - Editar Fornecedor</title>
         <!--FAVICON-->
         <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
-        <!-- Bootstrap e Bot√µes-->
+        <!-- Bootstrap e Botıes-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="styles/functions.css" rel="stylesheet"/>
@@ -21,8 +21,8 @@
             <!-- Sidebar-->
             <div class="bg-padrao border-end" id="sidebar-wrapper">
                 <div class="bg-padrao list-group list-group-flush">
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> In√≠cio</a>
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> Gar√ßom</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> InÌcio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> GarÁom</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultapedido.jsp">Consultar Pedido</a>
@@ -40,7 +40,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaMetodoPagamento.jsp">Consultar Formas de Pagamento</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Card√°pio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Card·pio</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraItem.jsp">Adicionar Item</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaItem.jsp">Consultar Itens</a>
@@ -65,7 +65,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraFornecedor.jsp">Cadastrar Fornecedor</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaAlertaEstq.jsp">Estoque em Alerta</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaForn.jsp">Consulta Fornecedor</a>
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relat√≥rio de Pagamentos</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">RelatÛrio de Pagamentos</a>
                     </div>
                     <br><br><br>
                     <p id="login">
@@ -81,14 +81,14 @@
                 </div>
             </div>
             <div id="page-content-wrapper">
-                <!-- Conte√∫do da P√°gina-->
+                <!-- Conte˙do da P·gina-->
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
                     <div class="container-fluid border w-50 h-75 mt-5 mb-4" id="tabela">
                         <div class="container-fluid d-flex justify-content-center mt-4">
                             <h1>Edita fornecedor</h1>
-                            <!--Requerimento do c√≥digo vindo da consulta para edi√ß√£o-->
+                            <!--Requerimento do cÛdigo vindo da consulta para ediÁ„o-->
                             <%
                                 String idForn = request.getParameter("codFornecedor");
                                 Fornecedor f = new Fornecedor();
@@ -111,9 +111,8 @@
                                 <input type="text" maxlength="20" class="form-control" name="nomF" placeholder="Nome" required 
                                        value="<%out.write(f.getNomeContato());%>"/> <br>
 
-                                <label class="form-label">C√≥digo do fornecedor</label> <br>
-                                <input type="number" class="form-control" name="codF" readonly="true" placeholder="C√≥digo do fornecedor"  
-                                       value="<%out.write("" + f.getCodFornecedor());%>"/> <br>
+                                <input hidden type="number" class="form-control" name="codF" readonly="true" placeholder="CÛdigo do fornecedor"  
+                                       value="<%out.write("" + f.getCodFornecedor());%>"/>
                                 <div class="text-center mb-3">
                                     <input type="submit" value="Alterar" class="btn btn-primary"/>
                                     <a href="consultaForn.jsp" class="btn btn-danger">Cancelar</a>

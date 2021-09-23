@@ -9,7 +9,7 @@
         <title>E-Truck Management - Editar Item</title>
         <!--FAVICON-->
         <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
-        <!-- Bootstrap e Bot√µes-->
+        <!-- Bootstrap e Botıes-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="styles/functions.css" rel="stylesheet"/>
@@ -21,8 +21,8 @@
             <!-- Sidebar-->
             <div class="bg-padrao border-end" id="sidebar-wrapper">
                 <div class="bg-padrao list-group list-group-flush">
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> In√≠cio</a>
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> Gar√ßom</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> InÌcio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> GarÁom</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultapedido.jsp">Consultar Pedido</a>
@@ -40,7 +40,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaMetodoPagamento.jsp">Consultar Formas de Pagamento</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Card√°pio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Card·pio</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraItem.jsp">Adicionar Item</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaItem.jsp">Consultar Itens</a>
@@ -65,11 +65,11 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraFornecedor.jsp">Cadastrar Fornecedor</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaAlertaEstq.jsp">Estoque em Alerta</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaForn.jsp">Consulta Fornecedor</a>
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relat√≥rio de Pagamentos</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">RelatÛrio de Pagamentos</a>
                     </div>
                     <br><br><br>
 
-                    <!--Verifica se o usu√°rio est√° logado-->
+                    <!--Verifica se o usu·rio est· logado-->
                     <p id="login">
                         <%
                             String login = (String) session.getAttribute("login");
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div id="page-content-wrapper">
-                <!-- Conte√∫do da P√°gina-->
+                <!-- Conte˙do da P·gina-->
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
@@ -93,7 +93,7 @@
                             <hr />
                             <br>
 
-                            <!--Requerimento do c√≥digo vindo da consulta para edi√ß√£o-->
+                            <!--Requerimento do cÛdigo vindo da consulta para ediÁ„o-->
                             <%
                                 String idcodPedido = request.getParameter("codProduto");
                                 Cardapio c = new Cardapio();
@@ -108,14 +108,13 @@
                                 <input type="text" maxlength="30" class="form-control" required="true" name="nome" 
                                        value="<%out.write(c.getDescProduto());%>" />
                                 <br />
-                                <label>Pre√ßo</label>
+                                <label>PreÁo</label>
                                 <input type="text" maxlength="5" class="form-control" required="true" name="vlr" 
                                        value="<%out.write("" + c.getPreco());%>" />
                                 <br />
-                                <label>C√≥digo do Produto</label>
-                                <input type="text" class="form-control" name="codProduto" readonly
+                                <input hidden type="text" class="form-control" name="codProduto" readonly
                                        value="<%out.write("" + c.getCodProduto());%>" />
-                                <br />
+                                
                                 <div class="text-center mb-3">
                                     <input type="submit" value="Alterar" class="btn btn-primary"/>
                                     <a href="consultaItem.jsp" class="btn btn-danger">Cancelar</a>

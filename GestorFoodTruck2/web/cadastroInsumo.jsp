@@ -8,7 +8,7 @@
         <title>E-Truck Management - Cadastrar Insumo</title>
         <!--FAVOICON-->
         <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
-        <!-- Bootstrap e Bot√µes-->
+        <!-- Bootstrap e Botıes-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="styles/functions.css" rel="stylesheet"/>
@@ -20,8 +20,8 @@
             <!-- Sidebar-->
             <div class="bg-padrao border-end" id="sidebar-wrapper">
                 <div class="bg-padrao list-group list-group-flush">
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> In√≠cio</a>
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> Gar√ßom</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> InÌcio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> GarÁom</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultapedido.jsp">Consultar Pedido</a>
@@ -39,7 +39,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaMetodoPagamento.jsp">Consultar Formas de Pagamento</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Card√°pio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Card·pio</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraItem.jsp">Adicionar Item</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaItem.jsp">Consultar Itens</a>
@@ -64,11 +64,11 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraFornecedor.jsp">Cadastrar Fornecedor</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaAlertaEstq.jsp">Estoque em Alerta</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaForn.jsp">Consulta Fornecedor</a>
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relat√≥rio de Pagamentos</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">RelatÛrio de Pagamentos</a>
                     </div>
                     <br><br><br>
                     <p id="login">
-                        <!-- Verifica se o usu√°rio est√° logado -->
+                        <!-- Verifica se o usu·rio est· logado -->
                         <%
                             String login = (String) session.getAttribute("login");
                             if (login == null) {
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div id="page-content-wrapper">
-                <!-- Conte√∫do da P√°gina-->
+                <!-- Conte˙do da P·gina-->
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="container-fluid mt-2 mr-4">
                             <form action="recebeItemEstoque.jsp" method="POST">
-                                <!-- Mensagem de confirma√ß√£o da a√ß√£o realizada -->
+                                <!-- Mensagem de confirmaÁ„o da aÁ„o realizada -->
                                 <p class="font-weight-bold">
                                     <%      if (request.getParameter("pmensagem") != null)
                                                 out.write(request.getParameter("pmensagem"));
@@ -101,7 +101,7 @@
                                 <input type="text" maxlength="20" class="form-control" required name="descInsumo" placeholder="Nome do Insumo"> <br>
 
                                 <label class="form-label">Custo Insumo</label>
-                                <input type="text" maxlength="6" class="form-control" required name="custoInsumo" placeholder="Pre√ßo do produto"> <br>
+                                <input type="text" maxlength="6" class="form-control" required name="custoInsumo" placeholder="PreÁo do produto"> <br>
 
                                 <label class="form-label">Saldo em Estoque</label> <br>
                                 <input type="text" maxlength="6" class="form-control" required name="sldEstoque" placeholder="Saldo em estoque"> <br>
@@ -113,8 +113,7 @@
                                 <input type="text" maxlength="6" class="form-control" required name="qtdEstqAlerta" placeholder="Estoque de Alerta"> <br>
 
                                 <div class="text-center mb-3">
-                                    <a href="functions.jsp" class="btn btn-primary">In√≠cio</a>
-                                    <input type="button" value="Salvar" onclick="enviarDados()" class="btn btn-success" />
+                                    <input type="button" value="Salvar" onclick="enviarDados()" class="btn btn-primary" />
                                     <input type="reset" value="Cancelar" class="btn btn-danger"/>
                                 </div>
                             </form>
@@ -123,7 +122,7 @@
                 </div>
             </div>
         </div>
-        <!-- Envia os dados para confirma√ß√£o -->
+        <!-- Envia os dados para confirmaÁ„o -->
         <script>
             function enviarDados() {
 
@@ -137,7 +136,7 @@
                 var custoInsumo = document.getElementsByName("custoInsumo");
                 if (custoInsumo[0].value === "") {
                     custoInsumo[0].focus();
-                    alert("Informe o Pre√ßo do produto");
+                    alert("Informe o PreÁo do produto");
                     exit();
                 }
 

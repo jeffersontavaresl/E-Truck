@@ -8,7 +8,7 @@
         <title>E-Truck Management - Cadastrar Fornecedor</title>
         <!--FAVOICON-->
         <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
-        <!-- Bootstrap e Bot√µes-->
+        <!-- Bootstrap e Botıes-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="styles/functions.css" rel="stylesheet"/>
@@ -20,8 +20,8 @@
             <!-- Sidebar-->
             <div class="bg-padrao border-end" id="sidebar-wrapper">
                 <div class="bg-padrao list-group list-group-flush">
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> In√≠cio</a>
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> Gar√ßom</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> InÌcio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> GarÁom</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultapedido.jsp">Consultar Pedido</a>
@@ -39,7 +39,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaMetodoPagamento.jsp">Consultar Formas de Pagamento</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Card√°pio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Card·pio</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraItem.jsp">Adicionar Item</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaItem.jsp">Consultar Itens</a>
@@ -64,10 +64,10 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraFornecedor.jsp">Cadastrar Fornecedor</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaAlertaEstq.jsp">Estoque em Alerta</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaForn.jsp">Consulta Fornecedor</a>
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relat√≥rio de Pagamentos</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">RelatÛrio de Pagamentos</a>
                     </div>
                     <br><br><br>
-                    <!-- Verifica se o usu√°rio est√° logado -->
+                    <!-- Verifica se o usu·rio est· logado -->
                     <p id="login">
                         <%
                             String login = (String) session.getAttribute("login");
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div id="page-content-wrapper">
-                <!-- Conte√∫do da P√°gina-->
+                <!-- Conte˙do da P·gina-->
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
@@ -92,7 +92,7 @@
                         <div class="container-fluid mt-2 mr-4">
                             <form action="recebeForn.jsp" method="POST">
                                 <p class="font-weight-bold">
-                                    <!-- Mensagem de confirma√ß√£o da a√ß√£o realizada na p√°gina -->
+                                    <!-- Mensagem de confirmaÁ„o da aÁ„o realizada na p·gina -->
                                     <%      if (request.getParameter("pmensagem") != null)
                                                 out.write(request.getParameter("pmensagem"));
                                     %>
@@ -101,8 +101,8 @@
                                 <label class="form-label">CNPJ</label>
                                 <input type="text" maxlength="40" class="form-control" name="cdCnpj" placeholder="CNPJ" required > <br>
 
-                                <label class="form-label">Raz√£o social</label>
-                                <input type="text" maxlength="40" class="form-control" name="cdSoc" placeholder="Raz√£o Social" required > <br>
+                                <label class="form-label">Raz„o social</label>
+                                <input type="text" maxlength="40" class="form-control" name="cdSoc" placeholder="Raz„o Social" required > <br>
 
                                 <label class="form-label">Telefone</label>
                                 <input type="text" maxlength="20" class="form-control" name="cdTel" placeholder="Telefone" required > <br>
@@ -114,9 +114,8 @@
                                 <input type="text" maxlength="20" class="form-control" name="cdNom" placeholder="Nome" required > <br>
 
                                 <div class="text-center mb-3">
-                                    <a href="functions.jsp" class="btn btn-primary">In√≠cio</a>
-                                    <input type="submit" value="Confirmar" class="btn btn-success"/>
-                                    <input type="reset" value="Cancelar" class="btn btn-danger"/>
+                                    <input type="submit" value="Confirmar" class="btn btn-primary"/>
+                                    <input type="reset" value="Limpar" class="btn btn-danger"/>
                                 </div>
                             </form>  
                         </div>
