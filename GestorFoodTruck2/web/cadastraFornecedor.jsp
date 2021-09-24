@@ -8,7 +8,7 @@
         <title>E-Truck Management - Cadastrar Fornecedor</title>
         <!--FAVOICON-->
         <link rel="icon"  type="image/gif" href="styles/imagens/hamburger-solid.svg">
-        <!-- Bootstrap e Botıes-->
+        <!-- Bootstrap e Bot√µes-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="styles/functions.css" rel="stylesheet"/>
@@ -20,8 +20,8 @@
             <!-- Sidebar-->
             <div class="bg-padrao border-end" id="sidebar-wrapper">
                 <div class="bg-padrao list-group list-group-flush">
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> InÌcio</a>
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> GarÁom</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="functions.jsp"><i class="fas fa-home"></i> In√≠cio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-user"></i> Gar√ßom</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="realizarPedido.jsp">Realizar Pedido</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultapedido.jsp">Consultar Pedido</a>
@@ -39,7 +39,7 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaMetodoPagamento.jsp">Consultar Formas de Pagamento</a>
                     </div>
 
-                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Card·pio</a>
+                    <a class="dropdown-btn p-3 mt-1 btn-funcoes" href="#!"><i class="fas fa-solid fa-clipboard"></i> Card√°pio</a>
                     <div class="dropdown-container">
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraItem.jsp">Adicionar Item</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaItem.jsp">Consultar Itens</a>
@@ -64,10 +64,10 @@
                         <a class="list-group-item p-3 btn-funcoes-drop" href="cadastraFornecedor.jsp">Cadastrar Fornecedor</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaAlertaEstq.jsp">Estoque em Alerta</a>
                         <a class="list-group-item p-3 btn-funcoes-drop" href="consultaForn.jsp">Consulta Fornecedor</a>
-                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">RelatÛrio de Pagamentos</a>
+                        <a class="list-group-item p-3 btn-funcoes-drop" href="consultaRelatorio.jsp">Relat√≥rio de Pagamentos</a>
                     </div>
                     <br><br><br>
-                    <!-- Verifica se o usu·rio est· logado -->
+                    <!-- Verifica se o usu√°rio est√° logado -->
                     <p id="login">
                         <%
                             String login = (String) session.getAttribute("login");
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div id="page-content-wrapper">
-                <!-- Conte˙do da P·gina-->
+                <!-- Conte√∫do da P√°gina-->
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
@@ -92,20 +92,20 @@
                         <div class="container-fluid mt-2 mr-4">
                             <form action="recebeForn.jsp" method="POST">
                                 <p class="font-weight-bold">
-                                    <!-- Mensagem de confirmaÁ„o da aÁ„o realizada na p·gina -->
+                                    <!-- Mensagem de confirma√ß√£o da a√ß√£o realizada na p√°gina -->
                                     <%      if (request.getParameter("pmensagem") != null)
-                                                out.write(request.getParameter("pmensagem"));
+                                            out.write(request.getParameter("pmensagem"));
                                     %>
                                 </p>
 
                                 <label class="form-label">CNPJ</label>
-                                <input type="text" maxlength="40" class="form-control" name="cdCnpj" placeholder="CNPJ" required > <br>
+                                <input type="text" maxlength="40" class="input-cnpj form-control" name="cdCnpj" placeholder="CNPJ" required > <br>
 
-                                <label class="form-label">Raz„o social</label>
-                                <input type="text" maxlength="40" class="form-control" name="cdSoc" placeholder="Raz„o Social" required > <br>
+                                <label class="form-label">Raz√£o social</label>
+                                <input type="text" maxlength="40" class="form-control" name="cdSoc" placeholder="Raz√£o Social" required > <br>
 
                                 <label class="form-label">Telefone</label>
-                                <input type="text" maxlength="20" class="form-control" name="cdTel" placeholder="Telefone" required > <br>
+                                <input type="text" maxlength="20" class="input-telefone form-control" name="cdTel" placeholder="Telefone" required > <br>
 
                                 <label class="form-label">E-mail</label>
                                 <input type="email" maxlength="45" class="form-control" name="cdEml" placeholder="E-mail" required > <br>
@@ -124,11 +124,28 @@
             </div>
         </div>
 
+        <!--CLEAVE.JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js" integrity="sha512-KaIyHb30iXTXfGyI9cyKFUIRSSuekJt6/vqXtyQKhQP6ozZEGY8nOtRS6fExqE4+RbYHus2yGyYg1BrqxzV6YA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            var cleave = new Cleave('.input-cnpj', {
+                delimiters: ['.', '.', '/', '-'],
+                blocks: [2, 3, 3, 4, 2],
+                uppercase: true
+            });
+
+            new cleave('.input-telefone', {
+                delimeters: [' ', '-', ''],
+                blocks: [2, 4, 4],
+                uppercase: true
+            });
+        </script>
+
         <!--JS - SIDEBAR-->
         <script src="js/sidebar.js"></script>
         <script src="js/scripts.js"></script>
 
         <!--FONT AWESOME-->
         <script src="https://kit.fontawesome.com/941d2c80e7.js" crossorigin="anonymous"></script>
+
     </body>
 </html>
