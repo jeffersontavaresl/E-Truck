@@ -109,8 +109,8 @@
                             <label>Data do pagamento</label> <br>
                             <input type="date" name="data" required> <br><br>
 
-                            <input type="submit" value="Consultar" class="btn btn-primary"/>
-                            <a class="btn btn-primary" href="consultaRelatorioMetodo.jsp">Consulta Avançada</a>
+                            <input type="submit" value="Consultar" class="btn btn-success"/>
+                            <a class="btn btn-primary mt-2 mb-2" href="consultaRelatorioMetodo.jsp">Consulta Avançada</a>
                         </div>
                     </form>
                     <table class="tabela table table-borderless table-striped rounded-1">
