@@ -86,7 +86,7 @@ public class Mesa {
     public List<Mesa> lovMesa() {
         List<Mesa> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String sql = "Select * from mesa";
+        String sql = "Select * from mesa order by mesa";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
