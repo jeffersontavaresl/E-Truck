@@ -19,9 +19,9 @@ VALUES('2021-08-27', 3, 20.99), ('2021-08-27', 2, 35.99), ('2021-08-27', 1, 47.0
 ('2021-08-27', 3, 35.90), ('2021-08-27', 2, 47.99), ('2021-08-27', 1, 68.99), ('2021-08-27', 1, 7.99), ('2021-08-27', 1, 47.99);
 
 INSERT INTO fornecedor (cnpj, razaosocial, telefone, email, nomecontato)
-VALUES('30742324000102', 'Coca Cola BR', '(47)3322-2014', 'rafaelsptiz@cocacolabr.com', 'Rafael Sptiz'), 
-('30212521000120', 'Milho Blumenau', '(47)3314-6252', 'brunosouza@milhosc.com', 'Bruno Souza'), 
-('30793528000120', 'Pão do Brasil', '(47)3320-3625', 'mariaeduarda@paobrasil.com', 'Maria Eduarda');
+VALUES('30.742.324/0001-02', 'Coca Cola BR', '(47)3322-2014', 'rafaelsptiz@cocacolabr.com', 'Rafael Sptiz'), 
+('30.212.521/0001-20', 'Milho Blumenau', '(47)3314-6252', 'brunosouza@milhosc.com', 'Bruno Souza'), 
+('30.793.528/0001-20', 'Pão do Brasil', '(47)3320-3625', 'mariaeduarda@paobrasil.com', 'Maria Eduarda');
 
 INSERT INTO pedidocliente (codmesa, codproduto, observacao, statuspagto, statuspedido)
 VALUES(1, 1, '2 salsichas, add ervilha', 'pendente', 'andamento'), (1, 1, '2 salsichas s/ milho e ervilha', 'pendente', 'andamento'), 
