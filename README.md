@@ -1,5 +1,5 @@
 # E-Truck
-**PROJETO REALIZADO NO ENTRA 21
+**PROJETO REALIZADO NO ENTRA 21** 💻
 
 **Diogo**: auxiliou o desenvolvimento do backend e telas de login e cadastro.
 
