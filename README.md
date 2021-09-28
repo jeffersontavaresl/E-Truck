@@ -1,8 +1,6 @@
 # E-Truck
 PROJETO REALIZADO NO ENTRA 21 
 
-Alexandre: propôs a ideia.
-
 Diogo: auxiliou o desenvolvimento do backend e telas de login e cadastro.
 
 Eduardo: desenvolvimento do frontend (telas no geral) e auxílio no backend 
